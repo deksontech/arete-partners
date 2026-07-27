@@ -40,10 +40,12 @@ const industryLinks = [
 export function Header() {
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState<{ label: string; pathname: string } | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const activeMenu = openMenu?.pathname === pathname ? openMenu.label : null;
 
   const closeMenu = () => {
     setOpenMenu(null);
+    setMobileOpen(false);
   };
 
   return (
@@ -114,14 +116,29 @@ export function Header() {
           <Link className="header-cta" href="/contact-us">
             Book Consultation
           </Link>
-          <details className="mobile-nav">
+          <details className="mobile-nav" open={mobileOpen} onToggle={(event) => setMobileOpen(event.currentTarget.open)}>
             <summary aria-label="Open navigation">Menu</summary>
             <div className="mobile-panel">
-              {navigation.map((item) => (
-                <Link href={item.href} key={item.label} onClick={closeMenu}>
-                  {item.label}
-                </Link>
-              ))}
+              {navigation.map((item) => {
+                const menu = item.label === "Services" ? serviceLinks : item.label === "Industries" ? industryLinks : null;
+
+                return (
+                  <div className="mobile-panel__group" key={item.label}>
+                    <Link href={item.href} onClick={closeMenu}>
+                      {item.label}
+                    </Link>
+                    {menu ? (
+                      <div className="mobile-panel__children">
+                        {menu.map((child) => (
+                          <Link href={child.href} key={child.label} onClick={closeMenu}>
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
               <Link className="button" href="/contact-us" onClick={closeMenu}>
                 Book Consultation
               </Link>
