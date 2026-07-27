@@ -1,0 +1,616 @@
+<!-- ========== PURPOSE & OUR GOAL – CLEAN CONSULTING STRIP ========== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+  .svcPurposeStrip{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    /* local tokens */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --muted:#3C4160;
+    --gold:#F7A800;
+    --green:#10A44A;
+
+    background:#FFFFFF;
+    padding:72px 20px 64px;
+    border-bottom:1px solid rgba(2,12,79,.06);
+  }
+  .svcPurposeStrip__wrap{
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  .svcPurposeStrip__eyebrow{
+    font-size:12px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:600;
+    margin:0 0 10px;
+  }
+
+  .svcPurposeStrip__title{
+    margin:0;
+    font-size:clamp(28px,3.3vw,36px);
+    line-height:1.2;
+    color:var(--navy);
+    font-weight:800;
+  }
+
+  .svcPurposeStrip__divider{
+    width:56px;
+    height:3px;
+    border-radius:999px;
+    background:linear-gradient(90deg,#1F9CE4,#625AD8);
+    margin:18px 0 26px;
+  }
+
+  .svcPurposeStrip__statement{
+    border-left:3px solid rgba(49,59,134,.25);
+    padding-left:18px;
+    margin:0 0 20px;
+  }
+  .svcPurposeStrip__quote{
+    margin:0;
+    font-size:16px;
+    line-height:1.9;
+    color:var(--muted);
+  }
+  .svcPurposeStrip__quote em{
+    font-style:normal;
+  }
+
+  .svcPurposeStrip__hl{
+    font-weight:700;
+    color:var(--gold);
+  }
+  .svcPurposeStrip__hl--margins{
+    color:var(--green);
+  }
+
+  .svcPurposeStrip__body{
+    margin:0 0 6px;
+    font-size:14.5px;
+    line-height:1.9;
+    color:var(--muted);
+  }
+
+  .svcPurposeStrip__tagline{
+    margin:4px 0 0;
+    font-size:14px;
+    font-weight:600;
+    color:var(--indigo);
+  }
+
+  @media (max-width:640px){
+    .svcPurposeStrip{
+      padding:60px 16px 52px;
+    }
+    .svcPurposeStrip__statement{
+      padding-left:14px;
+    }
+  }
+</style>
+
+<section class="svcPurposeStrip" id="purpose-goal">
+  <div class="svcPurposeStrip__wrap">
+
+    <p class="svcPurposeStrip__eyebrow">Purpose and Our Goal Statement</p>
+    <h1 class="svcPurposeStrip__title">Purpose and Our Goal Statement</h1>
+    <div class="svcPurposeStrip__divider"></div>
+
+    <div class="svcPurposeStrip__statement">
+      <p class="svcPurposeStrip__quote">
+        <em>To empower our clients to achieve substantial
+          <span class="svcPurposeStrip__hl">revenue growth</span>
+          and
+          <span class="svcPurposeStrip__hl svcPurposeStrip__hl--margins">enhanced margins</span>
+          through transformative strategies, operational excellence, and advanced digital solutions,
+          driving sustainable success across Indian &amp; global markets.</em>
+      </p>
+    </div>
+
+    <p class="svcPurposeStrip__body">
+      Our goal is to build your internal capabilities, not create dependency.
+      We measure success by the sustainable results your teams can achieve long after
+      our engagement ends. We are deeply invested in transferring knowledge and
+      enabling your long-term success.
+    </p>
+
+    <p class="svcPurposeStrip__tagline">Fully invested in your success.</p>
+
+  </div>
+</section>
+
+<!-- ===================== A BETTER PARTNERSHIP MODEL – WITH VIDEO ===================== -->
+<!-- Font link not needed if already loaded on the page -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  .bpVideo{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#ffffff;
+    color:var(--ink);
+    padding:80px 20px 80px;
+  }
+  .bpVideo__inner{
+    max-width:var(--max);
+    margin:0 auto;
+  }
+
+  /* header */
+  .bpVideo__kicker{
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+    margin:0 0 10px;
+  }
+  .bpVideo__title{
+    margin:0 0 18px;
+    font-size:clamp(22px,2.6vw,30px);
+    line-height:1.25;
+    color:var(--navy);
+    font-weight:900;
+    max-width:680px;
+  }
+
+  /* main split */
+  .bpVideo__grid{
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(0,1.1fr);
+    gap:40px;
+    align-items:flex-start;
+  }
+
+  /* LEFT – copy */
+  .bpVideo__lead{
+    margin:0 0 18px;
+    font-size:15px;
+    line-height:1.9;
+    color:var(--muted);
+  }
+
+  .bpVideo__points{
+    display:grid;
+    gap:14px;
+  }
+  .bpVideo__point{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:14px;
+    line-height:1.7;
+    color:var(--ink);
+  }
+  .bpVideo__dot{
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    margin-top:7px;
+    flex:0 0 auto;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    outline:3px solid rgba(31,156,228,.14);
+  }
+  .bpVideo__point b{
+    font-weight:700;
+    color:var(--navy);
+  }
+
+  /* RIGHT – video */
+  .bpVideo__videoCard{
+    border-radius:22px;
+    border:1px solid var(--line);
+    background:#ffffff;
+    box-shadow:0 14px 34px rgba(0,0,0,.06);
+    padding:14px 14px 16px;
+  }
+  .bpVideo__videoLabel{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:800;
+    margin:0 0 8px;
+  }
+  .bpVideo__videoWrap{
+    position:relative;
+    width:100%;
+    padding-bottom:56.25%; /* 16:9 */
+    border-radius:16px;
+    overflow:hidden;
+    background:#000;
+  }
+  .bpVideo__videoWrap iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  /* bottom stats */
+  .bpVideo__stats{
+    margin-top:32px;
+    border-radius:18px;
+    border:1px solid var(--line);
+    background:rgba(49,59,134,.02);
+    padding:14px 18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 26px;
+    align-items:flex-start;
+  }
+  .bpVideo__stat{
+    min-width:180px;
+  }
+  .bpVideo__statLabel{
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:800;
+    margin-bottom:4px;
+  }
+  .bpVideo__statValue{
+    font-size:18px;
+    font-weight:800;
+    color:var(--navy);
+    margin-bottom:2px;
+  }
+  .bpVideo__statText{
+    font-size:13px;
+    line-height:1.6;
+    color:var(--muted);
+  }
+
+  /* responsive */
+  @media(max-width:900px){
+    .bpVideo{
+      padding:68px 16px 70px;
+    }
+    .bpVideo__grid{
+      grid-template-columns:1fr;
+      gap:28px;
+    }
+    .bpVideo__videoCard{
+      max-width:580px;
+    }
+  }
+  @media(max-width:600px){
+    .bpVideo__stats{
+      flex-direction:column;
+      gap:10px;
+    }
+  }
+</style>
+
+<section class="bpVideo" id="better-partnership-model">
+  <div class="bpVideo__inner">
+
+    <p class="bpVideo__kicker">Engagement Philosophy</p>
+    <h2 class="bpVideo__title">A better partnership model</h2>
+
+    <div class="bpVideo__grid">
+      <!-- LEFT: text -->
+      <div>
+        <p class="bpVideo__lead">
+          We keep teams lean, senior, and accountable — focused on impact, not slide volume.
+          The goal is to leave you with a stronger organisation, not a longer dependency.
+        </p>
+
+        <div class="bpVideo__points">
+          <div class="bpVideo__point">
+            <span class="bpVideo__dot"></span>
+            <span><b>Senior-led from day one.</b> Work is designed and delivered by experienced practitioners.</span>
+          </div>
+          <div class="bpVideo__point">
+            <span class="bpVideo__dot"></span>
+            <span><b>Domain + operating depth.</b> Strategy, operations, and digital expertise in one team.</span>
+          </div>
+          <div class="bpVideo__point">
+            <span class="bpVideo__dot"></span>
+            <span><b>Capability transfer built-in.</b> Playbooks, tools, and routines you can run without us.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: video -->
+      <aside class="bpVideo__videoCard">
+        <p class="bpVideo__videoLabel">Watch how we partner with clients</p>
+        <div class="bpVideo__videoWrap">
+          <!-- Replace VIDEO_ID with your YouTube video ID -->
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Partnership model overview"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Bottom stats -->
+    <div class="bpVideo__stats">
+      <div class="bpVideo__stat">
+        <div class="bpVideo__statLabel">Impact</div>
+        <div class="bpVideo__statValue">3–5×</div>
+        <div class="bpVideo__statText">Typical impact versus traditional consulting teams of similar cost.</div>
+      </div>
+      <div class="bpVideo__stat">
+        <div class="bpVideo__statLabel">Cost</div>
+        <div class="bpVideo__statValue">~50%</div>
+        <div class="bpVideo__statText">Of typical Big-4 / MBB programs for comparable transformation scope.</div>
+      </div>
+      <div class="bpVideo__stat">
+        <div class="bpVideo__statLabel">Ownership</div>
+        <div class="bpVideo__statValue">100%</div>
+        <div class="bpVideo__statText">Clear accountability for outcomes, not just deliverables.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SERVICES PORTFOLIO – STRATEGY & OPERATIONS (CLEAN GRID, NO DUP TITLES) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  /* assumes your global :root already defines --navy, --indigo, --violet, --accent, --muted, --line, --max */
+  .svcPortfolio2{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#ffffff;
+    color:var(--ink);
+    padding:80px 20px 78px;
+  }
+  .svcPortfolio2__inner{
+    max-width:var(--max);
+    margin:0 auto;
+  }
+
+  /* header */
+  .svcPortfolio2__kicker{
+    margin:0 0 8px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+  .svcPortfolio2__title{
+    margin:0 0 8px;
+    font-size:clamp(24px,2.8vw,30px);
+    line-height:1.25;
+    color:var(--navy);
+    font-weight:900;
+  }
+  .svcPortfolio2__sub{
+    margin:0 0 26px;
+    font-size:15px;
+    line-height:1.8;
+    color:var(--muted);
+    max-width:920px;
+  }
+
+  /* cards grid */
+  .svcPortfolio2__grid{
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:18px;
+  }
+
+  .svcPortfolio2__card{
+    border-radius:18px;
+    border:1px solid var(--line);
+    background:#ffffff;
+    padding:16px 14px 14px;
+    box-shadow:0 10px 24px rgba(0,0,0,.04);
+    display:flex;
+    flex-direction:column;
+    min-height:260px;
+  }
+
+  .svcPortfolio2__cardHead{
+    margin-bottom:10px;
+  }
+  .svcPortfolio2__cardTitle{
+    margin:0 0 4px;
+    font-size:14px;
+    font-weight:700;
+    color:var(--navy);
+  }
+  .svcPortfolio2__cardRule{
+    width:26px;
+    height:2px;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--indigo),var(--accent));
+  }
+
+  .svcPortfolio2__list{
+    list-style:none;
+    margin:10px 0 10px;
+    padding:0;
+    display:grid;
+    gap:6px;
+    font-size:13px;
+    line-height:1.6;
+    color:#2E334D;
+  }
+  .svcPortfolio2__list li{
+    position:relative;
+    padding-left:12px;
+  }
+  .svcPortfolio2__list li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:8px;
+    width:6px;
+    height:6px;
+    border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+  }
+
+  /* CTA */
+  .svcPortfolio2__ctaWrap{
+    margin-top:auto;
+    padding-top:8px;
+  }
+  .svcPortfolio2__cta{
+    font-size:12px;
+    font-weight:600;
+    color:var(--indigo);
+    text-decoration:none;
+    border-bottom:1px dotted var(--indigo);
+    padding-bottom:1px;
+  }
+  .svcPortfolio2__cta:hover{
+    color:var(--accent);
+    border-bottom-color:var(--accent);
+  }
+
+  /* responsive */
+  @media(max-width:1100px){
+    .svcPortfolio2__grid{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+  }
+  @media(max-width:800px){
+    .svcPortfolio2{
+      padding:68px 16px 70px;
+    }
+    .svcPortfolio2__grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+  @media(max-width:560px){
+    .svcPortfolio2__grid{
+      grid-template-columns:1fr;
+    }
+  }
+</style>
+
+<section class="svcPortfolio2" id="services-portfolio">
+  <div class="svcPortfolio2__inner">
+
+    <p class="svcPortfolio2__kicker">Services Portfolio</p>
+    <h2 class="svcPortfolio2__title">Strategy &amp; Operations</h2>
+    <p class="svcPortfolio2__sub">
+      Focused on scalability and sustainability, we deliver high-quality and cost-effective
+      outcomes across the strategy and operations spectrum, ensuring our clients remain
+      competitive in the marketplace.
+    </p>
+
+    <!-- cards -->
+    <div class="svcPortfolio2__grid">
+
+      <!-- Growth & Transformation -->
+      <article class="svcPortfolio2__card">
+        <div class="svcPortfolio2__cardHead">
+          <h3 class="svcPortfolio2__cardTitle">Growth &amp; Transformation</h3>
+          <div class="svcPortfolio2__cardRule"></div>
+        </div>
+        <ul class="svcPortfolio2__list">
+          <li>Vision, mission and strategy</li>
+          <li>Growth strategy and execution</li>
+          <li>Product strategy</li>
+          <li>CEO advisory – SPMO / PMO set-up, P2M innovation</li>
+          <li>Organisation strategy &amp; target operating model</li>
+          <li>Sales &amp; distribution, design thinking, organisation design</li>
+        </ul>
+        <div class="svcPortfolio2__ctaWrap">
+          <a class="svcPortfolio2__cta"
+             href="https://mediumpurple-ant-531485.hostingersite.com/growth-transformation/">
+            Read more
+          </a>
+        </div>
+      </article>
+
+      <!-- Operational Excellence -->
+      <article class="svcPortfolio2__card">
+        <div class="svcPortfolio2__cardHead">
+          <h3 class="svcPortfolio2__cardTitle">Operational Excellence</h3>
+          <div class="svcPortfolio2__cardRule"></div>
+        </div>
+        <ul class="svcPortfolio2__list">
+          <li>Cost optimisation &amp; lean management</li>
+          <li>Cognitive quality &amp; continuous improvement culture</li>
+          <li>Innovation, Gen AI &amp; emerging tech deployment</li>
+          <li>Technology-enabled transformation (LCA, DRA)</li>
+        </ul>
+        <div class="svcPortfolio2__ctaWrap">
+          <a class="svcPortfolio2__cta"
+             href="https://mediumpurple-ant-531485.hostingersite.com/operational-excellence/">
+            Read more
+          </a>
+        </div>
+      </article>
+
+      <!-- Process Advisory -->
+      <article class="svcPortfolio2__card">
+        <div class="svcPortfolio2__cardHead">
+          <h3 class="svcPortfolio2__cardTitle">Process Advisory</h3>
+          <div class="svcPortfolio2__cardRule"></div>
+        </div>
+        <ul class="svcPortfolio2__list">
+          <li>Process design / re-design</li>
+          <li>Metric and measurement design</li>
+          <li>Business intelligence and analytics</li>
+          <li>Establishing QMS</li>
+          <li>Environment &amp; safety management systems</li>
+          <li>QMS / TQM maturity assessments &amp; process audits</li>
+        </ul>
+        <div class="svcPortfolio2__ctaWrap">
+          <a class="svcPortfolio2__cta"
+             href="https://mediumpurple-ant-531485.hostingersite.com/process-advisory/">
+            Read more
+          </a>
+        </div>
+      </article>
+
+      <!-- Service Delivery -->
+      <article class="svcPortfolio2__card">
+        <div class="svcPortfolio2__cardHead">
+          <h3 class="svcPortfolio2__cardTitle">Service Delivery</h3>
+          <div class="svcPortfolio2__cardRule"></div>
+        </div>
+        <ul class="svcPortfolio2__list">
+          <li>Customer strategy &amp; customer retention</li>
+          <li>Customer journey mapping</li>
+          <li>Blueprints for service delivery</li>
+          <li>Service delivery design and measurement</li>
+        </ul>
+        <div class="svcPortfolio2__ctaWrap">
+          <a class="svcPortfolio2__cta"
+             href="https://mediumpurple-ant-531485.hostingersite.com/service-delivery/">
+            Read more
+          </a>
+        </div>
+      </article>
+
+      <!-- Corporate Function Transformation -->
+      <article class="svcPortfolio2__card">
+        <div class="svcPortfolio2__cardHead">
+          <h3 class="svcPortfolio2__cardTitle">Corporate Function Transformation</h3>
+          <div class="svcPortfolio2__cardRule"></div>
+        </div>
+        <ul class="svcPortfolio2__list">
+          <li>HR transformation</li>
+          <li>Finance transformation</li>
+          <li>Risk and compliance function</li>
+          <li>Facilities management &amp; administration</li>
+          <li>IT and BCP</li>
+        </ul>
+        <div class="svcPortfolio2__ctaWrap">
+          <a class="svcPortfolio2__cta"
+             href="https://mediumpurple-ant-531485.hostingersite.com/corporate-function/">
+            Read more
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>

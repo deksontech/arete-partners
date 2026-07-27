@@ -1,0 +1,2318 @@
+<!-- ===================== GCC — SECTION SUB NAV (STICKY TABS) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --tabText:#6B7280;
+    --tabActive: var(--indigo);
+    --line:#E6E8EF;
+    --bg:#ffffff;
+
+    /* height used for scroll offset */
+    --secTabsH: 58px;
+  }
+
+  .gccTabs, .gccTabs *{box-sizing:border-box;}
+
+  .gccTabs{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    isolation:isolate;
+  }
+
+  .gccTabs__inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+    height:var(--secTabsH);
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .gccTabs__label{
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#111;
+    font-size:12px;
+    padding-right:14px;
+    border-right:1px solid var(--line);
+    margin-right:2px;
+    white-space:nowrap;
+  }
+
+  .gccTabs__list{
+    display:flex;
+    align-items:center;
+    gap:0;
+    flex-wrap:nowrap;
+    overflow:auto;
+    scrollbar-width:none;
+  }
+  .gccTabs__list::-webkit-scrollbar{display:none;}
+
+  .gccTabs__link{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    height:var(--secTabsH);
+    padding:0 18px;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:12px;
+    font-weight:800;
+    color:var(--tabText);
+    white-space:nowrap;
+  }
+
+  .gccTabs__link + .gccTabs__link{
+    border-left:1px solid var(--line);
+  }
+
+  .gccTabs__link.is-active{ color:var(--tabActive); }
+  .gccTabs__link.is-active::after{
+    content:"";
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:0;
+    height:3px;
+    background:var(--tabActive);
+    border-radius:999px;
+  }
+
+  .gccTabs__link:hover{ color:#111; }
+
+  /* optional helper: add class to each target section wrapper */
+  .gccAnchorFix{ scroll-margin-top: calc(var(--secTabsH) + 14px); }
+
+  @media(max-width:980px){
+    .gccTabs__inner{padding:0 14px;}
+    .gccTabs__label{display:none;}
+    .gccTabs__link{padding:0 14px;}
+  }
+</style>
+
+<nav class="gccTabs" aria-label="GCC page navigation">
+  <div class="gccTabs__inner">
+    <div class="gccTabs__label">GCC</div>
+
+    <div class="gccTabs__list">
+      <!-- ✅ Update these IDs to match your GCC page section IDs -->
+      <a class="gccTabs__link is-active" href="#gcc-hero">Overview</a>
+      <a class="gccTabs__link" href="#gcc-challenges">Key Challenges</a>
+      <a class="gccTabs__link" href="#gcc-how-we-help">How We Help</a>
+      <a class="gccTabs__link" href="#gcc-why-us">Why Us</a>
+      <a class="gccTabs__link" href="#gcc-cta">Next Steps</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const nav = document.querySelector('.gccTabs');
+  if(!nav) return;
+
+  const links = Array.from(nav.querySelectorAll('.gccTabs__link'));
+  const getOffset = () => (nav.getBoundingClientRect().height || 58) + 12;
+
+  // Smooth scroll with correct offset
+  links.forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const href = a.getAttribute('href');
+      if(!href || !href.startsWith('#')) return;
+
+      const el = document.querySelector(href);
+      if(!el) return;
+
+      e.preventDefault();
+      const y = el.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      window.scrollTo({ top:y, behavior:'smooth' });
+      history.replaceState(null, '', href);
+    });
+  });
+
+  // Active state on scroll
+  const targets = links
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  const setActive = (id) => {
+    links.forEach(a=>{
+      a.classList.toggle('is-active', a.getAttribute('href') === '#'+id);
+    });
+  };
+
+  const isElementor =
+    document.body.classList.contains('elementor-editor-active') ||
+    document.body.classList.contains('elementor-editor-preview') ||
+    !!document.querySelector('#elementor-editor-wrapper');
+
+  if(isElementor) return;
+  if(!('IntersectionObserver' in window)) return;
+
+  const io = new IntersectionObserver((entries)=>{
+    const visible = entries
+      .filter(e=>e.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+
+    if(visible && visible.target && visible.target.id){
+      setActive(visible.target.id);
+    }
+  }, { root:null, threshold:[0.2,0.35,0.5,0.65] });
+
+  targets.forEach(t=>{ if(t.id) io.observe(t); });
+})();
+</script>
+
+<!-- ===================== GCC — HERO (WHITE ONLY, IMAGE RIGHT — CLONE OF A&D) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    /* ✅ only agreed brand colours */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --white:#ffffff;
+
+    --max:1200px;
+  }
+
+  .gccHero, .gccHero *{box-sizing:border-box;}
+  .gccHero{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:#fff;
+    padding:88px 20px 34px;
+  }
+
+  .gccHero__inner{
+    max-width:var(--max);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+    gap:44px;
+    align-items:center;
+  }
+
+  .gccHero__eyebrow{
+    margin:0 0 12px;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .gccHero__title{
+    margin:0 0 14px;
+    font-size:clamp(34px,4.2vw,56px);
+    line-height:1.06;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .gccHero__sub{
+    margin:0 0 14px;
+    font-size:clamp(16px,2vw,20px);
+    line-height:1.55;
+    font-weight:700;
+    color:var(--indigo);
+    max-width:820px;
+  }
+
+  .gccHero__p{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.78;
+    color:var(--muted);
+    max-width:920px;
+  }
+  .gccHero__p + .gccHero__p{ margin-top:14px; }
+
+  /* Right visual */
+  .gccHero__media{
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 18px 44px rgba(0,0,0,.08);
+    background:
+      radial-gradient(circle at 20% 15%, rgba(98,90,216,.22), transparent 55%),
+      radial-gradient(circle at 85% 25%, rgba(31,156,228,.22), transparent 55%),
+      radial-gradient(circle at 50% 95%, rgba(49,59,134,.18), transparent 60%),
+      linear-gradient(180deg, rgba(2,12,79,.06), rgba(49,59,134,.04));
+    min-height:320px;
+    position:relative;
+  }
+
+  .gccHero__img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+  }
+
+  .gccHero__badge{
+    position:absolute;
+    left:16px; top:16px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.18);
+    background:rgba(255,255,255,.76);
+    backdrop-filter:blur(8px);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+  }
+  .gccHero__dot{
+    width:10px;height:10px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(31,156,228,.12);
+  }
+
+  @media (max-width:980px){
+    .gccHero{padding:74px 16px 22px;}
+    .gccHero__inner{grid-template-columns:1fr; gap:22px;}
+    .gccHero__media{min-height:240px;}
+  }
+</style>
+
+<section class="gccHero" id="gcc-hero">
+  <div class="gccHero__inner">
+    <!-- LEFT CONTENT -->
+    <div>
+      <p class="gccHero__eyebrow">Global Capability Centers (GCCs) – Industry Solutions &amp; Transformation Services</p>
+
+      <h1 class="gccHero__title">Reimagining Global Capability Centers as Engines of Enterprise Value</h1>
+
+      <p class="gccHero__p">
+        Global Capability Centers (GCCs) have evolved far beyond transactional delivery hubs. Today, they are expected to drive enterprise efficiency,
+        digital innovation, analytics, and strategic advantage—while operating at scale, speed, and reliability. Yet many GCCs remain constrained by
+        legacy mandates, fragmented operating models, and an overemphasis on cost arbitrage.
+      </p>
+
+      <p class="gccHero__p">
+        We partner with enterprises and GCC leaders to transform GCCs into integrated, value-generating enterprise platforms. Our system-level approach—spanning
+        strategy, operations, digital enablement, governance, and capability building—helps organisations unlock the full strategic potential of their GCCs.
+      </p>
+    </div>
+
+    <!-- RIGHT VISUAL -->
+    <div class="gccHero__media">
+      <div class="gccHero__badge"><span class="gccHero__dot"></span> GCC Transformation</div>
+      <img
+        class="gccHero__img"
+        src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg"
+        alt="Global Capability Center transformation (placeholder)"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GCC — KEY CHALLENGES (DESKTOP: LIST + DETAIL | MOBILE: CARD ACCORDION) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#4B5168;
+    --line:rgba(49,59,134,.16);
+    --card:#fff;
+  }
+
+  .gccK, .gccK *{ box-sizing:border-box; }
+
+  .gccK{
+    position:relative;
+    padding:92px 20px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 95% 30%, rgba(49,59,134,.10), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(2,12,79,.08), transparent 60%),
+      rgba(49,59,134,.03);
+  }
+
+  .gccK__inner{ max-width:1200px; margin:0 auto; position:relative; }
+
+  .gccK__top{
+    display:grid;
+    grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+    gap:32px;
+    align-items:start;
+    margin-bottom:22px;
+  }
+
+  .gccK__eyebrow{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+    margin:0 0 10px;
+  }
+
+  .gccK__title{
+    margin:0;
+    font-size:clamp(38px,4.4vw,56px);
+    line-height:1.05;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .gccK__intro{
+    margin:22px 0 0;
+    font-size:15.5px;
+    line-height:1.75;
+    color:#3C4160;
+    max-width:780px;
+  }
+
+  .gccK__grid{
+    display:grid;
+    grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+    gap:26px;
+    align-items:stretch;
+    margin-top:18px;
+  }
+
+  /* LEFT RAIL (desktop/tablet) */
+  .gccK__rail{
+    border:1px solid rgba(49,59,134,.18);
+    border-radius:22px;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(10px);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+    min-width:0;
+  }
+
+  .gccK__railTop{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding:16px 16px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+  }
+
+  .gccK__railLabel{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:900;
+  }
+
+  .gccK__railPill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:32px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.85);
+    font-size:12px;
+    font-weight:800;
+    color:var(--indigo);
+    white-space:nowrap;
+  }
+  .gccK__railPillDot{
+    width:10px;height:10px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(31,156,228,.10);
+  }
+
+  .gccK__item{
+    width:100%;
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:12px;
+    align-items:center;
+    padding:14px 16px;
+    background:transparent;
+    border:0;
+    border-top:1px solid rgba(49,59,134,.10);
+    cursor:pointer;
+    text-align:left;
+    transition:background .18s ease;
+    min-width:0;
+    white-space:normal !important;
+  }
+  .gccK__item:first-of-type{ border-top:0; }
+  .gccK__item:hover{ background:rgba(49,59,134,.03); }
+
+  .gccK__icon{
+    width:40px;height:40px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:rgba(49,59,134,.05);
+    border:1px solid rgba(49,59,134,.14);
+    font-size:16px;
+  }
+
+  .gccK__textCol{ min-width:0 !important; }
+
+  .gccK__itemTitle{
+    margin:0;
+    font-size:14.5px;
+    font-weight:900;
+    color:var(--navy);
+    line-height:1.25;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+    max-width:100% !important;
+  }
+
+  /* 2-line preview */
+  .gccK__itemPreview{
+    margin:4px 0 0;
+    font-size:13px;
+    line-height:1.5;
+    color:#5B6282;
+
+    display:-webkit-box !important;
+    -webkit-box-orient:vertical !important;
+    -webkit-line-clamp:2 !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    white-space:normal !important;
+
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+    min-width:0;
+    max-width:100%;
+  }
+
+  /* Accordion content hidden by default (desktop/tablet) */
+  .gccK__acc{ display:none; }
+
+  .gccK__item[aria-selected="true"]{
+    background:rgba(31,156,228,.06);
+    position:relative;
+  }
+  .gccK__item[aria-selected="true"]::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:4px;
+    background:linear-gradient(180deg,var(--accent),var(--violet));
+  }
+  .gccK__item[aria-selected="true"] .gccK__icon{
+    border-color:rgba(31,156,228,.28);
+    background:rgba(31,156,228,.08);
+  }
+
+  /* RIGHT PANEL (desktop/tablet) */
+  .gccK__panel{
+    border:1px solid rgba(49,59,134,.18);
+    border-radius:22px;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:blur(10px);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    min-height:520px;
+  }
+
+  .gccK__panelHead{
+    padding:16px 18px 14px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 60%),
+      rgba(255,255,255,.85);
+  }
+
+  .gccK__panelKicker{
+    margin:0 0 6px;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .gccK__panelTitle{
+    margin:0;
+    font-size:22px;
+    line-height:1.25;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .gccK__panelBody{ padding:18px; flex:1 1 auto; }
+
+  .gccK__bullets{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:12px;
+  }
+
+  .gccK__bullets li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:14.5px;
+    line-height:1.65;
+    color:#2E334D;
+    min-width:0;
+  }
+
+  .gccK__dot{
+    width:10px;height:10px;border-radius:999px;
+    margin-top:7px;
+    flex:0 0 auto;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  .gccK__bullets li span:last-child{
+    min-width:0;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+
+  .gccK__panelFooter{
+    padding:14px 16px;
+    border-top:1px solid rgba(49,59,134,.12);
+    background:rgba(255,255,255,.75);
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .gccK__chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.9);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:800;
+    max-width:100%;
+  }
+  .gccK__chip i{
+    width:7px;height:7px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    display:inline-block;
+  }
+
+  .gccK__fade{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity .18s ease, transform .18s ease;
+  }
+  .gccK__fade.is-switching{
+    opacity:0;
+    transform:translateY(6px);
+  }
+
+  @media (max-width:1024px){
+    .gccK{ padding:78px 18px; }
+    .gccK__top{ grid-template-columns:1fr; gap:14px; }
+    .gccK__intro{ margin-top:0; }
+    .gccK__grid{ grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:18px; }
+    .gccK__panel{ min-height:unset; }
+  }
+
+  /* ===================== MOBILE: stacked card accordion ===================== */
+  @media (max-width:820px){
+    .gccK{ padding:70px 16px; }
+    .gccK__title{ font-size:clamp(30px,9vw,40px); }
+    .gccK__intro{ font-size:14.8px; margin-top:10px; }
+
+    .gccK__grid{ grid-template-columns:1fr; }
+
+    /* Hide the right panel on mobile */
+    .gccK__panel{ display:none !important; }
+
+    /* Remove rail frame on mobile */
+    .gccK__rail{
+      border:none;
+      background:transparent;
+      backdrop-filter:none;
+      box-shadow:none;
+      overflow:visible;
+    }
+
+    .gccK__railTop{
+      padding:14px 14px;
+      border:1px solid rgba(49,59,134,.16);
+      border-radius:18px;
+      background:rgba(255,255,255,.86);
+      box-shadow:0 10px 26px rgba(0,0,0,.06);
+      margin-bottom:12px;
+    }
+
+    .gccK__item{
+      border:1px solid rgba(49,59,134,.14);
+      border-radius:18px;
+      background:rgba(255,255,255,.86);
+      box-shadow:0 12px 28px rgba(0,0,0,.06);
+      margin:0 0 12px;
+      padding:14px 14px;
+      grid-template-columns:42px 1fr;
+      align-items:start;
+      max-width:100% !important;
+    }
+    .gccK__item:first-of-type{ border-top:1px solid rgba(49,59,134,.14); }
+
+    .gccK__icon{ width:38px;height:38px; border-radius:14px; margin-top:2px; }
+
+    /* kill desktop selected styling on mobile */
+    .gccK__item[aria-selected="true"]{ background:rgba(255,255,255,.86) !important; }
+    .gccK__item[aria-selected="true"]::before{ display:none !important; }
+
+    .gccK__acc{
+      grid-column:1 / -1;
+      margin:10px 0 2px;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(49,59,134,.12);
+      background:rgba(49,59,134,.03);
+      display:none;
+      overflow:hidden !important;
+      max-width:100% !important;
+      min-width:0 !important;
+    }
+    .gccK__item[aria-expanded="true"] .gccK__acc{ display:block; }
+
+    .gccK__accBullets{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+      max-width:100% !important;
+      min-width:0 !important;
+    }
+    .gccK__accBullets li{
+      display:flex !important;
+      align-items:flex-start !important;
+      gap:10px !important;
+      flex-wrap:wrap !important;
+      min-width:0 !important;
+      max-width:100% !important;
+      font-size:14px;
+      line-height:1.65;
+      color:#2E334D;
+    }
+    .gccK__accBullets li .gccK__dot{ flex:0 0 auto !important; }
+
+    .gccK__accBullets li span:last-child{
+      flex:1 1 0% !important;
+      min-width:0 !important;
+      max-width:100% !important;
+      display:block !important;
+      white-space:normal !important;
+      overflow-wrap:anywhere !important;
+      word-break:break-word !important;
+    }
+
+    .gccK__accChips{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      max-width:100%;
+    }
+
+    .gccK__chip{ height:32px; font-size:12px; padding:0 11px; }
+  }
+
+  /* ===================== FORCE MOBILE LAYOUT VIA CLASS (Elementor preview help) ===================== */
+  .gccK.is-mobile{ padding:70px 16px !important; }
+  .gccK.is-mobile .gccK__grid{ grid-template-columns:1fr !important; }
+  .gccK.is-mobile .gccK__panel{ display:none !important; }
+  .gccK.is-mobile .gccK__rail{
+    border:none !important; background:transparent !important; box-shadow:none !important;
+    backdrop-filter:none !important; overflow:visible !important;
+  }
+  .gccK.is-mobile .gccK__railTop{
+    padding:14px 14px !important;
+    border:1px solid rgba(49,59,134,.14) !important;
+    border-radius:16px !important;
+    background:#fff !important;
+    box-shadow:0 10px 24px rgba(0,0,0,.06) !important;
+    margin-bottom:12px !important;
+  }
+  .gccK.is-mobile .gccK__item{
+    border:1px solid rgba(49,59,134,.12) !important;
+    border-radius:16px !important;
+    background:#fff !important;
+    box-shadow:0 12px 26px rgba(0,0,0,.06) !important;
+    margin:0 0 12px !important;
+    padding:14px 14px !important;
+    grid-template-columns:42px 1fr !important;
+    align-items:start !important;
+  }
+  .gccK.is-mobile .gccK__item[aria-selected="true"]::before{ display:none !important; }
+  .gccK.is-mobile .gccK__item[aria-selected="true"]{ background:#fff !important; }
+  .gccK.is-mobile .gccK__acc{
+    display:none;
+    grid-column:1 / -1;
+    margin:10px 0 0;
+    padding:12px 12px;
+    border-radius:14px;
+    border:1px solid rgba(49,59,134,.10);
+    background:rgba(49,59,134,.02);
+    overflow:hidden !important;
+  }
+  .gccK.is-mobile .gccK__item[aria-expanded="true"] .gccK__acc{ display:block !important; }
+  .gccK.is-mobile .gccK__chip{ height:32px !important; font-size:12px !important; padding:0 11px !important; }
+</style>
+
+<section class="gccK" id="gcc-challenges">
+  <div class="gccK__inner">
+
+    <div class="gccK__top">
+      <div>
+        <p class="gccK__eyebrow">GCC Sector</p>
+        <h2 class="gccK__title">Key Challenges</h2>
+      </div>
+
+      <p class="gccK__intro">
+        GCCs are expected to deliver efficiency, innovation, and strategic value—often simultaneously. Yet mandate ambiguity,
+        fragmented operating models, talent constraints, and technology sprawl create system-wide challenges that limit their
+        ability to operate as true enterprise platforms.
+      </p>
+    </div>
+
+    <div class="gccK__grid">
+
+      <!-- LEFT: list -->
+      <div class="gccK__rail" role="tablist" aria-label="GCC sector challenges list">
+        <div class="gccK__railTop">
+          <div class="gccK__railLabel">Challenges</div>
+          <div class="gccK__railPill"><span class="gccK__railPillDot" aria-hidden="true"></span>Executive view</div>
+        </div>
+
+        <button class="gccK__item" role="tab" aria-selected="true" aria-expanded="false" data-key="c1">
+          <div class="gccK__icon">🎯</div>
+          <div class="gccK__textCol">
+            <p class="gccK__itemTitle">Mandate Clarity &amp; Value Perception</p>
+            <p class="gccK__itemPreview">Cost-centre positioning, evolving roles, limited outcome ownership, and perception gaps with HQ.</p>
+          </div>
+          <div class="gccK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="gccK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c2">
+          <div class="gccK__icon">🏗️</div>
+          <div class="gccK__textCol">
+            <p class="gccK__itemTitle">Operating Model &amp; Scale Challenges</p>
+            <p class="gccK__itemPreview">Fragmented delivery, inconsistent governance, and difficulty scaling beyond transactional work.</p>
+          </div>
+          <div class="gccK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="gccK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c3">
+          <div class="gccK__icon">👥</div>
+          <div class="gccK__textCol">
+            <p class="gccK__itemTitle">Talent, Capability &amp; Leadership Gaps</p>
+            <p class="gccK__itemPreview">Competition for niche skills, stretched leaders, and weak career and capability pathways.</p>
+          </div>
+          <div class="gccK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="gccK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c4">
+          <div class="gccK__icon">📊</div>
+          <div class="gccK__textCol">
+            <p class="gccK__itemTitle">Productivity, Cost &amp; Performance Pressure</p>
+            <p class="gccK__itemPreview">Rising costs, limited benchmarks, manual work, and weak visibility into service outcomes.</p>
+          </div>
+          <div class="gccK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="gccK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c5">
+          <div class="gccK__icon">🔢</div>
+          <div class="gccK__textCol">
+            <p class="gccK__itemTitle">Digital, Data &amp; Technology Fragmentation</p>
+            <p class="gccK__itemPreview">Siloed platforms, ad-hoc automation, and challenges scaling data, AI, and analytics responsibly.</p>
+          </div>
+          <div class="gccK__acc" aria-hidden="true"></div>
+        </button>
+      </div>
+
+      <!-- RIGHT: detail panel (desktop only) -->
+      <aside class="gccK__panel" role="tabpanel" aria-live="polite">
+        <div class="gccK__fade" id="gccK-fade">
+          <div class="gccK__panelHead">
+            <p class="gccK__panelKicker">Challenge Focus</p>
+            <h3 class="gccK__panelTitle" id="gccK-title">Mandate Clarity &amp; Value Perception</h3>
+          </div>
+
+          <div class="gccK__panelBody">
+            <ul class="gccK__bullets" id="gccK-bullets"></ul>
+          </div>
+
+          <div class="gccK__panelFooter" id="gccK-chips"></div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const data = {
+    c1:{
+      title:"Mandate Clarity & Value Perception",
+      bullets:[
+        "GCCs positioned primarily as cost centres rather than strategic value creators",
+        "Unclear or evolving mandates across functions, domains, and business units",
+        "Limited ownership of end-to-end outcomes and business KPIs",
+        "Perception gaps between global headquarters, business stakeholders, and GCC leadership"
+      ],
+      chips:["Mandate","Value creation","Stakeholder alignment"]
+    },
+    c2:{
+      title:"Operating Model & Scale Challenges",
+      bullets:[
+        "Fragmented delivery models across functions, locations, and entities",
+        "Inconsistent governance, prioritisation, and demand management mechanisms",
+        "Difficulty scaling beyond transactional and support work into higher-value services",
+        "Limited integration of GCC operating models with enterprise strategy and execution rhythms"
+      ],
+      chips:["Operating model","Scale","Enterprise integration"]
+    },
+    c3:{
+      title:"Talent, Capability & Leadership Gaps",
+      bullets:[
+        "High competition for digital, analytics, and domain-specific talent",
+        "Leadership bandwidth stretched between day-to-day delivery and long-term transformation",
+        "Limited, unclear, or narrow career pathways impacting retention and engagement",
+        "Inconsistent or fragmented capability development frameworks across roles and functions"
+      ],
+      chips:["Talent","Capability","Leadership"]
+    },
+    c4:{
+      title:"Productivity, Cost & Performance Pressure",
+      bullets:[
+        "Rising operating costs gradually eroding traditional labour-arbitrage advantages",
+        "Limited function-wise productivity benchmarks and peer comparisons",
+        "Manual processes and underutilised automation across services and workflows",
+        "Weak visibility into performance, service levels, and business outcomes across the GCC portfolio"
+      ],
+      chips:["Productivity","Cost","Performance"]
+    },
+    c5:{
+      title:"Digital, Data & Technology Fragmentation",
+      bullets:[
+        "Siloed platforms and tools across IT, analytics, finance, HR, and operations",
+        "Ad-hoc automation initiatives without alignment to enterprise architecture or priorities",
+        "Limited use of data for performance management, demand forecasting, and capacity planning",
+        "Challenges in scaling AI and advanced analytics responsibly across services and geographies"
+      ],
+      chips:["Digital","Data & analytics","Automation & AI"]
+    }
+  };
+
+  const root = document.querySelector('#gcc-challenges');
+  if(!root) return;
+
+  function applyMobileClass(){
+    const mqMobile = window.matchMedia && window.matchMedia('(max-width: 820px)').matches;
+
+    // Elementor responsive preview helpers
+    const elMobile =
+      document.body.classList.contains('elementor-device-mobile') ||
+      document.body.classList.contains('e--ua-device-mobile');
+
+    const mobile = mqMobile || elMobile;
+
+    root.classList.toggle('is-mobile', mobile);
+    return mobile;
+  }
+  applyMobileClass();
+  window.addEventListener('resize', applyMobileClass);
+
+  const tabs = Array.from(root.querySelectorAll('.gccK__item'));
+  const fade = root.querySelector('#gccK-fade');
+  const title = root.querySelector('#gccK-title');
+  const bulletsEl = root.querySelector('#gccK-bullets');
+  const chipsEl = root.querySelector('#gccK-chips');
+
+  function isMobile(){
+    return (window.matchMedia && window.matchMedia('(max-width: 820px)').matches) || root.classList.contains('is-mobile');
+  }
+
+  function renderDesktop(key){
+    const d = data[key];
+    if(!d || !fade) return;
+
+    fade.classList.add('is-switching');
+    setTimeout(()=>{
+      title.textContent = d.title;
+
+      bulletsEl.innerHTML = d.bullets.map(x =>
+        `<li><span class="gccK__dot"></span><span>${x}</span></li>`
+      ).join('');
+
+      chipsEl.innerHTML = d.chips.map(x =>
+        `<span class="gccK__chip"><i></i>${x}</span>`
+      ).join('');
+
+      fade.classList.remove('is-switching');
+    }, 160);
+  }
+
+  function renderAccordionItem(btn){
+    const key = btn.dataset.key;
+    const d = data[key];
+    if(!d) return;
+
+    const acc = btn.querySelector('.gccK__acc');
+    if(!acc) return;
+
+    acc.innerHTML = `
+      <ul class="gccK__accBullets">
+        ${d.bullets.map(x => `<li><span class="gccK__dot"></span><span>${x}</span></li>`).join('')}
+      </ul>
+      <div class="gccK__accChips">
+        ${d.chips.map(x => `<span class="gccK__chip"><i></i>${x}</span>`).join('')}
+      </div>
+    `;
+  }
+
+  tabs.forEach(btn => renderAccordionItem(btn));
+
+  function setActive(btn){
+    tabs.forEach(x=>{
+      x.setAttribute('aria-selected','false');
+      x.setAttribute('aria-expanded','false');
+    });
+    btn.setAttribute('aria-selected','true');
+
+    if(isMobile()){
+      btn.setAttribute('aria-expanded','true');
+    }else{
+      btn.setAttribute('aria-expanded','false');
+      renderDesktop(btn.dataset.key);
+    }
+  }
+
+  // Desktop default
+  renderDesktop('c1');
+
+  // Mobile: open first card by default
+  if(isMobile()){
+    tabs.forEach(x=>{
+      x.setAttribute('aria-selected','false');
+      x.setAttribute('aria-expanded','false');
+    });
+    if(tabs[0]){
+      tabs[0].setAttribute('aria-selected','true');
+      tabs[0].setAttribute('aria-expanded','true');
+    }
+  }
+
+  tabs.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(isMobile()){
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        if(expanded){
+          btn.setAttribute('aria-expanded','false');
+          return;
+        }
+        tabs.forEach(x=>x.setAttribute('aria-expanded','false'));
+        btn.setAttribute('aria-expanded','true');
+
+        tabs.forEach(x=>x.setAttribute('aria-selected','false'));
+        btn.setAttribute('aria-selected','true');
+      }else{
+        setActive(btn);
+      }
+    });
+  });
+
+  window.addEventListener('resize', ()=>{
+    const active = tabs.find(x => x.getAttribute('aria-selected') === 'true') || tabs[0];
+    if(active && !isMobile()){
+      renderDesktop(active.dataset.key || 'c1');
+    }
+  });
+})();
+</script>
+
+<!-- ===================== GCC — HOW WE HELP (DESKTOP SLIDER + MOBILE ACCORDION) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#4B5168;
+  --line:rgba(49,59,134,.18);
+  --card:#ffffff;
+
+  /* ✅ set GCC-specific background image if you like */
+  --gcc-bg-img:url("https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg");
+}
+
+/* scope */
+.gccS, .gccS *{ box-sizing:border-box; }
+
+.gccS{
+  position:relative;
+  padding:96px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at 18% 0%, rgba(98,90,216,.10), transparent 55%),
+    radial-gradient(circle at 95% 30%, rgba(31,156,228,.10), transparent 55%),
+    radial-gradient(circle at 70% 110%, rgba(2,12,79,.08), transparent 60%),
+    rgba(49,59,134,.03);
+}
+
+.gccS::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(2,12,79,.80), rgba(2,12,79,.25) 55%, rgba(2,12,79,0) 100%),
+    var(--gcc-bg-img);
+  background-size:cover;
+  background-position:center;
+  opacity:.95;
+  z-index:0;
+  pointer-events:none;
+}
+
+.gccS::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  z-index:0;
+  pointer-events:none;
+}
+
+.gccS__inner{
+  position:relative;
+  z-index:1;
+  max-width:1200px;
+  margin:0 auto;
+  width:100%;
+  min-width:0;
+}
+
+.gccS__eyebrow{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+  font-weight:800;
+  margin:0 0 10px;
+}
+
+.gccS__title{
+  margin:0 0 22px;
+  font-size:clamp(34px,4vw,56px);
+  line-height:1.08;
+  font-weight:900;
+  color:#fff;
+}
+
+.gccS__layout{
+  display:grid;
+  grid-template-columns:minmax(0,0.38fr) minmax(0,0.62fr);
+  gap:56px;
+  align-items:stretch;
+  width:100%;
+  min-width:0;
+}
+
+/* entrance animation */
+.gccS__left,
+.gccS__right{
+  opacity:0;
+  transition:opacity .85s ease, transform .85s cubic-bezier(.2,.9,.2,1);
+}
+.gccS__left{ transform:translateX(-44px); }
+.gccS__right{ transform:translateX(44px); }
+.gccS.is-in .gccS__left,
+.gccS.is-in .gccS__right{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* ===================== DESKTOP LEFT ===================== */
+.gccS__left{
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:20px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter: blur(10px);
+  box-shadow:0 12px 32px rgba(0,0,0,.14);
+  padding:18px;
+  min-width:0;
+}
+
+.gccS__leftTitle{
+  margin:0 0 12px;
+  font-size:26px;
+  font-weight:900;
+  color:#fff;
+}
+
+.gccS__nav{
+  display:grid;
+  gap:10px;
+  margin-top:10px;
+  min-width:0;
+}
+
+.gccS__navBtn{
+  width:100%;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);
+  border-radius:14px;
+  padding:14px 14px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  text-align:left;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  min-width:0;
+  white-space:normal;
+}
+
+.gccS__navBtn:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.18);
+}
+
+.gccS__navLeft{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  flex:1 1 auto;
+}
+
+.gccS__navMark{
+  width:10px; height:10px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.12);
+  flex:0 0 auto;
+}
+
+.gccS__navText{ min-width:0; }
+
+.gccS__itemTitle{
+  margin:0;
+  font-size:14.5px;
+  font-weight:800;
+  color:#fff;
+  line-height:1.2;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.gccS__itemHint{
+  margin:6px 0 0;
+  font-size:12.5px;
+  color:rgba(255,255,255,.80);
+  line-height:1.3;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.gccS__navArrow{
+  width:34px; height:34px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.16);
+  color:#fff;
+  background:rgba(255,255,255,.06);
+  flex:0 0 auto;
+}
+
+.gccS__navBtn[aria-selected="true"]{
+  background:rgba(255,255,255,.10);
+  border-color:rgba(255,255,255,.24);
+}
+
+/* ===================== DESKTOP RIGHT SLIDER ===================== */
+.gccS__right{
+  position:relative;
+  border-radius:22px;
+  min-height:560px;
+  min-width:0;
+}
+
+.gccS__stage{
+  position:relative;
+  height:100%;
+  min-height:560px;
+  padding:0 68px; /* peeks */
+  min-width:0;
+}
+
+.gccS__card{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:86%;
+  height:100%;
+  border-radius:22px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(49,59,134,.18);
+  box-shadow:0 28px 70px rgba(0,0,0,.22);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .42s cubic-bezier(.2,.9,.2,1), opacity .25s ease;
+}
+
+.gccS__card.is-active{ z-index:3; opacity:1; }
+.gccS__card.is-prev,
+.gccS__card.is-next{
+  z-index:2;
+  width:82%;
+  opacity:.78;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 22px 60px rgba(0,0,0,.18);
+}
+.gccS__card.is-prev{ transform:translateX(-50%) translateX(-110px) scale(.965); }
+.gccS__card.is-next{ transform:translateX(-50%) translateX(110px) scale(.965); }
+
+.gccS__top{
+  padding:18px 22px 14px;
+  border-bottom:1px solid rgba(49,59,134,.14);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(31,156,228,.10), transparent 55%),
+    #fff;
+}
+
+.gccS__kicker{
+  margin:0 0 6px;
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:900;
+}
+
+.gccS__cardTitle{
+  margin:0;
+  font-size:22px;
+  line-height:1.2;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.gccS__body{
+  padding:16px 22px 18px;
+  overflow:auto;
+}
+
+.gccS__lead{
+  margin:0 0 12px;
+  font-size:15px;
+  line-height:1.75;
+  color:#2E334D;
+}
+
+.gccS__label{
+  margin:12px 0 8px;
+  font-size:14px;
+  font-weight:800;
+  color:var(--ink);
+}
+
+.gccS__list{ margin:0; padding-left:18px; }
+.gccS__list li{
+  margin:0 0 7px;
+  font-size:14.5px;
+  line-height:1.65;
+  color:#2E334D;
+}
+
+.gccS__impact{
+  margin-top:14px;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(49,59,134,.12);
+  background:rgba(49,59,134,.03);
+  border-left:4px solid var(--accent);
+  font-size:14.5px;
+  line-height:1.7;
+  color:#3C4160;
+}
+.gccS__impact b{ color:var(--navy); }
+
+/* peek preview */
+.gccS__card.is-prev .gccS__lead,
+.gccS__card.is-next .gccS__lead{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  max-height:3.7em;
+}
+.gccS__card.is-prev .gccS__label,
+.gccS__card.is-next .gccS__label,
+.gccS__card.is-prev .gccS__list,
+.gccS__card.is-next .gccS__list,
+.gccS__card.is-prev .gccS__impact,
+.gccS__card.is-next .gccS__impact{
+  display:none;
+}
+
+.gccS__ctrl{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:46px;height:46px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.50);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  z-index:5;
+  user-select:none;
+}
+.gccS__ctrl:hover{
+  transform:translateY(-50%) scale(1.03);
+  background:rgba(255,255,255,.16);
+  border-color:rgba(255,255,255,.30);
+}
+.gccS__ctrl--prev{ left:12px; }
+.gccS__ctrl--next{ right:12px; }
+
+/* ===================== MOBILE DESIGN (NO HORIZONTAL ANYTHING) ===================== */
+.gccS__mWrap{ display:none; } /* only mobile */
+
+@media (max-width:980px){
+  .gccS{ padding:78px 16px; }
+  .gccS__layout{ grid-template-columns:1fr; gap:14px; }
+
+  /* hide desktop slider UI */
+  .gccS__right{ display:none !important; }
+
+  /* left card smaller */
+  .gccS__left{
+    padding:14px;
+    border-radius:18px;
+  }
+  .gccS__leftTitle{ font-size:18px; margin-bottom:10px; }
+
+  .gccS__nav{ display:none !important; }
+
+  /* show mobile accordion */
+  .gccS__mWrap{ display:grid; gap:12px; }
+
+  .gccS__mCard{
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.08);
+    backdrop-filter: blur(10px);
+    border-radius:18px;
+    box-shadow:0 12px 28px rgba(0,0,0,.14);
+    overflow:hidden;
+  }
+
+  .gccS__mBtn{
+    width:100%;
+    border:0;
+    background:transparent;
+    padding:14px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    cursor:pointer;
+    text-align:left;
+    color:#fff;
+  }
+
+  .gccS__mLeft{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    min-width:0;
+    flex:1 1 auto;
+  }
+
+  .gccS__mTitle{
+    margin:0;
+    font-size:14.5px;
+    font-weight:900;
+    line-height:1.25;
+    color:#fff;
+  }
+
+  .gccS__mHint{
+    margin:6px 0 0;
+    font-size:12.5px;
+    line-height:1.35;
+    color:rgba(255,255,255,.82);
+    overflow-wrap:anywhere;
+  }
+
+  .gccS__mChevron{
+    width:34px;height:34px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.06);
+    display:grid;
+    place-items:center;
+    color:#fff;
+    flex:0 0 auto;
+    transition:transform .2s ease;
+  }
+
+  .gccS__mAcc{
+    display:none;
+    padding:0 14px 14px;
+  }
+
+  .gccS__mCard[aria-expanded="true"] .gccS__mAcc{ display:block; }
+  .gccS__mCard[aria-expanded="true"] .gccS__mChevron{ transform:rotate(180deg); }
+
+  /* mobile content card (white) */
+  .gccS__mContent{
+    border-radius:16px;
+    background:rgba(255,255,255,.96);
+    border:1px solid rgba(49,59,134,.18);
+    box-shadow:0 18px 44px rgba(0,0,0,.18);
+    overflow:hidden;
+  }
+
+  .gccS__mTop{
+    padding:14px 14px 12px;
+    border-bottom:1px solid rgba(49,59,134,.14);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.10), transparent 55%),
+      #fff;
+  }
+
+  .gccS__mKicker{
+    margin:0 0 6px;
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .gccS__mCardTitle{
+    margin:0;
+    font-size:20px;
+    line-height:1.2;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .gccS__mBody{
+    padding:12px 14px 14px;
+  }
+
+  .gccS__mLead{
+    margin:0 0 10px;
+    font-size:14.5px;
+    line-height:1.7;
+    color:#2E334D;
+  }
+
+  .gccS__mLabel{
+    margin:10px 0 8px;
+    font-size:13.5px;
+    font-weight:900;
+    color:var(--ink);
+  }
+
+  .gccS__mList{
+    margin:0;
+    padding-left:18px;
+  }
+  .gccS__mList li{
+    margin:0 0 7px;
+    font-size:14.2px;
+    line-height:1.65;
+    color:#2E334D;
+    overflow-wrap:anywhere;
+  }
+
+  .gccS__mImpact{
+    margin-top:12px;
+    padding:10px 12px;
+    border-radius:14px;
+    border:1px solid rgba(49,59,134,.12);
+    background:rgba(49,59,134,.03);
+    border-left:4px solid var(--accent);
+    font-size:14.2px;
+    line-height:1.7;
+    color:#3C4160;
+  }
+  .gccS__mImpact b{ color:var(--navy); }
+}
+</style>
+
+<section class="gccS" id="gcc-how-we-help" aria-label="How we help Global Capability Centers">
+  <div class="gccS__inner">
+    <p class="gccS__eyebrow">Global Capability Centers (GCCs)</p>
+    <h2 class="gccS__title">How We Help GCCs</h2>
+
+    <div class="gccS__layout">
+      <!-- DESKTOP LEFT -->
+      <aside class="gccS__left">
+        <h3 class="gccS__leftTitle">Our Services for GCCs</h3>
+
+        <div class="gccS__nav" role="tablist" aria-label="GCC service pillars">
+          <button class="gccS__navBtn" role="tab" aria-selected="true" data-i="0">
+            <div class="gccS__navLeft">
+              <span class="gccS__navMark" aria-hidden="true"></span>
+              <div class="gccS__navText">
+                <p class="gccS__itemTitle">GCC Strategy &amp; Value Enablement</p>
+                <p class="gccS__itemHint">Defining the next chapter</p>
+              </div>
+            </div>
+            <span class="gccS__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="gccS__navBtn" role="tab" aria-selected="false" data-i="1">
+            <div class="gccS__navLeft">
+              <span class="gccS__navMark" aria-hidden="true"></span>
+              <div class="gccS__navText">
+                <p class="gccS__itemTitle">Shared Services &amp; Operating Model Excellence</p>
+                <p class="gccS__itemHint">Scaling with discipline</p>
+              </div>
+            </div>
+            <span class="gccS__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="gccS__navBtn" role="tab" aria-selected="false" data-i="2">
+            <div class="gccS__navLeft">
+              <span class="gccS__navMark" aria-hidden="true"></span>
+              <div class="gccS__navText">
+                <p class="gccS__itemTitle">Tech-Enabled Transformation</p>
+                <p class="gccS__itemHint">Digitising GCC delivery</p>
+              </div>
+            </div>
+            <span class="gccS__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="gccS__navBtn" role="tab" aria-selected="false" data-i="3">
+            <div class="gccS__navLeft">
+              <span class="gccS__navMark" aria-hidden="true"></span>
+              <div class="gccS__navText">
+                <p class="gccS__itemTitle">Talent, Capability &amp; Leadership Enablement</p>
+                <p class="gccS__itemHint">Building depth, not just scale</p>
+              </div>
+            </div>
+            <span class="gccS__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="gccS__navBtn" role="tab" aria-selected="false" data-i="4">
+            <div class="gccS__navLeft">
+              <span class="gccS__navMark" aria-hidden="true"></span>
+              <div class="gccS__navText">
+                <p class="gccS__itemTitle">Business Process &amp; Operational Excellence</p>
+                <p class="gccS__itemHint">Creating stable GCC systems</p>
+              </div>
+            </div>
+            <span class="gccS__navArrow" aria-hidden="true">›</span>
+          </button>
+        </div>
+
+        <!-- MOBILE ACCORDION -->
+        <div class="gccS__mWrap" id="gccS-mobile"></div>
+      </aside>
+
+      <!-- DESKTOP RIGHT -->
+      <div class="gccS__right">
+        <button class="gccS__ctrl gccS__ctrl--prev" type="button" aria-label="Previous">‹</button>
+        <button class="gccS__ctrl gccS__ctrl--next" type="button" aria-label="Next">›</button>
+
+        <div class="gccS__stage" aria-live="polite">
+          <article class="gccS__card is-prev" id="gccS-prev"></article>
+          <article class="gccS__card is-active" id="gccS-active"></article>
+          <article class="gccS__card is-next" id="gccS-next"></article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const section = document.getElementById('gcc-how-we-help');
+  if(!section) return;
+
+  const isElementor =
+    document.body.classList.contains('elementor-editor-active') ||
+    document.body.classList.contains('elementor-editor-preview') ||
+    !!document.querySelector('#elementor-editor-wrapper');
+
+  function enter(){ section.classList.add('is-in'); }
+
+  if(isElementor){
+    enter();
+  } else if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          enter();
+          io.unobserve(section);
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(section);
+    setTimeout(()=>{ if(!section.classList.contains('is-in')) enter(); }, 1200);
+  } else {
+    enter();
+  }
+
+  const data = [
+    {
+      navTitle:"GCC Strategy & Value Enablement",
+      navHint:"Defining the next chapter",
+      kicker:"01 · GCC Strategy & Value Enablement",
+      title:"Defining the Next Chapter for GCC Value",
+      lead:"We help organisations define clear, future-ready GCC strategies aligned to enterprise priorities.",
+      label1:"How we support GCCs:",
+      bullets:[
+        "GCC vision, mandate, and value proposition design",
+        "Portfolio prioritisation across functions and services",
+        "Transition from cost-arbitrage to capability-led models",
+        "Integration of GCC strategy with enterprise operating models",
+        "Transformation roadmap and execution governance"
+      ],
+      impact:"Clear mandate, stronger enterprise relevance, and accelerated value creation."
+    },
+    {
+      navTitle:"Shared Services & Operating Model Excellence",
+      navHint:"Scaling with discipline",
+      kicker:"02 · Shared Services & Operating Model Excellence",
+      title:"Scaling GCCs with Discipline",
+      lead:"We design scalable, resilient operating models that enable GCCs to grow without complexity.",
+      label1:"We help with:",
+      bullets:[
+        "End-to-end GCC operating model design",
+        "Service catalogues, SLAs, and demand management frameworks",
+        "Governance, performance management, and KPI design",
+        "Multi-location and multi-function integration",
+        "Service management and execution assurance"
+      ],
+      impact:"Predictable delivery, improved transparency, and scalable growth."
+    },
+    {
+      navTitle:"Tech-Enabled Transformation",
+      navHint:"Digitising GCC delivery",
+      kicker:"03 · Tech-Enabled Transformation",
+      title:"Digitising GCC Delivery",
+      lead:"We enable practical digital transformation across GCC functions to improve speed, quality, and productivity.",
+      label1:"Where we support:",
+      bullets:[
+        "Automation and digitisation of service delivery (RPA, workflow, low-code)",
+        "Advanced analytics and reporting platforms",
+        "AI and GenAI use cases across HR, Finance, IT, Risk, and Operations",
+        "Data platform integration and cloud enablement",
+        "Digital governance and value realisation frameworks"
+      ],
+      impact:"Higher productivity, faster cycle times, and improved decision-making."
+    },
+    {
+      navTitle:"Talent, Capability & Leadership Enablement",
+      navHint:"Building depth, not just scale",
+      kicker:"04 · Talent, Capability & Leadership Enablement",
+      title:"Enabling GCC Talent, Capability & Leadership",
+      lead:"Sustainable GCC transformation depends on strong leadership and deep capability, not just scale.",
+      label1:"Our support includes:",
+      bullets:[
+        "GCC leadership capability and operating rhythm design",
+        "Career architecture and talent development frameworks",
+        "Transformation and change enablement programs",
+        "Culture, engagement, and retention strategies",
+        "Succession and leadership pipeline development"
+      ],
+      impact:"Stronger leadership depth, higher engagement, and improved retention."
+    },
+    {
+      navTitle:"Business Process & Operational Excellence",
+      navHint:"Creating stable GCC systems",
+      kicker:"05 · Business Process & Operational Excellence",
+      title:"Creating Stable GCC Systems",
+      lead:"We help GCCs build disciplined, stable delivery systems that can support enterprise-critical work.",
+      label1:"Our services include:",
+      bullets:[
+        "Lean transformation across GCC functions",
+        "End-to-end process standardisation and optimisation",
+        "Productivity benchmarking and cost optimisation",
+        "Target operating model (TOM) design",
+        "Continuous improvement and execution cadence"
+      ],
+      impact:"Reduced variability, improved service quality, and sustained performance at scale."
+    }
+  ];
+
+  /* ---------------- DESKTOP SLIDER ---------------- */
+  const navButtons = Array.from(section.querySelectorAll('.gccS__navBtn'));
+  const prevEl = section.querySelector('#gccS-prev');
+  const activeEl = section.querySelector('#gccS-active');
+  const nextEl = section.querySelector('#gccS-next');
+  const btnPrev = section.querySelector('.gccS__ctrl--prev');
+  const btnNext = section.querySelector('.gccS__ctrl--next');
+
+  let idx = 0;
+
+  function cardHTML(d){
+    return `
+      <div class="gccS__top">
+        <p class="gccS__kicker">${d.kicker}</p>
+        <h3 class="gccS__cardTitle">${d.title}</h3>
+      </div>
+      <div class="gccS__body">
+        <p class="gccS__lead">${d.lead}</p>
+        <div class="gccS__label">${d.label1}</div>
+        <ul class="gccS__list">
+          ${d.bullets.map(x=>`<li>${x}</li>`).join('')}
+        </ul>
+        <div class="gccS__impact"><b>Impact:</b> ${d.impact}</div>
+      </div>
+    `;
+  }
+
+  function setActiveNav(i){
+    navButtons.forEach((b,bi)=> b.setAttribute('aria-selected', bi===i ? 'true':'false'));
+  }
+
+  function renderDesktop(){
+    const prevI = (idx - 1 + data.length) % data.length;
+    const nextI = (idx + 1) % data.length;
+
+    if(prevEl) prevEl.innerHTML = cardHTML(data[prevI]);
+    if(activeEl) activeEl.innerHTML = cardHTML(data[idx]);
+    if(nextEl) nextEl.innerHTML = cardHTML(data[nextI]);
+    setActiveNav(idx);
+  }
+
+  function goTo(i){
+    idx = (i + data.length) % data.length;
+    renderDesktop();
+  }
+
+  navButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = parseInt(btn.getAttribute('data-i'),10);
+      goTo(i);
+    });
+  });
+
+  btnPrev && btnPrev.addEventListener('click', ()=> goTo(idx-1));
+  btnNext && btnNext.addEventListener('click', ()=> goTo(idx+1));
+
+  section.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowLeft') goTo(idx-1);
+    if(e.key === 'ArrowRight') goTo(idx+1);
+  });
+
+  renderDesktop();
+
+  /* ---------------- MOBILE ACCORDION ---------------- */
+  const mobileMount = section.querySelector('#gccS-mobile');
+
+  function mobileCard(d, i){
+    return `
+      <div class="gccS__mCard" aria-expanded="${i===0 ? 'true':'false'}" data-i="${i}">
+        <button class="gccS__mBtn" type="button" aria-label="${d.navTitle}">
+          <div class="gccS__mLeft">
+            <span class="gccS__navMark" aria-hidden="true"></span>
+            <div style="min-width:0">
+              <p class="gccS__mTitle">${d.navTitle}</p>
+              <p class="gccS__mHint">${d.navHint}</p>
+            </div>
+          </div>
+          <span class="gccS__mChevron" aria-hidden="true">⌄</span>
+        </button>
+
+        <div class="gccS__mAcc">
+          <div class="gccS__mContent">
+            <div class="gccS__mTop">
+              <p class="gccS__mKicker">${d.kicker}</p>
+              <h3 class="gccS__mCardTitle">${d.title}</h3>
+            </div>
+            <div class="gccS__mBody">
+              <p class="gccS__mLead">${d.lead}</p>
+              <div class="gccS__mLabel">${d.label1}</div>
+              <ul class="gccS__mList">
+                ${d.bullets.map(x=>`<li>${x}</li>`).join('')}
+              </ul>
+              <div class="gccS__mImpact"><b>Impact:</b> ${d.impact}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderMobile(){
+    if(!mobileMount) return;
+    mobileMount.innerHTML = data.map((d,i)=>mobileCard(d,i)).join('');
+
+    const cards = Array.from(mobileMount.querySelectorAll('.gccS__mCard'));
+    cards.forEach(card=>{
+      const btn = card.querySelector('.gccS__mBtn');
+      btn.addEventListener('click', ()=>{
+        const isOpen = card.getAttribute('aria-expanded') === 'true';
+        cards.forEach(c=>c.setAttribute('aria-expanded','false'));
+        card.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+    });
+  }
+
+  renderMobile();
+})();
+</script>
+
+<!-- ===================== GCC — WHY WORK WITH US (IMAGE LEFT) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#3C4160;
+}
+
+/* SECTION */
+.gccW, .gccW *{ box-sizing:border-box; }
+.gccW{
+  padding:96px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(98,90,216,.08), transparent 55%),
+    radial-gradient(circle at 95% 30%, rgba(49,59,134,.08), transparent 55%),
+    radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+    rgba(49,59,134,.03);
+}
+
+.gccW__inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:44px;
+  align-items:stretch;
+}
+
+/* IMAGE COLUMN */
+.gccW__imageWrap{
+  position:relative;
+  border-radius:26px;
+  overflow:hidden;
+  min-height:460px;
+  box-shadow:0 22px 54px rgba(0,0,0,.10);
+}
+
+.gccW__imageWrap img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* brand overlay */
+.gccW__imageWrap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(2,12,79,.18), rgba(2,12,79,.08) 55%, rgba(255,255,255,0) 100%),
+    radial-gradient(circle at 20% 20%, rgba(98,90,216,.20), transparent 60%),
+    radial-gradient(circle at 80% 35%, rgba(31,156,228,.16), transparent 60%);
+  pointer-events:none;
+}
+
+/* CONTENT COLUMN */
+.gccW__content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.gccW__eyebrow{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:800;
+  margin:0 0 10px;
+}
+
+.gccW__title{
+  font-size:clamp(32px,3.6vw,46px);
+  line-height:1.1;
+  font-weight:900;
+  color:var(--navy);
+  margin:0 0 18px;
+}
+
+/* MANIFESTO LIST */
+.gccW__list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:18px;
+  position:relative;
+}
+
+/* vertical guide */
+.gccW__list::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  top:6px;
+  bottom:6px;
+  width:2px;
+  background:linear-gradient(180deg, rgba(98,90,216,.45), rgba(31,156,228,.35));
+  opacity:.6;
+}
+
+.gccW__item{
+  position:relative;
+  padding-left:46px;
+}
+
+.gccW__dot{
+  position:absolute;
+  left:6px;
+  top:4px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid rgba(49,59,134,.25);
+}
+
+.gccW__dot::after{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.12);
+}
+
+.gccW__h{
+  margin:0 0 4px;
+  font-size:16px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+.gccW__p{
+  margin:0;
+  font-size:14.8px;
+  line-height:1.75;
+  color:#3C4160;
+}
+
+/* MOBILE */
+@media(max-width:980px){
+  .gccW{ padding:78px 18px; }
+  .gccW__inner{ grid-template-columns:1fr; gap:26px; }
+  .gccW__imageWrap{ min-height:260px; }
+  .gccW__list::before{ left:12px; }
+}
+</style>
+
+<section class="gccW" id="gcc-why-us">
+  <div class="gccW__inner">
+
+    <!-- IMAGE LEFT -->
+    <div class="gccW__imageWrap">
+      <img
+        src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg"
+        alt="Global Capability Center transformation"
+      />
+    </div>
+
+    <!-- CONTENT RIGHT -->
+    <div class="gccW__content">
+      <p class="gccW__eyebrow">Global Capability Centers (GCCs)</p>
+      <h2 class="gccW__title">Why Organisations Work With Us on GCC Transformation</h2>
+
+      <ul class="gccW__list">
+        <li class="gccW__item">
+          <span class="gccW__dot"></span>
+          <p class="gccW__h">Enterprise + GCC Strategy as One System</p>
+          <p class="gccW__p">
+            We align GCC transformation directly with enterprise priorities—strategy, execution, and outcomes working as one.
+          </p>
+        </li>
+
+        <li class="gccW__item">
+          <span class="gccW__dot"></span>
+          <p class="gccW__h">Deep Experience Across Multi-Function GCCs</p>
+          <p class="gccW__p">
+            Our approaches are designed for scale, complexity, and global delivery across Finance, HR, IT, Analytics, and Operations.
+          </p>
+        </li>
+
+        <li class="gccW__item">
+          <span class="gccW__dot"></span>
+          <p class="gccW__h">Digital That Drives Productivity, Not Chaos</p>
+          <p class="gccW__p">
+            Technology implemented to strengthen execution discipline, visibility, and measurable productivity.
+          </p>
+        </li>
+
+        <li class="gccW__item">
+          <span class="gccW__dot"></span>
+          <p class="gccW__h">Integrated, Proven Methodologies</p>
+          <p class="gccW__p">
+            Strategy, Lean, digital, analytics, TOM, and change—working together, not as isolated initiatives.
+          </p>
+        </li>
+
+        <li class="gccW__item">
+          <span class="gccW__dot"></span>
+          <p class="gccW__h">Measurable Enterprise Impact</p>
+          <p class="gccW__p">
+            Every engagement focuses on productivity improvement, value creation, or strengthened strategic relevance.
+          </p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== GCC — FINAL CTA (WHITE BACKGROUND STRIP) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#3C4160;
+  --line:rgba(49,59,134,.16);
+}
+
+.gcc-cta, .gcc-cta *{box-sizing:border-box;}
+.gcc-cta{
+  padding:84px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#ffffff;
+}
+
+.gcc-cta__inner{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.gcc-cta__bar{
+  border:1px solid rgba(49,59,134,.16);
+  border-radius:26px;
+  background:rgba(255,255,255,.98);
+  box-shadow:0 22px 54px rgba(0,0,0,.08);
+  padding:28px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+}
+
+.gcc-cta__left{
+  min-width:0;
+  max-width:820px;
+}
+
+.gcc-cta__kicker{
+  margin:0 0 10px;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:800;
+}
+
+.gcc-cta__title{
+  margin:0 0 10px;
+  font-size:clamp(26px,3.2vw,38px);
+  line-height:1.15;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.gcc-cta__text{
+  margin:0;
+  font-size:15.5px;
+  line-height:1.75;
+  color:var(--muted);
+}
+
+/* signal pill */
+.gcc-cta__pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 12px;
+  border-radius:999px;
+  border:1px solid rgba(49,59,134,.18);
+  background:rgba(49,59,134,.04);
+  color:var(--indigo);
+  font-weight:800;
+  font-size:12px;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
+
+.gcc-cta__dot{
+  width:9px;height:9px;border-radius:999px;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.10);
+}
+
+.gcc-cta__right{
+  flex:0 0 auto;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.gcc-cta__btn{
+  height:46px;
+  padding:0 18px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:14px;
+  font-weight:800;
+  text-decoration:none;
+  transition:.2s ease;
+  white-space:nowrap;
+}
+
+.gcc-cta__btn--primary{
+  background:var(--violet);
+  color:#fff;
+  border:1px solid var(--violet);
+  box-shadow:0 12px 26px rgba(98,90,216,.22);
+}
+.gcc-cta__btn--primary:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  transform:translateY(-1px);
+}
+
+.gcc-cta__btn--ghost{
+  background:#fff;
+  color:var(--navy);
+  border:1px solid rgba(49,59,134,.22);
+}
+.gcc-cta__btn--ghost:hover{
+  background:rgba(49,59,134,.04);
+  transform:translateY(-1px);
+}
+
+@media (max-width:980px){
+  .gcc-cta{padding:70px 18px;}
+  .gcc-cta__bar{
+    padding:22px;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .gcc-cta__right{justify-content:flex-start;}
+}
+</style>
+
+<section class="gcc-cta" id="gcc-cta">
+  <div class="gcc-cta__inner">
+
+    <div class="gcc-cta__bar">
+      <div class="gcc-cta__left">
+        <p class="gcc-cta__kicker">Next steps</p>
+        <h2 class="gcc-cta__title">Let’s Build the Next-Generation GCC</h2>
+        <p class="gcc-cta__text">
+          From strategy and operating models to digital enablement, talent, and operational excellence, we partner with
+          organisations to build GCCs that are trusted, scalable, and strategically indispensable.
+        </p>
+
+        <div class="gcc-cta__pill">
+          <span class="gcc-cta__dot" aria-hidden="true"></span>
+          Strategy • Operating Model • Digital • Talent • Operational Excellence
+        </div>
+      </div>
+
+      <div class="gcc-cta__right">
+        <a class="gcc-cta__btn gcc-cta__btn--ghost" href="#contact">Talk to us</a>
+        <a class="gcc-cta__btn gcc-cta__btn--primary" href="#contact">Request a consultation →</a>
+      </div>
+    </div>
+
+  </div>
+</section>

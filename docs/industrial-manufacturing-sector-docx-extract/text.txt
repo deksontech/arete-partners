@@ -1,0 +1,1916 @@
+<!-- ===================== SECTION SUB NAV (INDUSTRIAL MANUFACTURING) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --tabText:#6B7280;
+    --tabActive:#7a0d0d;  /* change if you want brand active */
+    --line:#E6E8EF;
+    --bg:#ffffff;
+  }
+
+  .secTabs, .secTabs *{box-sizing:border-box;}
+  .secTabs{
+    position:sticky; top:0; z-index:999;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  }
+
+  .secTabs__inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+    height:58px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .secTabs__label{
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#111;
+    font-size:12px;
+    padding-right:14px;
+    border-right:1px solid var(--line);
+    margin-right:2px;
+    white-space:nowrap;
+  }
+
+  .secTabs__list{
+    display:flex;
+    align-items:center;
+    gap:0;
+    flex-wrap:nowrap;
+    overflow:auto;
+    scrollbar-width:none;
+  }
+  .secTabs__list::-webkit-scrollbar{display:none;}
+
+  .secTabs__link{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    height:58px;
+    padding:0 18px;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:12px;
+    font-weight:700;
+    color:var(--tabText);
+    white-space:nowrap;
+  }
+
+  .secTabs__link + .secTabs__link{
+    border-left:1px solid var(--line);
+  }
+
+  .secTabs__link.is-active{
+    color:var(--tabActive);
+  }
+  .secTabs__link.is-active::after{
+    content:"";
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:0;
+    height:3px;
+    background:var(--tabActive);
+    border-radius:999px;
+  }
+
+  .secTabs__link:hover{ color:#111; }
+
+  @media(max-width:980px){
+    .secTabs__inner{padding:0 14px;}
+    .secTabs__label{display:none;}
+    .secTabs__link{padding:0 14px;}
+  }
+</style>
+
+<nav class="secTabs" aria-label="Section navigation">
+  <div class="secTabs__inner">
+    <div class="secTabs__label">INDUSTRIAL</div>
+
+    <div class="secTabs__list">
+      <!-- ✅ Update these IDs to match the section IDs on your Industrial page -->
+      <a class="secTabs__link is-active" href="#industrial-hero">Overview</a>
+      <a class="secTabs__link" href="#industrial-intro">Context</a>
+      <a class="secTabs__link" href="#im-key-challenges">Key Challenges</a>
+      <a class="secTabs__link" href="#im-how-we-help">How We Help</a>
+      <a class="secTabs__link" href="#industrial-why">Why Us</a>
+
+    </div>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const nav = document.querySelector('.secTabs');
+  if(!nav) return;
+
+  const links = Array.from(nav.querySelectorAll('.secTabs__link'));
+  const targets = links
+    .map(a => {
+      const href = a.getAttribute('href');
+      return (href && href.startsWith('#')) ? document.querySelector(href) : null;
+    })
+    .filter(Boolean);
+
+  // Smooth scroll
+  links.forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const id = a.getAttribute('href');
+      if(!id || !id.startsWith('#')) return;
+      const el = document.querySelector(id);
+      if(!el) return;
+      e.preventDefault();
+
+      // If you ever add a sticky main header later, set this to its height (e.g. 80)
+      const headerOffset = 0;
+
+      const y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({ top:y, behavior:'smooth' });
+      history.replaceState(null, '', id);
+    });
+  });
+
+  const setActive = (id) => {
+    links.forEach(a=>{
+      a.classList.toggle('is-active', a.getAttribute('href') === '#'+id);
+    });
+  };
+
+  // Elementor editor: keep first active
+  const isElementor =
+    document.body.classList.contains('elementor-editor-active') ||
+    document.body.classList.contains('elementor-editor-preview') ||
+    !!document.querySelector('#elementor-editor-wrapper');
+
+  if(isElementor) return;
+
+  if(!('IntersectionObserver' in window)) return;
+
+  const io = new IntersectionObserver((entries)=>{
+    const visible = entries
+      .filter(e=>e.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+
+    if(visible && visible.target && visible.target.id){
+      setActive(visible.target.id);
+    }
+  }, { threshold:[0.2,0.35,0.5,0.65] });
+
+  targets.forEach(t=>{
+    if(t.id) io.observe(t);
+  });
+})();
+</script>
+
+<!-- ===================== INDUSTRIAL MANUFACTURING — HERO + INTRO (VIDEO + GREEN CARD) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    /* agreed brand colours */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --white:#ffffff;
+
+    /* intro card */
+    --intro-green:#7C1F66;
+  }
+
+  .im-hero, .im-hero *{box-sizing:border-box;}
+
+  /* ================= HERO (WHITE) ================= */
+  .im-hero{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#fff;
+    padding:86px 20px 34px;
+  }
+
+  .im-hero__inner{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+    gap:44px;
+    align-items:center;
+  }
+
+  .im-hero__kicker{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:800;
+    margin:0 0 12px;
+  }
+
+  .im-hero__title{
+    margin:0 0 14px;
+    font-size:clamp(34px,4.2vw,56px);
+    line-height:1.08;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .im-hero__p{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.78;
+    color:var(--muted);
+    max-width:900px;
+  }
+  .im-hero__p + .im-hero__p{margin-top:14px;}
+
+  /* ================= RIGHT VIDEO ================= */
+  .im-hero__visual{
+    position:relative;
+    border-radius:22px;
+    overflow:hidden;
+    min-height:320px;
+    border:1px solid var(--line);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    background:#000;
+  }
+
+  .im-hero__video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .im-hero__badge{
+    position:absolute;
+    left:16px;
+    top:16px;
+    z-index:2;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:9px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(8px);
+    font-size:12px;
+    font-weight:800;
+    color:var(--navy);
+  }
+
+  .im-hero__dot{
+    width:10px;height:10px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(98,90,216,.12);
+  }
+
+  /* ================= INTRO CARD (GREEN, LIKE PREVIOUS PAGE) ================= */
+  .im-intro, .im-intro *{box-sizing:border-box;}
+  .im-intro{
+    padding:0 20px 86px;
+    background:#fff;
+  }
+
+  .im-intro__inner{
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  .im-intro__card{
+    background:var(--intro-green);
+    border-radius:22px;
+    padding:28px 28px;
+  }
+
+  .im-intro__text{
+    margin:0;
+    font-size:16px;
+    line-height:1.78;
+    font-weight:600;
+    color:#ffffff;
+    max-width:1100px;
+  }
+
+  @media (max-width:980px){
+    .im-hero{padding:74px 18px 24px;}
+    .im-hero__inner{grid-template-columns:1fr; gap:22px;}
+    .im-hero__visual{min-height:240px;}
+    .im-intro{padding:0 18px 74px;}
+  }
+</style>
+
+<!-- ================= HERO ================= -->
+<section class="im-hero" id="industrial-hero">
+  <div class="im-hero__inner">
+
+    <!-- LEFT CONTENT -->
+    <div>
+      <div class="im-hero__kicker">
+        Industrial Manufacturing Sector – Industry Solutions &amp; Transformation Services
+      </div>
+
+      <h1 class="im-hero__title">
+        Building Industrial Manufacturing Enterprises That Compete on Cost, Quality, and Reliability
+      </h1>
+
+      <p class="im-hero__p">
+        Industrial Manufacturing organisations are operating in an environment of sustained pressure—volatile demand, rising input costs, supply chain disruptions, workforce constraints, and accelerating expectations around productivity, quality, and sustainability.
+      </p>
+
+      <p class="im-hero__p">
+        At the same time, manufacturers are expected to modernise operations, digitise plants, and improve margins without compromising safety or delivery performance.
+      </p>
+    </div>
+
+    <!-- RIGHT VIDEO -->
+    <div class="im-hero__visual">
+      <div class="im-hero__badge">
+        <span class="im-hero__dot"></span>
+        Shopfloor → Value Chain
+      </div>
+
+      <!-- 🔁 CHANGE VIDEO URL HERE -->
+      <video class="im-hero__video" autoplay muted loop playsinline>
+        <source src="https://YOUR-VIDEO-URL-HERE.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= GREEN INTRO CARD ================= -->
+<section class="im-intro" id="industrial-intro">
+  <div class="im-intro__inner">
+    <div class="im-intro__card">
+      <p class="im-intro__text">
+        We partner with industrial manufacturers to convert complex, asset-heavy operations into stable, high-performing systems, and strategic intent into predictable execution on the shopfloor and across the value chain. Our integrated approach—spanning strategy, operations, digital enablement, governance, and capability building—helps manufacturers build a competitive advantage that is resilient and scalable.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INDUSTRIAL MANUFACTURING — KEY CHALLENGES (PREMIUM INTERACTIVE) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    /* brand */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    /* neutrals */
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --card:#fff;
+  }
+
+  .imc, .imc *{box-sizing:border-box;}
+  .imc{
+    position:relative;
+    padding:96px 20px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+
+    /* ✅ premium subtle background (same family you liked) */
+    background:
+      radial-gradient(circle at 18% 0%, rgba(98,90,216,.08), transparent 55%),
+      radial-gradient(circle at 95% 28%, rgba(31,156,228,.07), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+      rgba(49,59,134,.03);
+    overflow:hidden;
+  }
+
+  .imc__inner{
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  /* header */
+  .imc__head{
+    display:grid;
+    grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr);
+    gap:34px;
+    align-items:end;
+    margin-bottom:26px;
+  }
+
+  .imc__eyebrow{
+    margin:0 0 10px;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:800;
+  }
+
+  .imc__title{
+    margin:0;
+    font-size:clamp(32px,3.8vw,46px);
+    line-height:1.12;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .imc__sub{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.78;
+    color:var(--muted);
+    max-width:860px;
+  }
+
+  /* layout */
+  .imc__wrap{
+    display:grid;
+    grid-template-columns:minmax(0, .42fr) minmax(0, .58fr);
+    gap:26px;
+    align-items:stretch;
+  }
+
+  /* left selector rail */
+  .imc__rail{
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:rgba(255,255,255,.90);
+    backdrop-filter:blur(8px);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .imc__railTop{
+    padding:16px 16px 14px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .imc__railTop b{
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--navy);
+  }
+  .imc__pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    padding:7px 10px;
+    border-radius:999px;
+    border:1px solid rgba(98,90,216,.22);
+    background:rgba(98,90,216,.06);
+    color:var(--indigo);
+    font-weight:800;
+    white-space:nowrap;
+  }
+  .imc__pill i{
+    width:8px;height:8px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(31,156,228,.10);
+    display:inline-block;
+  }
+
+  .imc__item{
+    width:100%;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    padding:16px 16px;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    text-align:left;
+    border-bottom:1px solid rgba(49,59,134,.10);
+    transition:background .18s ease;
+  }
+  .imc__item:last-child{border-bottom:0;}
+  .imc__item:hover{background:rgba(49,59,134,.03);}
+
+  .imc__icon{
+    flex:0 0 auto;
+    width:42px;height:42px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(49,59,134,.05);
+    color:var(--indigo);
+    font-size:18px;
+  }
+
+  .imc__meta{min-width:0; flex:1;}
+  .imc__name{
+    margin:0;
+    font-weight:900;
+    color:var(--navy);
+    font-size:14.5px;
+    line-height:1.25;
+  }
+  .imc__peek{
+    margin:6px 0 0;
+    color:#505778;
+    font-size:13px;
+    line-height:1.55;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+
+  .imc__item.is-active{
+    background:linear-gradient(90deg, rgba(49,59,134,.10), rgba(98,90,216,.06));
+    position:relative;
+  }
+  .imc__item.is-active::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:4px;
+    background:linear-gradient(180deg,var(--accent),var(--violet));
+  }
+  .imc__item.is-active .imc__icon{
+    background:linear-gradient(135deg, rgba(31,156,228,.16), rgba(98,90,216,.10));
+    border-color:rgba(31,156,228,.26);
+  }
+
+  /* right detail panel */
+  .imc__panel{
+    height:100%;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .imc__panelTop{
+    padding:20px 20px 16px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.08), transparent 55%),
+      #fff;
+  }
+
+  .imc__panelKicker{
+    margin:0 0 8px;
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .imc__panelTitle{
+    margin:0;
+    font-size:22px;
+    line-height:1.2;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .imc__panelBody{
+    padding:16px 20px 20px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+
+  .imc__bullets{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:10px;
+  }
+  .imc__bullets li{
+    position:relative;
+    padding-left:18px;
+    color:#2E334D;
+    font-size:14.5px;
+    line-height:1.7;
+  }
+  .imc__bullets li::before{
+    content:"";
+    position:absolute;
+    left:0; top:.62em;
+    width:8px;height:8px;border-radius:999px;
+    background:var(--accent);
+    box-shadow:0 0 0 5px rgba(31,156,228,.10);
+  }
+
+  .imc__signal{
+    margin-top:auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    padding-top:14px;
+    border-top:1px solid rgba(49,59,134,.12);
+  }
+  .imc__chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(49,59,134,.04);
+    color:var(--indigo);
+    font-weight:900;
+    font-size:12px;
+    letter-spacing:.01em;
+    white-space:nowrap;
+  }
+  .imc__chip .dot{
+    width:8px;height:8px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+  }
+
+  /* animation: left in from left, right in from right */
+  .imc__rail, .imc__panel{
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .8s ease, transform .8s ease;
+    will-change:transform, opacity;
+  }
+  .imc__rail{ transform:translateX(-34px); }
+  .imc__panel{ transform:translateX(34px); }
+
+  .imc.is-in .imc__rail,
+  .imc.is-in .imc__panel{
+    opacity:1;
+    transform:translateX(0);
+  }
+
+  /* Elementor editor visibility */
+  .elementor-editor-active .imc .imc__rail,
+  .elementor-editor-active .imc .imc__panel,
+  .elementor-editor-preview .imc .imc__rail,
+  .elementor-editor-preview .imc .imc__panel{
+    opacity:1 !important;
+    transform:none !important;
+  }
+
+  /* responsive */
+  @media (max-width:980px){
+    .imc{padding:78px 18px;}
+    .imc__head{grid-template-columns:1fr; gap:14px;}
+    .imc__wrap{grid-template-columns:1fr; gap:16px;}
+  }
+</style>
+
+<section class="imc" id="im-key-challenges">
+  <div class="imc__inner">
+
+    <div class="imc__head">
+      <div>
+        <p class="imc__eyebrow">Industrial Manufacturing</p>
+        <h2 class="imc__title">Key Challenges</h2>
+      </div>
+      <p class="imc__sub">
+        Manufacturers are expected to modernise and improve margins while protecting safety, delivery performance, and quality.
+        Here are the critical pressure points we help solve.
+      </p>
+    </div>
+
+    <div class="imc__wrap">
+      <!-- LEFT SELECTOR -->
+      <div class="imc__rail" role="tablist" aria-label="Industrial manufacturing challenges">
+        <div class="imc__railTop">
+          <b>Challenges</b>
+          <span class="imc__pill"><i></i> Executive view</span>
+        </div>
+
+        <button class="imc__item is-active" type="button" role="tab" aria-selected="true" data-key="c1">
+          <div class="imc__icon">📉</div>
+          <div class="imc__meta">
+            <p class="imc__name">Growth, Demand Volatility &amp; Margin Pressure</p>
+            <p class="imc__peek">Cyclical demand, margin compression, and limited visibility into profitable segments.</p>
+          </div>
+        </button>
+
+        <button class="imc__item" type="button" role="tab" aria-selected="false" data-key="c2">
+          <div class="imc__icon">🏭</div>
+          <div class="imc__meta">
+            <p class="imc__name">Operational Inefficiencies &amp; Productivity Gaps</p>
+            <p class="imc__peek">Downtime, bottlenecks, variability in performance, and heavy firefighting.</p>
+          </div>
+        </button>
+
+        <button class="imc__item" type="button" role="tab" aria-selected="false" data-key="c3">
+          <div class="imc__icon">🚚</div>
+          <div class="imc__meta">
+            <p class="imc__name">Supply Chain &amp; Inventory Complexity</p>
+            <p class="imc__peek">Multi-tier risk, inventory imbalance, long lead times, and weak planning integration.</p>
+          </div>
+        </button>
+
+        <button class="imc__item" type="button" role="tab" aria-selected="false" data-key="c4">
+          <div class="imc__icon">🛡️</div>
+          <div class="imc__meta">
+            <p class="imc__name">Quality, Safety &amp; Compliance Challenges</p>
+            <p class="imc__peek">Defects and rework, safety risk, audits, and limited real-time visibility.</p>
+          </div>
+        </button>
+
+        <button class="imc__item" type="button" role="tab" aria-selected="false" data-key="c5">
+          <div class="imc__icon">🤖</div>
+          <div class="imc__meta">
+            <p class="imc__name">Digital &amp; Industry 4.0 Adoption Gaps</p>
+            <p class="imc__peek">Legacy systems, siloed data, slow scaling of automation and analytics.</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- RIGHT DETAIL -->
+      <aside class="imc__panel" role="tabpanel" aria-live="polite">
+        <div class="imc__panelTop">
+          <p class="imc__panelKicker">Challenge focus</p>
+          <h3 class="imc__panelTitle" id="imc-title">Growth, Demand Volatility &amp; Margin Pressure</h3>
+        </div>
+
+        <div class="imc__panelBody">
+          <ul class="imc__bullets" id="imc-bullets">
+            <li>Cyclical demand and unpredictable order patterns</li>
+            <li>Intense price competition and margin compression</li>
+            <li>Limited visibility into profitable product–customer segments</li>
+            <li>Capital constraints impacting expansion and modernisation</li>
+          </ul>
+
+          <div class="imc__signal" id="imc-signal">
+            <span class="imc__chip"><span class="dot"></span> Margin protection</span>
+            <span class="imc__chip"><span class="dot"></span> Better portfolio clarity</span>
+            <span class="imc__chip"><span class="dot"></span> Smarter capex choices</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    const root = document.getElementById('im-key-challenges');
+    if(!root) return;
+
+    const data = {
+      c1:{
+        title:"Growth, Demand Volatility & Margin Pressure",
+        bullets:[
+          "Cyclical demand and unpredictable order patterns",
+          "Intense price competition and margin compression",
+          "Limited visibility into profitable product–customer segments",
+          "Capital constraints impacting expansion and modernisation"
+        ],
+        chips:["Margin protection","Portfolio clarity","Capex prioritisation"]
+      },
+      c2:{
+        title:"Operational Inefficiencies & Productivity Gaps",
+        bullets:[
+          "High downtime, changeover losses, and unplanned stoppages",
+          "Inefficient layouts, material flow issues, and bottlenecks",
+          "Variability in process performance and output quality",
+          "Over-reliance on manual interventions and firefighting"
+        ],
+        chips:["OEE uplift","Stability & throughput","Less firefighting"]
+      },
+      c3:{
+        title:"Supply Chain & Inventory Complexity",
+        bullets:[
+          "Multi-tier supplier dependency with limited risk visibility",
+          "Excess inventory in some areas and shortages in others",
+          "Long lead times and unreliable delivery performance",
+          "Weak integration between planning, procurement, and production"
+        ],
+        chips:["Resilience","Inventory balance","On-time delivery"]
+      },
+      c4:{
+        title:"Quality, Safety & Compliance Challenges",
+        bullets:[
+          "High cost of defects, rework, and customer complaints",
+          "Safety risks in asset-intensive environments",
+          "Increasing compliance and audit requirements",
+          "Limited real-time visibility into quality and safety metrics"
+        ],
+        chips:["Right-first-time","Safer operations","Audit readiness"]
+      },
+      c5:{
+        title:"Digital & Industry 4.0 Adoption Gaps",
+        bullets:[
+          "Legacy systems across production, maintenance, and quality",
+          "Siloed data limiting decision-making and root cause analysis",
+          "Slow or pilot-only adoption of Industry 4.0 initiatives",
+          "Difficulty scaling automation and analytics across plants"
+        ],
+        chips:["Connected systems","Decision velocity","Scalable Industry 4.0"]
+      }
+    };
+
+    const buttons = Array.from(root.querySelectorAll('.imc__item'));
+    const titleEl = root.querySelector('#imc-title');
+    const bulletsEl = root.querySelector('#imc-bullets');
+    const signalEl = root.querySelector('#imc-signal');
+
+    function render(key){
+      const d = data[key];
+      if(!d) return;
+
+      titleEl.textContent = d.title;
+
+      bulletsEl.innerHTML = d.bullets.map(x => `<li>${x}</li>`).join("");
+
+      signalEl.innerHTML = d.chips.map(x =>
+        `<span class="imc__chip"><span class="dot"></span> ${x}</span>`
+      ).join("");
+    }
+
+    buttons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        buttons.forEach(b=>{
+          const on = (b === btn);
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        render(btn.getAttribute('data-key'));
+      });
+    });
+
+    // reveal animation (Elementor safe)
+    const isElementorEditor =
+      document.body.classList.contains('elementor-editor-active') ||
+      document.body.classList.contains('elementor-editor-preview') ||
+      !!document.querySelector('#elementor-editor-wrapper');
+
+    if(isElementorEditor){
+      root.classList.add('is-in');
+      return;
+    }
+
+    if(!('IntersectionObserver' in window)){
+      root.classList.add('is-in');
+      return;
+    }
+
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          root.classList.add('is-in');
+          io.disconnect();
+        }
+      });
+    }, {threshold:0.22});
+
+    io.observe(root);
+
+    // init default
+    render('c1');
+  })();
+</script>
+
+<!-- ===================== INDUSTRIAL MANUFACTURING — HOW WE HELP (WHITE BG + SLIDEABLE CAPABILITY DECK) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    /* brand */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    /* neutrals */
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --soft:rgba(49,59,134,.03);
+    --card:#fff;
+  }
+
+  .imh, .imh *{box-sizing:border-box;}
+  .imh{
+    padding:96px 20px;
+    background:#fff; /* ✅ white background as requested */
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    overflow:hidden;
+  }
+  .imh__inner{max-width:1200px; margin:0 auto;}
+
+  /* header */
+  .imh__head{
+    display:grid;
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+    gap:30px;
+    align-items:end;
+    margin-bottom:28px;
+  }
+  .imh__eyebrow{
+    margin:0 0 10px;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:800;
+  }
+  .imh__title{
+    margin:0;
+    font-size:clamp(32px,3.8vw,46px);
+    line-height:1.12;
+    font-weight:900;
+    color:var(--navy);
+  }
+  .imh__sub{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.78;
+    color:var(--muted);
+    max-width:920px;
+  }
+
+  /* layout: left narrative + right deck */
+  .imh__wrap{
+    display:grid;
+    grid-template-columns:minmax(0,.40fr) minmax(0,.60fr); /* ✅ left narrower, right wider */
+    gap:28px;
+    align-items:start;
+  }
+
+  /* left: compact “map” */
+  .imh__left{
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+  }
+  .imh__leftTop{
+    padding:16px 16px 14px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.08), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.06), transparent 55%),
+      #fff;
+  }
+  .imh__leftKicker{
+    margin:0 0 8px;
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+  .imh__leftTitle{
+    margin:0;
+    font-size:16px;
+    line-height:1.35;
+    font-weight:900;
+    color:var(--navy);
+  }
+  .imh__leftBody{
+    padding:14px 16px 16px;
+  }
+  .imh__note{
+    margin:0;
+    font-size:14.5px;
+    line-height:1.75;
+    color:var(--muted);
+  }
+  .imh__list{
+    margin:14px 0 0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:10px;
+  }
+  .imh__li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:10px 10px;
+    border-radius:14px;
+    border:1px solid rgba(49,59,134,.12);
+    background:rgba(49,59,134,.02);
+  }
+  .imh__liDot{
+    width:10px;height:10px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(31,156,228,.10);
+    margin-top:.38em;
+    flex:0 0 auto;
+  }
+  .imh__liText{
+    margin:0;
+    font-size:13.5px;
+    line-height:1.55;
+    color:#2E334D;
+  }
+
+  /* right: slideable capability deck */
+  .imh__right{
+    position:relative;
+    min-width:0;
+  }
+
+  .imhDeck{
+    position:relative;
+    border-radius:18px;
+    border:1px solid var(--line);
+    background:var(--card);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+  }
+
+  .imhDeck__top{
+    padding:16px 16px 14px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.08), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.06), transparent 55%),
+      #fff;
+  }
+  .imhDeck__top b{
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--navy);
+  }
+  .imhDeck__ctrl{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .imhBtn{
+    width:38px;height:38px;
+    border-radius:14px;
+    border:1px solid rgba(49,59,134,.16);
+    background:#fff;
+    color:var(--indigo);
+    font-weight:900;
+    cursor:pointer;
+    transition:.18s ease;
+    display:grid;
+    place-items:center;
+  }
+  .imhBtn:hover{transform:translateY(-1px); background:rgba(49,59,134,.03);}
+  .imhBtn:disabled{opacity:.45; cursor:not-allowed; transform:none;}
+
+  /* viewport + track */
+  .imhViewport{
+    padding:16px 0 18px;
+    overflow:hidden; /* show peeks via padding on track, not overflow */
+  }
+
+  .imhTrack{
+    display:flex;
+    gap:16px;                 /* ✅ spacing between cards (no tight stacking) */
+    padding:0 18px;           /* ✅ creates “glimpse” space at sides */
+    will-change:transform;
+    transition:transform .35s ease;
+  }
+
+  /* Each slide is slightly narrower so neighbors peek */
+  .imhSlide{
+    flex:0 0 calc(100% - 92px); /* ✅ active card not full width, shows prev/next peek */
+    min-width:0;
+    border:1px solid rgba(49,59,134,.14);
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 16px 34px rgba(0,0,0,.05);
+    overflow:hidden;
+    position:relative;
+  }
+
+  .imhSlide::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; right:0;
+    height:4px;
+    background:linear-gradient(90deg, var(--violet), var(--accent));
+  }
+
+  .imhSlide__in{padding:18px 18px 16px;}
+
+  .imhSlide__row{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:10px;
+  }
+
+  .imhSlide__kicker{
+    margin:0 0 4px;
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+  .imhSlide__title{
+    margin:0;
+    font-size:18px;
+    line-height:1.25;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .imhBadge{
+    flex:0 0 auto;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:#fff;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:var(--navy);
+    font-weight:900;
+    font-size:13px;
+    white-space:nowrap;
+  }
+  .imhBadgeDot{
+    width:9px;height:9px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 6px rgba(31,156,228,.10);
+  }
+
+  .imhSlide__label{
+    margin:12px 0 8px;
+    font-size:14px;
+    color:var(--ink);
+    font-weight:800;
+  }
+
+  .imhSlide__list{
+    margin:0;
+    padding-left:18px;
+  }
+  .imhSlide__list li{
+    margin:0 0 7px;
+    font-size:14.5px;
+    line-height:1.65;
+    color:#2E334D;
+  }
+
+  .imhSlide__impact{
+    margin-top:14px;
+    padding:12px 12px;
+    border-radius:14px;
+    border:1px solid rgba(49,59,134,.12);
+    background:rgba(49,59,134,.03);
+    border-left:4px solid var(--accent);
+    font-size:14.5px;
+    line-height:1.7;
+    color:#3C4160;
+  }
+  .imhSlide__impact b{color:var(--navy);}
+
+  /* Optional: 1–2 line readable preview on peeks */
+  .imhSlide__peek{
+    margin:10px 0 0;
+    font-size:13.5px;
+    line-height:1.55;
+    color:#505778;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    opacity:.9;
+  }
+
+  /* Left/right reveal animation */
+  .imh__left, .imh__right{
+    opacity:0;
+    transform:translateY(12px);
+    transition:opacity .8s ease, transform .8s ease;
+    will-change:transform, opacity;
+  }
+  .imh__left{ transform:translateX(-34px); }
+  .imh__right{ transform:translateX(34px); }
+  .imh.is-in .imh__left,
+  .imh.is-in .imh__right{
+    opacity:1;
+    transform:translateX(0);
+  }
+
+  /* Elementor editor: visible */
+  .elementor-editor-active .imh .imh__left,
+  .elementor-editor-active .imh .imh__right,
+  .elementor-editor-preview .imh .imh__left,
+  .elementor-editor-preview .imh .imh__right{
+    opacity:1 !important;
+    transform:none !important;
+  }
+
+  @media (max-width:980px){
+    .imh{padding:78px 18px;}
+    .imh__head{grid-template-columns:1fr; gap:14px;}
+    .imh__wrap{grid-template-columns:1fr; gap:16px;}
+    .imhSlide{flex-basis:calc(100% - 54px);}
+    .imhTrack{padding:0 14px;}
+  }
+</style>
+
+<section class="imh" id="im-how-we-help">
+  <div class="imh__inner">
+
+    <div class="imh__head">
+      <div>
+        <p class="imh__eyebrow">Industrial Manufacturing</p>
+        <h2 class="imh__title">How We Help the Industrial Manufacturing Sector</h2>
+      </div>
+      <p class="imh__sub">
+        A practical, execution-focused approach across strategy, operations, digital enablement, governance, and capability building—designed for asset-heavy environments.
+      </p>
+    </div>
+
+    <div class="imh__wrap">
+      <!-- LEFT (narrow map) -->
+      <aside class="imh__left" aria-label="Summary">
+        <div class="imh__leftTop">
+          <p class="imh__leftKicker">What you get</p>
+          <h3 class="imh__leftTitle">End-to-end transformation, built for shopfloor reality</h3>
+        </div>
+        <div class="imh__leftBody">
+          <p class="imh__note">
+            Select a capability on the right to see <b>how we support</b> and the <b>impact</b> you can expect.
+          </p>
+          <ul class="imh__list">
+            <li class="imh__li"><span class="imh__liDot"></span><p class="imh__liText">Execution-ready strategies tied to capacity and margin levers</p></li>
+            <li class="imh__li"><span class="imh__liDot"></span><p class="imh__liText">Operational stability, flow, and productivity programs</p></li>
+            <li class="imh__li"><span class="imh__liDot"></span><p class="imh__liText">Scalable digital enablement (Industry 4.0, IT/OT, analytics)</p></li>
+            <li class="imh__li"><span class="imh__liDot"></span><p class="imh__liText">Sustainability and responsible manufacturing outcomes</p></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- RIGHT (slide deck) -->
+      <div class="imh__right">
+        <div class="imhDeck">
+          <div class="imhDeck__top">
+            <b>Capabilities</b>
+            <div class="imhDeck__ctrl">
+              <button class="imhBtn" type="button" id="imh-prev" aria-label="Previous">‹</button>
+              <button class="imhBtn" type="button" id="imh-next" aria-label="Next">›</button>
+            </div>
+          </div>
+
+          <div class="imhViewport" aria-live="polite">
+            <div class="imhTrack" id="imh-track">
+              <!-- Slide 1 -->
+              <article class="imhSlide" data-i="0">
+                <div class="imhSlide__in">
+                  <div class="imhSlide__row">
+                    <div>
+                      <p class="imhSlide__kicker">01 · Growth &amp; Strategy</p>
+                      <h3 class="imhSlide__title">Building Competitive Manufacturing Enterprises</h3>
+                    </div>
+                    <div class="imhBadge"><span class="imhBadgeDot"></span>01</div>
+                  </div>
+
+                  <div class="imhSlide__label">We help manufacturers define clear, execution-ready strategies aligned to market demand, cost competitiveness, and capacity realities.</div>
+                  <div class="imhSlide__label">How we support manufacturers:</div>
+                  <ul class="imhSlide__list">
+                    <li>Enterprise and business-unit strategy formulation</li>
+                    <li>Product–market and capacity strategy</li>
+                    <li>Footprint rationalisation and make–buy decisions</li>
+                    <li>Capital productivity and investment prioritisation</li>
+                    <li>Strategy execution governance and PMO enablement</li>
+                  </ul>
+
+                  <div class="imhSlide__impact"><b>Impact for Manufacturing:</b> Sharper strategic focus, better capital allocation, and sustainable margin improvement.</div>
+                  <div class="imhSlide__peek">Preview: Strategy translated into a practical execution cadence—prioritised investments, clear ownership, and measurable margin levers.</div>
+                </div>
+              </article>
+
+              <!-- Slide 2 -->
+              <article class="imhSlide" data-i="1">
+                <div class="imhSlide__in">
+                  <div class="imhSlide__row">
+                    <div>
+                      <p class="imhSlide__kicker">02 · Shared Services &amp; GCC Excellence</p>
+                      <h3 class="imhSlide__title">Scaling Manufacturing Operations</h3>
+                    </div>
+                    <div class="imhBadge"><span class="imhBadgeDot"></span>02</div>
+                  </div>
+
+                  <div class="imhSlide__label">Manufacturers are increasingly centralising support functions to improve efficiency and control.</div>
+                  <div class="imhSlide__label">We help with:</div>
+                  <ul class="imhSlide__list">
+                    <li>Shared services and GCC operating model design</li>
+                    <li>Centralisation of finance, procurement, planning, and analytics</li>
+                    <li>Governance frameworks, KPIs, and service management</li>
+                    <li>Capability development for manufacturing leaders</li>
+                  </ul>
+
+                  <div class="imhSlide__impact"><b>Impact:</b> Standardised processes, lower overheads, and improved enterprise visibility.</div>
+                  <div class="imhSlide__peek">Preview: Clear service ownership, measurable SLAs, and cleaner enterprise dashboards for faster decision-making.</div>
+                </div>
+              </article>
+
+              <!-- Slide 3 -->
+              <article class="imhSlide" data-i="2">
+                <div class="imhSlide__in">
+                  <div class="imhSlide__row">
+                    <div>
+                      <p class="imhSlide__kicker">03 · Tech-Enabled Transformation</p>
+                      <h3 class="imhSlide__title">Digitising the Factory and Value Chain</h3>
+                    </div>
+                    <div class="imhBadge"><span class="imhBadgeDot"></span>03</div>
+                  </div>
+
+                  <div class="imhSlide__label">We enable practical, scalable digital transformation that strengthens productivity, reliability, and decision-making.</div>
+                  <div class="imhSlide__label">Where we support:</div>
+                  <ul class="imhSlide__list">
+                    <li>Industry 4.0 and smart factory roadmaps</li>
+                    <li>Connected shopfloor and real-time performance monitoring</li>
+                    <li>Predictive maintenance and reliability analytics</li>
+                    <li>Automation of production planning, quality, and maintenance workflows</li>
+                    <li>IT/OT integration and data platform modernisation</li>
+                  </ul>
+
+                  <div class="imhSlide__impact"><b>Impact:</b> Higher OEE, reduced downtime, faster decisions, and improved throughput.</div>
+                  <div class="imhSlide__peek">Preview: One performance truth—fewer manual reports, faster root-cause, and scalable plant-to-plant rollouts.</div>
+                </div>
+              </article>
+
+              <!-- Slide 4 -->
+              <article class="imhSlide" data-i="3">
+                <div class="imhSlide__in">
+                  <div class="imhSlide__row">
+                    <div>
+                      <p class="imhSlide__kicker">04 · ESG, Sustainability &amp; Responsible Manufacturing</p>
+                      <h3 class="imhSlide__title">Sustainability as a Competitiveness Lever</h3>
+                    </div>
+                    <div class="imhBadge"><span class="imhBadgeDot"></span>04</div>
+                  </div>
+
+                  <div class="imhSlide__label">Sustainability is now a core determinant of competitiveness in industrial manufacturing.</div>
+                  <div class="imhSlide__label">Our support includes:</div>
+                  <ul class="imhSlide__list">
+                    <li>ESG strategy and manufacturing sustainability roadmaps</li>
+                    <li>Energy, emissions, and resource optimisation</li>
+                    <li>Waste reduction and circular manufacturing initiatives</li>
+                    <li>ESG reporting, compliance, and assurance</li>
+                    <li>Supplier sustainability and responsible sourcing frameworks</li>
+                  </ul>
+
+                  <div class="imhSlide__impact"><b>Impact:</b> Lower environmental footprint, improved compliance, and stronger stakeholder trust.</div>
+                  <div class="imhSlide__peek">Preview: Practical initiatives tied to plant economics—reduced energy intensity and stronger audit-ready reporting.</div>
+                </div>
+              </article>
+
+              <!-- Slide 5 -->
+              <article class="imhSlide" data-i="4">
+                <div class="imhSlide__in">
+                  <div class="imhSlide__row">
+                    <div>
+                      <p class="imhSlide__kicker">05 · Business Process &amp; Operational Excellence</p>
+                      <h3 class="imhSlide__title">Creating Stable Manufacturing Systems</h3>
+                    </div>
+                    <div class="imhBadge"><span class="imhBadgeDot"></span>05</div>
+                  </div>
+
+                  <div class="imhSlide__label">Industrial manufacturing success depends on process discipline, flow, and stability.</div>
+                  <div class="imhSlide__label">Our services include:</div>
+                  <ul class="imhSlide__list">
+                    <li>Lean transformation across plants and value streams</li>
+                    <li>Value stream mapping from order to delivery</li>
+                    <li>Cost optimisation and productivity improvement programs</li>
+                    <li>Target operating model (TOM) design</li>
+                    <li>Standardisation of processes across plants and geographies</li>
+                  </ul>
+
+                  <div class="imhSlide__impact"><b>Impact:</b> Reduced variability, lower costs, improved quality, and predictable delivery performance.</div>
+                  <div class="imhSlide__peek">Preview: Flow and stability first—lower variation, fewer disruptions, and predictable output week over week.</div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    const root = document.getElementById('im-how-we-help');
+    if(!root) return;
+
+    const track = root.querySelector('#imh-track');
+    const slides = Array.from(root.querySelectorAll('.imhSlide'));
+    const prevBtn = root.querySelector('#imh-prev');
+    const nextBtn = root.querySelector('#imh-next');
+
+    let index = 0;
+
+    function clamp(n,min,max){ return Math.max(min, Math.min(max,n)); }
+
+    function update(){
+      // slide width includes gap; compute from first slide
+      const slide = slides[0];
+      const slideW = slide.getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(track).gap || "16");
+
+      // Move track so active slide is centered-ish with peeks visible
+      const offset = (slideW + gap) * index;
+      track.style.transform = `translateX(${-offset}px)`;
+
+      prevBtn.disabled = (index === 0);
+      nextBtn.disabled = (index === slides.length - 1);
+    }
+
+    prevBtn.addEventListener('click', ()=>{
+      index = clamp(index - 1, 0, slides.length - 1);
+      update();
+    });
+
+    nextBtn.addEventListener('click', ()=>{
+      index = clamp(index + 1, 0, slides.length - 1);
+      update();
+    });
+
+    // touch / drag
+    let startX = null;
+    let startT = 0;
+
+    function onDown(e){
+      startX = (e.touches ? e.touches[0].clientX : e.clientX);
+      const m = getComputedStyle(track).transform;
+      startT = m && m !== "none" ? new DOMMatrixReadOnly(m).m41 : 0;
+      track.style.transition = "none";
+    }
+    function onMove(e){
+      if(startX === null) return;
+      const x = (e.touches ? e.touches[0].clientX : e.clientX);
+      const dx = x - startX;
+      track.style.transform = `translateX(${startT + dx}px)`;
+    }
+    function onUp(e){
+      if(startX === null) return;
+
+      track.style.transition = "transform .35s ease";
+
+      const slideW = slides[0].getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(track).gap || "16");
+      const step = slideW + gap;
+
+      const m = getComputedStyle(track).transform;
+      const cur = m && m !== "none" ? new DOMMatrixReadOnly(m).m41 : 0;
+
+      index = clamp(Math.round(Math.abs(cur) / step), 0, slides.length - 1);
+
+      startX = null;
+      update();
+    }
+
+    track.addEventListener('mousedown', onDown);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+
+    track.addEventListener('touchstart', onDown, {passive:true});
+    track.addEventListener('touchmove', onMove, {passive:true});
+    track.addEventListener('touchend', onUp);
+
+    // reveal left/right when section enters viewport (Elementor safe)
+    const isElementorEditor =
+      document.body.classList.contains('elementor-editor-active') ||
+      document.body.classList.contains('elementor-editor-preview') ||
+      !!document.querySelector('#elementor-editor-wrapper');
+
+    function show(){ root.classList.add('is-in'); }
+
+    if(isElementorEditor || !('IntersectionObserver' in window)){
+      show();
+    }else{
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(ent=>{
+          if(ent.isIntersecting){
+            show();
+            io.disconnect();
+          }
+        });
+      }, {threshold:0.18});
+      io.observe(root);
+      setTimeout(()=>{ if(!root.classList.contains('is-in')) show(); }, 1200);
+    }
+
+    // init
+    window.addEventListener('load', update);
+    window.addEventListener('resize', ()=>{ track.style.transition="none"; update(); setTimeout(()=>track.style.transition="transform .35s ease", 0); });
+  })();
+</script>
+
+<!-- ===================== INDUSTRIAL MANUFACTURING — WHY WORK WITH US (IMAGE LEFT) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#3C4160;
+}
+
+/* SECTION */
+.imw, .imw *{box-sizing:border-box;}
+.imw{
+  padding:96px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(98,90,216,.08), transparent 55%),
+    radial-gradient(circle at 95% 30%, rgba(49,59,134,.08), transparent 55%),
+    radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+    rgba(49,59,134,.03);
+}
+
+.imw__inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr; /* image slightly wider */
+  gap:44px;
+  align-items:stretch; /* critical for equal height */
+}
+
+/* IMAGE COLUMN */
+.imw__imageWrap{
+  position:relative;
+  border-radius:26px;
+  overflow:hidden;
+  min-height:460px;
+  box-shadow:0 22px 54px rgba(0,0,0,.10);
+}
+
+.imw__imageWrap img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover; /* ✅ full image, no white gap */
+  display:block;
+}
+
+/* subtle brand overlay */
+.imw__imageWrap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(2,12,79,.18), rgba(2,12,79,.08) 55%, rgba(255,255,255,0) 100%),
+    radial-gradient(circle at 20% 20%, rgba(98,90,216,.20), transparent 60%),
+    radial-gradient(circle at 80% 35%, rgba(31,156,228,.16), transparent 60%);
+  pointer-events:none;
+}
+
+/* CONTENT COLUMN */
+.imw__content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.imw__eyebrow{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:800;
+  margin:0 0 10px;
+}
+
+.imw__title{
+  font-size:clamp(32px,3.6vw,46px);
+  line-height:1.1;
+  font-weight:900;
+  color:var(--navy);
+  margin:0 0 18px;
+}
+
+/* MANIFESTO LIST */
+.imw__list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:18px;
+  position:relative;
+}
+
+/* vertical guide */
+.imw__list::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  top:6px;
+  bottom:6px;
+  width:2px;
+  background:linear-gradient(180deg, rgba(98,90,216,.45), rgba(31,156,228,.35));
+  opacity:.6;
+}
+
+.imw__item{
+  position:relative;
+  padding-left:46px;
+}
+
+.imw__dot{
+  position:absolute;
+  left:6px;
+  top:4px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid rgba(49,59,134,.25);
+}
+
+.imw__dot::after{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.12);
+}
+
+.imw__h{
+  margin:0 0 4px;
+  font-size:16px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+.imw__p{
+  margin:0;
+  font-size:14.8px;
+  line-height:1.75;
+  color:#3C4160;
+}
+
+/* MOBILE */
+@media(max-width:980px){
+  .imw{padding:78px 18px;}
+  .imw__inner{grid-template-columns:1fr; gap:26px;}
+  .imw__imageWrap{min-height:260px;}
+  .imw__list::before{left:12px;}
+}
+</style>
+
+<section class="imw" id="industrial-why">
+  <div class="imw__inner">
+
+    <!-- IMAGE LEFT -->
+    <div class="imw__imageWrap">
+      <img
+        src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg"
+        alt="Industrial manufacturing transformation"
+      />
+    </div>
+
+    <!-- CONTENT RIGHT -->
+    <div class="imw__content">
+      <p class="imw__eyebrow">Industrial Manufacturing</p>
+      <h2 class="imw__title">Why Industrial Manufacturers Work With Us</h2>
+
+      <ul class="imw__list">
+        <li class="imw__item">
+          <span class="imw__dot"></span>
+          <p class="imw__h">Strategy and Execution as One System</p>
+          <p class="imw__p">We align strategic choices with shopfloor realities.</p>
+        </li>
+
+        <li class="imw__item">
+          <span class="imw__dot"></span>
+          <p class="imw__h">Deep Understanding of Asset-Intensive Environments</p>
+          <p class="imw__p">Designed for safety, reliability, and scale.</p>
+        </li>
+
+        <li class="imw__item">
+          <span class="imw__dot"></span>
+          <p class="imw__h">Digital That Improves Flow, Not Complexity</p>
+          <p class="imw__p">Technology that stabilises operations and enhances decisions.</p>
+        </li>
+
+        <li class="imw__item">
+          <span class="imw__dot"></span>
+          <p class="imw__h">Integrated, Proven Methodologies</p>
+          <p class="imw__p">Strategy, Lean, Industry 4.0, analytics, TOM, ESG, and change—together.</p>
+        </li>
+
+        <li class="imw__item">
+          <span class="imw__dot"></span>
+          <p class="imw__h">Measurable, Sustained Outcomes</p>
+          <p class="imw__p">Every engagement tied to productivity, cost, quality, or delivery metrics.</p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== INDUSTRIAL MANUFACTURING — FINAL CTA (PREMIUM STRIP) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#3C4160;
+  --line:rgba(49,59,134,.16);
+}
+
+.im-cta, .im-cta *{box-sizing:border-box;}
+.im-cta{
+  padding:84px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(98,90,216,.08), transparent 55%),
+    radial-gradient(circle at 95% 30%, rgba(49,59,134,.08), transparent 55%),
+    radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+    rgba(49,59,134,.03);
+}
+
+.im-cta__inner{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.im-cta__bar{
+  border:1px solid rgba(49,59,134,.16);
+  border-radius:26px;
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(10px);
+  box-shadow:0 22px 54px rgba(0,0,0,.08);
+  padding:28px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+}
+
+.im-cta__left{
+  min-width:0;
+  max-width:820px;
+}
+
+.im-cta__kicker{
+  margin:0 0 10px;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:800;
+}
+
+.im-cta__title{
+  margin:0 0 10px;
+  font-size:clamp(26px,3.2vw,38px);
+  line-height:1.15;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.im-cta__text{
+  margin:0;
+  font-size:15.5px;
+  line-height:1.75;
+  color:var(--muted);
+}
+
+.im-cta__right{
+  flex:0 0 auto;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.im-cta__btn{
+  height:46px;
+  padding:0 18px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:14px;
+  font-weight:800;
+  text-decoration:none;
+  transition:.2s ease;
+  white-space:nowrap;
+}
+
+.im-cta__btn--primary{
+  background:var(--violet);
+  color:#fff;
+  border:1px solid var(--violet);
+  box-shadow:0 12px 26px rgba(98,90,216,.22);
+}
+.im-cta__btn--primary:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  transform:translateY(-1px);
+}
+
+.im-cta__btn--ghost{
+  background:#fff;
+  color:var(--navy);
+  border:1px solid rgba(49,59,134,.22);
+}
+.im-cta__btn--ghost:hover{
+  background:rgba(49,59,134,.04);
+  transform:translateY(-1px);
+}
+
+/* small “signal” pill */
+.im-cta__pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 12px;
+  border-radius:999px;
+  border:1px solid rgba(49,59,134,.18);
+  background:rgba(49,59,134,.04);
+  color:var(--indigo);
+  font-weight:800;
+  font-size:12px;
+  margin-top:14px;
+}
+.im-cta__dot{
+  width:9px;height:9px;border-radius:999px;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.10);
+}
+
+@media (max-width:980px){
+  .im-cta{padding:70px 18px;}
+  .im-cta__bar{padding:22px; flex-direction:column; align-items:flex-start;}
+  .im-cta__right{justify-content:flex-start;}
+}
+</style>
+
+<section class="im-cta" id="industrial-cta">
+  <div class="im-cta__inner">
+
+    <div class="im-cta__bar">
+      <div class="im-cta__left">
+        <p class="im-cta__kicker">Next steps</p>
+        <h2 class="im-cta__title">Let’s Build the Next-Generation Industrial Manufacturing Enterprise</h2>
+        <p class="im-cta__text">
+          From strategy and shared services to digital enablement, ESG, and operational excellence, we partner with industrial manufacturers to build operations that are competitive, resilient, and built to last.
+        </p>
+
+        <div class="im-cta__pill"><span class="im-cta__dot" aria-hidden="true"></span> Strategy • Ops • Digital • ESG</div>
+      </div>
+
+      <div class="im-cta__right">
+        <a class="im-cta__btn im-cta__btn--ghost" href="#contact">Talk to us</a>
+        <a class="im-cta__btn im-cta__btn--primary" href="#contact">Request a consultation →</a>
+      </div>
+    </div>
+
+  </div>
+</section>

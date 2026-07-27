@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
+import { redirects as redirectMap } from "./src/content/site";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return redirectMap;
+  },
 };
 
 export default nextConfig;

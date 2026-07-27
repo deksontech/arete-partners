@@ -1,0 +1,1531 @@
+<!-- ===================== SERVICES — OPERATIONAL EXCELLENCE (INFOGRAPHIC – FIXED SPINE GAPS + MOBILE OPTIMIZED) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    /* brand colours */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --line2:rgba(49,59,134,.18);
+    --card:#ffffff;
+
+    /* widened max width */
+    --max:1320px;
+
+    /* header height for aligning spine */
+    --colHeadH: 36px;
+
+    /* how far connectors travel horizontally */
+    --connector: 70px;
+  }
+
+  .gtInf, .gtInf *{ box-sizing:border-box; }
+
+  /* ✅ stop any horizontal scroll caused by long words / grid / pills */
+  .gtInf{ overflow-x:hidden; }
+
+  .gtInf{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:#fff;
+    padding:86px 20px 78px;
+  }
+
+  .gtInf__inner{ max-width:var(--max); margin:0 auto; }
+
+  /* ---------- Header ---------- */
+  .gtInf__kicker{
+    margin:0 0 10px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+  .gtInf__title{
+    margin:0 0 10px;
+    font-size:clamp(34px,4.2vw,54px);
+    line-height:1.06;
+    font-weight:950;
+    color:var(--navy);
+    max-width:980px;
+  }
+  .gtInf__sub{
+    margin:0 0 22px;
+    font-size:15.5px;
+    line-height:1.8;
+    color:var(--muted);
+    max-width:980px;
+  }
+
+  /* ---------- Shell ---------- */
+  .gtInf__frame{
+    border:1px solid rgba(49,59,134,.16);
+    border-radius:26px;
+    background:rgba(255,255,255,.98);
+    box-shadow:0 18px 46px rgba(0,0,0,.06);
+    overflow:hidden; /* keeps desktop clean */
+  }
+
+  /* top helper bar */
+  .gtInf__bar{
+    padding:14px 16px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.10), transparent 55%),
+      #fff;
+  }
+  .gtInf__badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(49,59,134,.03);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+  }
+  .gtInf__badgeDot{
+    width:9px;height:9px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 6px rgba(31,156,228,.10);
+  }
+  .gtInf__barRight{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.14);
+    background:#fff;
+    color:var(--indigo);
+    font-size:11.5px;
+    font-weight:900;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+
+  /* ---------- 2-column infographic body with spine ---------- */
+  .gtInf__body{
+    position:relative;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 160px minmax(0,1fr);
+    gap:0;
+    align-items:stretch;
+    padding:22px 26px 22px;
+  }
+
+  /* header row auto, 3 cards equal height */
+  .gtInf__col{
+    min-width:0;
+    display:grid;
+    grid-template-rows:auto repeat(3,1fr);
+    row-gap:22px; /* vertical space between header and cards, and between cards */
+  }
+
+  .gtInf__col--left{ padding-right:14px; }
+  .gtInf__col--right{ padding-left:14px; }
+
+  .gtInf__colHead{
+    min-height:auto;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:10px;
+    padding:2px 4px 0;
+  }
+  .gtInf__colTitle{
+    margin:0;
+    font-size:13px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:950;
+  }
+  .gtInf__colNote{
+    margin:0;
+    font-size:12.5px;
+    color:#5B6282;
+    font-weight:700;
+    white-space:nowrap;
+  }
+
+  .gtInf__group{
+    position:relative;
+    border:1px solid rgba(49,59,134,.14);
+    border-radius:18px;
+    background:#fff;
+    padding:18px 16px 20px; /* more internal space */
+    box-shadow:0 10px 26px rgba(0,0,0,.04);
+    height:100%; /* stretch inside column grid */
+  }
+
+  .gtInf__groupKicker{
+    margin:0 0 6px;
+    font-size:11.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .gtInf__groupTitle{
+    margin:0 0 10px;
+    font-size:15.5px;
+    line-height:1.25;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .gtInf__list{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:10px;
+  }
+  .gtInf__li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:14.2px;
+    line-height:1.65;
+    color:#2E334D;
+  }
+
+  /* clean, consistent icon for all bullets */
+  .gtInf__dot{
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    margin-top:7px;
+    flex:0 0 auto;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    outline:3px solid rgba(31,156,228,.12);
+  }
+
+  /* ---------- Spine (desktop, absolute labels) ---------- */
+  .gtInf__spine{ position:relative; }
+
+  .gtInf__spineLine{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top:var(--colHeadH);
+    bottom:0;
+    width:4px;
+    border-radius:999px;
+    background:linear-gradient(180deg,var(--accent),var(--violet));
+    opacity:.9;
+    z-index:0;
+  }
+
+  .gtInf__spineLabel{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    width:max-content;
+    max-width:190px;
+    text-align:center;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:950;
+    color:var(--navy);
+    padding:7px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.96);
+    box-shadow:0 10px 22px rgba(0,0,0,.06);
+    line-height:1.15;
+    pointer-events:none;
+  }
+  .gtInf__spineLabel--top{ top:calc(var(--colHeadH) + 12px); }
+  .gtInf__spineLabel--bottom{ bottom:24px; }
+
+  .gtInf__spineNode{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:2;
+    width:46px;height:46px;
+    border-radius:16px;
+    background:#fff;
+    border:1px solid rgba(49,59,134,.18);
+    box-shadow:0 14px 34px rgba(0,0,0,.10);
+    display:grid;
+    place-items:center;
+    color:var(--navy);
+    font-weight:950;
+    pointer-events:none;
+  }
+  .gtInf__spineNode::after{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    border-radius:20px;
+    background:linear-gradient(135deg, rgba(98,90,216,.16), rgba(31,156,228,.10));
+    z-index:-1;
+  }
+
+  /* ---------- CONNECTOR LINES (DESKTOP ONLY) ---------- */
+  .gtInf__col--left .gtInf__group::after{
+    content:"";
+    position:absolute;
+    right:calc(var(--connector) * -1);
+    top:26px;
+    width:var(--connector);
+    height:1px;
+    background:var(--line2);
+  }
+  .gtInf__col--left .gtInf__group::before{
+    content:"";
+    position:absolute;
+    right:calc(var(--connector) * -1 - 6px);
+    top:23px;
+    width:7px;height:7px;
+    border-radius:999px;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  .gtInf__col--right .gtInf__group::before{
+    content:"";
+    position:absolute;
+    left:calc(var(--connector) * -1);
+    top:26px;
+    width:var(--connector);
+    height:1px;
+    background:var(--line2);
+  }
+  .gtInf__col--right .gtInf__group::after{
+    content:"";
+    position:absolute;
+    left:calc(var(--connector) * -1 - 6px);
+    top:23px;
+    width:7px;height:7px;
+    border-radius:999px;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  /* ---------- Impact bar ---------- */
+  .gtInf__impact{
+    padding:16px 18px 18px;
+    border-top:1px solid rgba(49,59,134,.12);
+    background:rgba(49,59,134,.02);
+  }
+  .gtInf__impactRow{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .gtInf__impactTitle{
+    margin:0;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:950;
+    color:var(--navy);
+  }
+  .gtInf__chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+  }
+  .gtInf__chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:#fff;
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+  }
+  .gtInf__chip i{
+    width:7px;height:7px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    display:inline-block;
+  }
+
+  /* =======================================================================
+     MOBILE / TABLET OPTIMIZATION
+     ======================================================================= */
+  @media (max-width:1024px){
+    .gtInf{ padding:68px 14px 62px; }
+
+    /* ✅ reduce frame corner radius so it feels native on mobile */
+    .gtInf__frame{ border-radius:18px; }
+
+    /* ✅ stack content */
+    .gtInf__body{
+      grid-template-columns:1fr;
+      gap:14px;
+      padding:14px 12px 14px;
+    }
+
+    /* ✅ remove side paddings and avoid any accidental overflow */
+    .gtInf__col--left,
+    .gtInf__col--right{ padding:0; }
+
+    /* ✅ tighter headings */
+    .gtInf__colHead{
+      min-height:auto;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:4px;
+      padding:0 2px;
+    }
+    .gtInf__colNote{ white-space:normal; }
+
+    /* ✅ disable connector lines on mobile */
+    .gtInf__group::before,
+    .gtInf__group::after{ display:none !important; }
+
+    /* ✅ mobile spine: horizontal divider, centered, NO overlap */
+    .gtInf__spine{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      grid-template-rows:auto auto;
+      align-items:center;
+      gap:10px 10px;
+      padding:10px 6px 6px;
+      position:relative;
+    }
+
+    .gtInf__spineLine{
+      position:absolute;
+      left:0;
+      right:0;
+      top:50%;
+      bottom:auto;
+      transform:none;
+      width:auto;
+      height:4px;
+      border-radius:999px;
+    }
+
+    .gtInf__spineLabel{
+      position:relative;
+      left:auto;
+      transform:none;
+      max-width:100%;
+      width:100%;
+      font-size:10px;
+      padding:6px 8px;
+      box-shadow:0 8px 18px rgba(0,0,0,.06);
+      pointer-events:none;
+    }
+
+    /* place labels on row 1, left & right */
+    .gtInf__spineLabel--top{
+      grid-column:1;
+      grid-row:1;
+      justify-self:start;
+      top:auto;
+    }
+    .gtInf__spineLabel--bottom{
+      grid-column:3;
+      grid-row:1;
+      justify-self:end;
+      bottom:auto;
+    }
+
+    /* node on row 2 centered */
+    .gtInf__spineNode{
+      position:relative;
+      left:auto;
+      top:auto;
+      transform:none;
+      grid-column:2;
+      grid-row:2;
+      justify-self:center;
+      width:44px;height:44px;
+      border-radius:16px;
+      margin:0;
+      pointer-events:none;
+    }
+  }
+
+  @media (max-width:680px){
+    .gtInf__bar{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .gtInf__barRight{ width:100%; justify-content:center; white-space:normal; text-align:center; }
+
+    .gtInf__title{ font-size:clamp(28px,7vw,40px); }
+    .gtInf__sub{ font-size:14.6px; line-height:1.75; }
+
+    .gtInf__group{ padding:14px; border-radius:16px; }
+    .gtInf__groupTitle{ font-size:15px; }
+    .gtInf__li{ font-size:13.8px; }
+
+    .gtInf__impactRow{ flex-direction:column; align-items:flex-start; }
+    .gtInf__chips{ gap:8px; }
+    .gtInf__chip{ height:32px; font-size:11.5px; }
+  }
+</style>
+
+<section class="gtInf" id="operational-excellence-spine">
+  <div class="gtInf__inner">
+    <p class="gtInf__kicker">Operational Excellence</p>
+    <h2 class="gtInf__title">From fragmented processes to disciplined, data-led operations</h2>
+    <p class="gtInf__sub">
+      Operational Excellence transforms execution discipline into a source of growth, resilience, and market differentiation.
+    </p>
+
+    <div class="gtInf__frame" role="region" aria-label="Operational excellence bridge from current state to outcomes">
+      <div class="gtInf__bar">
+        <div class="gtInf__badge">
+          <span class="gtInf__badgeDot" aria-hidden="true"></span>
+          Operational Excellence framework for plants &amp; functions
+        </div>
+        <div class="gtInf__barRight">Process • OEE • Safety • Compliance</div>
+      </div>
+
+      <div class="gtInf__body">
+        <!-- LEFT: Current challenges -->
+        <div class="gtInf__col gtInf__col--left">
+          <div class="gtInf__colHead">
+            <p class="gtInf__colTitle">What we typically see</p>
+            <p class="gtInf__colNote">Fragmented, inconsistent operations</p>
+          </div>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Processes &amp; Waste</p>
+            <h3 class="gtInf__groupTitle">Fragmented and inconsistent ways of working</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Fragmented and inconsistent processes across plants or functions.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>High rework, wastage, and downtime due to a lack of standardisation.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Culture &amp; KPIs</p>
+            <h3 class="gtInf__groupTitle">No structured continual improvement engine</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Absence of a structured Continual Improvement or Kaizen culture.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Weak linkage between KPIs, process maturity, and business outcomes.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Systems, Quality &amp; Visibility</p>
+            <h3 class="gtInf__groupTitle">Legacy systems and blind spots</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Outdated manual systems and low automation readiness.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Quality issues, customer complaints, and safety non-compliance.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Lack of performance visibility and real-time analytics; limited capability to scale best practices across multi-site operations.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- SPINE -->
+        <div class="gtInf__spine" aria-hidden="true">
+          <div class="gtInf__spineLine"></div>
+          <div class="gtInf__spineLabel gtInf__spineLabel--top">From fragmented operations</div>
+          <div class="gtInf__spineNode">⇄</div>
+          <div class="gtInf__spineLabel gtInf__spineLabel--bottom">To operational excellence</div>
+        </div>
+
+        <!-- RIGHT: Outcomes -->
+        <div class="gtInf__col gtInf__col--right">
+          <div class="gtInf__colHead">
+            <p class="gtInf__colTitle">What we enable</p>
+            <p class="gtInf__colNote">Operational excellence outcomes</p>
+          </div>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Productivity &amp; Financial Impact</p>
+            <h3 class="gtInf__groupTitle">Reduced waste, stronger EBITDA</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Reduction in process waste, rework, and cycle time, delivering <b>5–15% improvement in EBITDA</b> through productivity and cost optimisation.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span><b>15–35% improvement in OEE and asset utilisation</b> across critical lines and plants.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Safety, Quality &amp; Compliance</p>
+            <h3 class="gtInf__groupTitle">Zero-accident, zero-defect culture</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Zero accident and zero-defect culture through integrated TQM, TPM, and EHS frameworks.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Stronger compliance and risk control through standardised QMS / EHS systems.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Digital Visibility &amp; Engagement</p>
+            <h3 class="gtInf__groupTitle">Digitally enabled, engaged shop floors</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Digitally enabled visibility with Lean–Industry 4.0 and analytics integration.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Sustainable Continuous Improvement ecosystems led by trained Lean champions.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Higher workforce engagement and innovation ownership across shop floors.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="gtInf__impact">
+        <div class="gtInf__impactRow">
+          <p class="gtInf__impactTitle">Typical impact unlocked</p>
+          <div class="gtInf__chips" aria-label="Typical operational excellence impacts">
+            <span class="gtInf__chip"><i></i>5–15% EBITDA improvement</span>
+            <span class="gtInf__chip"><i></i>15–35% OEE uplift</span>
+            <span class="gtInf__chip"><i></i>Zero-accident, zero-defect culture</span>
+            <span class="gtInf__chip"><i></i>Sustainable CI &amp; Lean ecosystems</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDIES – OPERATIONAL EXCELLENCE ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    /* Adjust these 4 to exactly match your site palette */
+    --gt-bg-1:#f5f3ff;          /* light lavender */
+    --gt-bg-2:#eaf4ff;          /* soft blue */
+    --gt-text:#020C4F;          /* primary text / heading */
+    --gt-accent:#5040a0;        /* purple accent (tabs, pills, border) */
+
+    --gt-accent-soft:rgba(80,64,160,0.12);
+    --gt-border:rgba(7, 15, 40, 0.06);
+    --gt-shadow:0 18px 40px rgba(15, 23, 42, 0.08);
+    --gt-radius:22px;
+    --gt-max:1200px;
+  }
+
+  .gt-casestudies{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(circle at top left,var(--gt-bg-1),var(--gt-bg-2));
+    padding:70px 20px 90px;
+  }
+  .gt-cs__wrap{
+    max-width:var(--gt-max);
+    margin:0 auto;
+  }
+
+  /* header row */
+  .gt-cs__head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:28px;
+  }
+  .gt-cs__eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,0.68);
+    margin-bottom:8px;
+  }
+  .gt-cs__title{
+    font-size:30px;
+    line-height:1.25;
+    margin:0;
+    color:var(--gt-text);
+    font-weight:700;
+  }
+  .gt-cs__subtitle{
+    margin-top:10px;
+    max-width:640px;
+    font-size:14px;
+    line-height:1.7;
+    color:rgba(2,12,79,0.78);
+  }
+  .gt-cs__cta-all{
+    white-space:nowrap;
+  }
+  .gt-pill-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:999px;
+    border:1px solid rgba(80,64,160,0.16);
+    background:rgba(255,255,255,0.7);
+    font-size:13px;
+    font-weight:500;
+    color:var(--gt-text);
+    text-decoration:none;
+    box-shadow:0 6px 16px rgba(15,23,42,0.08);
+    backdrop-filter:blur(12px);
+    transition:background .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  .gt-pill-btn span{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:18px;
+    height:18px;
+    border-radius:999px;
+    background:var(--gt-accent-soft);
+    font-size:12px;
+  }
+  .gt-pill-btn:hover{
+    background:#ffffff;
+    transform:translateY(-1px);
+    box-shadow:0 12px 24px rgba(15,23,42,0.14);
+  }
+
+  /* grid */
+  .gt-cs__grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
+  }
+
+  .gt-cs__item{
+    text-decoration:none;
+    color:inherit;
+  }
+
+  .gt-cs__card{
+    height:100%;
+    border-radius:var(--gt-radius);
+    background:#ffffff;
+    border:1px solid var(--gt-border);
+    box-shadow:var(--gt-shadow);
+    padding:20px 20px 22px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    overflow:hidden;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+  }
+
+  .gt-cs__card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(80,64,160,0.06),rgba(31,156,228,0.04));
+    opacity:0;
+    transition:opacity .2s ease;
+    pointer-events:none;
+  }
+
+  .gt-cs__meta-pill{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 12px;
+    border-radius:999px;
+    background:rgba(80,64,160,0.06);
+    color:rgba(2,12,79,0.7);
+    font-size:11px;
+    font-weight:500;
+    margin-bottom:12px;
+  }
+  .gt-cs__meta-dot{
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background:var(--gt-accent);
+  }
+
+  .gt-cs__title-small{
+    position:relative;
+    font-size:15px;
+    line-height:1.5;
+    font-weight:600;
+    color:var(--gt-text);
+    margin:0 0 10px;
+  }
+  .gt-cs__body{
+    position:relative;
+    font-size:13px;
+    line-height:1.7;
+    color:rgba(2,12,79,0.8);
+    margin:0;
+    flex:1 1 auto;
+  }
+
+  .gt-cs__impact{
+    position:relative;
+    margin-top:14px;
+    font-size:12px;
+    font-weight:500;
+    color:var(--gt-accent);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .gt-cs__impact-dot{
+    width:6px;
+    height:6px;
+    border-radius:999px;
+    background:var(--gt-accent);
+  }
+
+  .gt-cs__tagline{
+    position:relative;
+    margin-top:8px;
+    font-size:11px;
+    color:rgba(2,12,79,0.6);
+  }
+
+  /* hover state */
+  .gt-cs__card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 22px 40px rgba(15,23,42,0.16);
+    border-color:rgba(80,64,160,0.3);
+    background:rgba(255,255,255,0.98);
+  }
+  .gt-cs__card:hover::before{
+    opacity:1;
+  }
+
+  /* responsive */
+  @media (max-width:1024px){
+    .gt-cs__grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+  @media (max-width:768px){
+    .gt-cs__head{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:12px;
+    }
+    .gt-cs__title{
+      font-size:26px;
+    }
+  }
+  @media (max-width:640px){
+    .gt-casestudies{
+      padding:50px 16px 70px;
+    }
+    .gt-cs__grid{
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+    .gt-cs__card{
+      padding:18px 18px 20px;
+    }
+  }
+</style>
+
+<section class="gt-casestudies" id="oe-casestudies">
+  <div class="gt-cs__wrap">
+
+    <!-- Header -->
+    <div class="gt-cs__head">
+      <div>
+        <div class="gt-cs__eyebrow">Operational Excellence</div>
+        <h2 class="gt-cs__title">Operational Excellence in Action</h2>
+        <p class="gt-cs__subtitle">
+          Selected programs across manufacturing, automotive, healthcare, KPO, and aerospace where we used Lean,
+          Industry&nbsp;4.0, and BPM to reduce waste, lift OEE, and create recurring productivity and EBITDA gains.
+        </p>
+      </div>
+      <div class="gt-cs__cta-all">
+        <a class="gt-pill-btn" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+          Talk about a similar outcome
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="gt-cs__grid">
+
+      <!-- 1: Global Manufacturing Major – Lean Industry 4.0 -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Global Manufacturing · Lean Industry 4.0
+          </div>
+          <h3 class="gt-cs__title-small">
+            Global Manufacturing Major – Lean Industry 4.0 Deployment
+          </h3>
+          <p class="gt-cs__body">
+            Partnered with a global manufacturing enterprise to integrate Lean methodologies with Industry&nbsp;4.0
+            technologies. Implemented predictive analytics, IoT-enabled shop-floor visibility, and cognitive quality
+            systems across multiple plants.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            40% defect reduction · 20% throughput gain · $12M recurring productivity gains
+          </div>
+          <div class="gt-cs__tagline">
+            Explore how Lean&nbsp;+&nbsp;Industry&nbsp;4.0 can turn your plants into data-led, self-improving systems.
+          </div>
+        </div>
+      </a>
+
+      <!-- 2: Global Energy & Investment Firm -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Oil &amp; Gas Investment · Digital BPM
+          </div>
+          <h3 class="gt-cs__title-small">
+            Global Energy &amp; Investment Firm – Process Automation &amp; Digital Integration
+          </h3>
+          <p class="gt-cs__body">
+            Designed and executed an end-to-end digital process automation roadmap for a leading oil &amp; gas
+            investment firm. Integrated workflows across finance, investment approval, and governance powered by
+            analytics and BPM systems.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            40% faster decision cycle time · higher visibility, compliance, and efficiency across all business units
+          </div>
+          <div class="gt-cs__tagline">
+            See how a digital backbone can streamline investment governance and execution.
+          </div>
+        </div>
+      </a>
+
+      <!-- 3: Leading Indian Life Insurer – BPR -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Life Insurance · BPR &amp; BPM
+          </div>
+          <h3 class="gt-cs__title-small">
+            Leading Indian Life Insurer – Business Process Re-engineering (BPR)
+          </h3>
+          <p class="gt-cs__body">
+            Redesigned key business and support processes, including O2C, P2P, and customer servicing for a large
+            Indian life insurer. Introduced standardised BPM frameworks, compliance dashboards, and document
+            management systems to strengthen operational control.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            35% improvement in process efficiency · $10M+ reduction in operational costs
+          </div>
+          <div class="gt-cs__tagline">
+            Discuss how structured BPR can upgrade your policyholder and back-office journeys.
+          </div>
+        </div>
+      </a>
+
+      <!-- 4: Leading Indian Hospital Network -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Hospital Network · Lean Six Sigma
+          </div>
+          <h3 class="gt-cs__title-small">
+            Leading Indian Hospital Network – Service Excellence &amp; Operational Efficiency
+          </h3>
+          <p class="gt-cs__body">
+            Led the first-of-its-kind Lean Six Sigma deployment in Indian healthcare for a major hospital chain.
+            Introduced a service excellence blueprint covering 21 patient touchpoints and 100+ service metrics;
+            streamlined OPD, IPD, and medical support operations.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            Significant cost reduction · ISO 9001:2000 certification across 5 hospitals and the corporate office
+          </div>
+          <div class="gt-cs__tagline">
+            Explore how clinical, operations, and service excellence can be aligned under one program.
+          </div>
+        </div>
+      </a>
+
+      <!-- 5: Global Aerospace & Industrial Manufacturer -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Fortune 50 Electronics · Process Excellence
+          </div>
+          <h3 class="gt-cs__title-small">
+            Global Aerospace &amp; Industrial Manufacturer – Process Excellence Transformation
+          </h3>
+          <p class="gt-cs__body">
+            For a leading Fortune&nbsp;50 electronic component manufacturer, delivered end-to-end process and
+            productivity improvements across motor and electronics plants in India and the USA. Implemented DFSS,
+            DMAIC, and TQM frameworks to institutionalise excellence.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            Process adherence +30% · OEE from 35% to 78% · defects from 60,000 DPMO to &lt;250 · $3M+ annual savings
+          </div>
+          <div class="gt-cs__tagline">
+            See how structured frameworks can move critical lines from firefighting to world-class.
+          </div>
+        </div>
+      </a>
+
+      <!-- 6: PE-Backed Manufacturing Company – ODD -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            PE-Backed Manufacturing · ODD
+          </div>
+          <h3 class="gt-cs__title-small">
+            PE-Backed Manufacturing Company – Operational Due Diligence (ODD)
+          </h3>
+          <p class="gt-cs__body">
+            Conducted Operational Due Diligence and Value Creation initiatives for a leading PE-backed industrial
+            manufacturer. Identified bottlenecks, optimised capacity, and standardised operations using Lean and
+            digital tools.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            EBITDA and sales growth within 6 months · stronger investor confidence and governance controls
+          </div>
+          <div class="gt-cs__tagline">
+            Explore how we structure ODD to translate directly into value-creation roadmaps.
+          </div>
+        </div>
+      </a>
+
+      <!-- 7: Automotive Components Manufacturer -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Automotive Components · TPM &amp; Lean
+          </div>
+          <h3 class="gt-cs__title-small">
+            Automotive Components Manufacturer – Productivity &amp; Cost Optimisation Program
+          </h3>
+          <p class="gt-cs__body">
+            For a large Indian automotive supplier, executed a multi-plant productivity improvement and waste
+            reduction program leveraging TPM, Lean, and TQM. Implemented process flow redesign, localised machinery,
+            and line balancing models.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            50% productivity improvement · 40% CAPEX reduction · zero accidents for 3 consecutive years
+          </div>
+          <div class="gt-cs__tagline">
+            Discuss how a similar program can upgrade throughput, safety, and CAPEX effectiveness.
+          </div>
+        </div>
+      </a>
+
+      <!-- 8: KPO Leader – Lean Transformation & KM -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            KPO · Lean Transformation &amp; KM
+          </div>
+          <h3 class="gt-cs__title-small">
+            KPO Leader – Lean Transformation &amp; Knowledge Management
+          </h3>
+          <p class="gt-cs__body">
+            Established a comprehensive Lean Sigma and Knowledge Management framework for a global KPO leader.
+            Introduced shop-floor automation, skill optimisation strategies, and a “customer health score” linked to
+            revenue growth.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            +20% EBITDA · 30% reduction in rework cycles · strong continuous-improvement culture across hubs
+          </div>
+          <div class="gt-cs__tagline">
+            Explore how Lean and KM together can transform global delivery and client experience.
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW WE BUILD OPERATIONAL EXCELLENCE (IMAGE + ICON LAYOUT) ===================== -->
+<style>
+  .oeHow{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    padding:100px 20px;
+  }
+  .oeHow__wrap{
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  /* header */
+  .oeHow__head{
+    text-align:center;
+    max-width:820px;
+    margin:0 auto 60px;
+  }
+  .oeHow__eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,.6);
+    margin-bottom:12px;
+  }
+  .oeHow__title{
+    font-size:36px;
+    line-height:1.2;
+    color:#020C4F;
+    font-weight:700;
+    margin:0 0 16px;
+  }
+  .oeHow__sub{
+    font-size:18px;
+    line-height:1.7;
+    color:rgba(2,12,79,.85);
+  }
+
+  /* layout */
+  .oeHow__grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:stretch;
+  }
+
+  /* image */
+  .oeHow__image{
+    height:100%;
+  }
+  .oeHow__image img{
+    width:100%;
+    height:100%;
+    min-height:520px;
+    object-fit:cover;
+    border-radius:18px;
+    display:block;
+  }
+
+  /* list */
+  .oeHow__list{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:26px;
+  }
+  .oeHow__item{
+    display:grid;
+    grid-template-columns:42px 1fr;
+    gap:18px;
+    align-items:flex-start;
+  }
+
+  .oeHow__icon{
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    background:rgba(80,64,160,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .oeHow__icon svg{
+    width:18px;
+    height:18px;
+    stroke:rgba(80,64,160,.9);
+  }
+
+  .oeHow__item h3{
+    font-size:17px;
+    margin:0 0 6px;
+    color:#020C4F;
+    font-weight:600;
+  }
+  .oeHow__item p{
+    font-size:14px;
+    line-height:1.7;
+    margin:0;
+    color:rgba(2,12,79,.78);
+  }
+
+  /* responsive */
+  @media (max-width:900px){
+    .oeHow__grid{
+      grid-template-columns:1fr;
+      gap:50px;
+    }
+    .oeHow__image img{
+      min-height:360px;
+    }
+    .oeHow__title{
+      font-size:30px;
+    }
+    .oeHow__sub{
+      font-size:16px;
+    }
+  }
+</style>
+
+<section class="oeHow" id="how-we-build-oe">
+  <div class="oeHow__wrap">
+
+    <!-- Header -->
+    <div class="oeHow__head">
+      <div class="oeHow__eyebrow">How We Work With Your Teams</div>
+      <h2 class="oeHow__title">How We Build Operational Excellence With You</h2>
+      <p class="oeHow__sub">
+        <strong>Operational Excellence only sticks when it is co-owned by leadership and the shop floor.</strong><br/>
+        We combine structured methods with pragmatic execution so that plants, functions, and teams 
+        can sustain improvements long after the program ends.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="oeHow__grid">
+
+      <!-- Image -->
+      <div class="oeHow__image">
+        <img
+          src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg"
+          alt="Operational excellence collaboration on the shop floor"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Principles / Steps -->
+      <div class="oeHow__list">
+
+        <div class="oeHow__item">
+          <div class="oeHow__icon">
+            <!-- diagnose icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <circle cx="11" cy="11" r="5"/>
+              <path d="M16 16l4 4"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Diagnose and prioritise value</h3>
+            <p>We start with a structured diagnostic across plants and functions, isolating the few levers that unlock the biggest productivity, OEE, and EBITDA impact.</p>
+          </div>
+        </div>
+
+        <div class="oeHow__item">
+          <div class="oeHow__icon">
+            <!-- blueprint icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <rect x="4" y="4" width="10" height="8" rx="1"/>
+              <path d="M9 4v8M4 9h10M16 6h4M16 10h3"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Design a pragmatic OE blueprint</h3>
+            <p>We co-create a Lean–Industry&nbsp;4.0 roadmap: standards, flows, governance, and digital enablers that are ambitious but executable in your context.</p>
+          </div>
+        </div>
+
+        <div class="oeHow__item">
+          <div class="oeHow__icon">
+            <!-- pilot icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M4 17c1.5-3 3.5-4.5 6-4.5s4.5 1.5 6 4.5"/>
+              <circle cx="10" cy="8" r="3"/>
+              <path d="M18 4l2 2-4 4-2-.5.5-2 3.5-3.5z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Co-run pilots on critical lines</h3>
+            <p>We work shoulder-to-shoulder with plant teams on a few critical lines or value streams to prove impact quickly and build confidence in the approach.</p>
+          </div>
+        </div>
+
+        <div class="oeHow__item">
+          <div class="oeHow__icon">
+            <!-- capability / champions icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <circle cx="8" cy="8" r="3"/>
+              <circle cx="17" cy="7" r="2.5"/>
+              <path d="M3 19c.8-2.4 2.5-4 5-4s4.2 1.6 5 4"/>
+              <path d="M14 18c.5-1.6 1.7-2.7 3.3-2.7 1.1 0 2.1.4 2.7 1.2"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Build internal champions and governance</h3>
+            <p>We develop Lean / OE champions, install tiered governance, and hardwire KPIs so that improvements are reviewed, reinforced, and scaled by your own leaders.</p>
+          </div>
+        </div>
+
+        <div class="oeHow__item">
+          <div class="oeHow__icon">
+            <!-- scale icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M4 19h16M6 16v-6l4-4 4 4v6M18 12v4"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Scale, standardise, and transfer capability</h3>
+            <p>Once impact is proven, we codify standards, replicate playbooks across sites, and ensure that capability and ownership sit firmly inside your organisation.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHERE OE LEADERS TYPICALLY CALL US IN (CTA SECTION) ===================== -->
+<style>
+  :root{
+    --cta-bg-1:#f5f3ff;
+    --cta-bg-2:#eaf4ff;
+    --cta-text:#020C4F;
+    --cta-accent:#5040a0;
+    --cta-border:rgba(2,12,79,.12);
+  }
+
+  .wlcta{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(circle at top left,var(--cta-bg-1),var(--cta-bg-2));
+    padding:90px 20px;
+  }
+  .wlcta-wrap{
+    max-width:1100px;
+    margin:0 auto;
+    text-align:center;
+  }
+
+  .wlcta-eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,.6);
+    margin-bottom:12px;
+  }
+  .wlcta-title{
+    font-size:34px;
+    line-height:1.25;
+    color:var(--cta-text);
+    font-weight:700;
+    margin:0 0 18px;
+  }
+  .wlcta-intro{
+    max-width:720px;
+    margin:0 auto 46px;
+    font-size:17px;
+    line-height:1.7;
+    color:rgba(2,12,79,.82);
+  }
+
+  /* triggers */
+  .wlcta-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:26px;
+    margin-bottom:52px;
+  }
+  .wlcta-item{
+    padding:22px 22px 24px;
+    border:1px solid var(--cta-border);
+    border-radius:18px;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(8px);
+    text-align:left;
+  }
+  .wlcta-item h3{
+    font-size:16px;
+    margin:0 0 8px;
+    color:var(--cta-text);
+    font-weight:600;
+  }
+  .wlcta-item p{
+    font-size:14px;
+    line-height:1.65;
+    margin:0;
+    color:rgba(2,12,79,.78);
+  }
+
+  /* CTA */
+  .wlcta-action{
+    display:flex;
+    justify-content:center;
+  }
+  .wlcta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border-radius:999px;
+    background:var(--cta-accent);
+    color:#fff;
+    font-size:14px;
+    font-weight:500;
+    text-decoration:none;
+    box-shadow:0 18px 36px rgba(80,64,160,.35);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .wlcta-btn span{
+    display:inline-flex;
+    width:20px;
+    height:20px;
+    border-radius:999px;
+    background:rgba(255,255,255,.18);
+    justify-content:center;
+    align-items:center;
+    font-size:14px;
+  }
+  .wlcta-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 26px 48px rgba(80,64,160,.45);
+  }
+
+  @media (max-width:1024px){
+    .wlcta-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+  @media (max-width:640px){
+    .wlcta{
+      padding:70px 16px;
+    }
+    .wlcta-title{
+      font-size:28px;
+    }
+    .wlcta-grid{
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+  }
+</style>
+
+<section class="wlcta" id="oe-when-leaders-call-us-in">
+  <div class="wlcta-wrap">
+
+    <div class="wlcta-eyebrow">Engagement Triggers</div>
+    <h2 class="wlcta-title">When Operations &amp; Plant Leaders Typically Call Us In</h2>
+    <p class="wlcta-intro">
+      Leaders rarely call us when a single machine is down.
+      They call us when losses are chronic, improvements don’t sustain,
+      and the next step-change in productivity, OEE, and safety feels out of reach.
+    </p>
+
+    <div class="wlcta-grid">
+
+      <div class="wlcta-item">
+        <h3>Chronic losses and waste persist</h3>
+        <p>
+          Scrap, rework, and changeover losses remain high despite multiple
+          internal initiatives and local fixes.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>OEE is stuck below potential</h3>
+        <p>
+          Availability, performance, and quality are not moving in line with
+          investment in assets, automation, and people.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Too many initiatives, little sustained impact</h3>
+        <p>
+          5S, Kaizen, TPM, and Lean projects exist, but improvements taper off
+          and are not visible in EBITDA or customer outcomes.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Safety or quality incidents are a concern</h3>
+        <p>
+          Near misses, audit findings, or customer complaints signal that the
+          system is fragile and cannot rely on heroics alone.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Plants aren’t ready for Industry 4.0</h3>
+        <p>
+          There is interest in digital and analytics, but the underlying
+          processes, data discipline, and governance are not yet robust.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>A step-change in throughput or cost is needed</h3>
+        <p>
+          Capacity expansions, new product lines, or PE expectations demand a
+          sharper, structured Operational Excellence engine.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="wlcta-action">
+      <a class="wlcta-btn"
+         href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        Talk through your plant challenges
+        <span>→</span>
+      </a>
+    </div>
+
+  </div>
+</section>x

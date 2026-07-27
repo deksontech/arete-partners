@@ -1,0 +1,1900 @@
+<!-- ===================== AUTOMOTIVE — SECTION SUB NAV (STICKY TABS) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --tabText:#6B7280;
+    --tabActive: var(--indigo);
+    --line:#E6E8EF;
+    --bg:#ffffff;
+
+    /* Height of this subnav (used for scroll offset) */
+    --autoSecTabsH: 58px;
+  }
+
+  .autoTabs, .autoTabs *{box-sizing:border-box;}
+
+  /* Sticky subnav */
+  .autoTabs{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    isolation:isolate;
+  }
+
+  .autoTabs__inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+    height:var(--autoSecTabsH);
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .autoTabs__label{
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#111;
+    font-size:12px;
+    padding-right:14px;
+    border-right:1px solid var(--line);
+    margin-right:2px;
+    white-space:nowrap;
+  }
+
+  .autoTabs__list{
+    display:flex;
+    align-items:center;
+    gap:0;
+    flex-wrap:nowrap;
+    overflow:auto;
+    scrollbar-width:none;
+  }
+  .autoTabs__list::-webkit-scrollbar{display:none;}
+
+  .autoTabs__link{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    height:var(--autoSecTabsH);
+    padding:0 18px;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:12px;
+    font-weight:800;
+    color:var(--tabText);
+    white-space:nowrap;
+  }
+
+  /* vertical separators */
+  .autoTabs__link + .autoTabs__link{
+    border-left:1px solid var(--line);
+  }
+
+  /* active underline */
+  .autoTabs__link.is-active{
+    color:var(--tabActive);
+  }
+  .autoTabs__link.is-active::after{
+    content:"";
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:0;
+    height:3px;
+    background:var(--tabActive);
+    border-radius:999px;
+  }
+
+  .autoTabs__link:hover{ color:#111; }
+
+  /* Optional: use this class on each section wrapper so anchors don't hide under the sticky tabs:
+     <section id="..." class="autoAnchorFix"> ... */
+  .autoAnchorFix{
+    scroll-margin-top: calc(var(--autoSecTabsH) + 14px);
+  }
+
+  @media(max-width:980px){
+    .autoTabs__inner{padding:0 14px;}
+    .autoTabs__label{display:none;}
+    .autoTabs__link{padding:0 14px;}
+  }
+</style>
+
+<nav class="autoTabs" aria-label="Automotive page navigation">
+  <div class="autoTabs__inner">
+    <div class="autoTabs__label">AUTOMOTIVE</div>
+
+    <div class="autoTabs__list">
+      <!-- ✅ IDs mapped to your Automotive page sections -->
+      <a class="autoTabs__link is-active" href="#auto-hero">Overview</a>
+      <a class="autoTabs__link" href="#auto-challenges">Key Challenges</a>
+      <a class="autoTabs__link" href="#auto-how-we-help">How We Help</a>
+      <a class="autoTabs__link" href="#auto-why-us">Why Us</a>
+      <a class="autoTabs__link" href="#auto-cta">Next Steps</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const nav = document.querySelector('.autoTabs');
+  if(!nav) return;
+
+  const links = Array.from(nav.querySelectorAll('.autoTabs__link'));
+  const getOffset = () => {
+    const h = nav.getBoundingClientRect().height || 58;
+    return h + 12; // breathing space so section titles are visible
+  };
+
+  // Smooth scroll with offset
+  links.forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const href = a.getAttribute('href');
+      if(!href || !href.startsWith('#')) return;
+
+      const el = document.querySelector(href);
+      if(!el) return;
+
+      e.preventDefault();
+      const y = el.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      window.scrollTo({ top:y, behavior:'smooth' });
+      history.replaceState(null, '', href);
+    });
+  });
+
+  // Active state on scroll
+  const targets = links
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  const setActive = (id) => {
+    links.forEach(a=>{
+      a.classList.toggle('is-active', a.getAttribute('href') === '#'+id);
+    });
+  };
+
+  const isElementor =
+    document.body.classList.contains('elementor-editor-active') ||
+    document.body.classList.contains('elementor-editor-preview') ||
+    !!document.querySelector('#elementor-editor-wrapper');
+
+  if(isElementor) return;
+  if(!('IntersectionObserver' in window)) return;
+
+  const io = new IntersectionObserver((entries)=>{
+    const visible = entries
+      .filter(e=>e.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+
+    if(visible && visible.target && visible.target.id){
+      setActive(visible.target.id);
+    }
+  }, { root:null, threshold:[0.2,0.35,0.5,0.65] });
+
+  targets.forEach(t=>{
+    if(t.id) io.observe(t);
+  });
+})();
+</script>
+
+<!-- ===================== AUTOMOTIVE — HERO (WHITE ONLY, IMAGE RIGHT — CLONE OF A&D/INSURANCE) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    /* brand colours */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --white:#ffffff;
+
+    --max:1200px;
+  }
+
+  .autoHeroW, .autoHeroW *{box-sizing:border-box;}
+  .autoHeroW{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:#fff;
+    padding:88px 20px 34px;
+  }
+
+  .autoHeroW__inner{
+    max-width:var(--max);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+    gap:44px;
+    align-items:center;
+  }
+
+  .autoHeroW__eyebrow{
+    margin:0 0 12px;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .autoHeroW__title{
+    margin:0 0 14px;
+    font-size:clamp(34px,4.2vw,56px);
+    line-height:1.06;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .autoHeroW__sub{
+    margin:0 0 14px;
+    font-size:clamp(16px,2vw,20px);
+    line-height:1.55;
+    font-weight:700;
+    color:var(--indigo);
+    max-width:820px;
+  }
+
+  .autoHeroW__p{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.78;
+    color:var(--muted);
+    max-width:920px;
+  }
+  .autoHeroW__p + .autoHeroW__p{ margin-top:14px; }
+
+  /* Right visual (image placeholder) */
+  .autoHeroW__media{
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 18px 44px rgba(0,0,0,.08);
+    background:
+      radial-gradient(circle at 20% 15%, rgba(98,90,216,.22), transparent 55%),
+      radial-gradient(circle at 85% 25%, rgba(31,156,228,.22), transparent 55%),
+      radial-gradient(circle at 50% 95%, rgba(49,59,134,.18), transparent 60%),
+      linear-gradient(180deg, rgba(2,12,79,.06), rgba(49,59,134,.04));
+    min-height:320px;
+    position:relative;
+  }
+
+  .autoHeroW__img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+  }
+
+  .autoHeroW__badge{
+    position:absolute;
+    left:16px; top:16px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.18);
+    background:rgba(255,255,255,.76);
+    backdrop-filter:blur(8px);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+  }
+  .autoHeroW__dot{
+    width:10px;height:10px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(31,156,228,.12);
+  }
+
+  @media (max-width:980px){
+    .autoHeroW{padding:74px 16px 22px;}
+    .autoHeroW__inner{grid-template-columns:1fr; gap:22px;}
+    .autoHeroW__media{min-height:240px;}
+  }
+</style>
+
+<section class="autoHeroW" id="auto-hero">
+  <div class="autoHeroW__inner">
+    <!-- LEFT CONTENT -->
+    <div>
+      <p class="autoHeroW__eyebrow">Automotive Sector – Industry Solutions &amp; Transformation Services</p>
+
+      <h1 class="autoHeroW__title">
+        Reinventing Automotive Enterprises Through Strategy, Operations, and Digital-Led Transformation
+      </h1>
+
+      <p class="autoHeroW__sub">
+        The Automotive industry is undergoing a foundational shift—driven by electric mobility, connected vehicles, software-defined systems,
+        tightening emissions and safety norms, supply chain volatility, and evolving customer expectations.
+      </p>
+
+      <p class="autoHeroW__p">
+        Traditional business models are being challenged by new entrants, rapid technology cycles, and cost pressures across the value chain.
+        At [Your Firm Name], we partner with Automotive organisations to convert complexity into clarity and strategy into measurable outcomes.
+        Our integrated approach—spanning strategy, operations, digital enablement, and capability building—enables OEMs, Tier-1 suppliers,
+        and automotive service providers to accelerate growth, drive efficiency, and build competitive advantage that lasts.
+      </p>
+    </div>
+
+    <!-- RIGHT VISUAL -->
+    <div class="autoHeroW__media">
+      <div class="autoHeroW__badge">
+        <span class="autoHeroW__dot"></span> Automotive Transformation
+      </div>
+      <img
+        class="autoHeroW__img"
+        src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg"
+        alt="Automotive enterprise transformation (placeholder)"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AUTOMOTIVE — KEY CHALLENGES (DESKTOP: LIST + DETAIL | MOBILE: CARD ACCORDION) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#4B5168;
+    --line:rgba(49,59,134,.16);
+  }
+
+  .autoK, .autoK *{ box-sizing:border-box; }
+
+  .autoK{
+    padding:92px 20px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 18% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 95% 30%, rgba(49,59,134,.10), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(2,12,79,.08), transparent 60%),
+      rgba(49,59,134,.03);
+  }
+
+  .autoK__inner{max-width:1200px;margin:0 auto;}
+
+  .autoK__top{
+    display:grid;
+    grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+    gap:32px;
+    margin-bottom:22px;
+  }
+
+  .autoK__eyebrow{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+    margin:0 0 10px;
+  }
+
+  .autoK__title{
+    margin:0;
+    font-size:clamp(38px,4.4vw,56px);
+    line-height:1.05;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .autoK__intro{
+    margin:22px 0 0;
+    font-size:15.5px;
+    line-height:1.75;
+    color:#3C4160;
+    max-width:780px;
+  }
+
+  .autoK__grid{
+    display:grid;
+    grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+    gap:26px;
+  }
+
+  /* LEFT RAIL */
+  .autoK__rail{
+    border:1px solid rgba(49,59,134,.18);
+    border-radius:22px;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(10px);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+  }
+
+  .autoK__railTop{
+    padding:16px;
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid rgba(49,59,134,.12);
+  }
+
+  .autoK__railLabel{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .autoK__item{
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:12px;
+    padding:14px 16px;
+    border-top:1px solid rgba(49,59,134,.10);
+    background:transparent;
+    cursor:pointer;
+    text-align:left;
+  }
+
+  .autoK__item:first-child{border-top:0;}
+
+  .autoK__icon{
+    width:40px;height:40px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:rgba(49,59,134,.05);
+    border:1px solid rgba(49,59,134,.14);
+  }
+
+  .autoK__itemTitle{
+    margin:0;
+    font-size:14.5px;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .autoK__itemPreview{
+    margin:4px 0 0;
+    font-size:13px;
+    color:#5B6282;
+    line-height:1.5;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+
+  .autoK__item[aria-selected="true"]{
+    background:rgba(31,156,228,.06);
+  }
+
+  /* RIGHT PANEL */
+  .autoK__panel{
+    border:1px solid rgba(49,59,134,.18);
+    border-radius:22px;
+    background:rgba(255,255,255,.86);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    display:flex;
+    flex-direction:column;
+    min-height:520px;
+  }
+
+  .autoK__panelHead{
+    padding:16px 18px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+  }
+
+  .autoK__panelTitle{
+    margin:0;
+    font-size:22px;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .autoK__panelBody{padding:18px;}
+
+  .autoK__bullets{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    gap:12px;
+  }
+
+  .autoK__bullets li{
+    display:flex;
+    gap:10px;
+    font-size:14.5px;
+    line-height:1.65;
+    color:#2E334D;
+  }
+
+  .autoK__dot{
+    width:10px;height:10px;border-radius:50%;
+    margin-top:7px;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  /* MOBILE */
+  @media(max-width:820px){
+    .autoK__grid{grid-template-columns:1fr;}
+    .autoK__panel{display:none;}
+  }
+</style>
+
+<section class="autoK" id="auto-challenges">
+  <div class="autoK__inner">
+
+    <div class="autoK__top">
+      <div>
+        <p class="autoK__eyebrow">Automotive Sector</p>
+        <h2 class="autoK__title">Key Challenges</h2>
+      </div>
+      <p class="autoK__intro">
+        Automotive organisations face simultaneous disruption across technology, regulation, and operating models—placing
+        pressure on growth, cost, resilience, and execution across the value chain.
+      </p>
+    </div>
+
+    <div class="autoK__grid">
+      <!-- LEFT -->
+      <div class="autoK__rail" role="tablist">
+        <div class="autoK__railTop">
+          <div class="autoK__railLabel">Challenges</div>
+        </div>
+
+        <button class="autoK__item" aria-selected="true" data-key="c1">
+          <div class="autoK__icon">⚡</div>
+          <div>
+            <p class="autoK__itemTitle">Market Disruption & Growth Pressure</p>
+            <p class="autoK__itemPreview">Electrification, new mobility entrants, demand volatility, and shifting customer expectations.</p>
+          </div>
+        </button>
+
+        <button class="autoK__item" aria-selected="false" data-key="c2">
+          <div class="autoK__icon">🏭</div>
+          <div>
+            <p class="autoK__itemTitle">Operational Inefficiencies & Cost Constraints</p>
+            <p class="autoK__itemPreview">Legacy production systems, high changeover costs, fragmented planning, and commodity volatility.</p>
+          </div>
+        </button>
+
+        <button class="autoK__item" aria-selected="false" data-key="c3">
+          <div class="autoK__icon">🔗</div>
+          <div>
+            <p class="autoK__itemTitle">Complex Supply Chain & Resilience Gaps</p>
+            <p class="autoK__itemPreview">Multi-tier visibility gaps, semiconductor and battery risks, inventory imbalance.</p>
+          </div>
+        </button>
+
+        <button class="autoK__item" aria-selected="false" data-key="c4">
+          <div class="autoK__icon">🧠</div>
+          <div>
+            <p class="autoK__itemTitle">Digital & Technology Adoption Challenges</p>
+            <p class="autoK__itemPreview">Siloed IT, slow modernisation, limited analytics, underused Industry 4.0.</p>
+          </div>
+        </button>
+
+        <button class="autoK__item" aria-selected="false" data-key="c5">
+          <div class="autoK__icon">📜</div>
+          <div>
+            <p class="autoK__itemTitle">Regulatory & Quality Compliance</p>
+            <p class="autoK__itemPreview">Stricter emissions and safety norms, recalls, homologation complexity.</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- RIGHT -->
+      <aside class="autoK__panel">
+        <div class="autoK__panelHead">
+          <h3 class="autoK__panelTitle" id="autoK-title">Market Disruption & Growth Pressure</h3>
+        </div>
+        <div class="autoK__panelBody">
+          <ul class="autoK__bullets" id="autoK-bullets"></ul>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function(){
+  const data={
+    c1:[
+      "Shift from internal combustion to electrification",
+      "Rising competition from new mobility entrants",
+      "Demand for customised, connected experiences",
+      "Fluctuating market demand cycles and price sensitivity"
+    ],
+    c2:[
+      "Legacy production systems with limited flexibility",
+      "High changeover costs across models and variants",
+      "Fragmented planning and scheduling across plants",
+      "Cost pressures from commodity volatility"
+    ],
+    c3:[
+      "Multi-tier supply chains with limited visibility",
+      "Risk concentration in semiconductors and batteries",
+      "Slow replenishment and inventory imbalances",
+      "Weak supplier risk signals and recovery mechanisms"
+    ],
+    c4:[
+      "Siloed IT across engineering, production, and aftermarket",
+      "Limited use of analytics for demand and quality",
+      "Slow legacy system modernisation",
+      "Underutilised automation and Industry 4.0 solutions"
+    ],
+    c5:[
+      "Stricter safety, emissions, and data protection regulations",
+      "Multi-region homologation complexity",
+      "High cost of quality escapes and recalls",
+      "Capital tied up in compliance and audit readiness"
+    ]
+  };
+
+  const root=document.querySelector('#auto-challenges');
+  if(!root) return;
+
+  const items=[...root.querySelectorAll('.autoK__item')];
+  const bullets=root.querySelector('#autoK-bullets');
+  const title=root.querySelector('#autoK-title');
+
+  function render(key,label){
+    title.textContent=label;
+    bullets.innerHTML=data[key].map(x=>`<li><span class="autoK__dot"></span><span>${x}</span></li>`).join('');
+  }
+
+  render('c1','Market Disruption & Growth Pressure');
+
+  items.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      items.forEach(b=>b.setAttribute('aria-selected','false'));
+      btn.setAttribute('aria-selected','true');
+      render(btn.dataset.key, btn.querySelector('.autoK__itemTitle').textContent);
+    });
+  });
+})();
+</script>
+
+<!-- ===================== AUTOMOTIVE — HOW WE HELP (DESKTOP SLIDER + MOBILE ACCORDION) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#4B5168;
+  --line:rgba(49,59,134,.18);
+  --card:#ffffff;
+
+  /* ✅ change if you want a different image for Automotive */
+  --autow-bg-img:url("https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg");
+}
+
+/* scope */
+.autoW, .autoW *{ box-sizing:border-box; }
+
+.autoW{
+  position:relative;
+  padding:96px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at 18% 0%, rgba(98,90,216,.10), transparent 55%),
+    radial-gradient(circle at 95% 30%, rgba(31,156,228,.10), transparent 55%),
+    radial-gradient(circle at 70% 110%, rgba(2,12,79,.08), transparent 60%),
+    rgba(49,59,134,.03);
+}
+
+.autoW::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(2,12,79,.80), rgba(2,12,79,.25) 55%, rgba(2,12,79,0) 100%),
+    var(--autow-bg-img);
+  background-size:cover;
+  background-position:center;
+  opacity:.95;
+  z-index:0;
+  pointer-events:none;
+}
+
+.autoW::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  z-index:0;
+  pointer-events:none;
+}
+
+.autoW__inner{
+  position:relative;
+  z-index:1;
+  max-width:1200px;
+  margin:0 auto;
+  width:100%;
+  min-width:0;
+}
+
+.autoW__eyebrow{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+  font-weight:800;
+  margin:0 0 10px;
+}
+
+.autoW__title{
+  margin:0 0 22px;
+  font-size:clamp(34px,4vw,56px);
+  line-height:1.08;
+  font-weight:900;
+  color:#fff;
+}
+
+.autoW__layout{
+  display:grid;
+  grid-template-columns:minmax(0,0.38fr) minmax(0,0.62fr);
+  gap:56px;
+  align-items:stretch;
+  width:100%;
+  min-width:0;
+}
+
+/* entrance animation */
+.autoW__left,
+.autoW__right{
+  opacity:0;
+  transition:opacity .85s ease, transform .85s cubic-bezier(.2,.9,.2,1);
+}
+.autoW__left{ transform:translateX(-44px); }
+.autoW__right{ transform:translateX(44px); }
+.autoW.is-in .autoW__left,
+.autoW.is-in .autoW__right{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* ===================== DESKTOP LEFT ===================== */
+.autoW__left{
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:20px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter: blur(10px);
+  box-shadow:0 12px 32px rgba(0,0,0,.14);
+  padding:18px;
+  min-width:0;
+}
+
+.autoW__leftTitle{
+  margin:0 0 12px;
+  font-size:26px;
+  font-weight:900;
+  color:#fff;
+}
+
+.autoW__nav{
+  display:grid;
+  gap:10px;
+  margin-top:10px;
+  min-width:0;
+}
+
+.autoW__navBtn{
+  width:100%;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);
+  border-radius:14px;
+  padding:14px 14px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  text-align:left;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  min-width:0;
+  white-space:normal;
+}
+
+.autoW__navBtn:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.18);
+}
+
+.autoW__navLeft{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  flex:1 1 auto;
+}
+
+.autoW__navMark{
+  width:10px; height:10px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.12);
+  flex:0 0 auto;
+}
+
+.autoW__navText{ min-width:0; }
+
+.autoW__itemTitle{
+  margin:0;
+  font-size:14.5px;
+  font-weight:800;
+  color:#fff;
+  line-height:1.2;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.autoW__itemHint{
+  margin:6px 0 0;
+  font-size:12.5px;
+  color:rgba(255,255,255,.80);
+  line-height:1.3;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.autoW__navArrow{
+  width:34px; height:34px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.16);
+  color:#fff;
+  background:rgba(255,255,255,.06);
+  flex:0 0 auto;
+}
+
+.autoW__navBtn[aria-selected="true"]{
+  background:rgba(255,255,255,.10);
+  border-color:rgba(255,255,255,.24);
+}
+
+/* ===================== DESKTOP RIGHT SLIDER ===================== */
+.autoW__right{
+  position:relative;
+  border-radius:22px;
+  min-height:560px;
+  min-width:0;
+}
+
+.autoW__stage{
+  position:relative;
+  height:100%;
+  min-height:560px;
+  padding:0 68px; /* peeks */
+  min-width:0;
+}
+
+.autoW__card{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:86%;
+  height:100%;
+  border-radius:22px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(49,59,134,.18);
+  box-shadow:0 28px 70px rgba(0,0,0,.22);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .42s cubic-bezier(.2,.9,.2,1), opacity .25s ease;
+}
+
+.autoW__card.is-active{ z-index:3; opacity:1; }
+.autoW__card.is-prev,
+.autoW__card.is-next{
+  z-index:2;
+  width:82%;
+  opacity:.78;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 22px 60px rgba(0,0,0,.18);
+}
+.autoW__card.is-prev{ transform:translateX(-50%) translateX(-110px) scale(.965); }
+.autoW__card.is-next{ transform:translateX(-50%) translateX(110px) scale(.965); }
+
+.autoW__top{
+  padding:18px 22px 14px;
+  border-bottom:1px solid rgba(49,59,134,.14);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(31,156,228,.10), transparent 55%),
+    #fff;
+}
+
+.autoW__kicker{
+  margin:0 0 6px;
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:900;
+}
+
+.autoW__cardTitle{
+  margin:0;
+  font-size:22px;
+  line-height:1.2;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.autoW__body{
+  padding:16px 22px 18px;
+  overflow:auto;
+}
+
+.autoW__lead{
+  margin:0 0 12px;
+  font-size:15px;
+  line-height:1.75;
+  color:#2E334D;
+}
+
+.autoW__label{
+  margin:12px 0 8px;
+  font-size:14px;
+  font-weight:800;
+  color:var(--ink);
+}
+
+.autoW__list{ margin:0; padding-left:18px; }
+.autoW__list li{
+  margin:0 0 7px;
+  font-size:14.5px;
+  line-height:1.65;
+  color:#2E334D;
+}
+
+.autoW__impact{
+  margin-top:14px;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(49,59,134,.12);
+  background:rgba(49,59,134,.03);
+  border-left:4px solid var(--accent);
+  font-size:14.5px;
+  line-height:1.7;
+  color:#3C4160;
+}
+.autoW__impact b{ color:var(--navy); }
+
+/* peek preview */
+.autoW__card.is-prev .autoW__lead,
+.autoW__card.is-next .autoW__lead{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  max-height:3.7em;
+}
+.autoW__card.is-prev .autoW__label,
+.autoW__card.is-next .autoW__label,
+.autoW__card.is-prev .autoW__list,
+.autoW__card.is-next .autoW__list,
+.autoW__card.is-prev .autoW__impact,
+.autoW__card.is-next .autoW__impact{
+  display:none;
+}
+
+.autoW__ctrl{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:46px;height:46px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.50);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  z-index:5;
+  user-select:none;
+}
+.autoW__ctrl:hover{
+  transform:translateY(-50%) scale(1.03);
+  background:rgba(255,255,255,.16);
+  border-color:rgba(255,255,255,.30);
+}
+.autoW__ctrl--prev{ left:12px; }
+.autoW__ctrl--next{ right:12px; }
+
+/* ===================== MOBILE (NO HORIZONTAL) ===================== */
+.autoW__mWrap{ display:none; }
+
+@media (max-width:980px){
+  .autoW{ padding:78px 16px; }
+  .autoW__layout{ grid-template-columns:1fr; gap:14px; }
+
+  .autoW__right{ display:none !important; }
+
+  .autoW__left{ padding:14px; border-radius:18px; }
+  .autoW__leftTitle{ font-size:18px; margin-bottom:10px; }
+  .autoW__nav{ display:none !important; }
+
+  .autoW__mWrap{ display:grid; gap:12px; }
+
+  .autoW__mCard{
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.08);
+    backdrop-filter: blur(10px);
+    border-radius:18px;
+    box-shadow:0 12px 28px rgba(0,0,0,.14);
+    overflow:hidden;
+  }
+
+  .autoW__mBtn{
+    width:100%;
+    border:0;
+    background:transparent;
+    padding:14px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    cursor:pointer;
+    text-align:left;
+    color:#fff;
+  }
+
+  .autoW__mLeft{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    min-width:0;
+    flex:1 1 auto;
+  }
+
+  .autoW__mTitle{
+    margin:0;
+    font-size:14.5px;
+    font-weight:900;
+    line-height:1.25;
+    color:#fff;
+  }
+
+  .autoW__mHint{
+    margin:6px 0 0;
+    font-size:12.5px;
+    line-height:1.35;
+    color:rgba(255,255,255,.82);
+    overflow-wrap:anywhere;
+  }
+
+  .autoW__mChevron{
+    width:34px;height:34px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.06);
+    display:grid;
+    place-items:center;
+    color:#fff;
+    flex:0 0 auto;
+    transition:transform .2s ease;
+  }
+
+  .autoW__mAcc{ display:none; padding:0 14px 14px; }
+  .autoW__mCard[aria-expanded="true"] .autoW__mAcc{ display:block; }
+  .autoW__mCard[aria-expanded="true"] .autoW__mChevron{ transform:rotate(180deg); }
+
+  .autoW__mContent{
+    border-radius:16px;
+    background:rgba(255,255,255,.96);
+    border:1px solid rgba(49,59,134,.18);
+    box-shadow:0 18px 44px rgba(0,0,0,.18);
+    overflow:hidden;
+  }
+
+  .autoW__mTop{
+    padding:14px 14px 12px;
+    border-bottom:1px solid rgba(49,59,134,.14);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.10), transparent 55%),
+      #fff;
+  }
+
+  .autoW__mKicker{
+    margin:0 0 6px;
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .autoW__mCardTitle{
+    margin:0;
+    font-size:20px;
+    line-height:1.2;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .autoW__mBody{ padding:12px 14px 14px; }
+
+  .autoW__mLead{
+    margin:0 0 10px;
+    font-size:14.5px;
+    line-height:1.7;
+    color:#2E334D;
+  }
+
+  .autoW__mLabel{
+    margin:10px 0 8px;
+    font-size:13.5px;
+    font-weight:900;
+    color:var(--ink);
+  }
+
+  .autoW__mList{ margin:0; padding-left:18px; }
+  .autoW__mList li{
+    margin:0 0 7px;
+    font-size:14.2px;
+    line-height:1.65;
+    color:#2E334D;
+    overflow-wrap:anywhere;
+  }
+
+  .autoW__mImpact{
+    margin-top:12px;
+    padding:10px 12px;
+    border-radius:14px;
+    border:1px solid rgba(49,59,134,.12);
+    background:rgba(49,59,134,.03);
+    border-left:4px solid var(--accent);
+    font-size:14.2px;
+    line-height:1.7;
+    color:#3C4160;
+  }
+  .autoW__mImpact b{ color:var(--navy); }
+}
+</style>
+
+<section class="autoW" id="auto-how-we-help" aria-label="How we help the Automotive sector">
+  <div class="autoW__inner">
+    <p class="autoW__eyebrow">Automotive Sector</p>
+    <h2 class="autoW__title">How We Help the Automotive Sector</h2>
+
+    <div class="autoW__layout">
+      <!-- DESKTOP LEFT -->
+      <aside class="autoW__left">
+        <h3 class="autoW__leftTitle">Our Services</h3>
+
+        <div class="autoW__nav" role="tablist" aria-label="Automotive service pillars">
+          <button class="autoW__navBtn" role="tab" aria-selected="true" data-i="0">
+            <div class="autoW__navLeft">
+              <span class="autoW__navMark" aria-hidden="true"></span>
+              <div class="autoW__navText">
+                <p class="autoW__itemTitle">Growth &amp; Strategy</p>
+                <p class="autoW__itemHint">Future-fit choices</p>
+              </div>
+            </div>
+            <span class="autoW__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="autoW__navBtn" role="tab" aria-selected="false" data-i="1">
+            <div class="autoW__navLeft">
+              <span class="autoW__navMark" aria-hidden="true"></span>
+              <div class="autoW__navText">
+                <p class="autoW__itemTitle">Shared Services &amp; GCC Excellence</p>
+                <p class="autoW__itemHint">Scalable operations</p>
+              </div>
+            </div>
+            <span class="autoW__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="autoW__navBtn" role="tab" aria-selected="false" data-i="2">
+            <div class="autoW__navLeft">
+              <span class="autoW__navMark" aria-hidden="true"></span>
+              <div class="autoW__navText">
+                <p class="autoW__itemTitle">Tech-Enabled Transformation</p>
+                <p class="autoW__itemHint">Digitalise value chain</p>
+              </div>
+            </div>
+            <span class="autoW__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="autoW__navBtn" role="tab" aria-selected="false" data-i="3">
+            <div class="autoW__navLeft">
+              <span class="autoW__navMark" aria-hidden="true"></span>
+              <div class="autoW__navText">
+                <p class="autoW__itemTitle">ESG &amp; Sustainable Value Creation</p>
+                <p class="autoW__itemHint">Responsible growth</p>
+              </div>
+            </div>
+            <span class="autoW__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="autoW__navBtn" role="tab" aria-selected="false" data-i="4">
+            <div class="autoW__navLeft">
+              <span class="autoW__navMark" aria-hidden="true"></span>
+              <div class="autoW__navText">
+                <p class="autoW__itemTitle">Business Process &amp; Operational Excellence</p>
+                <p class="autoW__itemHint">Lean &amp; robust systems</p>
+              </div>
+            </div>
+            <span class="autoW__navArrow" aria-hidden="true">›</span>
+          </button>
+        </div>
+
+        <!-- MOBILE ACCORDION -->
+        <div class="autoW__mWrap" id="autoW-mobile"></div>
+      </aside>
+
+      <!-- DESKTOP RIGHT -->
+      <div class="autoW__right">
+        <button class="autoW__ctrl autoW__ctrl--prev" type="button" aria-label="Previous">‹</button>
+        <button class="autoW__ctrl autoW__ctrl--next" type="button" aria-label="Next">›</button>
+
+        <div class="autoW__stage" aria-live="polite">
+          <article class="autoW__card is-prev" id="autoW-prev"></article>
+          <article class="autoW__card is-active" id="autoW-active"></article>
+          <article class="autoW__card is-next" id="autoW-next"></article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const section = document.getElementById('auto-how-we-help');
+  if(!section) return;
+
+  const isElementor =
+    document.body.classList.contains('elementor-editor-active') ||
+    document.body.classList.contains('elementor-editor-preview') ||
+    !!document.querySelector('#elementor-editor-wrapper');
+
+  function enter(){ section.classList.add('is-in'); }
+
+  if(isElementor){
+    enter();
+  } else if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          enter();
+          io.unobserve(section);
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(section);
+    setTimeout(()=>{ if(!section.classList.contains('is-in')) enter(); }, 1200);
+  } else {
+    enter();
+  }
+
+  const data = [
+    {
+      navTitle:"Growth & Strategy",
+      navHint:"Future-fit choices",
+      kicker:"01 · Growth & Strategy",
+      title:"Building Future-Fit Automotive Businesses",
+      lead:"We help automotive organisations refine strategic direction and competitive choices in a fast-changing industry landscape.",
+      label1:"How we support:",
+      bullets:[
+        "Strategic roadmaps for EV, hybrid, and connected vehicle portfolios",
+        "Market entry, product strategy, and pricing models",
+        "Commercial excellence and customer value optimisation",
+        "Strategic partnerships (tech, EV infra, software vendors)",
+        "M&A support and synergies assessment"
+      ],
+      impact:"Clear growth priorities, improved portfolio execution, and strengthened market positioning."
+    },
+    {
+      navTitle:"Shared Services & GCC Excellence",
+      navHint:"Scalable operations",
+      kicker:"02 · Shared Services & GCC Excellence",
+      title:"Scalable Operations Across Functions",
+      lead:"Automotive firms are increasingly centralising non-core functions to drive consistency and efficiency.",
+      label1:"We help with:",
+      bullets:[
+        "GCC and shared services set-up (engineering, analytics, finance)",
+        "Operating model design for global units",
+        "Governance, KPI frameworks, and performance standards",
+        "Capability and leadership development programs"
+      ],
+      impact:"Standardised, cost-efficient processes with alignment across geographies."
+    },
+    {
+      navTitle:"Tech-Enabled Transformation",
+      navHint:"Digitalise value chain",
+      kicker:"03 · Tech-Enabled Transformation",
+      title:"Digitalising the Automotive Value Chain",
+      lead:"We enable practical digital transformation aligned with performance, compliance, and speed.",
+      label1:"Where we support:",
+      bullets:[
+        "IT/OT integration across plants",
+        "Smart manufacturing and connected shopfloor practices",
+        "Digital twin, advanced analytics, and quality prediction",
+        "Cloud migration and modern data platforms",
+        "Workflow digitisation and automation (RPA / low-code)"
+      ],
+      impact:"Improved real-time visibility, faster decision-making, and enhanced operational agility."
+    },
+    {
+      navTitle:"ESG & Sustainable Value Creation",
+      navHint:"Responsible growth",
+      kicker:"04 · ESG & Sustainable Value Creation",
+      title:"ESG & Sustainable Value Creation",
+      lead:"Sustainability is now central to brand reputation, regulatory compliance, and investor expectations in Automotive.",
+      label1:"Our support includes:",
+      bullets:[
+        "ESG strategy & measurement aligned to global norms",
+        "Emissions reduction and energy optimisation programs",
+        "Sustainable supply chain frameworks",
+        "ESG reporting and assurance readiness",
+        "Stakeholder engagement and value communication"
+      ],
+      impact:"Stronger environmental stewardship, stakeholder confidence, and long-term viability."
+    },
+    {
+      navTitle:"Business Process & Operational Excellence",
+      navHint:"Lean & robust systems",
+      kicker:"05 · Business Process & Operational Excellence",
+      title:"Creating Lean & Robust Automotive Systems",
+      lead:"Automotive operations demand precision, flexibility, and customer responsiveness.",
+      label1:"Our services include:",
+      bullets:[
+        "Lean transformation across production and supply chain",
+        "Value stream design for assembly, powertrain, and components",
+        "Cost optimisation and productivity improvement",
+        "Target operating model (TOM) design",
+        "Standardisation of global and regional processes"
+      ],
+      impact:"Lower defect rates, higher throughput, reduced cycle time, and improved customer satisfaction."
+    }
+  ];
+
+  /* ---------------- DESKTOP SLIDER ---------------- */
+  const navButtons = Array.from(section.querySelectorAll('.autoW__navBtn'));
+  const prevEl = section.querySelector('#autoW-prev');
+  const activeEl = section.querySelector('#autoW-active');
+  const nextEl = section.querySelector('#autoW-next');
+  const btnPrev = section.querySelector('.autoW__ctrl--prev');
+  const btnNext = section.querySelector('.autoW__ctrl--next');
+
+  let idx = 0;
+
+  function cardHTML(d){
+    return `
+      <div class="autoW__top">
+        <p class="autoW__kicker">${d.kicker}</p>
+        <h3 class="autoW__cardTitle">${d.title}</h3>
+      </div>
+      <div class="autoW__body">
+        <p class="autoW__lead">${d.lead}</p>
+        <div class="autoW__label">${d.label1}</div>
+        <ul class="autoW__list">
+          ${d.bullets.map(x=>`<li>${x}</li>`).join('')}
+        </ul>
+        <div class="autoW__impact"><b>Impact:</b> ${d.impact}</div>
+      </div>
+    `;
+  }
+
+  function setActiveNav(i){
+    navButtons.forEach((b,bi)=> b.setAttribute('aria-selected', bi===i ? 'true':'false'));
+  }
+
+  function renderDesktop(){
+    const prevI = (idx - 1 + data.length) % data.length;
+    const nextI = (idx + 1) % data.length;
+
+    if(prevEl) prevEl.innerHTML = cardHTML(data[prevI]);
+    if(activeEl) activeEl.innerHTML = cardHTML(data[idx]);
+    if(nextEl) nextEl.innerHTML = cardHTML(data[nextI]);
+    setActiveNav(idx);
+  }
+
+  function goTo(i){
+    idx = (i + data.length) % data.length;
+    renderDesktop();
+  }
+
+  navButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = parseInt(btn.getAttribute('data-i'),10);
+      goTo(i);
+    });
+  });
+
+  btnPrev && btnPrev.addEventListener('click', ()=> goTo(idx-1));
+  btnNext && btnNext.addEventListener('click', ()=> goTo(idx+1));
+
+  section.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowLeft') goTo(idx-1);
+    if(e.key === 'ArrowRight') goTo(idx+1);
+  });
+
+  renderDesktop();
+
+  /* ---------------- MOBILE ACCORDION ---------------- */
+  const mobileMount = section.querySelector('#autoW-mobile');
+
+  function mobileCard(d, i){
+    return `
+      <div class="autoW__mCard" aria-expanded="${i===0 ? 'true':'false'}" data-i="${i}">
+        <button class="autoW__mBtn" type="button" aria-label="${d.navTitle}">
+          <div class="autoW__mLeft">
+            <span class="autoW__navMark" aria-hidden="true"></span>
+            <div style="min-width:0">
+              <p class="autoW__mTitle">${d.navTitle}</p>
+              <p class="autoW__mHint">${d.navHint}</p>
+            </div>
+          </div>
+          <span class="autoW__mChevron" aria-hidden="true">⌄</span>
+        </button>
+
+        <div class="autoW__mAcc">
+          <div class="autoW__mContent">
+            <div class="autoW__mTop">
+              <p class="autoW__mKicker">${d.kicker}</p>
+              <h3 class="autoW__mCardTitle">${d.title}</h3>
+            </div>
+            <div class="autoW__mBody">
+              <p class="autoW__mLead">${d.lead}</p>
+              <div class="autoW__mLabel">${d.label1}</div>
+              <ul class="autoW__mList">
+                ${d.bullets.map(x=>`<li>${x}</li>`).join('')}
+              </ul>
+              <div class="autoW__mImpact"><b>Impact:</b> ${d.impact}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderMobile(){
+    if(!mobileMount) return;
+    mobileMount.innerHTML = data.map((d,i)=>mobileCard(d,i)).join('');
+
+    const cards = Array.from(mobileMount.querySelectorAll('.autoW__mCard'));
+    cards.forEach(card=>{
+      const btn = card.querySelector('.autoW__mBtn');
+      btn.addEventListener('click', ()=>{
+        const isOpen = card.getAttribute('aria-expanded') === 'true';
+        cards.forEach(c=>c.setAttribute('aria-expanded','false'));
+        card.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+    });
+  }
+
+  renderMobile();
+})();
+</script>
+
+<!-- ===================== AUTOMOTIVE — WHY WORK WITH US (IMAGE LEFT) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#3C4160;
+}
+
+/* SECTION */
+.autoWhy, .autoWhy *{box-sizing:border-box;}
+.autoWhy{
+  padding:96px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(98,90,216,.08), transparent 55%),
+    radial-gradient(circle at 95% 30%, rgba(49,59,134,.08), transparent 55%),
+    radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+    rgba(49,59,134,.03);
+}
+
+.autoWhy__inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:44px;
+  align-items:stretch;
+}
+
+/* IMAGE COLUMN */
+.autoWhy__imageWrap{
+  position:relative;
+  border-radius:26px;
+  overflow:hidden;
+  min-height:460px;
+  box-shadow:0 22px 54px rgba(0,0,0,.10);
+}
+
+.autoWhy__imageWrap img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* brand overlay */
+.autoWhy__imageWrap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(2,12,79,.18), rgba(2,12,79,.08) 55%, rgba(255,255,255,0) 100%),
+    radial-gradient(circle at 20% 20%, rgba(98,90,216,.20), transparent 60%),
+    radial-gradient(circle at 80% 35%, rgba(31,156,228,.16), transparent 60%);
+  pointer-events:none;
+}
+
+/* CONTENT COLUMN */
+.autoWhy__content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.autoWhy__eyebrow{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:800;
+  margin:0 0 10px;
+}
+
+.autoWhy__title{
+  font-size:clamp(32px,3.6vw,46px);
+  line-height:1.1;
+  font-weight:900;
+  color:var(--navy);
+  margin:0 0 18px;
+}
+
+/* MANIFESTO LIST */
+.autoWhy__list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:18px;
+  position:relative;
+}
+
+.autoWhy__list::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  top:6px;
+  bottom:6px;
+  width:2px;
+  background:linear-gradient(180deg, rgba(98,90,216,.45), rgba(31,156,228,.35));
+  opacity:.6;
+}
+
+.autoWhy__item{
+  position:relative;
+  padding-left:46px;
+}
+
+.autoWhy__dot{
+  position:absolute;
+  left:6px;
+  top:4px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid rgba(49,59,134,.25);
+}
+
+.autoWhy__dot::after{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.12);
+}
+
+.autoWhy__h{
+  margin:0 0 4px;
+  font-size:16px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+.autoWhy__p{
+  margin:0;
+  font-size:14.8px;
+  line-height:1.75;
+  color:#3C4160;
+}
+
+/* MOBILE */
+@media(max-width:980px){
+  .autoWhy{padding:78px 18px;}
+  .autoWhy__inner{grid-template-columns:1fr; gap:26px;}
+  .autoWhy__imageWrap{min-height:260px;}
+  .autoWhy__list::before{left:12px;}
+}
+</style>
+
+<section class="autoWhy" id="auto-why-us">
+  <div class="autoWhy__inner">
+
+    <!-- IMAGE LEFT -->
+    <div class="autoWhy__imageWrap">
+      <img
+        src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg"
+        alt="Automotive transformation and mobility innovation"
+      />
+    </div>
+
+    <!-- CONTENT RIGHT -->
+    <div class="autoWhy__content">
+      <p class="autoWhy__eyebrow">Automotive Sector</p>
+      <h2 class="autoWhy__title">Why Automotive Organisations Work With Us</h2>
+
+      <ul class="autoWhy__list">
+        <li class="autoWhy__item">
+          <span class="autoWhy__dot"></span>
+          <p class="autoWhy__h">Strategy + Execution as One System</p>
+          <p class="autoWhy__p">
+            We turn strategic intent into measurable operational performance across the automotive value chain.
+          </p>
+        </li>
+
+        <li class="autoWhy__item">
+          <span class="autoWhy__dot"></span>
+          <p class="autoWhy__h">Deep Understanding of Complex, Regulated Environments</p>
+          <p class="autoWhy__p">
+            Solutions are designed for safety, quality, compliance, and audit readiness by default.
+          </p>
+        </li>
+
+        <li class="autoWhy__item">
+          <span class="autoWhy__dot"></span>
+          <p class="autoWhy__h">Tech-First, Human-Centric Approach</p>
+          <p class="autoWhy__p">
+            Digital initiatives enhance human judgment and execution discipline — not replace them.
+          </p>
+        </li>
+
+        <li class="autoWhy__item">
+          <span class="autoWhy__dot"></span>
+          <p class="autoWhy__h">Proven, Integrated Methodologies</p>
+          <p class="autoWhy__p">
+            Lean, Industry 4.0, Agile, ESG, TOM, and transformation frameworks — woven into one system.
+          </p>
+        </li>
+
+        <li class="autoWhy__item">
+          <span class="autoWhy__dot"></span>
+          <p class="autoWhy__h">Measurable Outcomes</p>
+          <p class="autoWhy__p">
+            Every engagement is tied to growth, cost, quality, or customer experience metrics.
+          </p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== AUTOMOTIVE — FINAL CTA (WHITE BACKGROUND STRIP) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#3C4160;
+  --line:rgba(49,59,134,.16);
+}
+
+.auto-cta, .auto-cta *{box-sizing:border-box;}
+.auto-cta{
+  padding:84px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#ffffff; /* white strip */
+}
+
+.auto-cta__inner{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.auto-cta__bar{
+  border:1px solid rgba(49,59,134,.16);
+  border-radius:26px;
+  background:rgba(255,255,255,.98);
+  box-shadow:0 22px 54px rgba(0,0,0,.08);
+  padding:28px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+}
+
+.auto-cta__left{
+  min-width:0;
+  max-width:820px;
+}
+
+.auto-cta__kicker{
+  margin:0 0 10px;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:800;
+}
+
+.auto-cta__title{
+  margin:0 0 10px;
+  font-size:clamp(26px,3.2vw,38px);
+  line-height:1.15;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.auto-cta__text{
+  margin:0;
+  font-size:15.5px;
+  line-height:1.75;
+  color:var(--muted);
+}
+
+/* signal pill */
+.auto-cta__pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 12px;
+  border-radius:999px;
+  border:1px solid rgba(49,59,134,.18);
+  background:rgba(49,59,134,.04);
+  color:var(--indigo);
+  font-weight:800;
+  font-size:12px;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
+
+.auto-cta__dot{
+  width:9px;height:9px;border-radius:999px;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.10);
+}
+
+.auto-cta__right{
+  flex:0 0 auto;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.auto-cta__btn{
+  height:46px;
+  padding:0 18px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:14px;
+  font-weight:800;
+  text-decoration:none;
+  transition:.2s ease;
+  white-space:nowrap;
+}
+
+.auto-cta__btn--primary{
+  background:var(--violet);
+  color:#fff;
+  border:1px solid var(--violet);
+  box-shadow:0 12px 26px rgba(98,90,216,.22);
+}
+.auto-cta__btn--primary:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  transform:translateY(-1px);
+}
+
+.auto-cta__btn--ghost{
+  background:#fff;
+  color:var(--navy);
+  border:1px solid rgba(49,59,134,.22);
+}
+.auto-cta__btn--ghost:hover{
+  background:rgba(49,59,134,.04);
+  transform:translateY(-1px);
+}
+
+@media (max-width:980px){
+  .auto-cta{padding:70px 18px;}
+  .auto-cta__bar{
+    padding:22px;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .auto-cta__right{justify-content:flex-start;}
+}
+</style>
+
+<section class="auto-cta" id="auto-cta">
+  <div class="auto-cta__inner">
+
+    <div class="auto-cta__bar">
+      <div class="auto-cta__left">
+        <p class="auto-cta__kicker">Next steps</p>
+        <h2 class="auto-cta__title">Let’s Build the Next-Gen Automotive Enterprise</h2>
+        <p class="auto-cta__text">
+          From strategy and shared services to digital transformation, ESG, and operational excellence, we help
+          Automotive organisations accelerate performance, strengthen resilience, and compete at global scale.
+        </p>
+
+        <div class="auto-cta__pill">
+          <span class="auto-cta__dot" aria-hidden="true"></span>
+          Strategy • Shared Services • Digital • ESG • Operational Excellence
+        </div>
+      </div>
+
+      <div class="auto-cta__right">
+        <a class="auto-cta__btn auto-cta__btn--ghost" href="#contact">Talk to us</a>
+        <a class="auto-cta__btn auto-cta__btn--primary" href="#contact">Request a consultation →</a>
+      </div>
+    </div>
+
+  </div>
+</section>

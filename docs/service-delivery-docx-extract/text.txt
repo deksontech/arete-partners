@@ -1,0 +1,1489 @@
+<!-- ===================== SERVICES — SERVICE DELIVERY (INFOGRAPHIC – FIXED SPINE GAPS + MOBILE OPTIMIZED) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    /* brand colours */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --line2:rgba(49,59,134,.18);
+    --card:#ffffff;
+
+    /* widened max width */
+    --max:1320px;
+
+    /* header height for aligning spine */
+    --colHeadH: 36px;
+
+    /* how far connectors travel horizontally */
+    --connector: 70px;
+  }
+
+  .gtInf, .gtInf *{ box-sizing:border-box; }
+
+  /* stop any horizontal scroll caused by long words / grid / pills */
+  .gtInf{ overflow-x:hidden; }
+
+  .gtInf{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:#fff;
+    padding:86px 20px 78px;
+  }
+
+  .gtInf__inner{ max-width:var(--max); margin:0 auto; }
+
+  /* ---------- Header ---------- */
+  .gtInf__kicker{
+    margin:0 0 10px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+  .gtInf__title{
+    margin:0 0 10px;
+    /* smaller title than original */
+    font-size:clamp(26px,3.1vw,36px);
+    line-height:1.15;
+    font-weight:950;
+    color:var(--navy);
+    max-width:980px;
+  }
+  .gtInf__sub{
+    margin:0 0 22px;
+    font-size:15.5px;
+    line-height:1.8;
+    color:var(--muted);
+    max-width:980px;
+  }
+
+  /* ---------- Shell ---------- */
+  .gtInf__frame{
+    border:1px solid rgba(49,59,134,.16);
+    border-radius:26px;
+    background:rgba(255,255,255,.98);
+    box-shadow:0 18px 46px rgba(0,0,0,.06);
+    overflow:hidden; /* keeps desktop clean */
+  }
+
+  /* top helper bar */
+  .gtInf__bar{
+    padding:14px 16px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.10), transparent 55%),
+      #fff;
+  }
+  .gtInf__badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(49,59,134,.03);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+  }
+  .gtInf__badgeDot{
+    width:9px;height:9px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 6px rgba(31,156,228,.10);
+  }
+  .gtInf__barRight{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.14);
+    background:#fff;
+    color:var(--indigo);
+    font-size:11.5px;
+    font-weight:900;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+
+  /* ---------- 2-column infographic body with spine ---------- */
+  .gtInf__body{
+    position:relative;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 160px minmax(0,1fr);
+    gap:0;
+    align-items:stretch;
+    padding:22px 26px 22px;
+  }
+
+  /* header row auto, 3 cards equal height */
+  .gtInf__col{
+    min-width:0;
+    display:grid;
+    grid-template-rows:auto repeat(3,1fr);
+    row-gap:22px; /* vertical space between header and cards, and between cards */
+  }
+
+  .gtInf__col--left{ padding-right:14px; }
+  .gtInf__col--right{ padding-left:14px; }
+
+  .gtInf__colHead{
+    min-height:auto;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:10px;
+    padding:2px 4px 0;
+  }
+  .gtInf__colTitle{
+    margin:0;
+    font-size:13px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:950;
+  }
+  .gtInf__colNote{
+    margin:0;
+    font-size:12.5px;
+    color:#5B6282;
+    font-weight:700;
+    white-space:nowrap;
+  }
+
+  .gtInf__group{
+    position:relative;
+    border:1px solid rgba(49,59,134,.14);
+    border-radius:18px;
+    background:#fff;
+    padding:18px 16px 20px; /* more internal space */
+    box-shadow:0 10px 26px rgba(0,0,0,.04);
+    height:100%; /* stretch inside column grid */
+  }
+
+  .gtInf__groupKicker{
+    margin:0 0 6px;
+    font-size:11.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .gtInf__groupTitle{
+    margin:0 0 10px;
+    font-size:15.5px;
+    line-height:1.25;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .gtInf__list{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:10px;
+  }
+  .gtInf__li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:14.2px;
+    line-height:1.65;
+    color:#2E334D;
+  }
+
+  /* clean, consistent icon for all bullets */
+  .gtInf__dot{
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    margin-top:7px;
+    flex:0 0 auto;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    outline:3px solid rgba(31,156,228,.12);
+  }
+
+  /* remove special first/last margins so spacing is equal via grid-gap */
+  .gtInf__col--left .gtInf__group:first-of-type,
+  .gtInf__col--right .gtInf__group:first-of-type,
+  .gtInf__col--left .gtInf__group:last-of-type,
+  .gtInf__col--right .gtInf__group:last-of-type{
+    margin-top:0;
+    margin-bottom:0;
+  }
+
+  /* ---------- Spine (desktop, absolute labels) ---------- */
+  .gtInf__spine{ position:relative; }
+
+  .gtInf__spineLine{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top:var(--colHeadH);
+    bottom:0;
+    width:4px;
+    border-radius:999px;
+    background:linear-gradient(180deg,var(--accent),var(--violet));
+    opacity:.9;
+    z-index:0;
+  }
+
+  .gtInf__spineLabel{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    width:max-content;
+    /* narrower so it stays inside the centre column */
+    max-width:140px;
+    text-align:center;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:950;
+    color:var(--navy);
+    padding:7px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.96);
+    box-shadow:0 10px 22px rgba(0,0,0,.06);
+    line-height:1.15;
+    pointer-events:none;
+  }
+  .gtInf__spineLabel--top{ top:calc(var(--colHeadH) + 12px); }
+  .gtInf__spineLabel--bottom{ bottom:24px; }
+
+  .gtInf__spineNode{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:2;
+    width:46px;height:46px;
+    border-radius:16px;
+    background:#fff;
+    border:1px solid rgba(49,59,134,.18);
+    box-shadow:0 14px 34px rgba(0,0,0,.10);
+    display:grid;
+    place-items:center;
+    color:var(--navy);
+    font-weight:950;
+    pointer-events:none;
+  }
+  .gtInf__spineNode::after{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    border-radius:20px;
+    background:linear-gradient(135deg, rgba(98,90,216,.16), rgba(31,156,228,.10));
+    z-index:-1;
+  }
+
+  /* ---------- CONNECTOR LINES (DESKTOP ONLY) ---------- */
+  .gtInf__col--left .gtInf__group::after{
+    content:"";
+    position:absolute;
+    right:calc(var(--connector) * -1);
+    top:26px;
+    width:var(--connector);
+    height:1px;
+    background:var(--line2);
+  }
+  .gtInf__col--left .gtInf__group::before{
+    content:"";
+    position:absolute;
+    right:calc(var(--connector) * -1 - 6px);
+    top:23px;
+    width:7px;height:7px;
+    border-radius:999px;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  .gtInf__col--right .gtInf__group::before{
+    content:"";
+    position:absolute;
+    left:calc(var(--connector) * -1);
+    top:26px;
+    width:var(--connector);
+    height:1px;
+    background:var(--line2);
+  }
+  .gtInf__col--right .gtInf__group::after{
+    content:"";
+    position:absolute;
+    left:calc(var(--connector) * -1 - 6px);
+    top:23px;
+    width:7px;height:7px;
+    border-radius:999px;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  /* ---------- Impact bar ---------- */
+  .gtInf__impact{
+    padding:16px 18px 18px;
+    border-top:1px solid rgba(49,59,134,.12);
+    background:rgba(49,59,134,.02);
+  }
+  .gtInf__impactRow{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .gtInf__impactTitle{
+    margin:0;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:950;
+    color:var(--navy);
+  }
+  .gtInf__chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+  }
+  .gtInf__chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:#fff;
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+  }
+  .gtInf__chip i{
+    width:7px;height:7px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    display:inline-block;
+  }
+
+  /* =======================================================================
+     MOBILE / TABLET OPTIMIZATION
+     ======================================================================= */
+  @media (max-width:1024px){
+    .gtInf{ padding:68px 14px 62px; }
+
+    .gtInf__frame{ border-radius:18px; }
+
+    .gtInf__body{
+      grid-template-columns:1fr;
+      gap:14px;
+      padding:14px 12px 14px;
+    }
+
+    .gtInf__col--left,
+    .gtInf__col--right{ padding:0; }
+
+    .gtInf__colHead{
+      min-height:auto;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:4px;
+      padding:0 2px;
+    }
+    .gtInf__colNote{ white-space:normal; }
+
+    .gtInf__group::before,
+    .gtInf__group::after{ display:none !important; }
+
+    .gtInf__spine{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      grid-template-rows:auto auto;
+      align-items:center;
+      gap:10px 10px;
+      padding:10px 6px 6px;
+      position:relative;
+    }
+
+    .gtInf__spineLine{
+      position:absolute;
+      left:0;
+      right:0;
+      top:50%;
+      bottom:auto;
+      transform:none;
+      width:auto;
+      height:4px;
+      border-radius:999px;
+    }
+
+    .gtInf__spineLabel{
+      position:relative;
+      left:auto;
+      transform:none;
+      max-width:100%;
+      width:100%;
+      font-size:10px;
+      padding:6px 8px;
+      box-shadow:0 8px 18px rgba(0,0,0,.06);
+      pointer-events:none;
+    }
+
+    .gtInf__spineLabel--top{
+      grid-column:1;
+      grid-row:1;
+      justify-self:start;
+      top:auto;
+    }
+    .gtInf__spineLabel--bottom{
+      grid-column:3;
+      grid-row:1;
+      justify-self:end;
+      bottom:auto;
+    }
+
+    .gtInf__spineNode{
+      position:relative;
+      left:auto;
+      top:auto;
+      transform:none;
+      grid-column:2;
+      grid-row:2;
+      justify-self:center;
+      width:44px;height:44px;
+      border-radius:16px;
+      margin:0;
+      pointer-events:none;
+    }
+  }
+
+  @media (max-width:680px){
+    .gtInf__bar{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .gtInf__barRight{ width:100%; justify-content:center; white-space:normal; text-align:center; }
+
+    .gtInf__title{ font-size:clamp(24px,7vw,32px); }
+    .gtInf__sub{ font-size:14.6px; line-height:1.75; }
+
+    .gtInf__group{ padding:14px; border-radius:16px; }
+    .gtInf__groupTitle{ font-size:15px; }
+    .gtInf__li{ font-size:13.8px; }
+
+    .gtInf__impactRow{ flex-direction:column; align-items:flex-start; }
+    .gtInf__chips{ gap:8px; }
+    .gtInf__chip{ height:32px; font-size:11.5px; }
+  }
+</style>
+
+<section class="gtInf" id="service-delivery-spine">
+  <div class="gtInf__inner">
+    <p class="gtInf__kicker">Service Delivery</p>
+    <h2 class="gtInf__title">From fragmented service to consistent, experience-led delivery</h2>
+    <p class="gtInf__sub">
+      Our Service Delivery framework connects strategy, standards, and execution across channels —
+      transforming day-to-day interactions into a sustainable engine of loyalty, profitability,
+      and brand advocacy.
+    </p>
+
+    <div class="gtInf__frame" role="region" aria-label="Service delivery spine infographic">
+      <div class="gtInf__bar">
+        <div class="gtInf__badge">
+          <span class="gtInf__badgeDot" aria-hidden="true"></span>
+          Service Delivery Framework
+        </div>
+        <div class="gtInf__barRight">CX Strategy • Standards • Execution</div>
+      </div>
+
+      <div class="gtInf__body">
+        <!-- LEFT: What we typically see -->
+        <div class="gtInf__col gtInf__col--left">
+          <div class="gtInf__colHead">
+            <p class="gtInf__colTitle">What we typically see</p>
+            <p class="gtInf__colNote">Fragmented, inconsistent service delivery</p>
+          </div>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">CX Strategy &amp; Standards</p>
+            <h3 class="gtInf__groupTitle">Disjointed customer experience</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Lack of a unified <b>customer experience strategy</b> across touchpoints and segments.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span><b>Service standards and SLAs</b> that vary by region, channel, or business line.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Weak linkage between <b>front-office promises</b> and back-office execution.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Measurement &amp; Control</p>
+            <h3 class="gtInf__groupTitle">Low visibility, slow recovery</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span><b>Inadequate measurement</b> of service performance and customer satisfaction.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Delayed responses, poor handoffs, and <b>inconsistent complaint management</b>.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Absence of <b>real-time feedback</b> and root cause analytics.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Scalability &amp; Loyalty</p>
+            <h3 class="gtInf__groupTitle">Service that doesn’t scale</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Service delivery processes that <b>depend on individuals, not systems</b>.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span><b>Declining loyalty</b>, high churn, and low customer lifetime value.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- SPINE -->
+        <div class="gtInf__spine" aria-hidden="true">
+          <div class="gtInf__spineLine"></div>
+          <div class="gtInf__spineLabel gtInf__spineLabel--top">From fragmented service</div>
+          <div class="gtInf__spineNode">⇄</div>
+          <div class="gtInf__spineLabel gtInf__spineLabel--bottom">To consistent, experience-led delivery</div>
+        </div>
+
+        <!-- RIGHT: What we enable -->
+        <div class="gtInf__col gtInf__col--right">
+          <div class="gtInf__colHead">
+            <p class="gtInf__colTitle">What we enable</p>
+            <p class="gtInf__colNote">Service delivery outcomes</p>
+          </div>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Growth &amp; Satisfaction</p>
+            <h3 class="gtInf__groupTitle">Stronger acquisition and CX</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span><b>20% growth in new customer acquisition</b> and <b>15–30% improvement</b> in customer satisfaction.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span><b>40% faster response times</b> and improved SLA adherence across service channels.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span><b>25–35% reduction</b> in customer grievances via blueprinting and proactive communication design.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Experience Design</p>
+            <h3 class="gtInf__groupTitle">Consistent, omnichannel journeys</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Consistent experience delivery through structured <b>customer journey mapping</b> and service design.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span><b>Integrated omnichannel experiences</b> aligning branch, digital, and support ecosystems.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Improved renewal and <b>retention rates by 15–20%</b> through targeted service excellence interventions.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Insights &amp; Empowerment</p>
+            <h3 class="gtInf__groupTitle">Data-led, empowered frontline</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span><b>Data-driven CX insights</b> through service measurement dashboards and analytics.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Empowered frontline teams with <b>performance visibility</b> and clear accountability frameworks.</span>
+              </li>
+              <li class="gtInf__li">
+                <span class="gtInf__dot"></span>
+                <span>Leadership reviews anchored in facts, not anecdotes — enabling faster, better decisions.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="gtInf__impact">
+        <div class="gtInf__impactRow">
+          <p class="gtInf__impactTitle">Typical impact unlocked</p>
+          <div class="gtInf__chips" aria-label="Typical service delivery impacts">
+            <span class="gtInf__chip"><i></i>20% growth in new acquisition</span>
+            <span class="gtInf__chip"><i></i>15–30% CX satisfaction uplift</span>
+            <span class="gtInf__chip"><i></i>25–35% fewer grievances</span>
+            <span class="gtInf__chip"><i></i>40% faster response times</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDIES – SERVICE DELIVERY ===================== -->
+<style>
+  :root{
+    /* use same max as Process Advisory spine for visual alignment */
+    --pa-max:1320px;
+    --pa-text:#020C4F;
+    --pa-muted:rgba(2,12,79,0.78);
+    --pa-accent:#5040a0;
+    --pa-border:rgba(7,15,40,0.06);
+    --pa-shadow:0 18px 40px rgba(15,23,42,0.08);
+    --pa-radius:20px;
+  }
+
+  .pa-casestudies{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#f7f8fc;
+    padding:70px 20px 90px;
+  }
+  .pa-cs__wrap{
+    max-width:var(--pa-max);
+    margin:0 auto;
+  }
+
+  .pa-cs__head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:28px;
+  }
+  .pa-cs__eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,0.68);
+    margin-bottom:8px;
+  }
+  .pa-cs__title{
+    font-size:30px;
+    line-height:1.25;
+    margin:0;
+    color:var(--pa-text);
+    font-weight:700;
+  }
+  .pa-cs__subtitle{
+    margin-top:10px;
+    max-width:640px;
+    font-size:14px;
+    line-height:1.7;
+    color:var(--pa-muted);
+  }
+
+  .pa-cs__grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:20px;
+  }
+
+  .pa-cs__item{
+    text-decoration:none;
+    color:inherit;
+  }
+
+  .pa-cs__card{
+    height:100%;                      /* equal card height */
+    border-radius:var(--pa-radius);
+    background:#ffffff;
+    border:1px solid var(--pa-border);
+    box-shadow:var(--pa-shadow);
+    padding:16px 16px 18px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    overflow:hidden;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+  }
+
+  .pa-cs__card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(80,64,160,0.06),rgba(31,156,228,0.04));
+    opacity:0;
+    transition:opacity .2s ease;
+    pointer-events:none;
+  }
+
+  .pa-cs__meta-pill{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 10px;
+    border-radius:999px;
+    background:rgba(80,64,160,0.05);
+    color:rgba(2,12,79,0.74);
+    font-size:11px;
+    font-weight:500;
+    margin-bottom:10px;
+  }
+  .pa-cs__meta-dot{
+    width:7px;
+    height:7px;
+    border-radius:999px;
+    background:var(--pa-accent);
+  }
+
+  .pa-cs__title-small{
+    position:relative;
+    font-size:14px;
+    line-height:1.5;
+    font-weight:600;
+    color:var(--pa-text);
+    margin:0 0 8px;
+  }
+  .pa-cs__body{
+    position:relative;
+    font-size:12.6px;
+    line-height:1.6;
+    color:var(--pa-muted);
+    margin:0;
+    flex:1 1 auto;                    /* makes impact line sit at bottom, equal height */
+  }
+
+  .pa-cs__impact{
+    position:relative;
+    margin-top:10px;
+    font-size:11.5px;
+    font-weight:500;
+    color:var(--pa-accent);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .pa-cs__impact-dot{
+    width:6px;
+    height:6px;
+    border-radius:999px;
+    background:var(--pa-accent);
+  }
+
+  /* hover */
+  .pa-cs__card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 22px 40px rgba(15,23,42,0.16);
+    border-color:rgba(80,64,160,0.3);
+    background:rgba(255,255,255,0.98);
+  }
+  .pa-cs__card:hover::before{
+    opacity:1;
+  }
+
+  /* responsive */
+  @media (max-width:1200px){
+    .pa-cs__grid{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+  }
+  @media (max-width:900px){
+    .pa-cs__grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+  @media (max-width:640px){
+    .pa-casestudies{
+      padding:50px 16px 70px;
+    }
+    .pa-cs__head{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:12px;
+    }
+    .pa-cs__title{
+      font-size:26px;
+    }
+    .pa-cs__grid{
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+    .pa-cs__card{
+      padding:14px 14px 16px;
+    }
+  }
+</style>
+
+<section class="pa-casestudies" id="service-delivery-casestudies">
+  <div class="pa-cs__wrap">
+
+    <!-- Header -->
+    <div class="pa-cs__head">
+      <div>
+        <div class="pa-cs__eyebrow">Service Delivery</div>
+        <h2 class="pa-cs__title">Representative Service Delivery Engagements</h2>
+        <p class="pa-cs__subtitle">
+          Illustrative programs where we have redesigned journeys, blueprinted service models,
+          and improved satisfaction, renewal, and efficiency across healthcare, financial services,
+          and industrial clients.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4 × 2 Grid -->
+    <div class="pa-cs__grid">
+
+      <!-- 1 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Multi-specialty Healthcare · Journey Redesign
+          </div>
+          <h3 class="pa-cs__title-small">
+            End-to-end patient service journey redesign
+          </h3>
+          <p class="pa-cs__body">
+            Partnered with a major healthcare provider to map the entire patient journey across hospitals
+            and diagnostics. Identified service bottlenecks and emotional pain points, and redesigned the
+            service flow with a data-driven service excellence model.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            35% reduction in waiting time · Higher satisfaction scores
+          </div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Fortune 500 Insurer · Multichannel Blueprint
+          </div>
+          <h3 class="pa-cs__title-small">
+            Blueprint for multichannel service delivery
+          </h3>
+          <p class="pa-cs__body">
+            Created a comprehensive service delivery blueprint integrating physical and digital touchpoints
+            across India, with standardised customer handling processes, service scripts, and complaint
+            resolution frameworks.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            40% reduction in grievances · +20 NPS points
+          </div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Industrial Equipment Supplier · After-sales
+          </div>
+          <h3 class="pa-cs__title-small">
+            After-sales service transformation
+          </h3>
+          <p class="pa-cs__body">
+            Supported a global capital goods manufacturer in revamping after-sales service operations,
+            introducing predictive maintenance scheduling, service request tracking, and customer feedback
+            analytics for key accounts.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            40% better SLA compliance · 18% growth in spare parts sales
+          </div>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Leading Life Insurer · CX Strategy
+          </div>
+          <h3 class="pa-cs__title-small">
+            Customer experience and retention strategy
+          </h3>
+          <p class="pa-cs__body">
+            Developed a customer strategy and retention framework across multiple distribution channels,
+            defining experience KPIs, agent quality standards, and retention analytics with customer-centric
+            sales circles.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            18% improvement in renewal rates · Higher lifetime value
+          </div>
+        </div>
+      </a>
+
+      <!-- 5 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Healthcare Start-up · Digital Experience
+          </div>
+          <h3 class="pa-cs__title-small">
+            Online-to-clinic journey and experience blueprinting
+          </h3>
+          <p class="pa-cs__body">
+            For a digital healthcare start-up, mapped the online-to-clinic journey and created blueprints
+            for onboarding, teleconsultation, and follow-up care, with automated feedback loops and proactive
+            engagement models.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            40% boost in retention · Faster repeat consultations
+          </div>
+        </div>
+      </a>
+
+      <!-- 6 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Leading Indian Bank · Service &amp; CX
+          </div>
+          <h3 class="pa-cs__title-small">
+            Service transformation and CX framework
+          </h3>
+          <p class="pa-cs__body">
+            Advised a top private bank on reimagining branch and digital service delivery, redesigning
+            service flows, integrating omnichannel metrics, and implementing staff coaching modules.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            30% improvement in first-contact resolution · Improved loyalty
+          </div>
+        </div>
+      </a>
+
+      <!-- 7 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Global GCC Network · Internal Services
+          </div>
+          <h3 class="pa-cs__title-small">
+            Internal service design &amp; efficiency model
+          </h3>
+          <p class="pa-cs__body">
+            Enabled a service delivery redesign for internal functions (HR, Finance, IT, Admin) of a large GCC,
+            defining service charters, SLAs, and workflow digitisation blueprints.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            20% cost reduction · Faster internal response and higher satisfaction
+          </div>
+        </div>
+      </a>
+
+      <!-- 8 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Global Manufacturing Firm · After-sales
+          </div>
+          <h3 class="pa-cs__title-small">
+            After-sales service blueprinting
+          </h3>
+          <p class="pa-cs__body">
+            For a global industrial equipment manufacturer, designed a service delivery blueprint spanning
+            installation, maintenance, and support, with predictive scheduling and digital ticketing systems.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            30% reduction in lead times · Higher customer satisfaction
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICE DELIVERY – HOW WE STRENGTHEN THE FRONTLINE (IMAGE + ICON LAYOUT) ===================== -->
+<style>
+  .pa-hwdt{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    padding:100px 20px;
+    background:#ffffff;
+  }
+  .pa-hwdt-wrap{
+    max-width:1320px; /* aligned to other sections */
+    margin:0 auto;
+  }
+
+  /* header */
+  .pa-hwdt-head{
+    text-align:center;
+    max-width:900px;
+    margin:0 auto 60px;
+  }
+  .pa-hwdt-eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,.6);
+    margin-bottom:12px;
+  }
+  .pa-hwdt-title{
+    font-size:36px;
+    line-height:1.2;
+    color:#020C4F;
+    font-weight:700;
+    margin:0 0 16px;
+  }
+  .pa-hwdt-sub{
+    font-size:18px;
+    line-height:1.7;
+    color:rgba(2,12,79,.85);
+  }
+
+  /* layout */
+  .pa-hwdt-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:stretch;
+  }
+
+  /* image */
+  .pa-hwdt-image{
+    height:100%;
+  }
+  .pa-hwdt-image img{
+    width:100%;
+    height:100%;
+    min-height:520px;
+    object-fit:cover;
+    border-radius:18px;
+    display:block;
+  }
+
+  /* list */
+  .pa-hwdt-list{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:26px;
+  }
+  .pa-hwdt-item{
+    display:grid;
+    grid-template-columns:42px 1fr;
+    gap:18px;
+    align-items:flex-start;
+  }
+
+  .pa-hwdt-icon{
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    background:rgba(80,64,160,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .pa-hwdt-icon svg{
+    width:18px;
+    height:18px;
+    stroke:rgba(80,64,160,.9);
+  }
+
+  .pa-hwdt-item h3{
+    font-size:17px;
+    margin:0 0 6px;
+    color:#020C4F;
+    font-weight:600;
+  }
+  .pa-hwdt-item p{
+    font-size:14px;
+    line-height:1.7;
+    margin:0;
+    color:rgba(2,12,79,.78);
+  }
+
+  /* responsive */
+  @media (max-width:900px){
+    .pa-hwdt-grid{
+      grid-template-columns:1fr;
+      gap:50px;
+    }
+    .pa-hwdt-image img{
+      min-height:360px;
+    }
+    .pa-hwdt-title{
+      font-size:30px;
+    }
+    .pa-hwdt-sub{
+      font-size:16px;
+    }
+  }
+</style>
+
+<section class="pa-hwdt" id="service-delivery-how-we-work">
+  <div class="pa-hwdt-wrap">
+
+    <!-- Header -->
+    <div class="pa-hwdt-head">
+      <div class="pa-hwdt-eyebrow">Service Delivery</div>
+      <h2 class="pa-hwdt-title">How We Strengthen Service Delivery</h2>
+      <p class="pa-hwdt-sub">
+        <strong>Service Delivery is where strategy meets the customer.</strong><br/>
+        We redesign journeys, standards, and frontline enablement so that every interaction is faster,
+        more consistent, and easier to manage across channels and teams.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="pa-hwdt-grid">
+
+      <!-- Image -->
+      <div class="pa-hwdt-image">
+        <img
+          src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg"
+          alt="Leaders reviewing service delivery performance"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Pillars -->
+      <div class="pa-hwdt-list">
+
+        <div class="pa-hwdt-item">
+          <div class="pa-hwdt-icon">
+            <!-- map icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z"/>
+              <path d="M9 3v15M15 6v15"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Design end-to-end service journeys</h3>
+            <p>
+              We map the full customer and partner journey across touchpoints, surface pain points,
+              and blueprint target journeys that align experience, effort, and economics.
+            </p>
+          </div>
+        </div>
+
+        <div class="pa-hwdt-item">
+          <div class="pa-hwdt-icon">
+            <!-- ownership / org icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <circle cx="12" cy="5" r="3"/>
+              <path d="M4 20v-1a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v1"/>
+              <path d="M6 11h12M8 13.5v-5M16 13.5v-5"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Standardise SLAs, scripts, and handoffs</h3>
+            <p>
+              We define clear service standards, roles, and handoff rules so that customers experience
+              one organisation, not a set of disjointed teams and channels.
+            </p>
+          </div>
+        </div>
+
+        <div class="pa-hwdt-item">
+          <div class="pa-hwdt-icon">
+            <!-- metrics icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M4 19V5M10 19v-7M16 19v-4M22 19v-10"/>
+              <path d="M3 19h19"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Make performance visible in real time</h3>
+            <p>
+              We build CX and service dashboards, feedback loops, and review rhythms that track response
+              times, resolution, NPS, and root causes at a granular level.
+            </p>
+          </div>
+        </div>
+
+        <div class="pa-hwdt-item">
+          <div class="pa-hwdt-icon">
+            <!-- integration icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <rect x="3" y="4" width="7" height="7" rx="2"/>
+              <rect x="14" y="13" width="7" height="7" rx="2"/>
+              <path d="M10 8h2a3 3 0 0 1 3 3v2M8 14h2a3 3 0 0 0 3-3v-2"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Engineer omnichannel service operations</h3>
+            <p>
+              We connect branch, digital, and contact-centre operations with common processes, knowledge bases,
+              and tooling so that journeys feel seamless to customers.
+            </p>
+          </div>
+        </div>
+
+        <div class="pa-hwdt-item">
+          <div class="pa-hwdt-icon">
+            <!-- capability / learning icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M4 19v-7l8-5 8 5v7"/>
+              <path d="M12 22v-9"/>
+              <path d="M9 22h6"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Equip and empower frontline teams</h3>
+            <p>
+              We translate service design into playbooks, coaching, and performance governance,
+              enabling teams to resolve more at first contact and own the customer outcome.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICE DELIVERY – WHERE LEADERS CALL US IN (CTA SECTION) ===================== -->
+<style>
+  :root{
+    --cta-bg-1:#f5f3ff;
+    --cta-bg-2:#eaf4ff;
+    --cta-text:#020C4F;
+    --cta-accent:#5040a0;
+    --cta-border:rgba(2,12,79,.12);
+  }
+
+  .wlcta{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(circle at top left,var(--cta-bg-1),var(--cta-bg-2));
+    padding:90px 20px;
+  }
+  .wlcta-wrap{
+    max-width:1320px; /* aligned with Service Delivery layout */
+    margin:0 auto;
+    text-align:center;
+  }
+
+  .wlcta-eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,.6);
+    margin-bottom:12px;
+  }
+  .wlcta-title{
+    font-size:34px;
+    line-height:1.25;
+    color:var(--cta-text);
+    font-weight:700;
+    margin:0 0 18px;
+  }
+  .wlcta-intro{
+    max-width:780px;
+    margin:0 auto 46px;
+    font-size:17px;
+    line-height:1.7;
+    color:rgba(2,12,79,.82);
+  }
+
+  /* triggers */
+  .wlcta-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:26px;
+    margin-bottom:52px;
+  }
+  .wlcta-item{
+    padding:22px 22px 24px;
+    border:1px solid var(--cta-border);
+    border-radius:18px;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(8px);
+    text-align:left;
+  }
+  .wlcta-item h3{
+    font-size:16px;
+    margin:0 0 8px;
+    color:var(--cta-text);
+    font-weight:600;
+  }
+  .wlcta-item p{
+    font-size:14px;
+    line-height:1.65;
+    margin:0;
+    color:rgba(2,12,79,.78);
+  }
+
+  /* CTA */
+  .wlcta-action{
+    display:flex;
+    justify-content:center;
+  }
+  .wlcta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border-radius:999px;
+    background:var(--cta-accent);
+    color:#fff;
+    font-size:14px;
+    font-weight:500;
+    text-decoration:none;
+    box-shadow:0 18px 36px rgba(80,64,160,.35);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .wlcta-btn span{
+    display:inline-flex;
+    width:20px;
+    height:20px;
+    border-radius:999px;
+    background:rgba(255,255,255,.18);
+    justify-content:center;
+    align-items:center;
+    font-size:14px;
+  }
+  .wlcta-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 26px 48px rgba(80,64,160,.45);
+  }
+
+  @media (max-width:1024px){
+    .wlcta-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+  @media (max-width:640px){
+    .wlcta{
+      padding:70px 16px;
+    }
+    .wlcta-title{
+      font-size:28px;
+    }
+    .wlcta-grid{
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+  }
+</style>
+
+<section class="wlcta" id="service-delivery-triggers">
+  <div class="wlcta-wrap">
+
+    <div class="wlcta-eyebrow">Service Delivery Triggers</div>
+    <h2 class="wlcta-title">Where Leaders Typically Call Us In</h2>
+    <p class="wlcta-intro">
+      Leaders rarely call us just to “improve customer service”.
+      They reach out when experience is inconsistent, complaints are rising,
+      and renewal or growth is at risk — and a stronger service delivery model
+      becomes essential.
+    </p>
+
+    <div class="wlcta-grid">
+
+      <div class="wlcta-item">
+        <h3>Experience varies by channel or region</h3>
+        <p>
+          Service standards and SLAs differ across branches, partners, or geographies,
+          leading to uneven customer experience and avoidable grievances.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Front-office promises, back-office reality don’t match</h3>
+        <p>
+          Sales and marketing commit to timelines and outcomes that operations,
+          underwriting, or support cannot consistently deliver.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Service performance is hard to measure</h3>
+        <p>
+          Multiple reports exist, but there is no single, trusted view of response times,
+          resolution, NPS, or root causes across journeys and segments.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Response times and complaints are unpredictable</h3>
+        <p>
+          Customers experience delayed responses, poor handoffs, and inconsistent
+          complaint management across contact centre, branches, and digital.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Service depends on “heroes”, not a system</h3>
+        <p>
+          Outcomes rely on a few strong individuals, informal workarounds,
+          and tribal knowledge — not a repeatable service excellence model.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Loyalty is eroding despite strong products</h3>
+        <p>
+          Churn, grievances, and silent dissatisfaction are rising, even though
+          the core product is competitive — signalling a service delivery problem.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="wlcta-action">
+      <a class="wlcta-btn"
+         href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        Discuss your service delivery priorities
+        <span>→</span>
+      </a>
+    </div>
+
+  </div>
+</section>

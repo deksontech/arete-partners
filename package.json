@@ -6,7 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "generate-content": "node scripts/generate-locked-content.mjs",
+    "verify-content": "node scripts/verify-content.mjs",
+    "extract-home-html": "node scripts/extract-home-docx-html.mjs",
+    "extract-about-html": "node scripts/extract-about-docx-html.mjs",
+    "extract-services-html": "node scripts/extract-services-docx-html.mjs",
+    "extract-page-baselines": "node scripts/extract-page-baseline-html.mjs",
+    "extract-industry-baselines": "node scripts/extract-industry-baseline-html.mjs"
   },
   "dependencies": {
     "next": "16.2.12",

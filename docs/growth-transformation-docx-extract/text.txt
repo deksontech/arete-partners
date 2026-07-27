@@ -1,0 +1,1482 @@
+<!-- ===================== SERVICES — GROWTH & TRANSFORMATION (INFOGRAPHIC – FIXED SPINE GAPS + MOBILE OPTIMIZED) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    /* brand colours */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --line2:rgba(49,59,134,.18);
+    --card:#ffffff;
+
+    /* widened max width */
+    --max:1320px;
+
+    /* header height for aligning spine */
+    --colHeadH: 36px;
+
+    /* how far connectors travel horizontally */
+    --connector: 70px;
+  }
+
+  .gtInf, .gtInf *{ box-sizing:border-box; }
+
+  /* ✅ stop any horizontal scroll caused by long words / grid / pills */
+  .gtInf{ overflow-x:hidden; }
+
+  .gtInf{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:#fff;
+    padding:86px 20px 78px;
+  }
+
+  .gtInf__inner{ max-width:var(--max); margin:0 auto; }
+
+  /* ---------- Header ---------- */
+  .gtInf__kicker{
+    margin:0 0 10px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+  .gtInf__title{
+    margin:0 0 10px;
+    font-size:clamp(34px,4.2vw,54px);
+    line-height:1.06;
+    font-weight:950;
+    color:var(--navy);
+    max-width:980px;
+  }
+  .gtInf__sub{
+    margin:0 0 22px;
+    font-size:15.5px;
+    line-height:1.8;
+    color:var(--muted);
+    max-width:980px;
+  }
+
+  /* ---------- Shell ---------- */
+  .gtInf__frame{
+    border:1px solid rgba(49,59,134,.16);
+    border-radius:26px;
+    background:rgba(255,255,255,.98);
+    box-shadow:0 18px 46px rgba(0,0,0,.06);
+    overflow:hidden; /* keeps desktop clean */
+  }
+
+  /* top helper bar */
+  .gtInf__bar{
+    padding:14px 16px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.10), transparent 55%),
+      #fff;
+  }
+  .gtInf__badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(49,59,134,.03);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+  }
+  .gtInf__badgeDot{
+    width:9px;height:9px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 6px rgba(31,156,228,.10);
+  }
+  .gtInf__barRight{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.14);
+    background:#fff;
+    color:var(--indigo);
+    font-size:11.5px;
+    font-weight:900;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+
+  /* ---------- 2-column infographic body with spine ---------- */
+  .gtInf__body{
+    position:relative;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 160px minmax(0,1fr);
+    gap:0;
+    align-items:stretch;
+    padding:22px 26px 22px;
+  }
+
+  /* header row auto, 3 cards equal height */
+  .gtInf__col{
+    min-width:0;
+    display:grid;
+    grid-template-rows:auto repeat(3,1fr);
+    row-gap:22px; /* vertical space between header and cards, and between cards */
+  }
+
+  .gtInf__col--left{ padding-right:14px; }
+  .gtInf__col--right{ padding-left:14px; }
+
+  .gtInf__colHead{
+    min-height:auto;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:10px;
+    padding:2px 4px 0;
+  }
+  .gtInf__colTitle{
+    margin:0;
+    font-size:13px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:950;
+  }
+  .gtInf__colNote{
+    margin:0;
+    font-size:12.5px;
+    color:#5B6282;
+    font-weight:700;
+    white-space:nowrap;
+  }
+
+  .gtInf__group{
+    position:relative;
+    border:1px solid rgba(49,59,134,.14);
+    border-radius:18px;
+    background:#fff;
+    padding:18px 16px 20px; /* more internal space */
+    box-shadow:0 10px 26px rgba(0,0,0,.04);
+    height:100%; /* stretch inside column grid */
+  }
+
+  .gtInf__groupKicker{
+    margin:0 0 6px;
+    font-size:11.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .gtInf__groupTitle{
+    margin:0 0 10px;
+    font-size:15.5px;
+    line-height:1.25;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .gtInf__list{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:10px;
+  }
+  .gtInf__li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:14.2px;
+    line-height:1.65;
+    color:#2E334D;
+  }
+
+  /* clean, consistent icon for all bullets */
+  .gtInf__dot{
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    margin-top:7px;
+    flex:0 0 auto;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    outline:3px solid rgba(31,156,228,.12);
+  }
+
+  /* remove special first/last margins so spacing is equal via grid-gap */
+  .gtInf__col--left .gtInf__group:first-of-type,
+  .gtInf__col--right .gtInf__group:first-of-type,
+  .gtInf__col--left .gtInf__group:last-of-type,
+  .gtInf__col--right .gtInf__group:last-of-type{
+    margin-top:0;
+    margin-bottom:0;
+  }
+
+  /* ---------- Spine (desktop, absolute labels) ---------- */
+  .gtInf__spine{ position:relative; }
+
+  .gtInf__spineLine{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top:var(--colHeadH);
+    bottom:0;
+    width:4px;
+    border-radius:999px;
+    background:linear-gradient(180deg,var(--accent),var(--violet));
+    opacity:.9;
+    z-index:0;
+  }
+
+  .gtInf__spineLabel{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    width:max-content;
+    max-width:190px;
+    text-align:center;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:950;
+    color:var(--navy);
+    padding:7px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.96);
+    box-shadow:0 10px 22px rgba(0,0,0,.06);
+    line-height:1.15;
+    pointer-events:none;
+  }
+  .gtInf__spineLabel--top{ top:calc(var(--colHeadH) + 12px); }
+  .gtInf__spineLabel--bottom{ bottom:24px; }
+
+  .gtInf__spineNode{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:2;
+    width:46px;height:46px;
+    border-radius:16px;
+    background:#fff;
+    border:1px solid rgba(49,59,134,.18);
+    box-shadow:0 14px 34px rgba(0,0,0,.10);
+    display:grid;
+    place-items:center;
+    color:var(--navy);
+    font-weight:950;
+    pointer-events:none;
+  }
+  .gtInf__spineNode::after{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    border-radius:20px;
+    background:linear-gradient(135deg, rgba(98,90,216,.16), rgba(31,156,228,.10));
+    z-index:-1;
+  }
+
+  /* ---------- CONNECTOR LINES (DESKTOP ONLY) ---------- */
+  .gtInf__col--left .gtInf__group::after{
+    content:"";
+    position:absolute;
+    right:calc(var(--connector) * -1);
+    top:26px;
+    width:var(--connector);
+    height:1px;
+    background:var(--line2);
+  }
+  .gtInf__col--left .gtInf__group::before{
+    content:"";
+    position:absolute;
+    right:calc(var(--connector) * -1 - 6px);
+    top:23px;
+    width:7px;height:7px;
+    border-radius:999px;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  .gtInf__col--right .gtInf__group::before{
+    content:"";
+    position:absolute;
+    left:calc(var(--connector) * -1);
+    top:26px;
+    width:var(--connector);
+    height:1px;
+    background:var(--line2);
+  }
+  .gtInf__col--right .gtInf__group::after{
+    content:"";
+    position:absolute;
+    left:calc(var(--connector) * -1 - 6px);
+    top:23px;
+    width:7px;height:7px;
+    border-radius:999px;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  /* ---------- Impact bar ---------- */
+  .gtInf__impact{
+    padding:16px 18px 18px;
+    border-top:1px solid rgba(49,59,134,.12);
+    background:rgba(49,59,134,.02);
+  }
+  .gtInf__impactRow{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .gtInf__impactTitle{
+    margin:0;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:950;
+    color:var(--navy);
+  }
+  .gtInf__chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+  }
+  .gtInf__chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:#fff;
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+  }
+  .gtInf__chip i{
+    width:7px;height:7px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    display:inline-block;
+  }
+
+  /* =======================================================================
+     MOBILE / TABLET OPTIMIZATION
+     ======================================================================= */
+  @media (max-width:1024px){
+    .gtInf{ padding:68px 14px 62px; }
+
+    /* ✅ reduce frame corner radius so it feels native on mobile */
+    .gtInf__frame{ border-radius:18px; }
+
+    /* ✅ stack content */
+    .gtInf__body{
+      grid-template-columns:1fr;
+      gap:14px;
+      padding:14px 12px 14px;
+    }
+
+    /* ✅ remove side paddings and avoid any accidental overflow */
+    .gtInf__col--left,
+    .gtInf__col--right{ padding:0; }
+
+    /* ✅ tighter headings */
+    .gtInf__colHead{
+      min-height:auto;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:4px;
+      padding:0 2px;
+    }
+    .gtInf__colNote{ white-space:normal; }
+
+    /* ✅ disable connector lines on mobile */
+    .gtInf__group::before,
+    .gtInf__group::after{ display:none !important; }
+
+    /* ✅ mobile spine: horizontal divider, centered, NO overlap */
+    .gtInf__spine{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      grid-template-rows:auto auto;
+      align-items:center;
+      gap:10px 10px;
+      padding:10px 6px 6px;
+      position:relative;
+    }
+
+    .gtInf__spineLine{
+      position:absolute;
+      left:0;
+      right:0;
+      top:50%;
+      bottom:auto;
+      transform:none;
+      width:auto;
+      height:4px;
+      border-radius:999px;
+    }
+
+    .gtInf__spineLabel{
+      position:relative;
+      left:auto;
+      transform:none;
+      max-width:100%;
+      width:100%;
+      font-size:10px;
+      padding:6px 8px;
+      box-shadow:0 8px 18px rgba(0,0,0,.06);
+      pointer-events:none;
+    }
+
+    /* place labels on row 1, left & right */
+    .gtInf__spineLabel--top{
+      grid-column:1;
+      grid-row:1;
+      justify-self:start;
+      top:auto;
+    }
+    .gtInf__spineLabel--bottom{
+      grid-column:3;
+      grid-row:1;
+      justify-self:end;
+      bottom:auto;
+    }
+
+    /* node on row 2 centered */
+    .gtInf__spineNode{
+      position:relative;
+      left:auto;
+      top:auto;
+      transform:none;
+      grid-column:2;
+      grid-row:2;
+      justify-self:center;
+      width:44px;height:44px;
+      border-radius:16px;
+      margin:0;
+      pointer-events:none;
+    }
+  }
+
+  @media (max-width:680px){
+    .gtInf__bar{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .gtInf__barRight{ width:100%; justify-content:center; white-space:normal; text-align:center; }
+
+    .gtInf__title{ font-size:clamp(28px,7vw,40px); }
+    .gtInf__sub{ font-size:14.6px; line-height:1.75; }
+
+    .gtInf__group{ padding:14px; border-radius:16px; }
+    .gtInf__groupTitle{ font-size:15px; }
+    .gtInf__li{ font-size:13.8px; }
+
+    .gtInf__impactRow{ flex-direction:column; align-items:flex-start; }
+    .gtInf__chips{ gap:8px; }
+    .gtInf__chip{ height:32px; font-size:11.5px; }
+  }
+</style>
+
+<section class="gtInf" id="growth-transformation-spine">
+  <div class="gtInf__inner">
+    <p class="gtInf__kicker">Growth &amp; Transformation</p>
+    <h2 class="gtInf__title">From scattered initiatives to a single growth &amp; transformation spine</h2>
+    <p class="gtInf__sub">
+      We help organisations move from disconnected projects and firefighting to an integrated growth and transformation system—
+      where strategy, operating model, sales performance, and execution discipline reinforce each other.
+    </p>
+
+    <div class="gtInf__frame" role="region" aria-label="Growth and transformation spine infographic">
+      <div class="gtInf__bar">
+        <div class="gtInf__badge"><span class="gtInf__badgeDot" aria-hidden="true"></span> A pragmatic, execution-first backbone</div>
+        <div class="gtInf__barRight">Strategy • Operating Model • Sales • Execution</div>
+      </div>
+
+      <div class="gtInf__body">
+        <!-- LEFT: Signals -->
+        <div class="gtInf__col gtInf__col--left">
+          <div class="gtInf__colHead">
+            <p class="gtInf__colTitle">Signals we see</p>
+            <p class="gtInf__colNote">Common growth &amp; execution constraints</p>
+          </div>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Strategic &amp; Growth</p>
+            <h3 class="gtInf__groupTitle">Direction without clarity</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Fragmented strategy and unclear growth priorities.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Declining profitability despite increasing revenues.</span></li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Operating Model &amp; Culture</p>
+            <h3 class="gtInf__groupTitle">Systems that don’t scale</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Siloed functions and absence of a unified operating model.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Difficulty scaling culture, talent, and governance with growth.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Leadership bandwidth stretched between daily operations and long-term goals.</span></li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Sales, Data &amp; Technology</p>
+            <h3 class="gtInf__groupTitle">Performance without visibility</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Inconsistent sales productivity and channel performance.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Lack of data-driven decision-making and performance visibility.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Under-leveraged technology investments with limited ROI.</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- SPINE -->
+        <div class="gtInf__spine" aria-hidden="true">
+          <div class="gtInf__spineLine"></div>
+          <div class="gtInf__spineLabel gtInf__spineLabel--top">From current reality</div>
+          <div class="gtInf__spineNode">⇄</div>
+          <div class="gtInf__spineLabel gtInf__spineLabel--bottom">To sustained outcomes</div>
+        </div>
+
+        <!-- RIGHT: What we enable -->
+        <div class="gtInf__col gtInf__col--right">
+          <div class="gtInf__colHead">
+            <p class="gtInf__colTitle">What we enable</p>
+            <p class="gtInf__colNote">Integrated growth &amp; transformation backbone</p>
+          </div>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Direction &amp; Design</p>
+            <h3 class="gtInf__groupTitle">Clear direction, scalable model</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Refine strategic direction &amp; business purpose and link it to measurable outcomes.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Design scalable operating models and governance frameworks.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Align leadership around a single growth and transformation agenda.</span></li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Growth &amp; Productivity</p>
+            <h3 class="gtInf__groupTitle">Commercial momentum</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Achieve <b>3X sales growth</b> through data-driven distribution transformation.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Improve <b>EBITDA by 5–10%</b> via cost and margin optimization.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Drive <b>double-digit productivity gains</b> through lean and digital integration.</span></li>
+            </ul>
+          </article>
+
+          <article class="gtInf__group">
+            <p class="gtInf__groupKicker">Execution &amp; Future Readiness</p>
+            <h3 class="gtInf__groupTitle">Execution discipline &amp; agility</h3>
+            <ul class="gtInf__list">
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span><b>Strengthen leadership alignment</b> and execution discipline through SPMO setup.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Build customer-centric, agile structures that respond faster to market shifts.</span></li>
+              <li class="gtInf__li"><span class="gtInf__dot"></span><span>Institutionalise a repeatable growth &amp; transformation way-of-working.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="gtInf__impact">
+        <div class="gtInf__impactRow">
+          <p class="gtInf__impactTitle">Typical impact unlocked</p>
+          <div class="gtInf__chips" aria-label="Typical impacts">
+            <span class="gtInf__chip"><i></i>3X sales growth</span>
+            <span class="gtInf__chip"><i></i>5–10% EBITDA improvement</span>
+            <span class="gtInf__chip"><i></i>Double-digit productivity gains</span>
+            <span class="gtInf__chip"><i></i>Leadership &amp; SPMO discipline</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDIES – GROWTH & TRANSFORMATION ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    /* Adjust these 4 to exactly match your site palette */
+    --gt-bg-1:#f5f3ff;          /* light lavender */
+    --gt-bg-2:#eaf4ff;          /* soft blue */
+    --gt-text:#020C4F;          /* primary text / heading */
+    --gt-accent:#5040a0;        /* purple accent (tabs, pills, border) */
+
+    --gt-accent-soft:rgba(80,64,160,0.12);
+    --gt-border:rgba(7, 15, 40, 0.06);
+    --gt-shadow:0 18px 40px rgba(15, 23, 42, 0.08);
+    --gt-radius:22px;
+    --gt-max:1200px;
+  }
+
+  .gt-casestudies{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(circle at top left,var(--gt-bg-1),var(--gt-bg-2));
+    padding:70px 20px 90px;
+  }
+  .gt-cs__wrap{
+    max-width:var(--gt-max);
+    margin:0 auto;
+  }
+
+  /* header row */
+  .gt-cs__head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:28px;
+  }
+  .gt-cs__eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,0.68);
+    margin-bottom:8px;
+  }
+  .gt-cs__title{
+    font-size:30px;
+    line-height:1.25;
+    margin:0;
+    color:var(--gt-text);
+    font-weight:700;
+  }
+  .gt-cs__subtitle{
+    margin-top:10px;
+    max-width:640px;
+    font-size:14px;
+    line-height:1.7;
+    color:rgba(2,12,79,0.78);
+  }
+  .gt-cs__cta-all{
+    white-space:nowrap;
+  }
+  .gt-pill-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:999px;
+    border:1px solid rgba(80,64,160,0.16);
+    background:rgba(255,255,255,0.7);
+    font-size:13px;
+    font-weight:500;
+    color:var(--gt-text);
+    text-decoration:none;
+    box-shadow:0 6px 16px rgba(15,23,42,0.08);
+    backdrop-filter:blur(12px);
+    transition:background .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  .gt-pill-btn span{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:18px;
+    height:18px;
+    border-radius:999px;
+    background:var(--gt-accent-soft);
+    font-size:12px;
+  }
+  .gt-pill-btn:hover{
+    background:#ffffff;
+    transform:translateY(-1px);
+    box-shadow:0 12px 24px rgba(15,23,42,0.14);
+  }
+
+  /* grid */
+  .gt-cs__grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
+  }
+
+  .gt-cs__item{
+    text-decoration:none;
+    color:inherit;
+  }
+
+  .gt-cs__card{
+    height:100%;
+    border-radius:var(--gt-radius);
+    background:#ffffff;
+    border:1px solid var(--gt-border);
+    box-shadow:var(--gt-shadow);
+    padding:20px 20px 22px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    overflow:hidden;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+  }
+
+  .gt-cs__card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(80,64,160,0.06),rgba(31,156,228,0.04));
+    opacity:0;
+    transition:opacity .2s ease;
+    pointer-events:none;
+  }
+
+  .gt-cs__meta-pill{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 12px;
+    border-radius:999px;
+    background:rgba(80,64,160,0.06);
+    color:rgba(2,12,79,0.7);
+    font-size:11px;
+    font-weight:500;
+    margin-bottom:12px;
+  }
+  .gt-cs__meta-dot{
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background:var(--gt-accent);
+  }
+
+  .gt-cs__title-small{
+    position:relative;
+    font-size:15px;
+    line-height:1.5;
+    font-weight:600;
+    color:var(--gt-text);
+    margin:0 0 10px;
+  }
+  .gt-cs__body{
+    position:relative;
+    font-size:13px;
+    line-height:1.7;
+    color:rgba(2,12,79,0.8);
+    margin:0;
+    flex:1 1 auto;
+  }
+
+  .gt-cs__impact{
+    position:relative;
+    margin-top:14px;
+    font-size:12px;
+    font-weight:500;
+    color:var(--gt-accent);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .gt-cs__impact-dot{
+    width:6px;
+    height:6px;
+    border-radius:999px;
+    background:var(--gt-accent);
+  }
+
+  .gt-cs__tagline{
+    position:relative;
+    margin-top:8px;
+    font-size:11px;
+    color:rgba(2,12,79,0.6);
+  }
+
+  /* hover state */
+  .gt-cs__card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 22px 40px rgba(15,23,42,0.16);
+    border-color:rgba(80,64,160,0.3);
+    background:rgba(255,255,255,0.98);
+  }
+  .gt-cs__card:hover::before{
+    opacity:1;
+  }
+
+  /* responsive */
+  @media (max-width:1024px){
+    .gt-cs__grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+  @media (max-width:768px){
+    .gt-cs__head{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:12px;
+    }
+    .gt-cs__title{
+      font-size:26px;
+    }
+  }
+  @media (max-width:640px){
+    .gt-casestudies{
+      padding:50px 16px 70px;
+    }
+    .gt-cs__grid{
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+    .gt-cs__card{
+      padding:18px 18px 20px;
+    }
+  }
+</style>
+
+<section class="gt-casestudies" id="gt-casestudies">
+  <div class="gt-cs__wrap">
+
+    <!-- Header -->
+    <div class="gt-cs__head">
+      <div>
+        <div class="gt-cs__eyebrow">Growth &amp; Transformation</div>
+        <h2 class="gt-cs__title">Impact with Real Clients</h2>
+        <p class="gt-cs__subtitle">
+          A cross-section of programs we’ve led across insurance, manufacturing, healthcare, and digital-first
+          businesses. Every engagement translated strategy into measurable growth, productivity, and value creation.
+        </p>
+      </div>
+      <div class="gt-cs__cta-all">
+        <a class="gt-pill-btn" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+          Talk about a similar outcome
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="gt-cs__grid">
+
+      <!-- 1 -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Fortune 500 Insurance · Sales Transformation
+          </div>
+          <h3 class="gt-cs__title-small">
+            3X growth in new business premium across multi-channel network
+          </h3>
+          <p class="gt-cs__body">
+            Redesigned sales vision, channel productivity model, and frontline cadence for a global insurer
+            across tied agency, banca, broker, and digital. Embedded scorecards, governance, and coaching
+            rhythms to lock in performance.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            3X growth in new business premium · Higher retention
+          </div>
+          <div class="gt-cs__tagline">
+            Click to explore how a similar sales engine could be built for your business.
+          </div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            PE-backed Manufacturing · EBITDA Program
+          </div>
+          <h3 class="gt-cs__title-small">
+            Lean-driven cost and capacity unlock across 10+ plants
+          </h3>
+          <p class="gt-cs__body">
+            Designed an EBITDA Improvement Program for a PE portfolio company, combining lean diagnostics,
+            throughput enhancement, and procurement savings. Built plant-level dashboards for sustained ownership.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            +15% EBITDA margin within 12 months
+          </div>
+          <div class="gt-cs__tagline">
+            See how we structure value-creation programs for PE investors and portfolio CXOs.
+          </div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Healthcare Network · Strategy to Execution
+          </div>
+          <h3 class="gt-cs__title-small">
+            Shared scorecards and governance for a leading Indian healthcare provider
+          </h3>
+          <p class="gt-cs__body">
+            Clarified business priorities, created hospital-level P&amp;L scorecards, and set up a data-led
+            leadership governance rhythm to align medical, operations, and business teams around common outcomes.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            +30% profitability at flagship hospital · scalable playbook for new locations
+          </div>
+          <div class="gt-cs__tagline">
+            Explore how similar governance design can help your network scale without losing control.
+          </div>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Indian Electricals Major · Six Sigma for Growth
+          </div>
+          <h3 class="gt-cs__title-small">
+            De-bottlenecked sales funnel and channel productivity uplift
+          </h3>
+          <p class="gt-cs__body">
+            Applied Six Sigma for Growth to map funnel leakages and cycle-time issues across regions. Rewired
+            processes, roles, and reporting for key accounts and distributor channels.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            +22% sales productivity · stronger channel engagement
+          </div>
+          <div class="gt-cs__tagline">
+            Click to discuss how data-led sales design can unlock growth in your markets.
+          </div>
+        </div>
+      </a>
+
+      <!-- 5 -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Regional Financial Services · Target Operating Model
+          </div>
+          <h3 class="gt-cs__title-small">
+            New operating model for growth in Levant financial services group
+          </h3>
+          <p class="gt-cs__body">
+            Integrated market expansion, digital enablement, and workforce redesign into a single Target
+            Operating Model and implementation roadmap for a regional FS player.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            +20% margin improvement · higher agility across business units
+          </div>
+          <div class="gt-cs__tagline">
+            Explore what a pragmatic Target Operating Model could look like for your organisation.
+          </div>
+        </div>
+      </a>
+
+      <!-- 6 -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Global Industrial Conglomerate · Org Redesign
+          </div>
+          <h3 class="gt-cs__title-small">
+            Vision cascade and governance re-architecture across a global portfolio
+          </h3>
+          <p class="gt-cs__body">
+            Helped a Fortune 100 conglomerate refresh its strategic vision, then redesigned structures, role
+            charters, and governance forums to align group, business units, and functions.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            Faster decision-making · clearer accountability for growth
+          </div>
+          <div class="gt-cs__tagline">
+            Click to see how we think about organisation design beyond org charts.
+          </div>
+        </div>
+      </a>
+
+      <!-- 7 -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Diversified Business Group · CEO Transformation Office
+          </div>
+          <h3 class="gt-cs__title-small">
+            CEO-led transformation office for 20+ strategic initiatives
+          </h3>
+          <p class="gt-cs__body">
+            Set up a Transformation &amp; PMO Office with clear charters, initiative templates, and KPI dashboards.
+            Enabled CXO-level visibility and rhythm to unblock critical projects.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            Improved delivery speed · direct line-of-sight to value realization
+          </div>
+          <div class="gt-cs__tagline">
+            Explore whether a light-touch Transformation Office could work for your context.
+          </div>
+        </div>
+      </a>
+
+      <!-- 8 -->
+      <a class="gt-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="gt-cs__card">
+          <div class="gt-cs__meta-pill">
+            <span class="gt-cs__meta-dot"></span>
+            Digital Health Insurtech · Design Thinking
+          </div>
+          <h3 class="gt-cs__title-small">
+            New digital-first health product from concept to metro-scale launch
+          </h3>
+          <p class="gt-cs__body">
+            Used Design Thinking and journey mapping to shape product, onboarding experience, and digital
+            workflows. Designed GTM strategy, growth KPIs, and experimentation rhythm.
+          </p>
+          <div class="gt-cs__impact">
+            <span class="gt-cs__impact-dot"></span>
+            60% faster launch · rapid customer acquisition in metros
+          </div>
+          <div class="gt-cs__tagline">
+            Click to explore how we blend design and growth thinking for digital businesses.
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>  
+
+<!-- ===================== HOW WE DRIVE TRANSFORMATION (IMAGE + ICON LAYOUT) ===================== -->
+<style>
+  .hwdt3{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    padding:100px 20px;
+  }
+  .hwdt3-wrap{
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  /* header */
+  .hwdt3-head{
+    text-align:center;
+    max-width:820px;
+    margin:0 auto 60px;
+  }
+  .hwdt3-eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,.6);
+    margin-bottom:12px;
+  }
+  .hwdt3-title{
+    font-size:36px;
+    line-height:1.2;
+    color:#020C4F;
+    font-weight:700;
+    margin:0 0 16px;
+  }
+  .hwdt3-sub{
+    font-size:18px;
+    line-height:1.7;
+    color:rgba(2,12,79,.85);
+  }
+
+  /* layout */
+  .hwdt3-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:stretch;
+  }
+
+  /* image */
+  .hwdt3-image{
+    height:100%;
+  }
+  .hwdt3-image img{
+    width:100%;
+    height:100%;
+    min-height:520px;
+    object-fit:cover;
+    border-radius:18px;
+    display:block;
+  }
+
+  /* list */
+  .hwdt3-list{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:26px;
+  }
+  .hwdt3-item{
+    display:grid;
+    grid-template-columns:42px 1fr;
+    gap:18px;
+    align-items:flex-start;
+  }
+
+  .hwdt3-icon{
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    background:rgba(80,64,160,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .hwdt3-icon svg{
+    width:18px;
+    height:18px;
+    stroke:rgba(80,64,160,.9);
+  }
+
+  .hwdt3-item h3{
+    font-size:17px;
+    margin:0 0 6px;
+    color:#020C4F;
+    font-weight:600;
+  }
+  .hwdt3-item p{
+    font-size:14px;
+    line-height:1.7;
+    margin:0;
+    color:rgba(2,12,79,.78);
+  }
+
+  /* responsive */
+  @media (max-width:900px){
+    .hwdt3-grid{
+      grid-template-columns:1fr;
+      gap:50px;
+    }
+    .hwdt3-image img{
+      min-height:360px;
+    }
+    .hwdt3-title{
+      font-size:30px;
+    }
+    .hwdt3-sub{
+      font-size:16px;
+    }
+  }
+</style>
+
+<section class="hwdt3" id="how-we-drive-transformation">
+  <div class="hwdt3-wrap">
+
+    <!-- Header -->
+    <div class="hwdt3-head">
+      <div class="hwdt3-eyebrow">Our Operating Philosophy</div>
+      <h2 class="hwdt3-title">How We Drive Transformation</h2>
+      <p class="hwdt3-sub">
+        <strong>Transformation is not a program, a framework, or a set of initiatives.</strong><br/>
+        It is the disciplined conversion of strategic intent into measurable outcomes —
+        across decisions, behaviors, and results.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="hwdt3-grid">
+
+      <!-- Image -->
+      <div class="hwdt3-image">
+        <img
+          src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg"
+          alt="Leadership clarity and transformation"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Principles -->
+      <div class="hwdt3-list">
+
+        <div class="hwdt3-item">
+          <div class="hwdt3-icon">
+            <!-- focus icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <circle cx="12" cy="12" r="7"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Clarity before action</h3>
+            <p>We force choices, define trade-offs, and align leaders around what truly matters.</p>
+          </div>
+        </div>
+
+        <div class="hwdt3-item">
+          <div class="hwdt3-icon">
+            <!-- execution icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Strategy that can be executed</h3>
+            <p>We turn intent into roadmaps, ownership, and execution cadence.</p>
+          </div>
+        </div>
+
+        <div class="hwdt3-item">
+          <div class="hwdt3-icon">
+            <!-- data icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M4 19V5M10 19V9M16 19V3M22 19V13"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Data-led, people-anchored</h3>
+            <p>Data removes noise; people deliver outcomes.</p>
+          </div>
+        </div>
+
+        <div class="hwdt3-item">
+          <div class="hwdt3-icon">
+            <!-- value icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M12 3v18M5 12h14"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Relentless focus on value</h3>
+            <p>Every initiative is tied to measurable business impact.</p>
+          </div>
+        </div>
+
+        <div class="hwdt3-item">
+          <div class="hwdt3-icon">
+            <!-- capability icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M12 2l4 8h-8l4-8zM4 22h16"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Capability transfer, not dependency</h3>
+            <p>We build execution muscle that lasts beyond the engagement.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHERE LEADERS TYPICALLY CALL US IN (CTA SECTION) ===================== -->
+<style>
+  :root{
+    --cta-bg-1:#f5f3ff;
+    --cta-bg-2:#eaf4ff;
+    --cta-text:#020C4F;
+    --cta-accent:#5040a0;
+    --cta-border:rgba(2,12,79,.12);
+  }
+
+  .wlcta{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(circle at top left,var(--cta-bg-1),var(--cta-bg-2));
+    padding:90px 20px;
+  }
+  .wlcta-wrap{
+    max-width:1100px;
+    margin:0 auto;
+    text-align:center;
+  }
+
+  .wlcta-eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,.6);
+    margin-bottom:12px;
+  }
+  .wlcta-title{
+    font-size:34px;
+    line-height:1.25;
+    color:var(--cta-text);
+    font-weight:700;
+    margin:0 0 18px;
+  }
+  .wlcta-intro{
+    max-width:720px;
+    margin:0 auto 46px;
+    font-size:17px;
+    line-height:1.7;
+    color:rgba(2,12,79,.82);
+  }
+
+  /* triggers */
+  .wlcta-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:26px;
+    margin-bottom:52px;
+  }
+  .wlcta-item{
+    padding:22px 22px 24px;
+    border:1px solid var(--cta-border);
+    border-radius:18px;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(8px);
+    text-align:left;
+  }
+  .wlcta-item h3{
+    font-size:16px;
+    margin:0 0 8px;
+    color:var(--cta-text);
+    font-weight:600;
+  }
+  .wlcta-item p{
+    font-size:14px;
+    line-height:1.65;
+    margin:0;
+    color:rgba(2,12,79,.78);
+  }
+
+  /* CTA */
+  .wlcta-action{
+    display:flex;
+    justify-content:center;
+  }
+  .wlcta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border-radius:999px;
+    background:var(--cta-accent);
+    color:#fff;
+    font-size:14px;
+    font-weight:500;
+    text-decoration:none;
+    box-shadow:0 18px 36px rgba(80,64,160,.35);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .wlcta-btn span{
+    display:inline-flex;
+    width:20px;
+    height:20px;
+    border-radius:999px;
+    background:rgba(255,255,255,.18);
+    justify-content:center;
+    align-items:center;
+    font-size:14px;
+  }
+  .wlcta-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 26px 48px rgba(80,64,160,.45);
+  }
+
+  @media (max-width:1024px){
+    .wlcta-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+  @media (max-width:640px){
+    .wlcta{
+      padding:70px 16px;
+    }
+    .wlcta-title{
+      font-size:28px;
+    }
+    .wlcta-grid{
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+  }
+</style>
+
+<section class="wlcta" id="where-leaders-call-us-cta">
+  <div class="wlcta-wrap">
+
+    <div class="wlcta-eyebrow">Engagement Triggers</div>
+    <h2 class="wlcta-title">Where Leaders Typically Call Us In</h2>
+    <p class="wlcta-intro">
+      Leaders rarely call us when things are broken.
+      They call us when progress has slowed, complexity has increased,
+      and the next phase demands sharper focus and execution.
+    </p>
+
+    <div class="wlcta-grid">
+
+      <div class="wlcta-item">
+        <h3>Growth has plateaued</h3>
+        <p>
+          Teams are active and committed, yet growth or margins are no longer moving
+          in line with ambition.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Strategy isn’t translating into results</h3>
+        <p>
+          Direction is clear at the top, but execution loses momentum across layers.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>The operating model is holding growth back</h3>
+        <p>
+          Structures and decision rights that once worked now create friction and delay.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Data exists, clarity doesn’t</h3>
+        <p>
+          Dashboards are everywhere, yet leadership discussions remain subjective.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Transformation is underway, but impact is unclear</h3>
+        <p>
+          Programs are active, but leaders want confidence in value realization.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>A step-change is required</h3>
+        <p>
+          Entering new markets, integrating acquisitions, or resetting performance
+          requires sharper alignment and faster execution.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="wlcta-action">
+      <a class="wlcta-btn"
+         href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        Start a focused conversation
+        <span>→</span>
+      </a>
+    </div>
+
+  </div>
+</section>

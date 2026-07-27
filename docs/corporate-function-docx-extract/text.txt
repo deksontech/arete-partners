@@ -1,0 +1,1473 @@
+<!-- ===================== SERVICES — CORPORATE FUNCTION (INFOGRAPHIC – FIXED SPINE GAPS + MOBILE OPTIMIZED) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    /* brand colours */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --line2:rgba(49,59,134,.18);
+    --card:#ffffff;
+
+    /* widened max width */
+    --max:1320px;
+
+    /* header height for aligning spine */
+    --colHeadH: 36px;
+
+    /* how far connectors travel horizontally */
+    --connector: 70px;
+  }
+
+  .cfInf, .cfInf *{ box-sizing:border-box; }
+
+  /* stop any horizontal scroll caused by long words / grid / pills */
+  .cfInf{ overflow-x:hidden; }
+
+  .cfInf{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:#fff;
+    padding:86px 20px 78px;
+  }
+
+  .cfInf__inner{ max-width:var(--max); margin:0 auto; }
+
+  /* ---------- Header ---------- */
+  .cfInf__kicker{
+    margin:0 0 10px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+  .cfInf__title{
+    margin:0 0 10px;
+    /* smaller title than original */
+    font-size:clamp(26px,3.1vw,36px);
+    line-height:1.15;
+    font-weight:950;
+    color:var(--navy);
+    max-width:980px;
+  }
+  .cfInf__sub{
+    margin:0 0 22px;
+    font-size:15.5px;
+    line-height:1.8;
+    color:var(--muted);
+    max-width:980px;
+  }
+
+  /* ---------- Shell ---------- */
+  .cfInf__frame{
+    border:1px solid rgba(49,59,134,.16);
+    border-radius:26px;
+    background:rgba(255,255,255,.98);
+    box-shadow:0 18px 46px rgba(0,0,0,.06);
+    overflow:hidden; /* keeps desktop clean */
+  }
+
+  /* top helper bar */
+  .cfInf__bar{
+    padding:14px 16px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.10), transparent 55%),
+      #fff;
+  }
+  .cfInf__badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(49,59,134,.03);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+  }
+  .cfInf__badgeDot{
+    width:9px;height:9px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 6px rgba(31,156,228,.10);
+  }
+  .cfInf__barRight{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.14);
+    background:#fff;
+    color:var(--indigo);
+    font-size:11.5px;
+    font-weight:900;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+
+  /* ---------- 2-column infographic body with spine ---------- */
+  .cfInf__body{
+    position:relative;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 160px minmax(0,1fr);
+    gap:0;
+    align-items:stretch;
+    padding:22px 26px 22px;
+  }
+
+  /* header row auto, 3 cards equal height */
+  .cfInf__col{
+    min-width:0;
+    display:grid;
+    grid-template-rows:auto repeat(3,1fr);
+    row-gap:22px; /* vertical space between header and cards, and between cards */
+  }
+
+  .cfInf__col--left{ padding-right:14px; }
+  .cfInf__col--right{ padding-left:14px; }
+
+  .cfInf__colHead{
+    min-height:auto;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:10px;
+    padding:2px 4px 0;
+  }
+  .cfInf__colTitle{
+    margin:0;
+    font-size:13px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:950;
+  }
+  .cfInf__colNote{
+    margin:0;
+    font-size:12.5px;
+    color:#5B6282;
+    font-weight:700;
+    white-space:nowrap;
+  }
+
+  .cfInf__group{
+    position:relative;
+    border:1px solid rgba(49,59,134,.14);
+    border-radius:18px;
+    background:#fff;
+    padding:18px 16px 20px; /* more internal space */
+    box-shadow:0 10px 26px rgba(0,0,0,.04);
+    height:100%; /* stretch inside column grid */
+  }
+
+  .cfInf__groupKicker{
+    margin:0 0 6px;
+    font-size:11.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .cfInf__groupTitle{
+    margin:0 0 10px;
+    font-size:15.5px;
+    line-height:1.25;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .cfInf__list{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:10px;
+  }
+  .cfInf__li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:14.2px;
+    line-height:1.65;
+    color:#2E334D;
+  }
+
+  /* clean, consistent icon for all bullets */
+  .cfInf__dot{
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    margin-top:7px;
+    flex:0 0 auto;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    outline:3px solid rgba(31,156,228,.12);
+  }
+
+  /* remove special first/last margins so spacing is equal via grid-gap */
+  .cfInf__col--left .cfInf__group:first-of-type,
+  .cfInf__col--right .cfInf__group:first-of-type,
+  .cfInf__col--left .cfInf__group:last-of-type,
+  .cfInf__col--right .cfInf__group:last-of-type{
+    margin-top:0;
+    margin-bottom:0;
+  }
+
+  /* ---------- Spine (desktop, absolute labels) ---------- */
+  .cfInf__spine{ position:relative; }
+
+  .cfInf__spineLine{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top:var(--colHeadH);
+    bottom:0;
+    width:4px;
+    border-radius:999px;
+    background:linear-gradient(180deg,var(--accent),var(--violet));
+    opacity:.9;
+    z-index:0;
+  }
+
+  .cfInf__spineLabel{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    width:max-content;
+    /* narrower so it stays inside the centre column */
+    max-width:140px;
+    text-align:center;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:950;
+    color:var(--navy);
+    padding:7px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.96);
+    box-shadow:0 10px 22px rgba(0,0,0,.06);
+    line-height:1.15;
+    pointer-events:none;
+  }
+  .cfInf__spineLabel--top{ top:calc(var(--colHeadH) + 12px); }
+  .cfInf__spineLabel--bottom{ bottom:24px; }
+
+  .cfInf__spineNode{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:2;
+    width:46px;height:46px;
+    border-radius:16px;
+    background:#fff;
+    border:1px solid rgba(49,59,134,.18);
+    box-shadow:0 14px 34px rgba(0,0,0,.10);
+    display:grid;
+    place-items:center;
+    color:var(--navy);
+    font-weight:950;
+    pointer-events:none;
+  }
+  .cfInf__spineNode::after{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    border-radius:20px;
+    background:linear-gradient(135deg, rgba(98,90,216,.16), rgba(31,156,228,.10));
+    z-index:-1;
+  }
+
+  /* ---------- CONNECTOR LINES (DESKTOP ONLY) ---------- */
+  .cfInf__col--left .cfInf__group::after{
+    content:"";
+    position:absolute;
+    right:calc(var(--connector) * -1);
+    top:26px;
+    width:var(--connector);
+    height:1px;
+    background:var(--line2);
+  }
+  .cfInf__col--left .cfInf__group::before{
+    content:"";
+    position:absolute;
+    right:calc(var(--connector) * -1 - 6px);
+    top:23px;
+    width:7px;height:7px;
+    border-radius:999px;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  .cfInf__col--right .cfInf__group::before{
+    content:"";
+    position:absolute;
+    left:calc(var(--connector) * -1);
+    top:26px;
+    width:var(--connector);
+    height:1px;
+    background:var(--line2);
+  }
+  .cfInf__col--right .cfInf__group::after{
+    content:"";
+    position:absolute;
+    left:calc(var(--connector) * -1 - 6px);
+    top:23px;
+    width:7px;height:7px;
+    border-radius:999px;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  /* ---------- Impact bar ---------- */
+  .cfInf__impact{
+    padding:16px 18px 18px;
+    border-top:1px solid rgba(49,59,134,.12);
+    background:rgba(49,59,134,.02);
+  }
+  .cfInf__impactRow{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .cfInf__impactTitle{
+    margin:0;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:950;
+    color:var(--navy);
+  }
+  .cfInf__chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+  }
+  .cfInf__chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:#fff;
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+  }
+  .cfInf__chip i{
+    width:7px;height:7px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    display:inline-block;
+  }
+
+  /* =======================================================================
+     MOBILE / TABLET OPTIMIZATION
+     ======================================================================= */
+  @media (max-width:1024px){
+    .cfInf{ padding:68px 14px 62px; }
+
+    .cfInf__frame{ border-radius:18px; }
+
+    .cfInf__body{
+      grid-template-columns:1fr;
+      gap:14px;
+      padding:14px 12px 14px;
+    }
+
+    .cfInf__col--left,
+    .cfInf__col--right{ padding:0; }
+
+    .cfInf__colHead{
+      min-height:auto;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:4px;
+      padding:0 2px;
+    }
+    .cfInf__colNote{ white-space:normal; }
+
+    .cfInf__group::before,
+    .cfInf__group::after{ display:none !important; }
+
+    .cfInf__spine{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      grid-template-rows:auto auto;
+      align-items:center;
+      gap:10px 10px;
+      padding:10px 6px 6px;
+      position:relative;
+    }
+
+    .cfInf__spineLine{
+      position:absolute;
+      left:0;
+      right:0;
+      top:50%;
+      bottom:auto;
+      transform:none;
+      width:auto;
+      height:4px;
+      border-radius:999px;
+    }
+
+    .cfInf__spineLabel{
+      position:relative;
+      left:auto;
+      transform:none;
+      max-width:100%;
+      width:100%;
+      font-size:10px;
+      padding:6px 8px;
+      box-shadow:0 8px 18px rgba(0,0,0,.06);
+      pointer-events:none;
+    }
+
+    .cfInf__spineLabel--top{
+      grid-column:1;
+      grid-row:1;
+      justify-self:start;
+      top:auto;
+    }
+    .cfInf__spineLabel--bottom{
+      grid-column:3;
+      grid-row:1;
+      justify-self:end;
+      bottom:auto;
+    }
+
+    .cfInf__spineNode{
+      position:relative;
+      left:auto;
+      top:auto;
+      transform:none;
+      grid-column:2;
+      grid-row:2;
+      justify-self:center;
+      width:44px;height:44px;
+      border-radius:16px;
+      margin:0;
+      pointer-events:none;
+    }
+  }
+
+  @media (max-width:680px){
+    .cfInf__bar{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .cfInf__barRight{ width:100%; justify-content:center; white-space:normal; text-align:center; }
+
+    .cfInf__title{ font-size:clamp(24px,7vw,32px); }
+    .cfInf__sub{ font-size:14.6px; line-height:1.75; }
+
+    .cfInf__group{ padding:14px; border-radius:16px; }
+    .cfInf__groupTitle{ font-size:15px; }
+    .cfInf__li{ font-size:13.8px; }
+
+    .cfInf__impactRow{ flex-direction:column; align-items:flex-start; }
+    .cfInf__chips{ gap:8px; }
+    .cfInf__chip{ height:32px; font-size:11.5px; }
+  }
+</style>
+
+<section class="cfInf" id="corporate-function-spine">
+  <div class="cfInf__inner">
+    <p class="cfInf__kicker">Corporate Function</p>
+    <h2 class="cfInf__title">From fragmented support functions to an integrated corporate backbone</h2>
+    <p class="cfInf__sub">
+      Corporate Function Transformation unifies HR, Finance, IT, Risk, and other enterprise functions
+      into a data-driven, future-ready backbone—reducing overheads while strengthening control,
+      transparency, and productivity.
+    </p>
+
+    <div class="cfInf__frame" role="region" aria-label="Corporate function transformation spine infographic">
+      <div class="cfInf__bar">
+        <div class="cfInf__badge">
+          <span class="cfInf__badgeDot" aria-hidden="true"></span>
+          CF Transformation Framework
+        </div>
+        <div class="cfInf__barRight">Governance • Shared Services • Automation</div>
+      </div>
+
+      <div class="cfInf__body">
+        <!-- LEFT: What we typically see -->
+        <div class="cfInf__col cfInf__col--left">
+          <div class="cfInf__colHead">
+            <p class="cfInf__colTitle">What we typically see</p>
+            <p class="cfInf__colNote">Fragmented, cost-heavy corporate functions</p>
+          </div>
+
+          <article class="cfInf__group">
+            <p class="cfInf__groupKicker">Structure &amp; Ways of Working</p>
+            <h3 class="cfInf__groupTitle">Siloed corporate functions</h3>
+            <ul class="cfInf__list">
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Fragmented HR, Finance, IT, and Risk teams operating in silos with limited collaboration.</span>
+              </li>
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Reactive compliance and weak governance across core corporate functions.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="cfInf__group">
+            <p class="cfInf__groupKicker">Processes &amp; Cost</p>
+            <h3 class="cfInf__groupTitle">Manual, inefficient operations</h3>
+            <ul class="cfInf__list">
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Manual workflows, redundant approvals, and low automation maturity across processes.</span>
+              </li>
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Inefficient real estate, transportation, and administrative processes driving up overheads.</span>
+              </li>
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Outdated systems, poor data integration, and limited AI / analytics adoption.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="cfInf__group">
+            <p class="cfInf__groupKicker">People &amp; Performance</p>
+            <h3 class="cfInf__groupTitle">Limited visibility and talent risk</h3>
+            <ul class="cfInf__list">
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Limited visibility into workforce performance, productivity, and key cost drivers.</span>
+              </li>
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>High attrition, skill gaps, and misaligned talent strategies across support functions.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- SPINE -->
+        <div class="cfInf__spine" aria-hidden="true">
+          <div class="cfInf__spineLine"></div>
+          <div class="cfInf__spineLabel cfInf__spineLabel--top">From fragmented functions</div>
+          <div class="cfInf__spineNode">⇄</div>
+          <div class="cfInf__spineLabel cfInf__spineLabel--bottom">To an integrated corporate backbone</div>
+        </div>
+
+        <!-- RIGHT: What we enable -->
+        <div class="cfInf__col cfInf__col--right">
+          <div class="cfInf__colHead">
+            <p class="cfInf__colTitle">What we enable</p>
+            <p class="cfInf__colNote">Corporate function transformation outcomes</p>
+          </div>
+
+          <article class="cfInf__group">
+            <p class="cfInf__groupKicker">Cost &amp; Efficiency</p>
+            <h3 class="cfInf__groupTitle">Smarter, leaner corporate operations</h3>
+            <ul class="cfInf__list">
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span><b>15–30% reduction in DFC and overhead costs</b> through automation, shared services, and Lean optimisation.</span>
+              </li>
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Real estate and facility cost savings of <b>$15–20M</b> enabled by smart tools and footprint optimisation.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="cfInf__group">
+            <p class="cfInf__groupKicker">Governance &amp; Compliance</p>
+            <h3 class="cfInf__groupTitle">Unified, transparent governance model</h3>
+            <ul class="cfInf__list">
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Unified corporate governance model integrating all enterprise functions with clear charters and decision rights.</span>
+              </li>
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Enhanced decision-making and transparency with AI-enabled dashboards and analytics.</span>
+              </li>
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Improved compliance maturity aligned with ISO, ESG, and DPDP frameworks.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="cfInf__group">
+            <p class="cfInf__groupKicker">People &amp; Future Readiness</p>
+            <h3 class="cfInf__groupTitle">Stronger talent and future-ready backbone</h3>
+            <ul class="cfInf__list">
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Strengthened talent retention and productivity via predictive HR models and skills insights.</span>
+              </li>
+              <li class="cfInf__li">
+                <span class="cfInf__dot"></span>
+                <span>Created a data-driven, future-ready corporate backbone for scale, agility, and enterprise-wide impact.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="cfInf__impact">
+        <div class="cfInf__impactRow">
+          <p class="cfInf__impactTitle">Typical impact unlocked</p>
+          <div class="cfInf__chips" aria-label="Typical corporate function transformation impacts">
+            <span class="cfInf__chip"><i></i>15–30% DFC &amp; overhead cost reduction</span>
+            <span class="cfInf__chip"><i></i>AI-enabled transparency &amp; decision support</span>
+            <span class="cfInf__chip"><i></i>Higher compliance maturity (ISO &amp; DPDP)</span>
+            <span class="cfInf__chip"><i></i>Future-ready corporate backbone</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDIES – CORPORATE FUNCTION TRANSFORMATION ===================== -->
+<style>
+  :root{
+    /* use same max as Process Advisory spine for visual alignment */
+    --pa-max:1320px;
+    --pa-text:#020C4F;
+    --pa-muted:rgba(2,12,79,0.78);
+    --pa-accent:#5040a0;
+    --pa-border:rgba(7,15,40,0.06);
+    --pa-shadow:0 18px 40px rgba(15,23,42,0.08);
+    --pa-radius:20px;
+  }
+
+  .pa-casestudies{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#f7f8fc;
+    padding:70px 20px 90px;
+  }
+  .pa-cs__wrap{
+    max-width:var(--pa-max);
+    margin:0 auto;
+  }
+
+  .pa-cs__head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:28px;
+  }
+  .pa-cs__eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,0.68);
+    margin-bottom:8px;
+  }
+  .pa-cs__title{
+    font-size:30px;
+    line-height:1.25;
+    margin:0;
+    color:var(--pa-text);
+    font-weight:700;
+  }
+  .pa-cs__subtitle{
+    margin-top:10px;
+    max-width:640px;
+    font-size:14px;
+    line-height:1.7;
+    color:var(--pa-muted);
+  }
+
+  .pa-cs__grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:20px;
+  }
+
+  .pa-cs__item{
+    text-decoration:none;
+    color:inherit;
+  }
+
+  .pa-cs__card{
+    height:100%;                      /* equal card height */
+    border-radius:var(--pa-radius);
+    background:#ffffff;
+    border:1px solid var(--pa-border);
+    box-shadow:var(--pa-shadow);
+    padding:16px 16px 18px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    overflow:hidden;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+  }
+
+  .pa-cs__card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(80,64,160,0.06),rgba(31,156,228,0.04));
+    opacity:0;
+    transition:opacity .2s ease;
+    pointer-events:none;
+  }
+
+  .pa-cs__meta-pill{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 10px;
+    border-radius:999px;
+    background:rgba(80,64,160,0.05);
+    color:rgba(2,12,79,0.74);
+    font-size:11px;
+    font-weight:500;
+    margin-bottom:10px;
+  }
+  .pa-cs__meta-dot{
+    width:7px;
+    height:7px;
+    border-radius:999px;
+    background:var(--pa-accent);
+  }
+
+  .pa-cs__title-small{
+    position:relative;
+    font-size:14px;
+    line-height:1.5;
+    font-weight:600;
+    color:var(--pa-text);
+    margin:0 0 8px;
+  }
+  .pa-cs__body{
+    position:relative;
+    font-size:12.6px;
+    line-height:1.6;
+    color:var(--pa-muted);
+    margin:0;
+    flex:1 1 auto;                    /* makes impact line sit at bottom, equal height */
+  }
+
+  .pa-cs__impact{
+    position:relative;
+    margin-top:10px;
+    font-size:11.5px;
+    font-weight:500;
+    color:var(--pa-accent);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .pa-cs__impact-dot{
+    width:6px;
+    height:6px;
+    border-radius:999px;
+    background:var(--pa-accent);
+  }
+
+  /* hover */
+  .pa-cs__card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 22px 40px rgba(15,23,42,0.16);
+    border-color:rgba(80,64,160,0.3);
+    background:rgba(255,255,255,0.98);
+  }
+  .pa-cs__card:hover::before{
+    opacity:1;
+  }
+
+  /* responsive */
+  @media (max-width:1200px){
+    .pa-cs__grid{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+  }
+  @media (max-width:900px){
+    .pa-cs__grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+  @media (max-width:640px){
+    .pa-casestudies{
+      padding:50px 16px 70px;
+    }
+    .pa-cs__head{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:12px;
+    }
+    .pa-cs__title{
+      font-size:26px;
+    }
+    .pa-cs__grid{
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+    .pa-cs__card{
+      padding:14px 14px 16px;
+    }
+  }
+</style>
+
+<section class="pa-casestudies" id="corporate-function-casestudies">
+  <div class="pa-cs__wrap">
+
+    <!-- Header -->
+    <div class="pa-cs__head">
+      <div>
+        <div class="pa-cs__eyebrow">Corporate Function Transformation</div>
+        <h2 class="pa-cs__title">Representative Corporate Function Engagements</h2>
+        <p class="pa-cs__subtitle">
+          Selected programs where we have transformed HR, Finance, Risk, Facilities, and IT
+          into a unified, data-driven corporate backbone.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4 × 2 Grid -->
+    <div class="pa-cs__grid">
+
+      <!-- 1 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Large Diversified Enterprise · HR
+          </div>
+          <h3 class="pa-cs__title-small">
+            HR function shared services &amp; talent-at-risk model
+          </h3>
+          <p class="pa-cs__body">
+            Established an outsourced shared services model, AI / ML-based “Save Talent at Risk”
+            profiling, and Development Councils, with a refreshed EVP aligned to culture.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            35% reduction in HR operating costs · Higher engagement and retention
+          </div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Large GCC · Facilities &amp; Real Estate
+          </div>
+          <h3 class="pa-cs__title-small">
+            Data-driven facilities and real estate optimisation
+          </h3>
+          <p class="pa-cs__body">
+            Optimised transportation and real estate through AI-enabled routing, seat utilisation
+            dashboards, and an intelligent “Book My Seat” platform.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            $5M annual transport savings · $20M real estate optimisation over 3 years
+          </div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Large Captive Shared Services · Finance
+          </div>
+          <h3 class="pa-cs__title-small">
+            End-to-end invoicing workflow transformation
+          </h3>
+          <p class="pa-cs__body">
+            Conducted a lean diagnostic of invoicing, redesigned workflows and templates,
+            and eliminated redundant handoffs through automation and governance.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            MI closure cut from WD+22 to WD+10 · Invoicing issues &lt;1% from 25%
+          </div>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            BFSI Leader · Risk &amp; Compliance
+          </div>
+          <h3 class="pa-cs__title-small">
+            GRC digitisation aligned with ISO &amp; DPDP
+          </h3>
+          <p class="pa-cs__body">
+            Transformed the enterprise GRC framework with real-time risk dashboards, automated
+            issue tracking, and AI-enabled risk scoring and compliance alerts.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            50% faster audit preparation · Proactive, data-driven risk culture
+          </div>
+        </div>
+      </a>
+
+      <!-- 5 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Global GCC · IT Resilience &amp; BCP
+          </div>
+          <h3 class="pa-cs__title-small">
+            Integrated IT resilience &amp; business continuity framework
+          </h3>
+          <p class="pa-cs__body">
+            Built an integrated IT and BCP framework with automated backups, DR readiness checks,
+            and multi-zone failover architecture across regions.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            60% improvement in recovery time · Zero critical service disruptions
+          </div>
+        </div>
+      </a>
+
+      <!-- 6 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Global Organisation · Facilities &amp; Admin
+          </div>
+          <h3 class="pa-cs__title-small">
+            Facilities &amp; administration optimisation program
+          </h3>
+          <p class="pa-cs__body">
+            Deployed a digital command centre, standardised vendor governance, and introduced
+            real-time energy tracking and predictive maintenance.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            20% reduction in operating costs · Stronger sustainability metrics
+          </div>
+        </div>
+      </a>
+
+      <!-- 7 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            Financial Services Enterprise · HR
+          </div>
+          <h3 class="pa-cs__title-small">
+            HR capability &amp; culture transformation roadmap
+          </h3>
+          <p class="pa-cs__body">
+            Designed a multi-year HR transformation covering leadership, performance, and capability
+            building, with behavioural models and data-driven learning journeys.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            Higher engagement scores · Stronger readiness for digital transformation
+          </div>
+        </div>
+      </a>
+
+      <!-- 8 -->
+      <a class="pa-cs__item" href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        <div class="pa-cs__card">
+          <div class="pa-cs__meta-pill">
+            <span class="pa-cs__meta-dot"></span>
+            PE-backed Group · Corporate Functions
+          </div>
+          <h3 class="pa-cs__title-small">
+            Integrated corporate function synergy program
+          </h3>
+          <p class="pa-cs__body">
+            Integrated HR, Finance, and Risk under a unified governance structure with shared services,
+            KPI alignment, and digital dashboards for a PE-backed manufacturer.
+          </p>
+          <div class="pa-cs__impact">
+            <span class="pa-cs__impact-dot"></span>
+            $5M annual efficiency savings · Accelerated IPO readiness
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CORPORATE FUNCTION – HOW WE BUILD THE BACKBONE (IMAGE + ICON LAYOUT) ===================== -->
+<style>
+  .pa-hwdt{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    padding:100px 20px;
+    background:#ffffff;
+  }
+  .pa-hwdt-wrap{
+    max-width:1320px; /* aligned to corporate function spine */
+    margin:0 auto;
+  }
+
+  /* header */
+  .pa-hwdt-head{
+    text-align:center;
+    max-width:900px;
+    margin:0 auto 60px;
+  }
+  .pa-hwdt-eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,.6);
+    margin-bottom:12px;
+  }
+  .pa-hwdt-title{
+    font-size:36px;
+    line-height:1.2;
+    color:#020C4F;
+    font-weight:700;
+    margin:0 0 16px;
+  }
+  .pa-hwdt-sub{
+    font-size:18px;
+    line-height:1.7;
+    color:rgba(2,12,79,.85);
+  }
+
+  /* layout */
+  .pa-hwdt-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:stretch;
+  }
+
+  /* image */
+  .pa-hwdt-image{
+    height:100%;
+  }
+  .pa-hwdt-image img{
+    width:100%;
+    height:100%;
+    min-height:520px;
+    object-fit:cover;
+    border-radius:18px;
+    display:block;
+  }
+
+  /* list */
+  .pa-hwdt-list{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:26px;
+  }
+  .pa-hwdt-item{
+    display:grid;
+    grid-template-columns:42px 1fr;
+    gap:18px;
+    align-items:flex-start;
+  }
+
+  .pa-hwdt-icon{
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    background:rgba(80,64,160,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .pa-hwdt-icon svg{
+    width:18px;
+    height:18px;
+    stroke:rgba(80,64,160,.9);
+  }
+
+  .pa-hwdt-item h3{
+    font-size:17px;
+    margin:0 0 6px;
+    color:#020C4F;
+    font-weight:600;
+  }
+  .pa-hwdt-item p{
+    font-size:14px;
+    line-height:1.7;
+    margin:0;
+    color:rgba(2,12,79,.78);
+  }
+
+  /* responsive */
+  @media (max-width:900px){
+    .pa-hwdt-grid{
+      grid-template-columns:1fr;
+      gap:50px;
+    }
+    .pa-hwdt-image img{
+      min-height:360px;
+    }
+    .pa-hwdt-title{
+      font-size:30px;
+    }
+    .pa-hwdt-sub{
+      font-size:16px;
+    }
+  }
+</style>
+
+<section class="pa-hwdt" id="corporate-function-how-we-work">
+  <div class="pa-hwdt-wrap">
+
+    <!-- Header -->
+    <div class="pa-hwdt-head">
+      <div class="pa-hwdt-eyebrow">Corporate Function</div>
+      <h2 class="pa-hwdt-title">How We Build an Integrated Corporate Backbone</h2>
+      <p class="pa-hwdt-sub">
+        <strong>Corporate Function Transformation is not a cost-cutting exercise.</strong><br/>
+        It is the redesign of HR, Finance, IT, Risk, and other functions into a single, data-driven
+        backbone that underpins growth, control, and enterprise agility.
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="pa-hwdt-grid">
+
+      <!-- Image -->
+      <div class="pa-hwdt-image">
+        <img
+          src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg"
+          alt="Leadership team reviewing integrated corporate function operating model"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Pillars -->
+      <div class="pa-hwdt-list">
+
+        <div class="pa-hwdt-item">
+          <div class="pa-hwdt-icon">
+            <!-- operating model / org map icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" rx="2"/>
+              <rect x="14" y="3" width="7" height="7" rx="2"/>
+              <rect x="3" y="14" width="7" height="7" rx="2"/>
+              <path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Design an integrated operating model</h3>
+            <p>
+              We connect HR, Finance, IT, Risk, Facilities, and other functions into a single,
+              coordinated corporate backbone with clear mandates and interfaces.
+            </p>
+          </div>
+        </div>
+
+        <div class="pa-hwdt-item">
+          <div class="pa-hwdt-icon">
+            <!-- shared services / hubs icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 5V3M19 12h2M12 21v-2M3 12h2M6 6l1.5 1.5M18 6l-1.5 1.5M18 18l-1.5-1.5M6 18l1.5-1.5"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Create shared services and centres of excellence</h3>
+            <p>
+              We consolidate transactional work into shared services and build COEs for talent,
+              analytics, and risk so that expertise is deep and scalable.
+            </p>
+          </div>
+        </div>
+
+        <div class="pa-hwdt-item">
+          <div class="pa-hwdt-icon">
+            <!-- automation / workflow icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <rect x="3" y="4" width="7" height="6" rx="1.5"/>
+              <rect x="14" y="14" width="7" height="6" rx="1.5"/>
+              <path d="M10 7h4a3 3 0 0 1 3 3v1M7 10v4a3 3 0 0 0 3 3h4"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Digitise workflows and embed automation</h3>
+            <p>
+              We simplify policies, digitise approvals, and integrate core systems so that
+              employees and partners experience faster, seamless corporate services.
+            </p>
+          </div>
+        </div>
+
+        <div class="pa-hwdt-item">
+          <div class="pa-hwdt-icon">
+            <!-- governance / shield icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path d="M12 3 5 6v5c0 4.28 2.8 8.11 7 9 4.2-.89 7-4.72 7-9V6l-7-3z"/>
+              <path d="M9.5 12.5 11 14l3.5-3.5"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Strengthen governance, risk, and compliance</h3>
+            <p>
+              We clarify decision rights, control points, and risk ownership, supported by
+              dashboards that give leadership real-time visibility across functions.
+            </p>
+          </div>
+        </div>
+
+        <div class="pa-hwdt-item">
+          <div class="pa-hwdt-icon">
+            <!-- people / capability icon -->
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <circle cx="8" cy="8" r="3"/>
+              <circle cx="17" cy="8" r="3"/>
+              <path d="M3 20v-1a4 4 0 0 1 4-4h2"/>
+              <path d="M15 15h2a4 4 0 0 1 4 4v1"/>
+              <path d="M11 20h4.5M13 17v5"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Build leadership, capability, and change muscle</h3>
+            <p>
+              We help corporate function leaders reframe their role, build new skills,
+              and establish routines that sustain discipline and continuous improvement.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CORPORATE FUNCTION – WHERE LEADERS CALL US IN (CTA SECTION) ===================== -->
+<style>
+  :root{
+    --cta-bg-1:#f5f3ff;
+    --cta-bg-2:#eaf4ff;
+    --cta-text:#020C4F;
+    --cta-accent:#5040a0;
+    --cta-border:rgba(2,12,79,.12);
+  }
+
+  .wlcta{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(circle at top left,var(--cta-bg-1),var(--cta-bg-2));
+    padding:90px 20px;
+  }
+  .wlcta-wrap{
+    max-width:1320px; /* aligned with Corporate Function layout */
+    margin:0 auto;
+    text-align:center;
+  }
+
+  .wlcta-eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(2,12,79,.6);
+    margin-bottom:12px;
+  }
+  .wlcta-title{
+    font-size:34px;
+    line-height:1.25;
+    color:var(--cta-text);
+    font-weight:700;
+    margin:0 0 18px;
+  }
+  .wlcta-intro{
+    max-width:780px;
+    margin:0 auto 46px;
+    font-size:17px;
+    line-height:1.7;
+    color:rgba(2,12,79,.82);
+  }
+
+  /* triggers */
+  .wlcta-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:26px;
+    margin-bottom:52px;
+  }
+  .wlcta-item{
+    padding:22px 22px 24px;
+    border:1px solid var(--cta-border);
+    border-radius:18px;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(8px);
+    text-align:left;
+  }
+  .wlcta-item h3{
+    font-size:16px;
+    margin:0 0 8px;
+    color:var(--cta-text);
+    font-weight:600;
+  }
+  .wlcta-item p{
+    font-size:14px;
+    line-height:1.65;
+    margin:0;
+    color:rgba(2,12,79,.78);
+  }
+
+  /* CTA */
+  .wlcta-action{
+    display:flex;
+    justify-content:center;
+  }
+  .wlcta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border-radius:999px;
+    background:var(--cta-accent);
+    color:#fff;
+    font-size:14px;
+    font-weight:500;
+    text-decoration:none;
+    box-shadow:0 18px 36px rgba(80,64,160,.35);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .wlcta-btn span{
+    display:inline-flex;
+    width:20px;
+    height:20px;
+    border-radius:999px;
+    background:rgba(255,255,255,.18);
+    justify-content:center;
+    align-items:center;
+    font-size:14px;
+  }
+  .wlcta-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 26px 48px rgba(80,64,160,.45);
+  }
+
+  @media (max-width:1024px){
+    .wlcta-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+  @media (max-width:640px){
+    .wlcta{
+      padding:70px 16px;
+    }
+    .wlcta-title{
+      font-size:28px;
+    }
+    .wlcta-grid{
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+  }
+</style>
+
+<section class="wlcta" id="corporate-function-triggers">
+  <div class="wlcta-wrap">
+
+    <div class="wlcta-eyebrow">Corporate Function Triggers</div>
+    <h2 class="wlcta-title">Where Leaders Typically Call Us In</h2>
+    <p class="wlcta-intro">
+      Leaders rarely call us just to “optimise HR or Finance”.
+      They call when corporate functions are fragmented, cost-heavy, or slowing the business —
+      and an integrated, data-driven backbone becomes essential.
+    </p>
+
+    <div class="wlcta-grid">
+
+      <div class="wlcta-item">
+        <h3>Support costs rising faster than growth</h3>
+        <p>
+          DFC and overheads are expanding year-on-year, but productivity, service quality,
+          and business enablement are not improving at the same pace.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Fragmented, overlapping corporate functions</h3>
+        <p>
+          Multiple HR, Finance, IT, and Risk teams operate in silos, with duplicated work,
+          unclear mandates, and no single view of enterprise productivity.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Decisions and approvals are too slow</h3>
+        <p>
+          Critical decisions are stuck in manual approvals, email loops, and unclear decision rights,
+          impacting speed to market and internal experience.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Audit, risk & compliance issues keep repeating</h3>
+        <p>
+          Findings are addressed locally, but root causes sit across functions, systems,
+          and processes — so the same issues resurface year after year.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>Digital investments not showing visible impact</h3>
+        <p>
+          ERPs, HCMs, CRMs, or GRC tools have been deployed, yet manual workarounds,
+          spreadsheets, and shadow processes continue to dominate.
+        </p>
+      </div>
+
+      <div class="wlcta-item">
+        <h3>No single view of corporate function performance</h3>
+        <p>
+          Leaders see multiple reports from different functions, but lack a simple,
+          governed view of cost, service levels, and value delivered by the backbone.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="wlcta-action">
+      <a class="wlcta-btn"
+         href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/">
+        Discuss your corporate function priorities
+        <span>→</span>
+      </a>
+    </div>
+
+  </div>
+</section>

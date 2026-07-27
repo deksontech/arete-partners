@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arete Partners Next.js Rebuild
 
-## Getting Started
+WordPress-free rebuild of the Arete Partners website using Next.js App Router, TypeScript, Tailwind CSS, reusable React components, semantic HTML, and local public assets.
 
-First, run the development server:
+## Local Setup
+
+Required Node.js: 20 LTS or newer. Current build was validated with Node.js 24.14.1.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+PowerShell execution policy may block `npm`; use `npm.cmd` on this Windows machine.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/content/site.ts` - structured extracted content, navigation, routes, redirects.
+- `src/components/` - reusable header, footer, and page renderer.
+- `src/app/` - App Router pages, metadata, sitemap, robots.
+- `public/assets/` - supplied and extracted Arete media.
+- `docs/` - content inventory, URL mapping, asset inventory, QA notes, limitations.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Build command: `npm run build`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Start command: `npm run start`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Recommended platforms: Vercel, Hostinger Node.js hosting, or another Node.js-compatible host.
 
-## Deploy on Vercel
+Before switching the production domain, verify production build, redirects, links, mobile layouts, forms/integrations, and content verification.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `.env.example`.
+
+No secrets are committed. Contact-delivery variables are placeholders for a future native form integration if credentials are provided.
+
+## Security Notes
+
+The `.wpress` backup and extracted WordPress files are not placed in `public/`.
+
+`npm audit --audit-level=high` currently reports high-severity advisories in transitive dependencies from the current Next/ESLint toolchain. `npm audit fix --force` proposes breaking downgrades and was not applied.

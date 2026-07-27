@@ -1,0 +1,1747 @@
+<!-- ===================== ABOUT US — SECTION 1 (HERO – CLEAN) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --c-navy:   #020C4F;
+    --c-indigo: #313B86;
+    --c-violet: #625AD8;
+    --c-pink:   #FF4B8C;
+    --white:    #FFFFFF;
+
+    --heroText: rgba(255,255,255,0.96);
+    --heroTextSoft: rgba(240,244,255,0.88);
+  }
+
+  html,body{margin:0;padding:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+
+  /* HERO */
+  .about-hero{
+    position:relative;
+    min-height:78vh;
+    display:flex;
+    align-items:center;
+    color:var(--white);
+    background:
+      url('https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg')
+      center/cover no-repeat;
+    overflow:hidden;
+    isolation:isolate;
+  }
+
+  /* light mesh overlay (NOT blocking image) */
+  .about-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    background:
+      radial-gradient(900px 520px at 18% 40%, rgba(255,120,191,0.18), transparent 60%),
+      radial-gradient(900px 520px at 75% 30%, rgba(98,90,216,0.18), transparent 58%),
+      linear-gradient(115deg,
+        rgba(2,12,79,0.55) 0%,
+        rgba(49,59,134,0.38) 45%,
+        rgba(98,90,216,0.26) 70%,
+        rgba(255,75,140,0.12) 100%
+      );
+  }
+
+  /* subtle premium wave texture */
+  .about-hero::after{
+    content:"";
+    position:absolute;
+    inset:-40px;
+    z-index:0;
+    pointer-events:none;
+    opacity:0.22;
+    background:
+      repeating-radial-gradient(
+        circle at 0% 25%,
+        rgba(255,255,255,0.18) 0px,
+        rgba(255,255,255,0.18) 1px,
+        transparent 1px,
+        transparent 36px
+      );
+    transform:rotate(-6deg);
+    mix-blend-mode:overlay;
+  }
+
+  .about-hero__inner{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:110px 20px 90px;
+  }
+
+  .about-hero__eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.28);
+    background:rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+
+  .about-hero__dot{
+    width:8px;height:8px;border-radius:99px;
+    background:linear-gradient(135deg,var(--c-pink),var(--c-violet));
+    box-shadow:0 0 0 6px rgba(255,75,140,0.14);
+  }
+
+  .about-hero__title{
+    max-width:820px;
+    margin:0 0 18px;
+    font-weight:700;
+    line-height:1.06;
+    font-size:clamp(36px,4.8vw,60px);
+    color:var(--heroText);
+    text-shadow:0 18px 38px rgba(0,0,0,0.35);
+  }
+
+  .about-hero__subtitle{
+    max-width:760px;
+    font-size:clamp(16px,1.9vw,20px);
+    line-height:1.65;
+    color:var(--heroTextSoft);
+  }
+
+  .about-hero__ctaRow{
+    margin-top:32px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+
+  .btn{
+    height:50px;
+    padding:0 24px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    transition:.22s ease;
+    white-space:nowrap;
+  }
+
+  .btn--primary{
+    background:var(--c-pink);
+    color:#fff;
+    box-shadow:0 18px 36px rgba(0,0,0,0.35);
+  }
+  .btn--primary:hover{
+    transform:translateY(-1px);
+    box-shadow:0 22px 44px rgba(0,0,0,0.45);
+    background:#E53A7A;
+  }
+
+  .btn--ghost{
+    background:rgba(255,255,255,0.08);
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(10px);
+  }
+  .btn--ghost:hover{
+    background:rgba(255,255,255,0.12);
+    transform:translateY(-1px);
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.is-in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  @media (max-width:900px){
+    .about-hero__inner{
+      padding:95px 18px 80px;
+    }
+  }
+</style>
+
+<section class="about-hero" id="about-hero">
+  <div class="about-hero__inner reveal">
+    <div class="about-hero__eyebrow">
+      <span class="about-hero__dot"></span>
+      About Us
+    </div>
+
+    <h1 class="about-hero__title">
+      A new-age consulting firm redefining growth, efficiency, and impact
+    </h1>
+
+    <p class="about-hero__subtitle">
+      We partner with leadership teams to translate strategy into execution — aligning people,
+      processes, and technology to deliver measurable, lasting business outcomes.
+    </p>
+
+    <div class="about-hero__ctaRow">
+      <a href="#contact" class="btn btn--primary">Talk to Us →</a>
+      <a href="#who-we-are" class="btn btn--ghost">Who We Are ↓</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // simple entrance animation
+  window.addEventListener('load', ()=>{
+    document.querySelector('.reveal')?.classList.add('is-in');
+  });
+</script>
+
+<!-- ===================== ABOUT US — SECTION 2 (CLEAN, NO BACKGROUND) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --c-navy:   #020C4F;
+    --c-indigo: #313B86;
+    --c-violet: #625AD8;
+    --c-pink:   #FF4B8C;
+    --black:    #0B0F1A;
+    --gray:     #5A5F78;
+    --line:     rgba(49,59,134,0.15);
+    --white:    #FFFFFF;
+  }
+
+  body{
+    margin:0;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#fff;
+    color:var(--black);
+  }
+
+  /* SECTION */
+  .ab-clean{
+    padding:90px 20px;
+    background:#fff;
+  }
+
+  .ab-clean__inner{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);
+    gap:48px;
+    align-items:start;
+  }
+
+  /* LEFT */
+  .ab-clean__eyebrow{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--c-indigo);
+    margin-bottom:12px;
+    font-weight:600;
+  }
+
+  .ab-clean__title{
+    font-size:clamp(28px,3.4vw,40px);
+    line-height:1.15;
+    font-weight:700;
+    margin:0 0 14px;
+    color:var(--c-navy);
+  }
+
+  .ab-clean__intro{
+    font-size:16px;
+    line-height:1.7;
+    color:var(--gray);
+    max-width:720px;
+    margin-bottom:28px;
+  }
+
+  .ab-clean__cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+
+  .ab-card{
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:22px 22px 20px;
+    transition:transform .25s ease, box-shadow .25s ease;
+    background:#fff;
+  }
+
+  .ab-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px rgba(0,0,0,0.06);
+  }
+
+  .ab-card__label{
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--c-indigo);
+    font-weight:600;
+    margin-bottom:8px;
+  }
+
+  .ab-card__text{
+    font-size:14.5px;
+    line-height:1.7;
+    color:#2E334D;
+    margin:0;
+  }
+
+  /* RIGHT */
+  .ab-right{
+    border-left:2px solid var(--line);
+    padding-left:36px;
+  }
+
+  .ab-block{
+    margin-bottom:28px;
+  }
+
+  .ab-block__label{
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--c-indigo);
+    font-weight:600;
+    margin-bottom:8px;
+  }
+
+  .ab-block__highlight{
+    font-size:20px;
+    font-weight:700;
+    line-height:1.4;
+    color:var(--c-navy);
+    margin-bottom:12px;
+  }
+
+  .ab-block__text{
+    font-size:15px;
+    line-height:1.7;
+    color:#3C4160;
+    margin:0;
+  }
+
+  .ab-core{
+    padding-top:18px;
+    border-top:1px solid var(--line);
+  }
+
+  /* CTA */
+  .ab-clean__cta{
+    margin-top:30px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  .ab-btn{
+    height:46px;
+    padding:0 22px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    transition:.22s ease;
+    white-space:nowrap;
+  }
+
+  .ab-btn--primary{
+    background:var(--c-pink);
+    color:#fff;
+  }
+  .ab-btn--primary:hover{
+    background:#E53A7A;
+    transform:translateY(-1px);
+  }
+
+  .ab-btn--ghost{
+    border:1px solid var(--line);
+    color:var(--c-navy);
+    background:#fff;
+  }
+  .ab-btn--ghost:hover{
+    background:#F6F7FB;
+    transform:translateY(-1px);
+  }
+
+  /* ANIMATION */
+  .ab-reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .ab-reveal.is-in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  @media (max-width:980px){
+    .ab-clean__inner{
+      grid-template-columns:1fr;
+      gap:36px;
+    }
+    .ab-right{
+      border-left:none;
+      padding-left:0;
+      border-top:2px solid var(--line);
+      padding-top:30px;
+    }
+    .ab-clean__cards{
+      grid-template-columns:1fr;
+    }
+  }
+</style>
+
+<section class="ab-clean" id="purpose-vision">
+  <div class="ab-clean__inner">
+
+    <!-- LEFT -->
+    <div class="ab-reveal">
+      <div class="ab-clean__eyebrow">Purpose &amp; Vision</div>
+      <h2 class="ab-clean__title">What we stand for — and where we’re going</h2>
+      <p class="ab-clean__intro">
+        Our consulting philosophy is grounded in one belief: lasting transformation happens
+        when strategy, execution, and people move together.
+      </p>
+
+      <div class="ab-clean__cards">
+        <div class="ab-card">
+          <div class="ab-card__label">Vision</div>
+          <p class="ab-card__text">
+            To be the consulting partner known for turning every client investment into a multiplier
+            of growth, innovation, and lasting impact — powered by a team that thrives on making a difference.
+          </p>
+        </div>
+
+        <div class="ab-card">
+          <div class="ab-card__label">Purpose</div>
+          <p class="ab-card__text">
+            To transform businesses in ways that transform lives — enabling our clients,
+            their customers, and our own people to achieve more than they imagined possible.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="ab-right ab-reveal">
+      <div class="ab-block">
+        <div class="ab-block__label">Tagline</div>
+        <div class="ab-block__highlight">
+          Where revenue growth meets operational excellence and meaningful impact.
+        </div>
+      </div>
+
+      <div class="ab-block">
+        <div class="ab-block__label">Brand Promise</div>
+        <p class="ab-block__text">
+          We help organizations grow faster, operate smarter, and create lasting value — for their
+          customers, employees, and stakeholders — turning every consulting dollar into a multiplier
+          of measurable results.
+        </p>
+      </div>
+
+      <div class="ab-block ab-core">
+        <div class="ab-block__label">Core Belief</div>
+        <p class="ab-block__text">
+          Transformation works best when strategy meets execution — and when people are at the heart of change.
+        </p>
+      </div>
+
+      <div class="ab-clean__cta">
+        <a href="#contact" class="ab-btn ab-btn--primary">Talk to Us →</a>
+        <a href="#who-we-are" class="ab-btn ab-btn--ghost">Next: Who We Are ↓</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function(){
+    function initAboutReveal(scope){
+      // scope = elementor widget/container, or document
+      const root = scope && scope.querySelector ? scope : document;
+      const section = root.querySelector('#purpose-vision');
+      if(!section) return;
+
+      // prevent double-init
+      if(section.dataset.abInit === "1") return;
+      section.dataset.abInit = "1";
+
+      const items = section.querySelectorAll('.ab-reveal');
+      items.forEach((el,i)=>{
+        setTimeout(()=> el.classList.add('is-in'), i*120);
+      });
+    }
+
+    // Works on normal pages
+    document.addEventListener('DOMContentLoaded', function(){
+      initAboutReveal(document);
+    });
+
+    // Works inside Elementor editor + frontend renders
+    if(window.elementorFrontend && window.elementorFrontend.hooks){
+      window.elementorFrontend.hooks.addAction('frontend/element_ready/global', function($scope){
+        // $scope is a jQuery object in Elementor; convert safely
+        const el = $scope && $scope[0] ? $scope[0] : document;
+        initAboutReveal(el);
+      });
+    }
+  })();
+</script>
+
+<!-- ===================== ABOUT US — ORIGIN STORY (MATCHING YOUR SCREENSHOT) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --c-navy:   #020C4F;
+    --c-indigo: #313B86;
+    --c-violet: #625AD8;
+    --c-pink:   #FF4B8C;
+
+    --black: #0B0F1A;
+    --gray:  #4B5168;
+    --muted: #2E334D;
+    --line:  rgba(49,59,134,0.18);
+    --pill:  rgba(2,12,79,0.06);
+    --white: #FFFFFF;
+  }
+
+  .ab-origin2, .ab-origin2 *{ box-sizing:border-box; }
+
+  .ab-origin2{
+    padding:90px 20px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--black);
+
+    /* ✅ PREMIUM EXECUTIVE BACKGROUND */
+    background:
+      radial-gradient(circle at 12% 0%, rgba(98,90,216,.08), transparent 55%),
+      radial-gradient(circle at 92% 28%, rgba(49,59,134,.08), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+      rgba(49,59,134,.03);
+  }
+
+  .ab-origin2__inner{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);
+    gap:56px;
+    align-items:start;
+  }
+
+  /* LEFT */
+  .ab-origin2__kicker{
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--c-indigo);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  .ab-origin2__title{
+    margin:0 0 18px;
+    font-size:clamp(34px,4vw,52px);
+    line-height:1.06;
+    font-weight:800;
+    color:var(--c-navy);
+  }
+
+  .ab-origin2__lead{
+    margin:0 0 18px;
+    font-size:16px;
+    line-height:1.9;
+    color:var(--gray);
+    max-width:760px;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+
+  .ab-origin2__lead b{
+    color:var(--black);
+    font-weight:700;
+  }
+
+  /* RIGHT */
+  .ab-origin2__right{
+    border-left:2px solid var(--line);
+    padding-left:42px;
+    min-width:0;
+    width:100%;
+  }
+
+  .ab-origin2__stack{
+    display:grid;
+    gap:18px;
+    min-width:0;
+  }
+
+  .ab-origin2__card{
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+    padding:18px 18px 16px;
+    transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    min-width:0;
+  }
+
+  .ab-origin2__card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 34px rgba(0,0,0,0.06);
+    border-color:rgba(98,90,216,0.28);
+  }
+
+  /* CARD HEADER */
+  .ab-origin2__head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:10px;
+    min-width:0;
+  }
+
+  .ab-origin2__num{
+    flex:0 0 auto;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--line);
+    background:var(--pill);
+    color:var(--c-navy);
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:.02em;
+  }
+
+  .ab-origin2__h{
+    margin:0;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:800;
+    color:var(--c-navy);
+    line-height:1.25;
+    min-width:0;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+
+  .ab-origin2__text{
+    margin:0;
+    font-size:14.5px;
+    line-height:1.75;
+    color:var(--muted);
+    min-width:0;
+    width:100%;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+
+  /* reveal */
+  .ab-reveal{opacity:0; transform:translateY(14px); transition:opacity .75s ease, transform .75s ease;}
+  .ab-reveal.is-in{opacity:1; transform:translateY(0);}
+
+  @media (max-width:980px){
+    .ab-origin2__inner{grid-template-columns:1fr; gap:34px;}
+    .ab-origin2__right{
+      border-left:none;
+      padding-left:0;
+      border-top:2px solid var(--line);
+      padding-top:26px;
+    }
+  }
+</style>
+
+<section class="ab-origin2" id="origin">
+  <div class="ab-origin2__inner">
+
+    <!-- LEFT -->
+    <div class="ab-reveal">
+      <div class="ab-origin2__kicker">ORIGIN STORY</div>
+      <h2 class="ab-origin2__title">Built to deliver sustainable results</h2>
+
+      <p class="ab-origin2__lead">
+        It all began with a bold question:
+        <b>How can we work hand in hand with our clients to deliver sustainable results</b>—where every consulting dollar becomes a multiplier of growth, innovation, and impact?
+      </p>
+
+      <p class="ab-origin2__lead">
+        Our answer was to create a model that fuses deep expertise with technology, and a delivery approach that scales globally while staying personal.
+      </p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="ab-origin2__right ab-reveal">
+      <div class="ab-origin2__stack">
+
+        <article class="ab-origin2__card">
+          <div class="ab-origin2__head">
+            <div class="ab-origin2__num">01</div>
+            <h3 class="ab-origin2__h">HAND-IN-HAND DELIVERY</h3>
+          </div>
+          <p class="ab-origin2__text">
+            We work as an extension of your leadership team — co-owning the problem, the plan, and the outcome.
+          </p>
+        </article>
+
+        <article class="ab-origin2__card">
+          <div class="ab-origin2__head">
+            <div class="ab-origin2__num">02</div>
+            <h3 class="ab-origin2__h">DEEP EXPERTISE × TECH</h3>
+          </div>
+          <p class="ab-origin2__text">
+            A model that fuses domain expertise with technology so execution is faster, smarter, and scalable.
+          </p>
+        </article>
+
+        <article class="ab-origin2__card">
+          <div class="ab-origin2__head">
+            <div class="ab-origin2__num">03</div>
+            <h3 class="ab-origin2__h">GLOBAL SCALE, PERSONAL FEEL</h3>
+          </div>
+          <p class="ab-origin2__text">
+            A globally scalable delivery approach that stays personal — ensuring clarity, continuity, and trust.
+          </p>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.ab-reveal').forEach((el,i)=>{
+      setTimeout(()=> el.classList.add('is-in'), i*140);
+    });
+  });
+</script>
+
+<!-- ===================== ABOUT US — VISION • PROGRESS MILESTONE • TEAM CULTURE (WITH VISUALS, NO BG) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --c-navy:   #020C4F;
+    --c-indigo: #313B86;
+    --c-violet: #625AD8;
+    --c-pink:   #FF4B8C;
+
+    --black:#0B0F1A;
+    --gray:#4B5168;
+    --line:rgba(49,59,134,0.16);
+    --white:#FFFFFF;
+  }
+
+  .ab-vmtc, .ab-vmtc *{ box-sizing:border-box; }
+
+  .ab-vmtc{
+    padding:90px 20px;
+    background:#fff;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--black);
+  }
+  .ab-vmtc__inner{max-width:1200px;margin:0 auto;}
+
+  .ab-vmtc__head{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
+    margin-bottom:22px;
+  }
+  .ab-vmtc__kicker{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--c-indigo);font-weight:800;margin:0 0 10px;
+  }
+  .ab-vmtc__title{
+    margin:0;font-size:clamp(26px,3vw,36px);line-height:1.15;
+    font-weight:800;color:var(--c-navy);
+  }
+  .ab-vmtc__rule{
+    height:2px;width:220px;border-radius:999px;
+    background:linear-gradient(90deg,var(--c-navy),var(--c-indigo),var(--c-violet),var(--c-pink));
+    opacity:.9;margin-bottom:6px;flex:0 0 auto;
+  }
+
+  .ab-vmtc__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+
+  .ab-vmtc__card{
+    position:relative;border:1px solid var(--line);border-radius:18px;
+    padding:22px 22px 20px;background:#fff;overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .ab-vmtc__card::before{
+    content:"";position:absolute;left:0;top:0;height:4px;width:100%;
+    background:linear-gradient(90deg,var(--c-indigo),var(--c-violet),var(--c-pink));
+  }
+  .ab-vmtc__card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 34px rgba(0,0,0,0.06);
+    border-color:rgba(98,90,216,0.26);
+  }
+
+  .ab-vmtc__label{display:flex;align-items:center;gap:10px;margin:0 0 10px;}
+  .ab-vmtc__icon{
+    width:40px;height:40px;border-radius:14px;display:grid;place-items:center;
+    background:rgba(2,12,79,0.05);
+    border:1px solid rgba(49,59,134,0.18);
+    color:var(--c-indigo);flex:0 0 auto;
+  }
+  .ab-vmtc__labeltext{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--c-indigo);font-weight:800;margin:0;line-height:1.2;
+  }
+  .ab-vmtc__text{margin:0;font-size:15px;line-height:1.8;color:var(--gray);}
+
+  /* reveal */
+  .ab-reveal{opacity:0;transform:translateY(14px);transition:opacity .75s ease, transform .75s ease;}
+  .ab-reveal.is-in{opacity:1;transform:translateY(0);}
+
+  /* ✅ Elementor editor: always show (JS may not run) */
+  .elementor-editor-active .ab-reveal,
+  .elementor-editor-preview .ab-reveal,
+  body.elementor-editor-active .ab-reveal,
+  body.elementor-editor-preview .ab-reveal{
+    opacity:1 !important;
+    transform:none !important;
+  }
+
+  @media (max-width:980px){
+    .ab-vmtc{padding:74px 18px;}
+    .ab-vmtc__head{flex-direction:column;align-items:flex-start;}
+    .ab-vmtc__rule{width:160px;}
+    .ab-vmtc__grid{grid-template-columns:1fr;gap:14px;}
+  }
+</style>
+
+<section class="ab-vmtc" id="vision-milestone-culture">
+  <div class="ab-vmtc__inner">
+
+    <div class="ab-vmtc__head ab-reveal">
+      <div>
+        <p class="ab-vmtc__kicker">FOUNDATION</p>
+        <h2 class="ab-vmtc__title">Vision, progress, and culture</h2>
+      </div>
+      <div class="ab-vmtc__rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="ab-vmtc__grid">
+
+      <article class="ab-vmtc__card ab-reveal">
+        <div class="ab-vmtc__label">
+          <div class="ab-vmtc__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M2.2 12s3.6-7 9.8-7 9.8 7 9.8 7-3.6 7-9.8 7S2.2 12 2.2 12Z" stroke="currentColor" stroke-width="2" />
+              <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </div>
+          <p class="ab-vmtc__labeltext">Vision</p>
+        </div>
+        <p class="ab-vmtc__text">
+          To be the consulting partner known for turning every client investment into a multiplier of growth,
+          innovation, and lasting impact — powered by a team that thrives on making a difference.
+        </p>
+      </article>
+
+      <article class="ab-vmtc__card ab-reveal">
+        <div class="ab-vmtc__label">
+          <div class="ab-vmtc__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M14 4c3.8 1 6 4.3 6 8.2 0 2.7-1.1 5.3-3 7.2l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M10 20c-3.8-1-6-4.3-6-8.2 0-2.7 1.1-5.3 3-7.2l4.3 4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9.5 14.5 14.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="ab-vmtc__labeltext">Progress Milestone</p>
+        </div>
+        <p class="ab-vmtc__text">
+          In a short span, we’ve brought together exceptional global talent, industry-leading expertise, and a
+          tech-enabled, integrated delivery model to help organizations achieve measurable results and enduring transformation.
+        </p>
+      </article>
+
+      <article class="ab-vmtc__card ab-reveal">
+        <div class="ab-vmtc__label">
+          <div class="ab-vmtc__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M16 11a3 3 0 1 0-6 0 3 3 0 0 0 6 0Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M3 20c1.5-3 4.3-5 8-5s6.5 2 8 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M20 20c-.6-1.2-1.5-2.3-2.6-3.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6.6 16.9C5.5 17.7 4.6 18.8 4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="ab-vmtc__labeltext">Team Culture</p>
+        </div>
+        <p class="ab-vmtc__text">
+          Our team is united by a shared purpose, fueled by agility, and thrives on collaboration. We build trust through
+          integrity, deliver excellence through discipline, and measure success by the lasting impact we create for our clients,
+          their customers, and stakeholders.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Run immediately + on Elementor frontend init (covers editor quirks)
+  (function(){
+    function revealNow(){
+      document.querySelectorAll('#vision-milestone-culture .ab-reveal').forEach((el,i)=>{
+        setTimeout(()=> el.classList.add('is-in'), i*130);
+      });
+    }
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      revealNow();
+    } else {
+      document.addEventListener('DOMContentLoaded', revealNow);
+    }
+    window.addEventListener('load', revealNow);
+  })();
+</script>
+
+<!-- ===================== ABOUT US — CORE SERVICES & ENABLERS ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --c-navy:#020C4F;
+    --c-indigo:#313B86;
+    --c-violet:#625AD8;
+    --c-pink:#FF4B8C;
+
+    --black:#0B0F1A;
+    --gray:#4B5168;
+    --line:rgba(49,59,134,0.16);
+    --soft:rgba(2,12,79,0.04);
+    --white:#FFFFFF;
+  }
+
+  body{
+    margin:0;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#fff;
+    color:var(--black);
+  }
+
+  /* SECTION */
+  .ab-services{
+    padding:96px 20px;
+
+    /* ✅ PREMIUM EXECUTIVE BACKGROUND (MATCHES OTHER SECTIONS) */
+    background:      radial-gradient(circle at 14% 0%, rgba(98,90,216,.08), transparent 55%),
+      radial-gradient(circle at 92% 28%, rgba(49,59,134,.08), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+      rgba(49,59,134,.03);
+
+  }
+
+  .ab-services__inner{
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  /* HEADER */
+  .ab-services__eyebrow{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--c-indigo);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+
+  .ab-services__title{
+    font-size:clamp(30px,3.6vw,44px);
+    font-weight:700;
+    line-height:1.15;
+    color:var(--c-navy);
+    margin:0 0 22px;
+  }
+
+  .ab-services__intro{
+    font-size:16px;
+    line-height:1.75;
+    color:var(--gray);
+    max-width:900px;
+    margin-bottom:40px;
+  }
+
+  /* SERVICES GRID */
+  .ab-services__grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:26px 40px;
+    margin-bottom:48px;
+  }
+
+  .ab-service{
+    padding-left:18px;
+    border-left:3px solid var(--line);
+    transition:border-color .25s ease, transform .25s ease;
+  }
+
+  .ab-service:hover{
+    border-color:var(--c-violet);
+    transform:translateY(-2px);
+  }
+
+  .ab-service__title{
+    font-size:16px;
+    font-weight:600;
+    color:var(--c-navy);
+    margin:0 0 6px;
+  }
+
+  .ab-service__text{
+    margin:0;
+    font-size:14.5px;
+    line-height:1.7;
+    color:#2E334D;
+  }
+
+  /* ENABLERS */
+  .ab-enablers{
+    border-top:1px solid var(--line);
+    padding-top:32px;
+    display:grid;
+    grid-template-columns:minmax(0,0.4fr) minmax(0,0.6fr);
+    gap:40px;
+    align-items:start;
+  }
+
+  .ab-enablers__label{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--c-indigo);
+    font-weight:700;
+  }
+
+  .ab-enablers__text{
+    font-size:15px;
+    line-height:1.75;
+    color:#3C4160;
+  }
+
+  /* REVEAL */
+  .ab-reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .ab-reveal.is-in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  @media (max-width:980px){
+    .ab-services{
+      padding:78px 18px;
+    }
+    .ab-services__grid{
+      grid-template-columns:1fr;
+      gap:22px;
+    }
+    .ab-enablers{
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+  }
+</style>
+
+<section class="ab-services" id="core-services">
+  <div class="ab-services__inner">
+
+    <div class="ab-reveal">
+      <div class="ab-services__eyebrow">Core Services</div>
+      <h2 class="ab-services__title">What We Do — And How We Create Impact</h2>
+
+      <p class="ab-services__intro">
+        We help our clients grow faster, operate smarter, and create lasting value through:
+      </p>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="ab-services__grid">
+      <div class="ab-service ab-reveal">
+        <h3 class="ab-service__title">Growth &amp; Strategy</h3>
+        <p class="ab-service__text">
+          Driving revenue growth, market expansion, and competitive advantage.
+        </p>
+      </div>
+
+      <div class="ab-service ab-reveal">
+        <h3 class="ab-service__title">Shared Services &amp; Global Capability Centers (GCC)</h3>
+        <p class="ab-service__text">
+          Designing and scaling efficient, high-performing hubs.
+        </p>
+      </div>
+
+      <div class="ab-service ab-reveal">
+        <h3 class="ab-service__title">Tech-Enabled Transformation</h3>
+        <p class="ab-service__text">
+          Leveraging digital, automation, and analytics to reimagine operations.
+        </p>
+      </div>
+
+      <div class="ab-service ab-reveal">
+        <h3 class="ab-service__title">ESG &amp; Value Creation</h3>
+        <p class="ab-service__text">
+          Embedding sustainability into business strategy for measurable impact.
+        </p>
+      </div>
+
+      <div class="ab-service ab-reveal">
+        <h3 class="ab-service__title">Business Process Advisory &amp; Industry 4.0</h3>
+        <p class="ab-service__text">
+          Streamlining processes, boosting productivity, and enabling innovation.
+        </p>
+      </div>
+    </div>
+
+    <!-- ENABLERS -->
+    <div class="ab-enablers ab-reveal">
+      <div class="ab-enablers__label">Enablers</div>
+      <div class="ab-enablers__text">
+        Our services are backed by proprietary technology assets, proven methodologies,
+        and a commitment to a trusted, secure, and compliant work environment—ensuring
+        data integrity and client confidentiality at all times.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // staggered reveal animation
+  window.addEventListener('load', ()=>{
+    document.querySelectorAll('#core-services .ab-reveal').forEach((el,i)=>{
+      setTimeout(()=> el.classList.add('is-in'), i*120);
+    });
+  });
+</script>
+
+<!-- ===================== ABOUT US — WHO WE ARE & CORE PRINCIPLES ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --c-navy:#020C4F;
+    --c-indigo:#313B86;
+    --c-violet:#625AD8;
+    --c-pink:#FF4B8C;
+
+    --black:#0B0F1A;
+    --gray:#4B5168;
+    --line:rgba(49,59,134,0.16);
+    --white:#FFFFFF;
+  }
+
+  body{
+    margin:0;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#fff;
+    color:var(--black);
+  }
+
+  .ab-who{
+    padding:100px 20px;
+    background:#fff;
+  }
+
+  .ab-who__inner{
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  /* HEADER */
+  .ab-who__grid{
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);
+    gap:50px;
+    align-items:start;
+  }
+
+  .ab-who__eyebrow{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--c-indigo);
+    font-weight:600;
+    margin-bottom:12px;
+  }
+
+  .ab-who__title{
+    font-size:clamp(30px,3.6vw,44px);
+    font-weight:700;
+    line-height:1.15;
+    color:var(--c-navy);
+    margin:0 0 18px;
+  }
+
+  .ab-who__text{
+    font-size:15.5px;
+    line-height:1.8;
+    color:var(--gray);
+    margin-bottom:16px;
+  }
+
+  /* IMAGE */
+  .ab-who__image{
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+
+  .ab-who__image img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  /* PRINCIPLES */
+  .ab-principles{
+    margin-top:80px;
+  }
+
+  .ab-principles__title{
+    font-size:clamp(26px,3.2vw,38px);
+    font-weight:700;
+    color:var(--c-navy);
+    margin-bottom:40px;
+  }
+
+  .ab-principle{
+    display:grid;
+    grid-template-columns:42px minmax(0,1fr);
+    gap:18px;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .ab-principle:last-child{
+    border-bottom:1px solid var(--line);
+  }
+
+  .ab-principle__num{
+    font-size:14px;
+    font-weight:700;
+    color:var(--c-violet);
+  }
+
+  .ab-principle__content h4{
+    margin:0 0 8px;
+    font-size:17px;
+    font-weight:600;
+    color:var(--c-navy);
+  }
+
+  .ab-principle__content p{
+    margin:0 0 10px;
+    font-size:15px;
+    line-height:1.7;
+    color:#2E334D;
+  }
+
+  .ab-principle__impact{
+    font-size:14px;
+    line-height:1.7;
+    color:#3C4160;
+    padding-left:14px;
+    border-left:3px solid var(--c-pink);
+  }
+
+  /* REVEAL */
+  .ab-reveal{
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .ab-reveal.is-in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  @media (max-width:980px){
+    .ab-who{
+      padding:80px 18px;
+    }
+    .ab-who__grid{
+      grid-template-columns:1fr;
+      gap:36px;
+    }
+  }
+</style>
+
+<section class="ab-who" id="who-we-are">
+  <div class="ab-who__inner">
+
+    <!-- WHO WE ARE -->
+    <div class="ab-who__grid ab-reveal">
+      <div>
+        <div class="ab-who__eyebrow">Who We Are</div>
+        <h2 class="ab-who__title">A consulting partner built for lasting impact</h2>
+
+        <p class="ab-who__text">
+          We are a consulting partner dedicated to driving growth, operational excellence,
+          technology enablement, and sustainability.
+        </p>
+
+        <p class="ab-who__text">
+          Working as an extension of our clients’ teams, we support them from strategy to execution,
+          delivering results that are sustainable, measurable, and lasting.
+        </p>
+
+        <p class="ab-who__text">
+          Our mission is clear: make our clients successful and earn the privilege of being their Advisor for Life.
+        </p>
+
+        <p class="ab-who__text">
+          By combining global talent, deep domain expertise, and proprietary technology assets,
+          we deliver transformations that accelerate growth, strengthen resilience, and spark innovation.
+        </p>
+
+        <p class="ab-who__text">
+          We operate in a trusted, secure, and compliant environment, ensuring confidentiality,
+          data integrity, and uncompromising quality in everything we do.
+        </p>
+      </div>
+
+      <div class="ab-who__image">
+        <img src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/Picture1.png" alt="Who We Are">
+      </div>
+    </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // reveal animation
+  window.addEventListener('load', ()=>{
+    document.querySelectorAll('.ab-reveal').forEach((el,i)=>{
+      setTimeout(()=> el.classList.add('is-in'), i*140);
+    });
+  });
+</script>
+
+<!-- ============ 5 CORE PRINCIPLES — OPTION B (LEFT SELECTOR + DETAIL PANEL, NO BACKGROUND) ============ -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --c-navy:#020C4F;
+    --c-indigo:#313B86;
+    --c-violet:#625AD8;
+    --c-pink:#FF4B8C;
+
+    --black:#0B0F1A;
+    --gray:#4B5168;
+    --muted:#2E334D;
+    --line:rgba(49,59,134,0.16);
+    --soft:rgba(2,12,79,0.04);
+    --white:#FFFFFF;
+  }
+
+  body{
+    margin:0;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#fff;
+    color:var(--black);
+  }
+
+  .cpB{
+    padding:78px 20px;
+      /* ✅ PREMIUM EXECUTIVE BACKGROUND */
+    background:
+      radial-gradient(circle at 15% 0%, rgba(98,90,216,.08), transparent 55%),
+      radial-gradient(circle at 90% 25%, rgba(31,156,228,.08), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+      rgba(49,59,134,.03);
+  
+  }
+  .cpB__inner{
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  .cpB__title{
+    margin:0 0 18px;
+    font-size:clamp(26px,3vw,38px);
+    line-height:1.2;
+    font-weight:700;
+    color:var(--c-navy);
+  }
+
+  .cpB__wrap{
+    display:grid;
+    grid-template-columns: minmax(0, 0.44fr) minmax(0, 0.56fr);
+    gap:26px;
+    align-items:start;
+  }
+
+  /* LEFT SELECTOR */
+  .cpB__rail{
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    background:#fff;
+  }
+
+  .cpB__item{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:16px 16px;
+    background:#fff;
+    border:0;
+    border-top:1px solid var(--line);
+    cursor:pointer;
+    text-align:left;
+    transition:background .22s ease;
+  }
+  .cpB__item:first-child{border-top:none;}
+
+  .cpB__item:hover{
+    background:rgba(2,12,79,0.02);
+  }
+
+  .cpB__left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+  }
+
+  .cpB__num{
+    width:38px;height:38px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--line);
+    color:var(--c-violet);
+    font-weight:800;
+    flex:0 0 auto;
+    background:#fff;
+  }
+
+  .cpB__label{
+    margin:0;
+    font-size:14px;
+    font-weight:650;
+    color:var(--c-navy);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .cpB__hint{
+    width:34px;height:34px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    display:grid;
+    place-items:center;
+    color:var(--c-indigo);
+    background:#fff;
+    transition:transform .22s ease, background .22s ease, border-color .22s ease;
+    flex:0 0 auto;
+  }
+
+
+
+  /* Active state */
+  .cpB__item[aria-selected="true"]{
+    background:rgba(2,12,79,0.03);
+  }
+  .cpB__item[aria-selected="true"] .cpB__num{
+    border-color:rgba(255,75,140,0.35);
+    box-shadow:0 10px 24px rgba(0,0,0,0.06);
+  }
+  .cpB__item[aria-selected="true"] .cpB__hint{
+    border-color:rgba(255,75,140,0.28);
+    background:rgba(255,75,140,0.06);
+    transform:translateX(1px);
+  }
+
+  /* RIGHT DETAIL PANEL */
+  .cpB__panel{
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:#fff;
+    padding:18px 18px 16px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.06);
+    position:sticky;
+    top:18px;
+    display: flex;
+    height: 100%;
+  }
+
+  .cpB__panelTop{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:14px;
+  }
+
+  .cpB__panelTitleWrap{
+    min-width:0;
+  }
+
+  .cpB__panelKicker{
+    margin:0 0 6px;
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--c-indigo);
+    font-weight:700;
+  }
+
+  .cpB__panelTitle{
+    margin:0;
+    font-size:20px;
+    line-height:1.25;
+    color:var(--c-navy);
+    font-weight:750;
+  }
+
+  .cpB__badge{
+    flex:0 0 auto;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--c-navy);
+    font-size:13px;
+    font-weight:700;
+    background:#fff;
+  }
+  .cpB__badgeDot{
+    width:8px;height:8px;border-radius:999px;
+    background:linear-gradient(135deg,var(--c-pink),var(--c-violet));
+  }
+
+  .cpB__desc{
+    margin:0 0 12px;
+    font-size:15px;
+    line-height:1.75;
+    color:var(--muted);
+  }
+
+  .cpB__impact{
+    margin:0;
+    font-size:14.5px;
+    line-height:1.7;
+    color:#3C4160;
+    padding-left:14px;
+    border-left:3px solid var(--c-pink);
+  }
+
+  /* subtle crossfade on change */
+  .cpB__fade{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity .18s ease, transform .18s ease;
+  }
+  .cpB__fade.is-switching{
+    opacity:0;
+    transform:translateY(6px);
+  }
+
+  /* Mobile */
+  @media (max-width:980px){
+    .cpB{padding:68px 18px;}
+    .cpB__wrap{grid-template-columns:1fr; gap:16px;}
+    .cpB__panel{position:relative; top:auto;}
+    .cpB__label{white-space:normal; overflow:visible; text-overflow:unset;}
+  }
+  
+  
+</style>
+
+<section class="cpB" id="core-principles">
+  <div class="cpB__inner">
+    <h3 class="cpB__title">Our 5 Core Principles — and the Impact We Deliver</h3>
+
+    <div class="cpB__wrap">
+      <!-- LEFT SELECTOR -->
+      <div class="cpB__rail" role="tablist" aria-label="Core principles selector">
+        <button class="cpB__item" role="tab" aria-selected="true" data-key="p1">
+          <div class="cpB__left">
+            <div class="cpB__num">01</div>
+            <p class="cpB__label">Client-First Mindset</p>
+          </div>
+          <div class="cpB__hint" aria-hidden="true">→</div>
+        </button>
+
+        <button class="cpB__item" role="tab" aria-selected="false" data-key="p2">
+          <div class="cpB__left">
+            <div class="cpB__num">02</div>
+            <p class="cpB__label">Employee Engagement &amp; Ownership</p>
+          </div>
+          <div class="cpB__hint" aria-hidden="true">→</div>
+        </button>
+
+        <button class="cpB__item" role="tab" aria-selected="false" data-key="p3">
+          <div class="cpB__left">
+            <div class="cpB__num">03</div>
+            <p class="cpB__label">Ownership for Excellence</p>
+          </div>
+          <div class="cpB__hint" aria-hidden="true">→</div>
+        </button>
+
+        <button class="cpB__item" role="tab" aria-selected="false" data-key="p4">
+          <div class="cpB__left">
+            <div class="cpB__num">04</div>
+            <p class="cpB__label">Deliver Sustainable Results</p>
+          </div>
+          <div class="cpB__hint" aria-hidden="true">→</div>
+        </button>
+
+        <button class="cpB__item" role="tab" aria-selected="false" data-key="p5">
+          <div class="cpB__left">
+            <div class="cpB__num">05</div>
+            <p class="cpB__label">Ensure Positive ROI</p>
+          </div>
+          <div class="cpB__hint" aria-hidden="true">→</div>
+        </button>
+      </div>
+
+      <!-- RIGHT DETAIL PANEL -->
+      <aside class="cpB__panel" role="tabpanel" aria-live="polite">
+        <div class="cpB__fade" id="cpB-fade">
+          <div class="cpB__panelTop">
+            <div class="cpB__panelTitleWrap">
+              <p class="cpB__panelKicker">Core Principle</p>
+              <h4 class="cpB__panelTitle" id="cpB-title">Client-First Mindset</h4>
+            </div>
+            <div class="cpB__badge"><span class="cpB__badgeDot" aria-hidden="true"></span><span id="cpB-badge">01</span></div>
+          </div>
+
+          <p class="cpB__desc" id="cpB-desc">
+            We put your priorities at the center of everything we do, aligning strategies with your vision.
+          </p>
+
+          <p class="cpB__impact" id="cpB-impact">
+            Measurable Impact: 95%+ client satisfaction scores, repeat engagements with over 80% of our clients, and measurable business KPI improvements within the first 3–6 months.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    const data = {
+      p1:{
+        num:"01",
+        title:"Client-First Mindset",
+        desc:"We put your priorities at the center of everything we do, aligning strategies with your vision.",
+        impact:"Measurable Impact: 95%+ client satisfaction scores, repeat engagements with over 80% of our clients, and measurable business KPI improvements within the first 3–6 months."
+      },
+      p2:{
+        num:"02",
+        title:"Employee Engagement & Ownership",
+        desc:"We empower our people to take responsibility, innovate, and drive impact as if they own the outcome.",
+        impact:"Measurable Impact: 90%+ project ownership scores in internal reviews, faster decision cycles, and proactive issue resolution before escalation in 95% of cases."
+      },
+      p3:{
+        num:"03",
+        title:"Ownership for Excellence",
+        desc:"We hold ourselves accountable for delivering at the highest standards — every time, without compromise.",
+        impact:"Measurable Impact: Zero critical defects in deliverables, >98% on-time project delivery, and client-rated quality score of 9/10 or higher."
+      },
+      p4:{
+        num:"04",
+        title:"Deliver Sustainable Results",
+        desc:"We design strategies and solutions that deliver measurable, long-term value beyond the initial engagement.",
+        impact:"Measurable Impact: Minimum 12-month sustainability check on implemented solutions, with over 85% of outcomes still delivering value a year later."
+      },
+      p5:{
+        num:"05",
+        title:"Ensure Positive ROI",
+        desc:"We commit to delivering financial and operational returns that far exceed investment.",
+        impact:"Measurable Impact: Positive ROI within 16 weeks in all engagements; target 4:1 ROI following full-scale rollout."
+      }
+    };
+
+    const tabs = Array.from(document.querySelectorAll('#core-principles .cpB__item'));
+    const fade = document.getElementById('cpB-fade');
+    const title = document.getElementById('cpB-title');
+    const badge = document.getElementById('cpB-badge');
+    const desc = document.getElementById('cpB-desc');
+    const impact = document.getElementById('cpB-impact');
+
+    function setActive(btn){
+      const key = btn.getAttribute('data-key');
+      const d = data[key];
+      if(!d) return;
+
+      tabs.forEach(t => t.setAttribute('aria-selected', t === btn ? 'true' : 'false'));
+
+      // subtle crossfade
+      fade.classList.add('is-switching');
+      setTimeout(()=>{
+        badge.textContent = d.num;
+        title.textContent = d.title;
+        desc.textContent = d.desc;
+        impact.textContent = d.impact;
+        fade.classList.remove('is-switching');
+      }, 160);
+    }
+
+    tabs.forEach(btn=>{
+      btn.addEventListener('click', ()=> setActive(btn));
+      btn.addEventListener('keydown', (e)=>{
+        const i = tabs.indexOf(btn);
+        if(e.key === 'ArrowDown' || e.key === 'ArrowRight'){
+          e.preventDefault();
+          const next = tabs[i+1] || tabs[0];
+          next.focus(); setActive(next);
+        }
+        if(e.key === 'ArrowUp' || e.key === 'ArrowLeft'){
+          e.preventDefault();
+          const prev = tabs[i-1] || tabs[tabs.length-1];
+          prev.focus(); setActive(prev);
+        }
+      });
+    });
+  })();
+</script>

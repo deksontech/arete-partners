@@ -1,0 +1,1615 @@
+<!-- HERO – Image Only (No Overlay / No Gradient) -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --hero-pink:#B31D7C;
+    --hero-text:#FFFFFF;
+  }
+  html,body{
+    margin:0;
+    padding:0;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  }
+  .hero{
+    position:relative;
+    color:var(--hero-text);
+    padding:140px 20px 130px;
+    min-height:520px;
+    overflow:hidden;
+    /* ✅ ONLY IMAGE BACKGROUND */
+    background: url('https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2026/03/1.jpg-2-scaled.jpeg') center center / cover no-repeat !important;
+  }
+  /* ❌ removed gradient + glow layers */
+  .hero::before,
+  .hero::after,
+  .hero__glow{
+    display:none !important;
+  }
+  .hero__inner{
+    position:relative;
+    z-index:1;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .hero__content{ max-width:760px; }
+  .hero__eyebrow{
+    font-size:13px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    opacity:.9;
+    margin-bottom:10px;
+  }
+  .hero__title{
+    font-size:clamp(36px,5vw,56px);
+    line-height:1.08;
+    font-weight:700;
+    margin:0 0 14px;
+  }
+  .hero__subtitle{
+    font-size:clamp(16px,2vw,20px);
+    max-width:680px;
+    color:#ffffff;
+  }
+  .hero__cta-row{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .btn-hero{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height:48px;
+    padding:0 26px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    transition:.22s ease;
+  }
+  /* Contact button */
+  .hero .btn-hero--primary{
+    background:#B31D7C !important;
+    color:#fff !important;
+    border:1px solid #B31D7C !important;
+  }
+  .hero .btn-hero--primary:hover{
+    background:#8E145F !important;
+    border-color:#8E145F !important;
+  }
+  /* Secondary button */
+  .btn-hero--ghost{
+    background:transparent;
+    color:#fff;
+    border:1px solid #fff;
+  }
+  .btn-hero--ghost:hover{
+    background:#fff;
+    color:#000;
+  }
+  @media (max-width:768px){
+    .hero{
+      padding:120px 18px 110px;
+    }
+    .hero__title{
+      font-size:clamp(30px,7vw,40px);
+    }
+  }
+  .hero-strip{
+    background:#020C4F;
+    color:#fff;
+    padding:34px 20px;
+  }
+  .hero-strip__inner{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .hero-strip__text{
+    max-width:720px;
+    font-size:18px;
+    font-weight:500;
+  }
+  .hero-strip__btn{
+    border-radius:999px;
+    padding:10px 26px;
+    border:1px solid #fff;
+    background:transparent;
+    color:#fff;
+    text-decoration:none;
+  }
+  .hero-strip__btn:hover{
+    background:#fff;
+    color:#020C4F;
+  }
+</style>
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__content">
+      <div class="hero__eyebrow">The Arete Partners Way</div>
+      <h1 class="hero__title">Transforming strategy into results that last</h1>
+      <p class="hero__subtitle">
+        We partner with leadership teams to turn bold ambitions into executable roadmaps —
+        aligning strategy, operations and technology to deliver measurable business outcomes.
+      </p>
+      <div class="hero__cta-row">
+        <a href="https://mediumpurple-ant-531485.hostingersite.com/contact-us/" class="btn-hero btn-hero--primary">Contact Us</a>
+        <a href="#about" class="btn-hero btn-hero--ghost">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero-strip">
+  <div class="hero-strip__inner">
+    <div class="hero-strip__text">
+      Introducing a new way to design, scale and govern transformation programs across your enterprise.
+    </div>
+    <a href="#services" class="hero-strip__btn">Explore How We Work</a>
+  </div>
+</section>
+<!-- ===================== ARETE WAY + VIDEO SECTION ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<section class="arete-way-section">
+  <div class="arete-way-wrap">
+    <!-- LEFT CONTENT -->
+    <div class="arete-way-content">
+      <span class="arete-eyebrow">Who We Are</span>
+      <h2>The Arete Partners Way</h2>
+      <p>
+        Arete Partners is a tech-enabled global consulting firm delivering high-impact solutions across
+        Accounting &amp; Reporting (ARC), Governance, Risk &amp; Compliance (GRC), Sustainability &amp; Climate (SCC),
+        Technology Consulting, and Valuations.
+      </p>
+      <p>
+        We combine deep domain expertise with high-performing global talent to help organizations navigate
+        complexity, unlock value, and drive measurable outcomes. Our solutions are powered by proprietary
+        methodologies and technology assets, ensuring precision, scalability, and long-term impact.
+      </p>
+      <p>
+        At Arete Partners, our differentiated global delivery model and integrated tech stack enable us to
+        provide best-in-class solutions with exceptional efficiency—without compromising on quality or insight.
+      </p>
+      <div class="arete-btn-row">
+        <a href="https://mediumpurple-ant-531485.hostingersite.com/about/" class="arete-btn">
+          About Arete Partners
+          <span>➜</span>
+        </a>
+      </div>
+    </div>
+    <!-- RIGHT VIDEO -->
+    <div class="arete-video-card">
+      <div class="arete-video-frame">
+        <!-- Sample YouTube video -->
+        <iframe
+          src="https://www.youtube.com/embed/ysz5S6PUM-U?rel=0"
+          title="Arete Partners Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .arete-way-section,
+  .arete-way-section *{
+    box-sizing:border-box;
+  }
+  .arete-way-section{
+    --ap-primary:#B31D7C
+;
+    --ap-primary-dark:#35205f;
+    --ap-accent:#6F4DBF;
+    --ap-text:#2C2C2C;
+    --ap-muted:#666666;
+    --ap-bg:#F7F6FB;
+    --ap-card:#FFFFFF;
+    --ap-border:rgba(75,46,131,.12);
+    --ap-shadow:0 18px 50px rgba(40,25,80,.10);
+    padding:90px 20px;
+    background:
+      radial-gradient(circle at top left, rgba(111,77,191,.06), transparent 32%),
+      linear-gradient(180deg, #FCFBFF 0%, #F7F6FB 100%);
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  }
+  .arete-way-wrap{
+    max-width:1240px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap:48px;
+    align-items:center;
+  }
+  .arete-way-content{
+    max-width:640px;
+  }
+  .arete-eyebrow{
+    display:inline-block;
+    margin-bottom:14px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ap-accent);
+  }
+  .arete-way-content h2{
+    margin:0 0 22px;
+    font-size:clamp(34px,4vw,8px);
+    line-height:1.05;
+    font-weight:700;
+    color:var(--ap-primary);
+    letter-spacing:-0.02em;
+  }
+  .arete-way-content p{
+    margin:0 0 18px;
+    font-size:18px;
+    line-height:1.9;
+    color:var(--ap-text);
+    font-weight:400;
+  }
+.arete-way-content p{
+  text-align: justify;
+}
+@media (max-width: 767px){
+  .arete-way-content p{
+    text-align: left;
+  }
+}
+  .arete-btn-row{
+    margin-top:30px;
+  }
+  .arete-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    background:linear-gradient(135deg, var(--ap-primary) 0%, var(--ap-accent) 100%);
+    color:#fff;
+    padding:15px 24px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:600;
+    box-shadow:0 14px 30px rgba(75,46,131,.20);
+    transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+  }
+  .arete-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 18px 34px rgba(75,46,131,.28);
+    opacity:.98;
+  }
+  .arete-btn span{
+    font-size:16px;
+    line-height:1;
+  }
+  .arete-video-card{
+    position:relative;
+  }
+  .arete-video-frame{
+    position:relative;
+    width:100%;
+    border-radius:24px;
+    overflow:hidden;
+    background:var(--ap-card);
+    border:1px solid var(--ap-border);
+    box-shadow:var(--ap-shadow);
+    aspect-ratio:16 / 9;
+  }
+  .arete-video-frame iframe{
+    width:100%;
+    height:100%;
+    display:block;
+  }
+  /* subtle decorative glow */
+  .arete-video-card::before{
+    content:"";
+    position:absolute;
+    inset:auto -20px -20px auto;
+    width:180px;
+    height:180px;
+    background:radial-gradient(circle, rgba(111,77,191,.18) 0%, rgba(111,77,191,0) 70%);
+    z-index:0;
+    pointer-events:none;
+  }
+  @media (max-width: 1024px){
+    .arete-way-wrap{
+      grid-template-columns:1fr;
+      gap:34px;
+    }
+    .arete-way-content{
+      max-width:100%;
+    }
+  }
+  @media (max-width: 767px){
+    .arete-way-section{
+      padding:70px 18px;
+    }
+    .arete-way-content h2{
+      font-size:clamp(30px,8vw,42px);
+    }
+    .arete-way-content p{
+      font-size:16px;
+      line-height:1.8;
+    }
+    .arete-btn{
+      width:100%;
+      justify-content:center;
+    }
+    .arete-video-frame{
+      border-radius:18px;
+    }
+  }
+</style>
+<!-- ===================== CORE OFFERINGS — OPTION (EXECUTIVE RAIL + DETAIL CARD) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  :root{
+    --indigo:#313B86;     /* primary */
+    --violet:#625AD8;     /* secondary */
+    --accent:#1F9CE4;     /* CTA highlight */
+    --pink:#FF78BF;       /* small highlight */
+    --ink:#0B0F1A;
+    --muted:#55607A;
+    --line:rgba(49,59,134,.18);
+    --soft:#F5F6FB;
+    --card:#FFFFFF;
+  }
+  .co2, .co2 *{box-sizing:border-box;}
+  .co2{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    padding:90px 20px;
+    /* ✅ Suggested premium background (executive, subtle) */
+    background:
+      radial-gradient(circle at 20% 0%, rgba(98,90,216,.08), transparent 55%),
+      radial-gradient(circle at 100% 30%, rgba(31,156,228,.08), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(255,120,191,.08), transparent 55%),
+      rgba(49,59,134,.03);
+  }
+  .co2__wrap{
+    max-width:1200px;
+    margin:0 auto;
+  }
+  /* header */
+  .co2__top{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:18px;
+    margin-bottom:26px;
+  }
+  .co2__kicker{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:700;
+    margin:0 0 10px;
+  }
+  .co2__title{
+    margin:0;
+    font-size:clamp(28px,3.2vw,40px);
+    line-height:1.15;
+    font-weight:800;
+    color:var(--ink);
+  }
+  .co2__sub{
+    margin:10px 0 0;
+    max-width:780px;
+    font-size:15.5px;
+    line-height:1.7;
+    color:var(--muted);
+  }
+  .co2__viewall{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    font-weight:700;
+    color:var(--accent);
+    padding:10px 14px;
+    border-radius:999px;
+    border:1px solid rgba(31,156,228,.25);
+    background:rgba(31,156,228,.06);
+    transition:.2s ease;
+    white-space:nowrap;
+  }
+  .co2__viewall:hover{transform:translateY(-1px); background:rgba(31,156,228,.1);}
+  /* ✅ GRID: force equal column height */
+  .co2__grid{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap:22px;
+    align-items:stretch; /* ✅ IMPORTANT: both columns same height */
+  }
+  /* left rail */
+  .co2__rail{
+    height:100%; /* ✅ ensure it fills the grid row */
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:linear-gradient(180deg,#fff, #fbfbff);
+    overflow:hidden;
+  }
+  .co2__railHead{
+    padding:16px 16px 14px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .co2__railHead b{
+    color:var(--ink);
+    font-size:13px;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+  }
+  .co2__pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    padding:7px 10px;
+    border-radius:999px;
+    border:1px solid rgba(98,90,216,.22);
+    background:rgba(98,90,216,.06);
+    color:var(--indigo);
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .co2__pill span{
+    width:8px;height:8px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--pink));
+    box-shadow:0 0 0 5px rgba(255,120,191,.12);
+  }
+  .co2__item{
+    width:100%;
+    text-align:left;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    padding:16px 16px;
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    transition:.2s ease;
+  }
+  .co2__item:last-child{border-bottom:0;}
+  .co2__item:hover{background:rgba(49,59,134,.04);}
+  .co2__icon{
+    width:40px;height:40px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:rgba(49,59,134,.06);
+    border:1px solid rgba(49,59,134,.16);
+    color:var(--indigo);
+    flex:0 0 auto;
+  }
+  .co2__meta{
+    flex:1;
+    min-width:0;
+  }
+  .co2__name{
+    margin:0;
+    font-weight:800;
+    color:var(--ink);
+    font-size:14.5px;
+    line-height:1.25;
+  }
+  .co2__hint{
+    margin:6px 0 0;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.5;
+  }
+  .co2__item.is-active{
+    background:linear-gradient(90deg, rgba(49,59,134,.10), rgba(98,90,216,.06));
+    position:relative;
+  }
+  .co2__item.is-active::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:4px;
+    background:linear-gradient(180deg,var(--accent),var(--pink));
+  }
+  .co2__item.is-active .co2__icon{
+    background:linear-gradient(135deg, rgba(31,156,228,.16), rgba(255,120,191,.10));
+    border-color:rgba(31,156,228,.28);
+    color:var(--indigo);
+  }
+  /* ✅ right detail: force full height to match rail */
+  .co2__detail{
+    height:100%;                 /* ✅ KEY */
+    display:flex;                /* ✅ KEY */
+    flex-direction:column;       /* ✅ KEY */
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--card);
+    box-shadow:0 18px 40px rgba(0,0,0,.06);
+    overflow:hidden;
+  }
+  /* each panel fills the right card height */
+  .co2-panel{
+    display:none;
+    height:100%;                 /* ✅ KEY */
+  }
+  .co2-panel.is-active{
+    display:flex;                /* ✅ KEY */
+    flex-direction:column;       /* ✅ KEY */
+    height:100%;
+    animation:co2fade .25s ease;
+  }
+  .co2__detailTop{
+    padding:22px 22px 16px;
+    border-bottom:1px solid rgba(49,59,134,.14);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(255,120,191,.10), transparent 55%),
+      #fff;
+  }
+  .co2__detailTitle{
+    margin:0;
+    font-size:20px;
+    font-weight:900;
+    color:var(--ink);
+    line-height:1.2;
+  }
+  .co2__detailIntro{
+    margin:10px 0 0;
+    color:var(--muted);
+    font-size:14.5px;
+    line-height:1.7;
+    max-width:820px;
+  }
+  .co2__detailBody{
+    padding:18px 22px 22px;
+    display:flex;                /* ✅ KEY */
+    flex-direction:column;       /* ✅ KEY */
+    flex:1;                      /* ✅ KEY */
+  }
+  .co2__bullets{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 18px;
+    padding:0;
+    margin:0 0 18px;
+    list-style:none;
+  }
+  .co2__bullets li{
+    position:relative;
+    padding-left:18px;
+    color:#26304A;
+    font-size:14px;
+    line-height:1.55;
+  }
+  .co2__bullets li::before{
+    content:"";
+    position:absolute;
+    left:0; top:.55em;
+    width:8px; height:8px;
+    border-radius:999px;
+    background:var(--accent);
+    box-shadow:0 0 0 5px rgba(31,156,228,.12);
+  }
+  /* mini proof row */
+  .co2__proof{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    padding-top:14px;
+    border-top:1px solid rgba(49,59,134,.14);
+    margin-top:auto;             /* ✅ pushes CTA to bottom area nicely */
+  }
+  .co2__chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.18);
+    background:rgba(49,59,134,.04);
+    color:var(--indigo);
+    font-weight:800;
+    font-size:12px;
+    letter-spacing:.02em;
+  }
+  .co2__chip i{color:var(--violet);}
+  /* CTA */
+  .co2__cta{
+    margin-top:18px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:flex-end;
+  }
+  .co2__btn{
+    height:46px;
+    padding:0 20px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font-weight:800;
+    font-size:14px;
+    text-decoration:none;
+    transition:.2s ease;
+    white-space:nowrap;
+  }
+  .co2__btn--primary{
+    background:var(--muted);
+    color:#fff;
+    border:1px solid var(--muted);
+    box-shadow:0 12px 26px rgba(31,156,228,.24);
+  }
+  .co2__btn--primary:hover{transform:translateY(-1px); background:#1570b4; border-color:#1570b4;}
+  /* ==== Override Core Offerings CTA Colors ==== */
+.co2__btn--primary{
+    background:#B31D7C !important;
+    color:#ffffff !important;
+    border:1px solid #B31D7C !important;
+    box-shadow:none !important;
+}
+.co2__btn--primary:hover{
+    background:#ffffff !important;
+    color:#B31D7C !important;
+    border:1px solid #B31D7C !important;
+    transform:translateY(-1px);
+}
+  .co2__btn--ghost{
+    background:#fff;
+    color:var(--indigo);
+    border:1px solid rgba(49,59,134,.20);
+  }
+  .co2__btn--ghost:hover{transform:translateY(-1px); background:rgba(49,59,134,.04);}
+  /* panel switching */
+  @keyframes co2fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+  /* responsive */
+  @media (max-width:980px){
+    .co2__top{flex-direction:column; align-items:flex-start;}
+    .co2__grid{grid-template-columns:1fr; gap:16px;}
+    .co2__bullets{grid-template-columns:1fr;}
+    .co2__cta{justify-content:flex-start;}
+  }
+</style>
+<section class="co2" id="offerings">
+  <div class="co2__wrap">
+    <div class="co2__top">
+      <div>
+        <p class="co2__kicker">What We Do</p>
+        <h2 class="co2__title">Our Core Offerings</h2>
+        <p class="co2__sub">
+          Select a capability to view how we help clients drive revenue growth, operational excellence, and tech-enabled transformation.
+        </p>
+      </div>
+      <a href="#services" class="co2__viewall">View all services <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="co2__grid">
+      <!-- LEFT RAIL -->
+      <div class="co2__rail" role="tablist" aria-label="Core offerings">
+        <div class="co2__railHead">
+          <b>Capabilities</b>
+          <span class="co2__pill"><span></span> Boardroom Tech</span>
+        </div>
+        <button class="co2__item is-active" type="button"
+                data-target="co2-growth"
+                data-cta-text="Explore Growth &amp; Strategy"
+                data-cta-link="/services/growth-strategy"
+                role="tab" aria-selected="true">
+          <span class="co2__icon"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="co2__meta">
+            <p class="co2__name">Growth &amp; Strategy</p>
+            <p class="co2__hint">Revenue growth, market expansion, competitive advantage.</p>
+          </span>
+        </button>
+        <button class="co2__item" type="button"
+                data-target="co2-shared"
+                data-cta-text="Explore Shared Services &amp; GCC Excellence"
+                data-cta-link="/services/shared-services-gcc"
+                role="tab" aria-selected="false">
+          <span class="co2__icon"><i class="fa-solid fa-building"></i></span>
+          <span class="co2__meta">
+            <p class="co2__name">Shared Services &amp; GCC</p>
+            <p class="co2__hint">Design &amp; scale high-performing global hubs.</p>
+          </span>
+        </button>
+        <button class="co2__item" type="button"
+                data-target="co2-tech"
+                data-cta-text="Explore Tech-Enabled Transformation"
+                data-cta-link="/services/tech-enabled-transformation"
+                role="tab" aria-selected="false">
+          <span class="co2__icon"><i class="fa-solid fa-microchip"></i></span>
+          <span class="co2__meta">
+            <p class="co2__name">Tech-Enabled Transformation</p>
+            <p class="co2__hint">Digitisation, automation, analytics, operating model.</p>
+          </span>
+        </button>
+        <button class="co2__item" type="button"
+                data-target="co2-esg"
+                data-cta-text="Explore ESG &amp; Value Creation"
+                data-cta-link="/services/esg-value-creation"
+                role="tab" aria-selected="false">
+          <span class="co2__icon"><i class="fa-solid fa-leaf"></i></span>
+          <span class="co2__meta">
+            <p class="co2__name">ESG &amp; Value Creation</p>
+            <p class="co2__hint">Sustainability embedded into strategy &amp; delivery.</p>
+          </span>
+        </button>
+        <button class="co2__item" type="button"
+                data-target="co2-opex"
+                data-cta-text="Explore Business Process &amp; Industry 4.0"
+                data-cta-link="/services/business-process-operational-excellence"
+                role="tab" aria-selected="false">
+          <span class="co2__icon"><i class="fa-solid fa-gears"></i></span>
+          <span class="co2__meta">
+            <p class="co2__name">Business Process &amp; Industry 4.0</p>
+            <p class="co2__hint">Lean processes, productivity, innovation enablement.</p>
+          </span>
+        </button>
+      </div>
+      <!-- RIGHT DETAIL -->
+      <div class="co2__detail" aria-live="polite">
+        <!-- Growth -->
+        <div class="co2-panel is-active" id="co2-growth" role="tabpanel">
+          <div class="co2__detailTop">
+            <h3 class="co2__detailTitle">Growth &amp; Strategy</h3>
+            <p class="co2__detailIntro">
+              We help you define where to play and how to win — then translate strategy into executable roadmaps that deliver sustainable, profitable growth.
+            </p>
+          </div>
+          <div class="co2__detailBody">
+            <ul class="co2__bullets">
+              <li>Sales Growth Strategy &amp; Execution</li>
+              <li>Market Expansion &amp; Entry Planning</li>
+              <li>Strategic Partnerships &amp; Alliances</li>
+              <li>M&amp;A Integration Support</li>
+            </ul>
+            <div class="co2__proof">
+              <span class="co2__chip"><i class="fa-solid fa-bullseye"></i> Clear priorities</span>
+              <span class="co2__chip"><i class="fa-solid fa-diagram-project"></i> Roadmaps</span>
+              <span class="co2__chip"><i class="fa-solid fa-chart-simple"></i> KPI movement</span>
+            </div>
+            <div class="co2__cta">
+              <a class="co2__btn co2__btn--ghost" href="#contact">Talk to us</a>
+              <a class="co2__btn co2__btn--primary" id="co2-cta-btn" href="/services/growth-strategy">
+                <span id="co2-cta-text">Explore Growth &amp; Strategy</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Shared -->
+        <div class="co2-panel" id="co2-shared" role="tabpanel">
+          <div class="co2__detailTop">
+            <h3 class="co2__detailTitle">Shared Services &amp; GCC Excellence</h3>
+            <p class="co2__detailIntro">
+              Designing and scaling shared services and global capability centres that are efficient, resilient, and aligned to business outcomes.
+            </p>
+          </div>
+          <div class="co2__detailBody">
+            <ul class="co2__bullets">
+              <li>Global Capability Centre (GCC) Set-up &amp; Optimisation</li>
+              <li>Shared Services Design &amp; Implementation</li>
+              <li>Governance &amp; Performance Frameworks</li>
+              <li>Talent and Skills Transformation</li>
+            </ul>
+            <div class="co2__proof">
+              <span class="co2__chip"><i class="fa-solid fa-shield"></i> Governance</span>
+              <span class="co2__chip"><i class="fa-solid fa-people-group"></i> Talent model</span>
+              <span class="co2__chip"><i class="fa-solid fa-gauge-high"></i> Productivity</span>
+            </div>
+            <div class="co2__cta">
+              <a class="co2__btn co2__btn--ghost" href="#contact">Talk to us</a>
+              <a class="co2__btn co2__btn--primary" href="/services/shared-services-gcc">
+                <span>Explore Shared Services &amp; GCC Excellence</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Tech -->
+        <div class="co2-panel" id="co2-tech" role="tabpanel">
+          <div class="co2__detailTop">
+            <h3 class="co2__detailTitle">Tech-Enabled Transformation</h3>
+            <p class="co2__detailIntro">
+              Bringing together process, data, and technology to digitise how work gets done and how value is delivered.
+            </p>
+          </div>
+          <div class="co2__detailBody">
+            <ul class="co2__bullets">
+              <li>Process Digitisation &amp; Automation</li>
+              <li>AI &amp; Analytics Integration</li>
+              <li>Industry 4.0 Adoption Roadmaps</li>
+              <li>Customer Experience Platforms</li>
+            </ul>
+            <div class="co2__proof">
+              <span class="co2__chip"><i class="fa-solid fa-robot"></i> Automation</span>
+              <span class="co2__chip"><i class="fa-solid fa-database"></i> Data &amp; analytics</span>
+              <span class="co2__chip"><i class="fa-solid fa-bolt"></i> Speed to value</span>
+            </div>
+            <div class="co2__cta">
+              <a class="co2__btn co2__btn--ghost" href="#contact">Talk to us</a>
+              <a class="co2__btn co2__btn--primary" href="/services/tech-enabled-transformation">
+                <span>Explore Tech-Enabled Transformation</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- ESG -->
+        <div class="co2-panel" id="co2-esg" role="tabpanel">
+          <div class="co2__detailTop">
+            <h3 class="co2__detailTitle">ESG &amp; Value Creation</h3>
+            <p class="co2__detailIntro">
+              Embedding sustainability and responsibility into strategy so ESG becomes a lever for growth, not just compliance.
+            </p>
+          </div>
+          <div class="co2__detailBody">
+            <ul class="co2__bullets">
+              <li>Sustainability &amp; ESG Roadmaps</li>
+              <li>ESG Reporting &amp; Compliance</li>
+              <li>Purpose-led Value Creation</li>
+              <li>Stakeholder Engagement Strategies</li>
+            </ul>
+            <div class="co2__proof">
+              <span class="co2__chip"><i class="fa-solid fa-leaf"></i> Sustainability</span>
+              <span class="co2__chip"><i class="fa-solid fa-file-lines"></i> Reporting</span>
+              <span class="co2__chip"><i class="fa-solid fa-handshake"></i> Stakeholders</span>
+            </div>
+            <div class="co2__cta">
+              <a class="co2__btn co2__btn--ghost" href="#contact">Talk to us</a>
+              <a class="co2__btn co2__btn--primary" href="/services/esg-value-creation">
+                <span>Explore ESG &amp; Value Creation</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Opex -->
+        <div class="co2-panel" id="co2-opex" role="tabpanel">
+          <div class="co2__detailTop">
+            <h3 class="co2__detailTitle">Business Process Advisory &amp; Industry 4.0</h3>
+            <p class="co2__detailIntro">
+              Re-architecting processes, operating models, and cost structures to create lean, scalable organisations.
+            </p>
+          </div>
+          <div class="co2__detailBody">
+            <ul class="co2__bullets">
+              <li>Lean Transformation</li>
+              <li>Process Re-engineering &amp; Standardisation</li>
+              <li>Target Operating Model (TOM) Design</li>
+              <li>Cost Optimisation &amp; Waste Reduction</li>
+            </ul>
+            <div class="co2__proof">
+              <span class="co2__chip"><i class="fa-solid fa-sitemap"></i> Operating model</span>
+              <span class="co2__chip"><i class="fa-solid fa-percent"></i> Cost efficiency</span>
+              <span class="co2__chip"><i class="fa-solid fa-industry"></i> Industry 4.0</span>
+            </div>
+            <div class="co2__cta">
+              <a class="co2__btn co2__btn--ghost" href="#contact">Talk to us</a>
+              <a class="co2__btn co2__btn--primary" href="/services/business-process-operational-excellence">
+                <span>Explore Business Process &amp; Industry 4.0</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const root = document.querySelector('#offerings.co2');
+    if(!root) return;
+    const items  = root.querySelectorAll('.co2__item');
+    const panels = root.querySelectorAll('.co2-panel');
+    function activate(btn){
+      const targetId = btn.getAttribute('data-target');
+      items.forEach(b=>{
+        const on = (b === btn);
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(p=>{
+        p.classList.toggle('is-active', p.id === targetId);
+      });
+      // Update the primary CTA inside active panel
+      const activePanel = root.querySelector('.co2-panel.is-active');
+      const cta = activePanel ? activePanel.querySelector('.co2__btn--primary') : null;
+      if(cta){
+        const newText = btn.getAttribute('data-cta-text') || 'Explore';
+        const newHref = btn.getAttribute('data-cta-link') || '#';
+        const span = cta.querySelector('span');
+        if(span) span.innerHTML = newText;
+        cta.setAttribute('href', newHref);
+      }
+    }
+    items.forEach(btn=>{
+      btn.addEventListener('click', ()=>activate(btn));
+    });
+  });
+</script>
+<!-- ===================== ABOUT US — SECTION (WHAT SETS US APART) — REDESIGNED ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* ONLY 4 agreed colours */
+    --c-navy:#020C4F;
+    --c-indigo:#313B86;
+    --c-violet:#B31D7C;  /* CTA default */
+    --c-accent:#1F9CE4;  /* CTA hover */
+    /* neutrals */
+    --white:#ffffff;
+    --ink:#0B0F1A;
+    --muted:#4B5168;
+    --line:rgba(49,59,134,0.16);
+  }
+  .ab-apart2{
+    padding:96px 20px;
+    background:var(--white);
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+  }
+  .ab-apart2__inner{
+    max-width:1200px;
+    margin:0 auto;
+  }
+  /* Header (editorial) */
+  .ab-apart2__top{
+    display:grid;
+    grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);
+    gap:34px;
+    align-items:end;
+    margin-bottom:34px;
+    padding-bottom:22px;
+    border-bottom:1px solid var(--line);
+  }
+  .ab-apart2__eyebrow{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--c-indigo);
+    font-weight:700;
+    margin:0 0 10px;
+  }
+  .ab-apart2__h1{
+    margin:0;
+    font-size:clamp(30px,3.8vw,46px);
+    line-height:1.08;
+    font-weight:700;
+    color:var(--c-navy);
+  }
+  .ab-apart2__h1 .em{
+    color:var(--c-indigo);
+  }
+  .ab-apart2__intro{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.75;
+    color:var(--muted);
+    max-width:680px;
+  }
+  /* Right side: big statement */
+  .ab-apart2__badge{
+    justify-self:end;
+    text-align:right;
+    padding-left:18px;
+    border-left:3px solid rgba(98,90,216,0.35);
+  }
+  .ab-apart2__badge-k{
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--c-indigo);
+    font-weight:700;
+    margin:0 0 8px;
+  }
+  .ab-apart2__badge-big{
+    margin:0;
+    font-size:22px;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--c-navy);
+  }
+  /* Pillars grid */
+  .ab-pillars{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+    margin-top:26px;
+  }
+  .ab-pillar{
+    position:relative;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:22px 22px 20px;
+    background:#fff;
+    transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    overflow:hidden;
+  }
+  .ab-pillar:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 44px rgba(0,0,0,0.07);
+    border-color:rgba(98,90,216,0.30);
+  }
+  /* subtle corner accent */
+  .ab-pillar::after{
+    content:"";
+    position:absolute;
+    top:-60px;
+    right:-60px;
+    width:140px;
+    height:140px;
+    border-radius:999px;
+    background:radial-gradient(circle at 30% 30%, rgba(98,90,216,0.18), transparent 60%);
+    pointer-events:none;
+  }
+  .ab-pillar__head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:10px;
+  }
+  .ab-pillar__num{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex:1 1 auto;
+  }
+  .ab-num{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    font-weight:800;
+    color:var(--c-indigo);
+    border:1px solid rgba(49,59,134,0.20);
+    background:rgba(2,12,79,0.04);
+    flex:0 0 auto;
+  }
+  .ab-title{
+    margin:0;
+    font-size:15px;
+    font-weight:800;
+    color:var(--c-navy);
+    line-height:1.25;
+  }
+  /* (+) becomes a premium micro-badge */
+  .ab-plus{
+    width:34px;
+    height:34px;
+    border-radius:999px;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(49,59,134,0.18);
+    color:var(--c-indigo);
+    background:#fff;
+    font-weight:800;
+    user-select:none;
+    flex:0 0 auto;
+  }
+  .ab-text{
+    margin:0;
+    font-size:14.8px;
+    line-height:1.7;
+    color:#2E334D;
+  }
+  /* CTA band — cleaner, less “boxy” */
+  .ab-apart2__cta{
+    margin-top:26px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .ab-cta__copy{
+    max-width:780px;
+  }
+  .ab-cta__title{
+    margin:0;
+    font-size:18px;
+    font-weight:800;
+    color:var(--c-navy);
+  }
+  .ab-cta__sub{
+    margin:4px 0 0;
+    font-size:14.5px;
+    color:#2E334D;
+    font-weight:500;
+  }
+  .ab-cta__btn{
+    height:46px;
+    padding:0 22px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+    border:1px solid var(--c-violet);
+    background:var(--c-violet); /* violet default */
+    color:var(--white);
+    transition:transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+    box-shadow:0 10px 26px rgba(0,0,0,0.12);
+    white-space:nowrap;
+  }
+  .ab-cta__btn:hover{
+    background:var(--c-accent); /* accent hover */
+    border-color:var(--c-accent);
+    transform:translateY(-1px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.16);
+  }
+  /* ensure Elementor theme doesn't override */
+  .ab-cta__btn,
+  .ab-cta__btn:link,
+  .ab-cta__btn:visited,
+  .ab-cta__btn:hover,
+  .ab-cta__btn:active{
+    color:#fff !important;
+  }
+  /* reveal (simple + Elementor-safe) */
+  .ab-reveal{opacity:0; transform:translateY(10px); transition:opacity .7s ease, transform .7s ease;}
+  .ab-reveal.is-in{opacity:1; transform:translateY(0);}
+  @media (max-width:980px){
+    .ab-apart2{padding:76px 18px;}
+    .ab-apart2__top{grid-template-columns:1fr; align-items:start;}
+    .ab-apart2__badge{justify-self:start; text-align:left; border-left:none; padding-left:0; border-top:3px solid rgba(98,90,216,0.35); padding-top:12px;}
+    .ab-pillars{grid-template-columns:1fr;}
+  }
+</style>
+<section class="ab-apart2" id="what-sets-us-apart">
+  <div class="ab-apart2__inner">
+    <div class="ab-apart2__top ab-reveal">
+      <div>
+        <p class="ab-apart2__eyebrow">What Sets Us Apart</p>
+        <h2 class="ab-apart2__h1">
+          Strategy <span class="em">meets</span> execution
+        </h2>
+        <p class="ab-apart2__intro">
+          We bridge the gap between boardroom vision and frontline results — combining deep expertise,
+          integrated delivery, and a tech-enabled approach without losing the human touch.
+        </p>
+      </div>
+      <div class="ab-apart2__badge">
+        <p class="ab-apart2__badge-k">Our Difference</p>
+        <p class="ab-apart2__badge-big">
+          From vision to results — delivered with discipline.
+        </p>
+      </div>
+    </div>
+    <div class="ab-pillars">
+      <article class="ab-pillar ab-reveal">
+        <div class="ab-pillar__head">
+          <div class="ab-pillar__num">
+            <div class="ab-num">01</div>
+            <p class="ab-title">Strategy + Execution</p>
+          </div>
+          <div class="ab-plus" aria-hidden="true">+</div>
+        </div>
+        <p class="ab-text">
+          We bridge the gap between boardroom vision and frontline results by combining a deep industry approach with our proprietary methodology (+)
+        </p>
+      </article>
+      <article class="ab-pillar ab-reveal">
+        <div class="ab-pillar__head">
+          <div class="ab-pillar__num">
+            <div class="ab-num">02</div>
+            <p class="ab-title">Integrated Approach</p>
+          </div>
+          <div class="ab-plus" aria-hidden="true">+</div>
+        </div>
+        <p class="ab-text">
+          Linking revenue growth, operational efficiency, and people impact (+)
+        </p>
+      </article>
+      <article class="ab-pillar ab-reveal">
+        <div class="ab-pillar__head">
+          <div class="ab-pillar__num">
+            <div class="ab-num">03</div>
+            <p class="ab-title">Tech-First, Human-Centric</p>
+          </div>
+          <div class="ab-plus" aria-hidden="true">+</div>
+        </div>
+        <p class="ab-text">
+          Leveraging digital tools without losing the human touch. (+)
+        </p>
+      </article>
+      <article class="ab-pillar ab-reveal">
+        <div class="ab-pillar__head">
+          <div class="ab-pillar__num">
+            <div class="ab-num">04</div>
+            <p class="ab-title">Proven Methodologies</p>
+          </div>
+          <div class="ab-plus" aria-hidden="true">+</div>
+        </div>
+        <p class="ab-text">
+          Lean, Industry 4.0, ESG, and Agile execution frameworks.
+        </p>
+      </article>
+    </div>
+    <div class="ab-apart2__cta ab-reveal">
+      <div class="ab-cta__copy">
+        <p class="ab-cta__title">Ready to navigate your next phase of growth?</p>
+        <p class="ab-cta__sub">Let's turn your ambition into measurable success.</p>
+      </div>
+      <a class="ab-cta__btn" href="#contact">Talk to Us</a>
+    </div>
+  </div>
+</section>
+<script>
+  (function(){
+    function revealNow(){
+      document.querySelectorAll('#what-sets-us-apart .ab-reveal').forEach((el,i)=>{
+        setTimeout(()=> el.classList.add('is-in'), i*110);
+      });
+    }
+    if (document.readyState === "loading"){
+      document.addEventListener("DOMContentLoaded", revealNow);
+    } else {
+      revealNow();
+    }
+  })();
+</script>
+<!-- ===================== ABOUT US — IMPACT STATS (CLEAN, PREMIUM) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"/>
+<style>
+  :root{
+    /* ONLY the 4 agreed brand colours */
+    --navy:#B31D7C;
+    --indigo:#313B86;
+    --violet:#B31D7C;
+    --accent:#1F9CE4;
+    --ink:#0B0F1A;
+    --muted:#4B5168;
+  }
+  .ab-impact{
+    padding:96px 20px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    /* ✅ PREMIUM EXECUTIVE BACKGROUND */
+    background:
+      radial-gradient(circle at 15% 0%, rgba(98,90,216,.08), transparent 55%),
+      radial-gradient(circle at 90% 25%, rgba(31,156,228,.08), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+      rgba(49,59,134,.03);
+  }
+  .ab-impact__inner{
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .ab-impact__header{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .ab-impact__eyebrow{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .ab-impact__title{
+    font-size:clamp(28px,3.6vw,40px); /* ✅ fixed */
+    line-height:1.15;
+    font-weight:700;
+    color:var(--navy);
+    margin:0;
+  }
+  /* STATS GRID */
+  .ab-impact__grid{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(0,1fr));
+    gap:56px;
+    align-items:start;
+  }
+  .ab-stat{
+    position:relative;
+    padding-left:24px;
+  }
+  /* subtle vertical rule */
+  .ab-stat::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:6px;
+    bottom:6px;
+    width:3px;
+    background:linear-gradient(
+      180deg,
+      var(--violet),
+      var(--accent)
+    );
+    border-radius:2px;
+    opacity:.85;
+  }
+  .ab-stat__value{
+    font-size:clamp(40px,4.8vw,56px);
+    line-height:1;
+    font-weight:700;
+    color:var(--navy);
+    margin:0 0 8px;
+    letter-spacing:-0.02em;
+  }
+  .ab-stat__label{
+    font-size:16px;
+    line-height:1.4;
+    color:var(--muted);
+    margin:0;
+  }
+  /* REVEAL (Elementor-safe) */
+  .ab-stat{
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .ab-impact.is-in .ab-stat{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .ab-impact.is-in .ab-stat:nth-child(1){transition-delay:.05s;}
+  .ab-impact.is-in .ab-stat:nth-child(2){transition-delay:.12s;}
+  .ab-impact.is-in .ab-stat:nth-child(3){transition-delay:.19s;}
+  .ab-impact.is-in .ab-stat:nth-child(4){transition-delay:.26s;}
+  @media (max-width:980px){
+    .ab-impact{
+      padding:72px 18px;
+    }
+    .ab-impact__grid{
+      grid-template-columns:repeat(2,1fr);
+      gap:36px;
+    }
+  }
+  @media (max-width:520px){
+    .ab-impact__grid{
+      grid-template-columns:1fr;
+      gap:28px;
+    }
+  }
+</style>
+<section class="ab-impact" id="impact-stats">
+  <div class="ab-impact__inner">
+    <header class="ab-impact__header">
+      <div class="ab-impact__eyebrow">Our Impact</div>
+      <h2 class="ab-impact__title">
+        Experience that compounds into measurable results
+      </h2>
+    </header>
+    <div class="ab-impact__grid">
+      <div class="ab-stat">
+        <p class="ab-stat__value">500+</p>
+        <p class="ab-stat__label">
+          Years of collective<br/>consulting experience
+        </p>
+      </div>
+      <div class="ab-stat">
+        <p class="ab-stat__value">20+</p>
+        <p class="ab-stat__label">
+          Years average<br/>partner experience
+        </p>
+      </div>
+      <div class="ab-stat">
+        <p class="ab-stat__value">4</p>
+        <p class="ab-stat__label">
+          Global locations
+        </p>
+      </div>
+      <div class="ab-stat">
+        <p class="ab-stat__value">200+</p>
+        <p class="ab-stat__label">
+          Clients served
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (function(){
+    const section = document.getElementById('impact-stats');
+    if(!section) return;
+    function reveal(){ section.classList.add('is-in'); }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", reveal);
+    } else {
+      reveal();
+    }
+  })();
+</script>
+<!-- ===================== ABOUT US — SECTION 1 (HERO – CLEAN) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --c-navy:   #020C4F;
+    --c-indigo: #313B86;
+    --c-violet: #625AD8;
+    --c-pink:   #FF4B8C;
+    --white:    #FFFFFF;
+    --heroText: rgba(255,255,255,0.96);
+    --heroTextSoft: rgba(240,244,255,0.88);
+  }
+  html,body{margin:0;padding:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+  /* HERO */
+  .about-hero{
+    position:relative;
+    min-height:78vh;
+    display:flex;
+    align-items:center;
+    color:var(--white);
+    background:
+      url('https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg')
+      center/cover no-repeat;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  /* light mesh overlay (NOT blocking image) */
+  .about-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    background:
+      radial-gradient(900px 520px at 18% 40%, rgba(255,120,191,0.18), transparent 60%),
+      radial-gradient(900px 520px at 75% 30%, rgba(98,90,216,0.18), transparent 58%),
+      linear-gradient(115deg,
+        rgba(2,12,79,0.55) 0%,
+        rgba(49,59,134,0.38) 45%,
+        rgba(98,90,216,0.26) 70%,
+        rgba(255,75,140,0.12) 100%
+      );
+  }
+  /* subtle premium wave texture */
+  .about-hero::after{
+    content:"";
+    position:absolute;
+    inset:-40px;
+    z-index:0;
+    pointer-events:none;
+    opacity:0.22;
+    background:
+      repeating-radial-gradient(
+        circle at 0% 25%,
+        rgba(255,255,255,0.18) 0px,
+        rgba(255,255,255,0.18) 1px,
+        transparent 1px,
+        transparent 36px
+      );
+    transform:rotate(-6deg);
+    mix-blend-mode:overlay;
+  }
+  .about-hero__inner{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:110px 20px 90px;
+  }
+  .about-hero__eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.28);
+    background:rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .about-hero__dot{
+    width:8px;height:8px;border-radius:99px;
+    background:linear-gradient(135deg,var(--c-pink),var(--c-violet));
+    box-shadow:0 0 0 6px rgba(255,75,140,0.14);
+  }
+  .about-hero__title{
+    max-width:820px;
+    margin:0 0 18px;
+    font-weight:700;
+    line-height:1.06;
+    font-size:clamp(36px,4.8vw,60px);
+    color:var(--heroText);
+    text-shadow:0 18px 38px rgba(0,0,0,0.35);
+  }
+  .about-hero__subtitle{
+    max-width:760px;
+    font-size:clamp(16px,1.9vw,20px);
+    line-height:1.65;
+    color:var(--heroTextSoft);
+  }
+  .about-hero__ctaRow{
+    margin-top:32px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .btn{
+    height:50px;
+    padding:0 24px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    transition:.22s ease;
+    white-space:nowrap;
+  }
+  .btn--primary{
+    background:var(--c-pink);
+    color:#fff;
+    box-shadow:0 18px 36px rgba(0,0,0,0.35);
+  }
+  .btn--primary:hover{
+    transform:translateY(-1px);
+    box-shadow:0 22px 44px rgba(0,0,0,0.45);
+    background:#E53A7A;
+  }
+  .btn--ghost{
+    background:rgba(255,255,255,0.08);
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(10px);
+  }
+  .btn--ghost:hover{
+    background:rgba(255,255,255,0.12);
+    transform:translateY(-1px);
+  }
+  .reveal{
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.is-in{
+    opacity:1;
+    transform:translateY(0);
+  }
+  @media (max-width:900px){
+    .about-hero__inner{
+      padding:95px 18px 80px;
+    }
+  }
+</style>
+<section class="about-hero" id="about-hero">
+  <div class="about-hero__inner reveal">
+    <div class="about-hero__eyebrow">
+      <span class="about-hero__dot"></span>
+      About Us
+    </div>
+    <h1 class="about-hero__title">
+      A new-age consulting firm redefining growth, efficiency, and impact
+    </h1>
+    <p class="about-hero__subtitle">
+      We partner with leadership teams to translate strategy into execution — aligning people,
+      processes, and technology to deliver measurable, lasting business outcomes.
+    </p>
+    <div class="about-hero__ctaRow">
+      <a href="#contact" class="btn btn--primary">Talk to Us →</a>
+      <a href="#who-we-are" class="btn btn--ghost">Who We Are ↓</a>
+    </div>
+  </div>
+</section>
+<script>
+  // simple entrance animation
+  window.addEventListener('load', ()=>{
+    document.querySelector('.reveal')?.classList.add('is-in');
+  });
+</script>

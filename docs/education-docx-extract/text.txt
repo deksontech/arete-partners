@@ -1,0 +1,2339 @@
+<!-- ===================== EDUCATION — SECTION SUB NAV (STICKY TABS) | CLONE OF INSURANCE ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --tabText:#6B7280;
+    --tabActive: var(--indigo);
+    --line:#E6E8EF;
+    --bg:#ffffff;
+
+    /* Height of this subnav (kept as a variable for scroll offset) */
+    --eduSecTabsH: 58px;
+  }
+
+  .eduTabs, .eduTabs *{box-sizing:border-box;}
+
+  /* Sticky subnav only */
+  .eduTabs{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    isolation:isolate;
+  }
+
+  .eduTabs__inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+    height:var(--eduSecTabsH);
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .eduTabs__label{
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#111;
+    font-size:12px;
+    padding-right:14px;
+    border-right:1px solid var(--line);
+    margin-right:2px;
+    white-space:nowrap;
+  }
+
+  .eduTabs__list{
+    display:flex;
+    align-items:center;
+    gap:0;
+    flex-wrap:nowrap;
+    overflow:auto;
+    scrollbar-width:none;
+  }
+  .eduTabs__list::-webkit-scrollbar{display:none;}
+
+  .eduTabs__link{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    height:var(--eduSecTabsH);
+    padding:0 18px;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:12px;
+    font-weight:800;
+    color:var(--tabText);
+    white-space:nowrap;
+  }
+
+  /* vertical separators */
+  .eduTabs__link + .eduTabs__link{
+    border-left:1px solid var(--line);
+  }
+
+  /* active underline */
+  .eduTabs__link.is-active{
+    color:var(--tabActive);
+  }
+  .eduTabs__link.is-active::after{
+    content:"";
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:0;
+    height:3px;
+    background:var(--tabActive);
+    border-radius:999px;
+  }
+
+  .eduTabs__link:hover{ color:#111; }
+
+  /* Optional: add this class to each target section wrapper if you want:
+     <section id="..." class="eduAnchorFix"> ... */
+  .eduAnchorFix{ scroll-margin-top: calc(var(--eduSecTabsH) + 14px); }
+
+  @media(max-width:980px){
+    .eduTabs__inner{padding:0 14px;}
+    .eduTabs__label{display:none;}
+    .eduTabs__link{padding:0 14px;}
+  }
+</style>
+
+<nav class="eduTabs" aria-label="Education page navigation">
+  <div class="eduTabs__inner">
+    <div class="eduTabs__label">EDUCATION</div>
+
+    <div class="eduTabs__list">
+      <!-- Update IDs only if your section IDs differ -->
+      <a class="eduTabs__link is-active" href="#edu-hero">Overview</a>
+      <a class="eduTabs__link" href="#ad-challenges">Key Challenges</a>
+      <a class="eduTabs__link" href="#ad-how-we-help">How We Help</a>
+      <a class="eduTabs__link" href="#edu-collaboration">Collaboration &amp; Why Us</a>
+      <a class="eduTabs__link" href="#edu-cta">Next Steps</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const nav = document.querySelector('.eduTabs');
+  if(!nav) return;
+
+  const links = Array.from(nav.querySelectorAll('.eduTabs__link'));
+  const getOffset = () => {
+    const h = nav.getBoundingClientRect().height || 58;
+    return h + 12; // small breathing space so title is visible
+  };
+
+  // Smooth scroll with correct offset so sections are NOT hidden under sticky tabs
+  links.forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const href = a.getAttribute('href');
+      if(!href || !href.startsWith('#')) return;
+
+      const el = document.querySelector(href);
+      if(!el) return;
+
+      e.preventDefault();
+      const y = el.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      window.scrollTo({ top:y, behavior:'smooth' });
+      history.replaceState(null, '', href);
+    });
+  });
+
+  // Active state on scroll
+  const targets = links
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  const setActive = (id) => {
+    links.forEach(a=>{
+      a.classList.toggle('is-active', a.getAttribute('href') === '#'+id);
+    });
+  };
+
+  const isElementor =
+    document.body.classList.contains('elementor-editor-active') ||
+    document.body.classList.contains('elementor-editor-preview') ||
+    !!document.querySelector('#elementor-editor-wrapper');
+
+  if(isElementor) return;
+  if(!('IntersectionObserver' in window)) return;
+
+  const io = new IntersectionObserver((entries)=>{
+    const visible = entries
+      .filter(e=>e.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+
+    if(visible && visible.target && visible.target.id){
+      setActive(visible.target.id);
+    }
+  }, { root:null, threshold:[0.2,0.35,0.5,0.65] });
+
+  targets.forEach(t=>{
+    if(t.id) io.observe(t);
+  });
+})();
+</script>
+
+<!-- ===================== EDUCATION — HERO (WHITE ONLY) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    /* ✅ only agreed brand colours */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --white:#ffffff;
+
+    --max:1200px;
+  }
+
+  .eduHero, .eduHero *{box-sizing:border-box;}
+  .eduHero{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:#fff;
+    padding:88px 20px 34px;
+  }
+
+  .eduHero__inner{
+    max-width:var(--max);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+    gap:44px;
+    align-items:center;
+  }
+
+  .eduHero__eyebrow{
+    margin:0 0 12px;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .eduHero__title{
+    margin:0 0 14px;
+    font-size:clamp(34px,4.2vw,56px);
+    line-height:1.06;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .eduHero__sub{
+    margin:0 0 14px;
+    font-size:clamp(16px,2vw,20px);
+    line-height:1.55;
+    font-weight:700;
+    color:var(--indigo);
+    max-width:820px;
+  }
+
+  .eduHero__p{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.78;
+    color:var(--muted);
+    max-width:920px;
+  }
+  .eduHero__p + .eduHero__p{ margin-top:14px; }
+
+  /* Right visual (image placeholder) */
+  .eduHero__media{
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 18px 44px rgba(0,0,0,.08);
+    background:
+      radial-gradient(circle at 20% 15%, rgba(98,90,216,.22), transparent 55%),
+      radial-gradient(circle at 85% 25%, rgba(31,156,228,.22), transparent 55%),
+      radial-gradient(circle at 50% 95%, rgba(49,59,134,.18), transparent 60%),
+      linear-gradient(180deg, rgba(2,12,79,.06), rgba(49,59,134,.04));
+    min-height:320px;
+    position:relative;
+  }
+
+  .eduHero__img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover; /* ✅ fills container */
+  }
+
+  .eduHero__badge{
+    position:absolute;
+    left:16px; top:16px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.18);
+    background:rgba(255,255,255,.76);
+    backdrop-filter:blur(8px);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:900;
+  }
+  .eduHero__dot{
+    width:10px;height:10px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(31,156,228,.12);
+  }
+
+  @media (max-width:980px){
+    .eduHero{padding:74px 16px 22px;}
+    .eduHero__inner{grid-template-columns:1fr; gap:22px;}
+    .eduHero__media{min-height:240px;}
+  }
+</style>
+
+<section class="eduHero" id="edu-hero">
+  <div class="eduHero__inner">
+    <!-- LEFT CONTENT -->
+    <div>
+      <p class="eduHero__eyebrow">Education Sector – Industry Solutions &amp; Transformation Services</p>
+
+      <h1 class="eduHero__title">Education Sector – Shaping the Next Generation of Value Creators</h1>
+
+      <p class="eduHero__sub">Partnering to build a future-ready workforce for India.</p>
+
+      <p class="eduHero__p">
+        India stands at a once-in-a-generation inflection point. With Industry 4.0, AI, automation, entrepreneurship,
+        and global competitiveness accelerating, our youth must be equipped with the skills, mindset, and methodologies
+        that shape tomorrow’s world.
+      </p>
+      <p class="eduHero__p">
+        At [Your Firm Name], we believe that strengthening the education ecosystem is not just a service—it’s a national mission.
+        We partner with higher education institutions, universities, skill development bodies, and vocational institutes to
+        prepare the soil, enabling young minds to become the Lean leaders, digital thinkers, problem solvers, and value creators India needs.
+      </p>
+      <p class="eduHero__p">
+        This is not a transactional engagement. This is collaboration for transformation.
+      </p>
+    </div>
+
+    <!-- RIGHT VISUAL -->
+    <div class="eduHero__media">
+      <div class="eduHero__badge"><span class="eduHero__dot"></span> Education &amp; Skills Transformation</div>
+      <img
+        class="eduHero__img"
+        src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg"
+        alt="Education and skills ecosystem transformation (placeholder)"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EDUCATION — KEY CHALLENGES (DESKTOP: LIST + DETAIL | MOBILE: CARD ACCORDION) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#4B5168;
+    --line:rgba(49,59,134,.16);
+    --card:#fff;
+  }
+
+  .adK, .adK *{ box-sizing:border-box; }
+
+  .adK{
+    position:relative;
+    padding:92px 20px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 95% 30%, rgba(49,59,134,.10), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(2,12,79,.08), transparent 60%),
+      rgba(49,59,134,.03);
+  }
+
+  .adK__inner{ max-width:1200px; margin:0 auto; position:relative; }
+
+  .adK__top{
+    display:grid;
+    grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+    gap:32px;
+    align-items:start;
+    margin-bottom:22px;
+  }
+
+  .adK__eyebrow{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+    margin:0 0 10px;
+  }
+
+  .adK__title{
+    margin:0;
+    font-size:clamp(38px,4.4vw,56px);
+    line-height:1.05;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .adK__intro{
+    margin:22px 0 0;
+    font-size:15.5px;
+    line-height:1.75;
+    color:#3C4160;
+    max-width:780px;
+  }
+
+  .adK__grid{
+    display:grid;
+    grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+    gap:26px;
+    align-items:stretch;
+    margin-top:18px;
+  }
+
+  /* LEFT RAIL (desktop/tablet) */
+  .adK__rail{
+    border:1px solid rgba(49,59,134,.18);
+    border-radius:22px;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(10px);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+    min-width:0;
+  }
+
+  .adK__railTop{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding:16px 16px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+  }
+
+  .adK__railLabel{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:900;
+  }
+
+  .adK__railPill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:32px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.85);
+    font-size:12px;
+    font-weight:800;
+    color:var(--indigo);
+    white-space:nowrap;
+  }
+  .adK__railPillDot{
+    width:10px;height:10px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(31,156,228,.10);
+  }
+
+  .adK__item{
+    width:100%;
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:12px;
+    align-items:center;
+    padding:14px 16px;
+    background:transparent;
+    border:0;
+    border-top:1px solid rgba(49,59,134,.10);
+    cursor:pointer;
+    text-align:left;
+    transition:background .18s ease;
+    min-width:0;
+    white-space:normal !important;
+  }
+  .adK__item:first-of-type{ border-top:0; }
+  .adK__item:hover{ background:rgba(49,59,134,.03); }
+
+  .adK__icon{
+    width:40px;height:40px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:rgba(49,59,134,.05);
+    border:1px solid rgba(49,59,134,.14);
+    font-size:18px;
+  }
+
+  .adK__textCol{ min-width:0 !important; }
+
+  .adK__itemTitle{
+    margin:0;
+    font-size:14.5px;
+    font-weight:900;
+    color:var(--navy);
+    line-height:1.25;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+    max-width:100% !important;
+  }
+
+  /* 2-line preview */
+  .adK__itemPreview{
+    margin:4px 0 0;
+    font-size:13px;
+    line-height:1.5;
+    color:#5B6282;
+
+    display:-webkit-box !important;
+    -webkit-box-orient:vertical !important;
+    -webkit-line-clamp:2 !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    white-space:normal !important;
+
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+    min-width:0;
+    max-width:100%;
+  }
+
+  /* Accordion content hidden by default (desktop/tablet) */
+  .adK__acc{ display:none; }
+
+  .adK__item[aria-selected="true"]{
+    background:rgba(31,156,228,.06);
+    position:relative;
+  }
+  .adK__item[aria-selected="true"]::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:4px;
+    background:linear-gradient(180deg,var(--accent),var(--violet));
+  }
+  .adK__item[aria-selected="true"] .adK__icon{
+    border-color:rgba(31,156,228,.28);
+    background:rgba(31,156,228,.08);
+  }
+
+  /* RIGHT PANEL (desktop/tablet) */
+  .adK__panel{
+    border:1px solid rgba(49,59,134,.18);
+    border-radius:22px;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:blur(10px);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    min-height:520px;
+  }
+
+  .adK__panelHead{
+    padding:16px 18px 14px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 60%),
+      rgba(255,255,255,.85);
+  }
+
+  .adK__panelKicker{
+    margin:0 0 6px;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .adK__panelTitle{
+    margin:0;
+    font-size:22px;
+    line-height:1.25;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .adK__panelBody{ padding:18px; flex:1 1 auto; }
+
+  .adK__bullets{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:12px;
+  }
+
+  .adK__bullets li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:14.5px;
+    line-height:1.65;
+    color:#2E334D;
+    min-width:0;
+  }
+
+  .adK__dot{
+    width:10px;height:10px;border-radius:999px;
+    margin-top:7px;
+    flex:0 0 auto;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  .adK__bullets li span:last-child{
+    min-width:0;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+
+  .adK__panelFooter{
+    padding:14px 16px;
+    border-top:1px solid rgba(49,59,134,.12);
+    background:rgba(255,255,255,.75);
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .adK__chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.9);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:800;
+    max-width:100%;
+  }
+  .adK__chip i{
+    width:7px;height:7px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    display:inline-block;
+  }
+
+  .adK__fade{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity .18s ease, transform .18s ease;
+  }
+  .adK__fade.is-switching{
+    opacity:0;
+    transform:translateY(6px);
+  }
+
+  @media (max-width:1024px){
+    .adK{ padding:78px 18px; }
+    .adK__top{ grid-template-columns:1fr; gap:14px; }
+    .adK__intro{ margin-top:0; }
+    .adK__grid{ grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:18px; }
+    .adK__panel{ min-height:unset; }
+  }
+
+  /* ===================== MOBILE: stacked card accordion ===================== */
+  @media (max-width:820px){
+    .adK{ padding:70px 16px; }
+    .adK__title{ font-size:clamp(30px,9vw,40px); }
+    .adK__intro{ font-size:14.8px; margin-top:10px; }
+
+    .adK__grid{ grid-template-columns:1fr; }
+
+    /* Hide the right panel on mobile */
+    .adK__panel{ display:none !important; }
+
+    /* Remove rail frame on mobile */
+    .adK__rail{
+      border:none;
+      background:transparent;
+      backdrop-filter:none;
+      box-shadow:none;
+      overflow:visible;
+    }
+
+    .adK__railTop{
+      padding:14px 14px;
+      border:1px solid rgba(49,59,134,.16);
+      border-radius:18px;
+      background:rgba(255,255,255,.86);
+      box-shadow:0 10px 26px rgba(0,0,0,.06);
+      margin-bottom:12px;
+    }
+
+    .adK__item{
+      border:1px solid rgba(49,59,134,.14);
+      border-radius:18px;
+      background:rgba(255,255,255,.86);
+      box-shadow:0 12px 28px rgba(0,0,0,.06);
+      margin:0 0 12px;
+      padding:14px 14px;
+      grid-template-columns:42px 1fr;
+      align-items:start;
+      max-width:100% !important;
+    }
+    .adK__item:first-of-type{ border-top:1px solid rgba(49,59,134,.14); }
+
+    .adK__icon{ width:38px;height:38px; border-radius:14px; margin-top:2px; }
+
+    /* kill desktop selected styling on mobile */
+    .adK__item[aria-selected="true"]{ background:rgba(255,255,255,.86) !important; }
+    .adK__item[aria-selected="true"]::before{ display:none !important; }
+
+    .adK__acc{
+      grid-column:1 / -1;
+      margin:10px 0 2px;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(49,59,134,.12);
+      background:rgba(49,59,134,.03);
+      display:none;
+      overflow:hidden !important;
+      max-width:100% !important;
+      min-width:0 !important;
+    }
+    .adK__item[aria-expanded="true"] .adK__acc{ display:block; }
+
+    .adK__accBullets{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+      max-width:100% !important;
+      min-width:0 !important;
+    }
+    .adK__accBullets li{
+      display:flex !important;
+      align-items:flex-start !important;
+      gap:10px !important;
+      flex-wrap:wrap !important;
+      min-width:0 !important;
+      max-width:100% !important;
+      font-size:14px;
+      line-height:1.65;
+      color:#2E334D;
+    }
+    .adK__accBullets li .adK__dot{ flex:0 0 auto !important; }
+
+    .adK__accBullets li span:last-child{
+      flex:1 1 0% !important;
+      min-width:0 !important;
+      max-width:100% !important;
+      display:block !important;
+      white-space:normal !important;
+      overflow-wrap:anywhere !important;
+      word-break:break-word !important;
+    }
+
+    .adK__accChips{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      max-width:100%;
+    }
+
+    .adK__chip{ height:32px; font-size:12px; padding:0 11px; }
+  }
+
+  /* ===================== FORCE MOBILE LAYOUT VIA CLASS (Elementor preview help) ===================== */
+  .adK.is-mobile{ padding:70px 16px !important; }
+  .adK.is-mobile .adK__grid{ grid-template-columns:1fr !important; }
+  .adK.is-mobile .adK__panel{ display:none !important; }
+  .adK.is-mobile .adK__rail{
+    border:none !important; background:transparent !important; box-shadow:none !important;
+    backdrop-filter:none !important; overflow:visible !important;
+  }
+  .adK.is-mobile .adK__railTop{
+    padding:14px 14px !important;
+    border:1px solid rgba(49,59,134,.14) !important;
+    border-radius:16px !important;
+    background:#fff !important;
+    box-shadow:0 10px 24px rgba(0,0,0,.06) !important;
+    margin-bottom:12px !important;
+  }
+  .adK.is-mobile .adK__item{
+    border:1px solid rgba(49,59,134,.12) !important;
+    border-radius:16px !important;
+    background:#fff !important;
+    box-shadow:0 12px 26px rgba(0,0,0,.06) !important;
+    margin:0 0 12px !important;
+    padding:14px 14px !important;
+    grid-template-columns:42px 1fr !important;
+    align-items:start !important;
+  }
+  .adK.is-mobile .adK__item[aria-selected="true"]::before{ display:none !important; }
+  .adK.is-mobile .adK__item[aria-selected="true"]{ background:#fff !important; }
+  .adK.is-mobile .adK__acc{
+    display:none;
+    grid-column:1 / -1;
+    margin:10px 0 0;
+    padding:12px 12px;
+    border-radius:14px;
+    border:1px solid rgba(49,59,134,.10);
+    background:rgba(49,59,134,.02);
+    overflow:hidden !important;
+  }
+  .adK.is-mobile .adK__item[aria-expanded="true"] .adK__acc{ display:block !important; }
+  .adK.is-mobile .adK__chip{ height:32px !important; font-size:12px !important; padding:0 11px !important; }
+</style>
+
+<section class="adK" id="edu-challenges">
+  <div class="adK__inner">
+
+    <div class="adK__top">
+      <div>
+        <p class="adK__eyebrow">Education Sector</p>
+        <h2 class="adK__title">The Challenges Facing the Education Sector Today</h2>
+      </div>
+
+      <p class="adK__intro">
+        Academic excellence alone is no longer enough. Institutions are grappling with curriculum–industry gaps,
+        fragmented learning models, faculty capability constraints, and limited exposure to real-world problem-solving.
+        These challenges highlight the need for industry-partnered learning, not classroom learning alone.
+      </p>
+    </div>
+
+    <div class="adK__grid">
+
+      <!-- LEFT: list -->
+      <div class="adK__rail" role="tablist" aria-label="Education sector challenges list">
+        <div class="adK__railTop">
+          <div class="adK__railLabel">Challenges</div>
+          <div class="adK__railPill"><span class="adK__railPillDot" aria-hidden="true"></span>Academic &amp; industry view</div>
+        </div>
+
+        <button class="adK__item" role="tab" aria-selected="true" aria-expanded="false" data-key="c1">
+          <div class="adK__icon">🎓</div>
+          <div class="adK__textCol">
+            <p class="adK__itemTitle">Curriculum–Industry Gap</p>
+            <p class="adK__itemPreview">Programs lag modern industry demands and students graduate knowledgeable but not job-ready.</p>
+          </div>
+          <div class="adK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="adK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c2">
+          <div class="adK__icon">🧩</div>
+          <div class="adK__textCol">
+            <p class="adK__itemTitle">Lack of Integrated Learning Approaches</p>
+            <p class="adK__itemPreview">Lean, Agile, digital and behavioural skills are taught in silos, if at all.</p>
+          </div>
+          <div class="adK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="adK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c3">
+          <div class="adK__icon">👩‍🏫</div>
+          <div class="adK__textCol">
+            <p class="adK__itemTitle">Faculty Capability &amp; Resource Constraints</p>
+            <p class="adK__itemPreview">Limited access to current methodologies, tools, case studies, and tech exposure.</p>
+          </div>
+          <div class="adK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="adK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c4">
+          <div class="adK__icon">🧪</div>
+          <div class="adK__textCol">
+            <p class="adK__itemTitle">Limited Practical, Hands-on Methodologies</p>
+            <p class="adK__itemPreview">Few real-life projects, simulations, or experiential learning opportunities.</p>
+          </div>
+          <div class="adK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="adK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c5">
+          <div class="adK__icon">🧭</div>
+          <div class="adK__textCol">
+            <p class="adK__itemTitle">Lack of Structured Models for Employability &amp; Future Skills</p>
+            <p class="adK__itemPreview">No cohesive frameworks to create Lean practitioners, innovators, or digital leaders.</p>
+          </div>
+          <div class="adK__acc" aria-hidden="true"></div>
+        </button>
+      </div>
+
+      <!-- RIGHT: detail panel (desktop only) -->
+      <aside class="adK__panel" role="tabpanel" aria-live="polite">
+        <div class="adK__fade" id="adK-fade">
+          <div class="adK__panelHead">
+            <p class="adK__panelKicker">Challenge Focus</p>
+            <h3 class="adK__panelTitle" id="adK-title">Curriculum–Industry Gap</h3>
+          </div>
+
+          <div class="adK__panelBody">
+            <ul class="adK__bullets" id="adK-bullets"></ul>
+          </div>
+
+          <div class="adK__panelFooter" id="adK-chips"></div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const data = {
+    c1:{
+      title:"Curriculum–Industry Gap",
+      bullets:[
+        "Academic programs often lag behind modern industry demands and emerging roles.",
+        "Limited exposure to Industry 4.0, lean innovation, AI application, and real-world problem-solving.",
+        "Students graduate knowledgeable but not job-ready, impacting outcomes for both learners and employers."
+      ],
+      chips:["Industry relevance","Job readiness","Future skills"]
+    },
+    c2:{
+      title:"Lack of Integrated Learning Approaches",
+      bullets:[
+        "Lean, Agile, Six Sigma, Design Thinking, and Digital Skills are taught in isolation or not at all.",
+        "Institutions struggle to combine technical, analytical, and behavioural competencies into a cohesive journey."
+      ],
+      chips:["Integrated curricula","Holistic skillsets","Applied learning"]
+    },
+    c3:{
+      title:"Faculty Capability & Resource Constraints",
+      bullets:[
+        "Faculty members lack access to current methodologies, tools, and global case studies.",
+        "Limited exposure to emerging technologies, digitalisation, and data-driven decision-making frameworks."
+      ],
+      chips:["Faculty development","Modern content","Digital exposure"]
+    },
+    c4:{
+      title:"Limited Exposure to Practical, Hands-on Methodologies",
+      bullets:[
+        "Students rarely get to solve real-life industry problems in a structured, mentored environment.",
+        "Training lacks simulations, live projects, digital labs, or experiential learning platforms."
+      ],
+      chips:["Experiential learning","Live projects","Labs & simulations"]
+    },
+    c5:{
+      title:"Absence of Structured Models for Employability & Future Skills",
+      bullets:[
+        "No streamlined frameworks to prepare graduates as Lean practitioners, innovators, or digital transformation leaders.",
+        "Institutions struggle to connect academic excellence with measurable employability and future-skills outcomes."
+      ],
+      chips:["Employability models","Future skills frameworks","Value-creator mindset"]
+    }
+  };
+
+  const root = document.querySelector('#edu-challenges');
+  if(!root) return;
+
+  function applyMobileClass(){
+    const mqMobile = window.matchMedia && window.matchMedia('(max-width: 820px)').matches;
+
+    // Elementor responsive preview helpers
+    const elMobile =
+      document.body.classList.contains('elementor-device-mobile') ||
+      document.body.classList.contains('e--ua-device-mobile');
+
+    const mobile = mqMobile || elMobile;
+
+    root.classList.toggle('is-mobile', mobile);
+    return mobile;
+  }
+  applyMobileClass();
+  window.addEventListener('resize', applyMobileClass);
+
+  const tabs = Array.from(root.querySelectorAll('.adK__item'));
+  const fade = root.querySelector('#adK-fade');
+  const title = root.querySelector('#adK-title');
+  const bullets = root.querySelector('#adK-bullets');
+  const chips = root.querySelector('#adK-chips');
+
+  function isMobile(){
+    return (window.matchMedia && window.matchMedia('(max-width: 820px)').matches) || root.classList.contains('is-mobile');
+  }
+
+  function renderDesktop(key){
+    const d = data[key];
+    if(!d || !fade) return;
+
+    fade.classList.add('is-switching');
+    setTimeout(()=>{
+      title.textContent = d.title;
+
+      bullets.innerHTML = d.bullets.map(x =>
+        `<li><span class="adK__dot"></span><span>${x}</span></li>`
+      ).join('');
+
+      chips.innerHTML = d.chips.map(x =>
+        `<span class="adK__chip"><i></i>${x}</span>`
+      ).join('');
+
+      fade.classList.remove('is-switching');
+    }, 160);
+  }
+
+  function renderAccordionItem(btn){
+    const key = btn.dataset.key;
+    const d = data[key];
+    if(!d) return;
+
+    const acc = btn.querySelector('.adK__acc');
+    if(!acc) return;
+
+    acc.innerHTML = `
+      <ul class="adK__accBullets">
+        ${d.bullets.map(x => `<li><span class="adK__dot"></span><span>${x}</span></li>`).join('')}
+      </ul>
+      <div class="adK__accChips">
+        ${d.chips.map(x => `<span class="adK__chip"><i></i>${x}</span>`).join('')}
+      </div>
+    `;
+  }
+
+  tabs.forEach(btn => renderAccordionItem(btn));
+
+  function setActive(btn){
+    tabs.forEach(x=>{
+      x.setAttribute('aria-selected','false');
+      x.setAttribute('aria-expanded','false');
+    });
+    btn.setAttribute('aria-selected','true');
+
+    if(isMobile()){
+      btn.setAttribute('aria-expanded','true');
+    }else{
+      btn.setAttribute('aria-expanded','false');
+      renderDesktop(btn.dataset.key);
+    }
+  }
+
+  // Desktop default
+  renderDesktop('c1');
+
+  // Mobile: open first card by default
+  if(isMobile()){
+    tabs.forEach(x=>{
+      x.setAttribute('aria-selected','false');
+      x.setAttribute('aria-expanded','false');
+    });
+    if(tabs[0]){
+      tabs[0].setAttribute('aria-selected','true');
+      tabs[0].setAttribute('aria-expanded','true');
+    }
+  }
+
+  tabs.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(isMobile()){
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        if(expanded){
+          btn.setAttribute('aria-expanded','false');
+          return;
+        }
+        tabs.forEach(x=>x.setAttribute('aria-expanded','false'));
+        btn.setAttribute('aria-expanded','true');
+
+        tabs.forEach(x=>x.setAttribute('aria-selected','false'));
+        btn.setAttribute('aria-selected','true');
+      }else{
+        setActive(btn);
+      }
+    });
+  });
+
+  window.addEventListener('resize', ()=>{
+    const active = tabs.find(x => x.getAttribute('aria-selected') === 'true') || tabs[0];
+    if(active && !isMobile()){
+      renderDesktop(active.dataset.key || 'c1');
+    }
+  });
+})();
+</script>
+
+<!-- ===================== EDUCATION — HOW WE CAN HELP (DESKTOP SLIDER + MOBILE ACCORDION) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#4B5168;
+  --line:rgba(49,59,134,.18);
+  --card:#ffffff;
+
+  /* ✅ update this for an education-themed background if you like */
+  --adw-bg-img:url("https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg");
+}
+
+/* scope */
+.adwS, .adwS *{ box-sizing:border-box; }
+
+.adwS{
+  position:relative;
+  padding:96px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at 18% 0%, rgba(98,90,216,.10), transparent 55%),
+    radial-gradient(circle at 95% 30%, rgba(31,156,228,.10), transparent 55%),
+    radial-gradient(circle at 70% 110%, rgba(2,12,79,.08), transparent 60%),
+    rgba(49,59,134,.03);
+}
+
+.adwS::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(2,12,79,.80), rgba(2,12,79,.25) 55%, rgba(2,12,79,0) 100%),
+    var(--adw-bg-img);
+  background-size:cover;
+  background-position:center;
+  opacity:.95;
+  z-index:0;
+  pointer-events:none;
+}
+
+.adwS::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  z-index:0;
+  pointer-events:none;
+}
+
+.adwS__inner{
+  position:relative;
+  z-index:1;
+  max-width:1200px;
+  margin:0 auto;
+  width:100%;
+  min-width:0;
+}
+
+.adwS__eyebrow{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+  font-weight:800;
+  margin:0 0 10px;
+}
+
+.adwS__title{
+  margin:0 0 22px;
+  font-size:clamp(34px,4vw,56px);
+  line-height:1.08;
+  font-weight:900;
+  color:#fff;
+}
+
+.adwS__layout{
+  display:grid;
+  grid-template-columns:minmax(0,0.38fr) minmax(0,0.62fr);
+  gap:56px;
+  align-items:stretch;
+  width:100%;
+  min-width:0;
+}
+
+/* entrance animation */
+.adwS__left,
+.adwS__right{
+  opacity:0;
+  transition:opacity .85s ease, transform .85s cubic-bezier(.2,.9,.2,1);
+}
+.adwS__left{ transform:translateX(-44px); }
+.adwS__right{ transform:translateX(44px); }
+.adwS.is-in .adwS__left,
+.adwS.is-in .adwS__right{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* ===================== DESKTOP LEFT ===================== */
+.adwS__left{
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:20px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter: blur(10px);
+  box-shadow:0 12px 32px rgba(0,0,0,.14);
+  padding:18px;
+  min-width:0;
+}
+
+.adwS__leftTitle{
+  margin:0 0 12px;
+  font-size:26px;
+  font-weight:900;
+  color:#fff;
+}
+
+.adwS__nav{
+  display:grid;
+  gap:10px;
+  margin-top:10px;
+  min-width:0;
+}
+
+.adwS__navBtn{
+  width:100%;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);
+  border-radius:14px;
+  padding:14px 14px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  text-align:left;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  min-width:0;
+  white-space:normal;
+}
+
+.adwS__navBtn:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.18);
+}
+
+.adwS__navLeft{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  flex:1 1 auto;
+}
+
+.adwS__navMark{
+  width:10px; height:10px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.12);
+  flex:0 0 auto;
+}
+
+.adwS__navText{ min-width:0; }
+
+.adwS__itemTitle{
+  margin:0;
+  font-size:14.5px;
+  font-weight:800;
+  color:#fff;
+  line-height:1.2;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.adwS__itemHint{
+  margin:6px 0 0;
+  font-size:12.5px;
+  color:rgba(255,255,255,.80);
+  line-height:1.3;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.adwS__navArrow{
+  width:34px; height:34px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.16);
+  color:#fff;
+  background:rgba(255,255,255,.06);
+  flex:0 0 auto;
+}
+
+.adwS__navBtn[aria-selected="true"]{
+  background:rgba(255,255,255,.10);
+  border-color:rgba(255,255,255,.24);
+}
+
+/* ===================== DESKTOP RIGHT SLIDER ===================== */
+.adwS__right{
+  position:relative;
+  border-radius:22px;
+  min-height:560px;
+  min-width:0;
+}
+
+.adwS__stage{
+  position:relative;
+  height:100%;
+  min-height:560px;
+  padding:0 68px; /* peeks */
+  min-width:0;
+}
+
+.adwS__card{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:86%;
+  height:100%;
+  border-radius:22px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(49,59,134,.18);
+  box-shadow:0 28px 70px rgba(0,0,0,.22);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .42s cubic-bezier(.2,.9,.2,1), opacity .25s ease;
+}
+
+.adwS__card.is-active{ z-index:3; opacity:1; }
+.adwS__card.is-prev,
+.adwS__card.is-next{
+  z-index:2;
+  width:82%;
+  opacity:.78;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 22px 60px rgba(0,0,0,.18);
+}
+.adwS__card.is-prev{ transform:translateX(-50%) translateX(-110px) scale(.965); }
+.adwS__card.is-next{ transform:translateX(-50%) translateX(110px) scale(.965); }
+
+.adwS__top{
+  padding:18px 22px 14px;
+  border-bottom:1px solid rgba(49,59,134,.14);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(31,156,228,.10), transparent 55%),
+    #fff;
+}
+
+.adwS__kicker{
+  margin:0 0 6px;
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:900;
+}
+
+.adwS__cardTitle{
+  margin:0;
+  font-size:22px;
+  line-height:1.2;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.adwS__body{
+  padding:16px 22px 18px;
+  overflow:auto;
+}
+
+.adwS__lead{
+  margin:0 0 12px;
+  font-size:15px;
+  line-height:1.75;
+  color:#2E334D;
+}
+
+.adwS__label{
+  margin:12px 0 8px;
+  font-size:14px;
+  font-weight:800;
+  color:var(--ink);
+}
+
+.adwS__list{ margin:0; padding-left:18px; }
+.adwS__list li{
+  margin:0 0 7px;
+  font-size:14.5px;
+  line-height:1.65;
+  color:#2E334D;
+}
+
+.adwS__impact{
+  margin-top:14px;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(49,59,134,.12);
+  background:rgba(49,59,134,.03);
+  border-left:4px solid var(--accent);
+  font-size:14.5px;
+  line-height:1.7;
+  color:#3C4160;
+}
+.adwS__impact b{ color:var(--navy); }
+
+/* peek preview */
+.adwS__card.is-prev .adwS__lead,
+.adwS__card.is-next .adwS__lead{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  max-height:3.7em;
+}
+.adwS__card.is-prev .adwS__label,
+.adwS__card.is-next .adwS__label,
+.adwS__card.is-prev .adwS__list,
+.adwS__card.is-next .adwS__list,
+.adwS__card.is-prev .adwS__impact,
+.adwS__card.is-next .adwS__impact{
+  display:none;
+}
+
+.adwS__ctrl{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:46px;height:46px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.50);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  z-index:5;
+  user-select:none;
+}
+.adwS__ctrl:hover{
+  transform:translateY(-50%) scale(1.03);
+  background:rgba(255,255,255,.16);
+  border-color:rgba(255,255,255,.30);
+}
+.adwS__ctrl--prev{ left:12px; }
+.adwS__ctrl--next{ right:12px; }
+
+/* ===================== MOBILE DESIGN (NO HORIZONTAL ANYTHING) ===================== */
+.adwS__mWrap{ display:none; } /* only mobile */
+
+@media (max-width:980px){
+  .adwS{ padding:78px 16px; }
+  .adwS__layout{ grid-template-columns:1fr; gap:14px; }
+
+  /* hide desktop slider UI */
+  .adwS__right{ display:none !important; }
+
+  /* left card smaller */
+  .adwS__left{
+    padding:14px;
+    border-radius:18px;
+  }
+  .adwS__leftTitle{ font-size:18px; margin-bottom:10px; }
+
+  .adwS__nav{ display:none !important; }
+
+  /* show mobile accordion */
+  .adwS__mWrap{ display:grid; gap:12px; }
+
+  .adwS__mCard{
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.08);
+    backdrop-filter: blur(10px);
+    border-radius:18px;
+    box-shadow:0 12px 28px rgba(0,0,0,.14);
+    overflow:hidden;
+  }
+
+  .adwS__mBtn{
+    width:100%;
+    border:0;
+    background:transparent;
+    padding:14px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    cursor:pointer;
+    text-align:left;
+    color:#fff;
+  }
+
+  .adwS__mLeft{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    min-width:0;
+    flex:1 1 auto;
+  }
+
+  .adwS__mTitle{
+    margin:0;
+    font-size:14.5px;
+    font-weight:900;
+    line-height:1.25;
+    color:#fff;
+  }
+
+  .adwS__mHint{
+    margin:6px 0 0;
+    font-size:12.5px;
+    line-height:1.35;
+    color:rgba(255,255,255,.82);
+    overflow-wrap:anywhere;
+  }
+
+  .adwS__mChevron{
+    width:34px;height:34px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.06);
+    display:grid;
+    place-items:center;
+    color:#fff;
+    flex:0 0 auto;
+    transition:transform .2s ease;
+  }
+
+  .adwS__mAcc{
+    display:none;
+    padding:0 14px 14px;
+  }
+
+  .adwS__mCard[aria-expanded="true"] .adwS__mAcc{ display:block; }
+  .adwS__mCard[aria-expanded="true"] .adwS__mChevron{ transform:rotate(180deg); }
+
+  /* mobile content card (white) */
+  .adwS__mContent{
+    border-radius:16px;
+    background:rgba(255,255,255,.96);
+    border:1px solid rgba(49,59,134,.18);
+    box-shadow:0 18px 44px rgba(0,0,0,.18);
+    overflow:hidden;
+  }
+
+  .adwS__mTop{
+    padding:14px 14px 12px;
+    border-bottom:1px solid rgba(49,59,134,.14);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.10), transparent 55%),
+      #fff;
+  }
+
+  .adwS__mKicker{
+    margin:0 0 6px;
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .adwS__mCardTitle{
+    margin:0;
+    font-size:20px;
+    line-height:1.2;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .adwS__mBody{
+    padding:12px 14px 14px;
+  }
+
+  .adwS__mLead{
+    margin:0 0 10px;
+    font-size:14.5px;
+    line-height:1.7;
+    color:#2E334D;
+  }
+
+  .adwS__mLabel{
+    margin:10px 0 8px;
+    font-size:13.5px;
+    font-weight:900;
+    color:var(--ink);
+  }
+
+  .adwS__mList{
+    margin:0;
+    padding-left:18px;
+  }
+  .adwS__mList li{
+    margin:0 0 7px;
+    font-size:14.2px;
+    line-height:1.65;
+    color:#2E334D;
+    overflow-wrap:anywhere;
+  }
+
+  .adwS__mImpact{
+    margin-top:12px;
+    padding:10px 12px;
+    border-radius:14px;
+    border:1px solid rgba(49,59,134,.12);
+    background:rgba(49,59,134,.03);
+    border-left:4px solid var(--accent);
+    font-size:14.2px;
+    line-height:1.7;
+    color:#3C4160;
+  }
+  .adwS__mImpact b{ color:var(--navy); }
+}
+</style>
+
+<section class="adwS" id="edu-how-we-help" aria-label="How we help the Education sector">
+  <div class="adwS__inner">
+    <p class="adwS__eyebrow">Education Sector</p>
+    <h2 class="adwS__title">How We Can Help the Education Sector</h2>
+
+    <div class="adwS__layout">
+      <!-- DESKTOP LEFT -->
+      <aside class="adwS__left">
+        <h3 class="adwS__leftTitle">Our Education Solutions</h3>
+
+        <div class="adwS__nav" role="tablist" aria-label="Education sector service pillars">
+          <button class="adwS__navBtn" role="tab" aria-selected="true" data-i="0">
+            <div class="adwS__navLeft">
+              <span class="adwS__navMark" aria-hidden="true"></span>
+              <div class="adwS__navText">
+                <p class="adwS__itemTitle">Growth &amp; Strategy for Institutions</p>
+                <p class="adwS__itemHint">Future-ready programs &amp; positioning</p>
+              </div>
+            </div>
+            <span class="adwS__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="adwS__navBtn" role="tab" aria-selected="false" data-i="1">
+            <div class="adwS__navLeft">
+              <span class="adwS__navMark" aria-hidden="true"></span>
+              <div class="adwS__navText">
+                <p class="adwS__itemTitle">Capability Building for Students &amp; Faculty</p>
+                <p class="adwS__itemHint">Lean &amp; digital leadership academies</p>
+              </div>
+            </div>
+            <span class="adwS__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="adwS__navBtn" role="tab" aria-selected="false" data-i="2">
+            <div class="adwS__navLeft">
+              <span class="adwS__navMark" aria-hidden="true"></span>
+              <div class="adwS__navText">
+                <p class="adwS__itemTitle">Tech-Enabled Transformation for Education</p>
+                <p class="adwS__itemHint">Smart, digital learning ecosystems</p>
+              </div>
+            </div>
+            <span class="adwS__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="adwS__navBtn" role="tab" aria-selected="false" data-i="3">
+            <div class="adwS__navLeft">
+              <span class="adwS__navMark" aria-hidden="true"></span>
+              <div class="adwS__navText">
+                <p class="adwS__itemTitle">Shared Services, GCC &amp; Excellence Hubs</p>
+                <p class="adwS__itemHint">Centres of excellence &amp; support hubs</p>
+              </div>
+            </div>
+            <span class="adwS__navArrow" aria-hidden="true">›</span>
+          </button>
+
+          <button class="adwS__navBtn" role="tab" aria-selected="false" data-i="4">
+            <div class="adwS__navLeft">
+              <span class="adwS__navMark" aria-hidden="true"></span>
+              <div class="adwS__navText">
+                <p class="adwS__itemTitle">ESG &amp; Purpose-Led Value Creation</p>
+                <p class="adwS__itemHint">Reputation, impact &amp; compliance</p>
+              </div>
+            </div>
+            <span class="adwS__navArrow" aria-hidden="true">›</span>
+          </button>
+        </div>
+
+        <!-- MOBILE ACCORDION -->
+        <div class="adwS__mWrap" id="edu-how-we-help-mobile"></div>
+      </aside>
+
+      <!-- DESKTOP RIGHT -->
+      <div class="adwS__right">
+        <button class="adwS__ctrl adwS__ctrl--prev" type="button" aria-label="Previous">‹</button>
+        <button class="adwS__ctrl adwS__ctrl--next" type="button" aria-label="Next">›</button>
+
+        <div class="adwS__stage" aria-live="polite">
+          <article class="adwS__card is-prev" id="edu-how-we-help-prev"></article>
+          <article class="adwS__card is-active" id="edu-how-we-help-active"></article>
+          <article class="adwS__card is-next" id="edu-how-we-help-next"></article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const section = document.getElementById('edu-how-we-help');
+  if(!section) return;
+
+  const isElementor =
+    document.body.classList.contains('elementor-editor-active') ||
+    document.body.classList.contains('elementor-editor-preview') ||
+    !!document.querySelector('#elementor-editor-wrapper');
+
+  function enter(){ section.classList.add('is-in'); }
+
+  if(isElementor){
+    enter();
+  } else if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          enter();
+          io.unobserve(section);
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(section);
+    setTimeout(()=>{ if(!section.classList.contains('is-in')) enter(); }, 1200);
+  } else {
+    enter();
+  }
+
+  const data = [
+    {
+      navTitle:"Growth & Strategy for Institutions",
+      navHint:"Future-ready programs & positioning",
+      kicker:"01 · Growth & Strategy for Educational Institutions",
+      title:"Designing Future-Ready Academic Strategy",
+      lead:"We help higher education institutions, universities, and skill bodies redesign their academic strategy to align with modern industry needs and future-of-work realities.",
+      label1:"We support:",
+      bullets:[
+        "New-age program design across Lean, Industry 4.0, Analytics, AI, and Digital Transformation",
+        "Industry-linked curriculum development with practical, applied focus",
+        "Skill development and employability frameworks integrated into academic journeys",
+        "Partnership strategies with industry, global universities, and technology partners",
+        "Revenue diversification through digital, executive, and continuing education offerings"
+      ],
+      impact:"Future-ready programs, stronger brand positioning, higher placements, and sharper industry relevance."
+    },
+    {
+      navTitle:"Capability Building for Students & Faculty",
+      navHint:"Lean & digital leadership academies",
+      kicker:"02 · Capability Building: Creating Tomorrow’s Lean & Digital Leaders",
+      title:"Scalable Capability Building for Students and Faculty",
+      lead:"Inspired by QAI’s heritage of training over 70,000 professionals globally, we bring a modern, hybrid, scalable capability-building model tailored for students and faculty.",
+      label1:"We offer:",
+      bullets:[
+        "Lean Practitioner, Lean Leader, and Lean Six Sigma (Green Belt / Black Belt) programs",
+        "Industry 4.0 and Smart Manufacturing awareness and advanced certifications",
+        "Design Thinking and Innovation programs for structured problem-solving",
+        "Integrated DigiLean, Agile, and Problem-Solving academies for students and faculty",
+        "Value Creation and Entrepreneurship bootcamps",
+        "Faculty development programs in modern methodologies and tools"
+      ],
+      impact:"Students gain job-ready skills, faculty becomes future-ready, institutions strengthen placement outcomes, and employers receive graduates who can create value from Day One."
+    },
+    {
+      navTitle:"Tech-Enabled Transformation for Education",
+      navHint:"Smart, digital learning ecosystems",
+      kicker:"03 · Tech-Enabled Transformation for Education",
+      title:"Modernising Learning Delivery and Campus Operations",
+      lead:"We help institutions modernise how learning is delivered and how campuses operate, using technology as an enabler of access, quality, and scale.",
+      label1:"Our support includes:",
+      bullets:[
+        "Digital learning platforms and LMS implementation",
+        "AI-driven assessment and personalised learning pathways",
+        "Data analytics for academic improvement and institutional operations",
+        "Digital content creation for Lean, Six Sigma, Industry 4.0, and leadership programs",
+        "Process digitisation across academic, examination, and administrative functions"
+      ],
+      impact:"Smarter, scalable, and accessible learning ecosystems built for 21st-century students."
+    },
+    {
+      navTitle:"Shared Services, GCC & Excellence Hubs",
+      navHint:"Centres of excellence & support hubs",
+      kicker:"04 · Shared Services, GCC & Education Excellence Hubs",
+      title:"Building Education Excellence Hubs and Support Systems",
+      lead:"Educational institutions increasingly seek scalable support systems for research, digital, and operations. We design hubs that consolidate capability and strengthen student experience.",
+      label1:"We help design:",
+      bullets:[
+        "Centres of Excellence in Lean, AI, Industry 4.0, and Analytics",
+        "Academic GCCs for digital content, research, placements, and innovation support",
+        "Governance frameworks for multi-campus institutions and university systems",
+        "Standardisation of core processes across institutes and campuses"
+      ],
+      impact:"Higher efficiency, better student experience, and stronger institutional governance."
+    },
+    {
+      navTitle:"ESG & Purpose-Led Value Creation",
+      navHint:"Reputation, impact & compliance",
+      kicker:"05 · ESG & Purpose-Led Value Creation for Institutions",
+      title:"Purpose-Led, ESG-Aligned Universities and Institutions",
+      lead:"We help universities adopt ESG-aligned frameworks that enhance reputation, compliance, and social impact while engaging students in purpose-led initiatives.",
+      label1:"We support:",
+      bullets:[
+        "Roadmaps for green campus transformation and resource efficiency",
+        "Sustainability reporting frameworks aligned to emerging expectations",
+        "Inclusion and diversity models for students, faculty, and staff",
+        "Purpose-led youth engagement initiatives and social impact programs"
+      ],
+      impact:"Stronger brand reputation, improved compliance, and campuses that embody the values they teach."
+    }
+  ];
+
+  /* ---------------- DESKTOP SLIDER ---------------- */
+  const navButtons = Array.from(section.querySelectorAll('.adwS__navBtn'));
+  const prevEl = section.querySelector('#edu-how-we-help-prev');
+  const activeEl = section.querySelector('#edu-how-we-help-active');
+  const nextEl = section.querySelector('#edu-how-we-help-next');
+  const btnPrev = section.querySelector('.adwS__ctrl--prev');
+  const btnNext = section.querySelector('.adwS__ctrl--next');
+
+  let idx = 0;
+
+  function cardHTML(d){
+    return `
+      <div class="adwS__top">
+        <p class="adwS__kicker">${d.kicker}</p>
+        <h3 class="adwS__cardTitle">${d.title}</h3>
+      </div>
+      <div class="adwS__body">
+        <p class="adwS__lead">${d.lead}</p>
+        <div class="adwS__label">${d.label1}</div>
+        <ul class="adwS__list">
+          ${d.bullets.map(x=>`<li>${x}</li>`).join('')}
+        </ul>
+        <div class="adwS__impact"><b>Impact:</b> ${d.impact}</div>
+      </div>
+    `;
+  }
+
+  function setActiveNav(i){
+    navButtons.forEach((b,bi)=> b.setAttribute('aria-selected', bi===i ? 'true':'false'));
+  }
+
+  function renderDesktop(){
+    const prevI = (idx - 1 + data.length) % data.length;
+    const nextI = (idx + 1) % data.length;
+
+    if(prevEl) prevEl.innerHTML = cardHTML(data[prevI]);
+    if(activeEl) activeEl.innerHTML = cardHTML(data[idx]);
+    if(nextEl) nextEl.innerHTML = cardHTML(data[nextI]);
+    setActiveNav(idx);
+  }
+
+  function goTo(i){
+    idx = (i + data.length) % data.length;
+    renderDesktop();
+  }
+
+  navButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = parseInt(btn.getAttribute('data-i'),10);
+      goTo(i);
+    });
+  });
+
+  btnPrev && btnPrev.addEventListener('click', ()=> goTo(idx-1));
+  btnNext && btnNext.addEventListener('click', ()=> goTo(idx+1));
+
+  section.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowLeft') goTo(idx-1);
+    if(e.key === 'ArrowRight') goTo(idx+1);
+  });
+
+  renderDesktop();
+
+  /* ---------------- MOBILE ACCORDION ---------------- */
+  const mobileMount = section.querySelector('#edu-how-we-help-mobile');
+
+  function mobileCard(d, i){
+    return `
+      <div class="adwS__mCard" aria-expanded="${i===0 ? 'true':'false'}" data-i="${i}">
+        <button class="adwS__mBtn" type="button" aria-label="${d.navTitle}">
+          <div class="adwS__mLeft">
+            <span class="adwS__navMark" aria-hidden="true"></span>
+            <div style="min-width:0">
+              <p class="adwS__mTitle">${d.navTitle}</p>
+              <p class="adwS__mHint">${d.navHint}</p>
+            </div>
+          </div>
+          <span class="adwS__mChevron" aria-hidden="true">⌄</span>
+        </button>
+
+        <div class="adwS__mAcc">
+          <div class="adwS__mContent">
+            <div class="adwS__mTop">
+              <p class="adwS__mKicker">${d.kicker}</p>
+              <h3 class="adwS__mCardTitle">${d.title}</h3>
+            </div>
+            <div class="adwS__mBody">
+              <p class="adwS__mLead">${d.lead}</p>
+              <div class="adwS__mLabel">${d.label1}</div>
+              <ul class="adwS__mList">
+                ${d.bullets.map(x=>`<li>${x}</li>`).join('')}
+              </ul>
+              <div class="adwS__mImpact"><b>Impact:</b> ${d.impact}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderMobile(){
+    if(!mobileMount) return;
+    mobileMount.innerHTML = data.map((d,i)=>mobileCard(d,i)).join('');
+
+    const cards = Array.from(mobileMount.querySelectorAll('.adwS__mCard'));
+    cards.forEach(card=>{
+      const btn = card.querySelector('.adwS__mBtn');
+      btn.addEventListener('click', ()=>{
+        const isOpen = card.getAttribute('aria-expanded') === 'true';
+        cards.forEach(c=>c.setAttribute('aria-expanded','false'));
+        card.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+    });
+  }
+
+  renderMobile();
+})();
+</script>
+
+<!-- ===================== EDUCATION — COLLABORATION + WHY CHOOSE US (IMAGE LEFT) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#3C4160;
+}
+
+/* SECTION */
+.adw, .adw *{box-sizing:border-box;}
+.adw{
+  padding:96px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(98,90,216,.08), transparent 55%),
+    radial-gradient(circle at 95% 30%, rgba(49,59,134,.08), transparent 55%),
+    radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+    rgba(49,59,134,.03);
+}
+
+.adw__inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr; /* image slightly wider */
+  gap:44px;
+  align-items:stretch; /* equal height */
+}
+
+/* IMAGE COLUMN */
+.adw__imageWrap{
+  position:relative;
+  border-radius:26px;
+  overflow:hidden;
+  min-height:520px; /* a bit taller to fit both blocks nicely */
+  box-shadow:0 22px 54px rgba(0,0,0,.10);
+}
+
+.adw__imageWrap img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover; /* ✅ full image, no gap */
+  display:block;
+}
+
+/* subtle brand overlay */
+.adw__imageWrap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(2,12,79,.18), rgba(2,12,79,.08) 55%, rgba(255,255,255,0) 100%),
+    radial-gradient(circle at 20% 20%, rgba(98,90,216,.20), transparent 60%),
+    radial-gradient(circle at 80% 35%, rgba(31,156,228,.16), transparent 60%);
+  pointer-events:none;
+}
+
+/* CONTENT COLUMN */
+.adw__content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.adw__eyebrow{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:800;
+  margin:0 0 10px;
+}
+
+.adw__title{
+  font-size:clamp(32px,3.6vw,46px);
+  line-height:1.1;
+  font-weight:900;
+  color:var(--navy);
+  margin:0 0 12px;
+}
+
+.adw__lead{
+  margin:0 0 18px;
+  font-size:15px;
+  line-height:1.75;
+  color:var(--muted);
+}
+
+/* MANIFESTO LIST */
+.adw__list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:18px;
+  position:relative;
+}
+
+/* vertical guide */
+.adw__list::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  top:6px;
+  bottom:6px;
+  width:2px;
+  background:linear-gradient(180deg, rgba(98,90,216,.45), rgba(31,156,228,.35));
+  opacity:.6;
+}
+
+.adw__item{
+  position:relative;
+  padding-left:46px;
+}
+
+.adw__dot{
+  position:absolute;
+  left:6px;
+  top:4px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid rgba(49,59,134,.25);
+}
+
+.adw__dot::after{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.12);
+}
+
+.adw__h{
+  margin:0 0 4px;
+  font-size:16px;
+  font-weight:800;
+  color:var(--navy);
+}
+
+.adw__p{
+  margin:0;
+  font-size:14.8px;
+  line-height:1.75;
+  color:#3C4160;
+}
+
+/* subtle separator between blocks */
+.adw__divider{
+  height:1px;
+  background:rgba(49,59,134,.14);
+  border:0;
+  margin:22px 0 18px;
+}
+
+/* MOBILE */
+@media(max-width:980px){
+  .adw{padding:78px 18px;}
+  .adw__inner{grid-template-columns:1fr; gap:26px;}
+  .adw__imageWrap{min-height:260px;}
+  .adw__list::before{left:12px;}
+}
+</style>
+
+<section class="adw" id="edu-collab-why">
+  <div class="adw__inner">
+
+    <!-- IMAGE LEFT -->
+    <div class="adw__imageWrap">
+      <img
+        src="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg"
+        alt="Education ecosystem collaboration"
+      />
+    </div>
+
+    <!-- CONTENT RIGHT -->
+    <div class="adw__content">
+      <p class="adw__eyebrow">Education Sector</p>
+     
+      </ul>
+
+      <hr class="adw__divider"/>
+
+      <h2 class="adw__title" style="margin-top:0;">Why Institutions Choose Us</h2>
+
+      <ul class="adw__list">
+        <li class="adw__item">
+          <span class="adw__dot"></span>
+          <p class="adw__h">Integrated Approach Across Lean, Digital &amp; Strategy</p>
+          <p class="adw__p">One coherent system—curriculum, capability, operations, and outcomes—working together.</p>
+        </li>
+
+        <li class="adw__item">
+          <span class="adw__dot"></span>
+          <p class="adw__h">Deep Capability in Experiential Learning</p>
+          <p class="adw__p">Grounded in proven learning models, real-world tools, benchmarks, and case studies (inspired by QAI’s long legacy).</p>
+        </li>
+
+        <li class="adw__item">
+          <span class="adw__dot"></span>
+          <p class="adw__h">Tech-Enabled, Future-Ready Learning</p>
+          <p class="adw__p">Digital-first, hybrid, scalable frameworks built to reach thousands of students with quality.</p>
+        </li>
+
+        <li class="adw__item">
+          <span class="adw__dot"></span>
+          <p class="adw__h">Strong Focus on Employability &amp; Future Skills</p>
+          <p class="adw__p">Curriculum aligned with what employers actually demand—so graduates are job-ready.</p>
+        </li>
+
+        <li class="adw__item">
+          <span class="adw__dot"></span>
+          <p class="adw__h">Collaborative, Long-Term Partnership Philosophy</p>
+          <p class="adw__p">We co-create, co-deliver, and co-transform institutions—building capability that lasts.</p>
+        </li>
+      </ul>
+
+      <p class="adw__lead" style="margin-top:18px;">
+        <b>Our goal:</b> Build the next generation of Lean thinkers, Industry 4.0 innovators, digital leaders, and value creators who will transform India.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== EDUCATION — FINAL CTA (WHITE BACKGROUND STRIP) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#3C4160;
+  --line:rgba(49,59,134,.16);
+}
+
+.ad-cta, .ad-cta *{box-sizing:border-box;}
+.ad-cta{
+  padding:84px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#ffffff; /* white, consistent with other sectors */
+}
+
+.ad-cta__inner{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.ad-cta__bar{
+  border:1px solid rgba(49,59,134,.16);
+  border-radius:26px;
+  background:rgba(255,255,255,.98);
+  box-shadow:0 22px 54px rgba(0,0,0,.08);
+  padding:28px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+}
+
+.ad-cta__left{
+  min-width:0;
+  max-width:820px;
+}
+
+.ad-cta__kicker{
+  margin:0 0 10px;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:800;
+}
+
+.ad-cta__title{
+  margin:0 0 10px;
+  font-size:clamp(26px,3.2vw,38px);
+  line-height:1.15;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.ad-cta__text{
+  margin:0;
+  font-size:15.5px;
+  line-height:1.75;
+  color:var(--muted);
+}
+
+/* signal pill */
+.ad-cta__pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 12px;
+  border-radius:999px;
+  border:1px solid rgba(49,59,134,.18);
+  background:rgba(49,59,134,.04);
+  color:var(--indigo);
+  font-weight:800;
+  font-size:12px;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
+
+.ad-cta__dot{
+  width:9px;height:9px;border-radius:999px;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.10);
+}
+
+.ad-cta__right{
+  flex:0 0 auto;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.ad-cta__btn{
+  height:46px;
+  padding:0 18px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:14px;
+  font-weight:800;
+  text-decoration:none;
+  transition:.2s ease;
+  white-space:nowrap;
+}
+
+.ad-cta__btn--primary{
+  background:var(--violet);
+  color:#fff;
+  border:1px solid var(--violet);
+  box-shadow:0 12px 26px rgba(98,90,216,.22);
+}
+.ad-cta__btn--primary:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  transform:translateY(-1px);
+}
+
+.ad-cta__btn--ghost{
+  background:#fff;
+  color:var(--navy);
+  border:1px solid rgba(49,59,134,.22);
+}
+.ad-cta__btn--ghost:hover{
+  background:rgba(49,59,134,.04);
+  transform:translateY(-1px);
+}
+
+@media (max-width:980px){
+  .ad-cta{padding:70px 18px;}
+  .ad-cta__bar{
+    padding:22px;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .ad-cta__right{justify-content:flex-start;}
+}
+</style>
+
+<section class="ad-cta" id="edu-cta">
+  <div class="ad-cta__inner">
+
+    <div class="ad-cta__bar">
+      <div class="ad-cta__left">
+        <p class="ad-cta__kicker">Next steps</p>
+        <h2 class="ad-cta__title">Let’s Shape India’s Next Generation of Value Creators</h2>
+        <p class="ad-cta__text">
+          From strategy and curriculum to digital enablement, capability-building, and employability, we partner with
+          universities, higher education institutions, and skill bodies to build learning ecosystems that are future-ready,
+          industry-linked, and deeply relevant for students.
+        </p>
+
+        <div class="ad-cta__pill">
+          <span class="ad-cta__dot" aria-hidden="true"></span>
+          Lean • Industry 4.0 • Digital • Employability • Future Skills
+        </div>
+      </div>
+
+      <div class="ad-cta__right">
+        <a class="ad-cta__btn ad-cta__btn--ghost" href="#contact">Explore partnership models</a>
+        <a class="ad-cta__btn ad-cta__btn--primary" href="#contact">Schedule a conversation →</a>
+      </div>
+    </div>
+
+  </div>
+</section>

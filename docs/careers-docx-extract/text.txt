@@ -1,0 +1,1318 @@
+<!-- ===================== CAREERS — HERO (JOURNEY / PEOPLE-LED) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+    --white:#ffffff;
+  }
+
+  .careerJourney, .careerJourney *{box-sizing:border-box;}
+
+  .careerJourney{
+    position:relative;
+    min-height:88vh;
+    display:flex;
+    align-items:center;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#fff;
+    overflow:hidden;
+  }
+
+  /* Background image layer */
+  .careerJourney__bg{
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(255,255,255,.96) 0%,
+        rgba(255,255,255,.85) 40%,
+        rgba(255,255,255,.45) 70%,
+        rgba(255,255,255,.20) 100%
+      ),
+      url("https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg");
+    background-size:cover;
+    background-position:center right;
+    z-index:0;
+  }
+
+  /* subtle warm overlay (like your reference) */
+  .careerJourney__bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,.15),
+        rgba(255,255,255,.05)
+      ),
+      radial-gradient(circle at 70% 40%, rgba(98,90,216,.12), transparent 55%);
+  }
+
+  .careerJourney__inner{
+    position:relative;
+    z-index:1;
+    max-width:1200px;
+    padding:0 20px;
+    width:100%;
+    margin:0 auto;
+  }
+
+  .careerJourney__content{
+    max-width:520px;
+  }
+
+  .careerJourney__eyebrow{
+    margin:0 0 16px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .careerJourney__title{
+    margin:0 0 18px;
+    font-size:clamp(34px,4.8vw,58px);
+    line-height:1.05;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .careerJourney__sub{
+    margin:0;
+    font-size:18px;
+    line-height:1.7;
+    font-weight:600;
+    color:var(--indigo);
+  }
+
+  .careerJourney__cta{
+    margin-top:34px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+
+  .careerJourney__link{
+    position:relative;
+    font-size:14.5px;
+    font-weight:800;
+    text-decoration:none;
+    letter-spacing:.04em;
+    color:var(--navy);
+    padding-bottom:4px;
+  }
+
+  .careerJourney__link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:2px;
+    background:var(--navy);
+    transform:scaleX(.3);
+    transform-origin:left;
+    transition:transform .25s ease;
+  }
+
+  .careerJourney__link:hover::after{
+    transform:scaleX(1);
+  }
+
+  .careerJourney__link--primary{
+    color:var(--violet);
+  }
+
+  .careerJourney__link--primary::after{
+    background:linear-gradient(90deg,var(--violet),var(--accent));
+  }
+
+  @media(max-width:980px){
+    .careerJourney{
+      min-height:76vh;
+    }
+    .careerJourney__content{
+      max-width:100%;
+    }
+    .careerJourney__sub{
+      font-size:16.5px;
+    }
+  }
+</style>
+
+<section class="careerJourney" id="careers-hero">
+  <div class="careerJourney__bg"></div>
+
+  <div class="careerJourney__inner">
+    <div class="careerJourney__content">
+      <p class="careerJourney__eyebrow">Careers</p>
+
+      <h1 class="careerJourney__title">
+        Be a part of our journey
+      </h1>
+
+      <p class="careerJourney__sub">
+        Join a team where transformation is real, responsibility comes early,
+        and the work you do shapes organisations, industries, and lives.
+      </p>
+
+      <div class="careerJourney__cta">
+        <a href="#open-roles" class="careerJourney__link careerJourney__link--primary">
+          Explore opportunities
+        </a>
+        <a href="#life-at-firm" class="careerJourney__link">
+          Life at [Your Firm Name]
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAREERS — WHY JOIN US ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.14);
+    --card:#ffffff;
+  }
+
+  .careerWhy, .careerWhy *{box-sizing:border-box;}
+
+  .careerWhy{
+    padding:82px 20px 90px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:
+      radial-gradient(circle at 10% 0%, rgba(98,90,216,.08), transparent 60%),
+      radial-gradient(circle at 90% 100%, rgba(31,156,228,.08), transparent 60%),
+      #ffffff;
+  }
+
+  .careerWhy__inner{
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  .careerWhy__head{
+    text-align:left;
+    max-width:640px;
+    margin-bottom:32px;
+  }
+
+  .careerWhy__eyebrow{
+    margin:0 0 10px;
+    font-size:12px;
+    letter-spacing:.20em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .careerWhy__title{
+    margin:0 0 10px;
+    font-size:clamp(30px,3.3vw,40px);
+    line-height:1.1;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .careerWhy__lead{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.8;
+    color:var(--muted);
+  }
+
+  .careerWhy__grid{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:22px;
+  }
+
+  .careerWhy__item{
+    position:relative;
+    border-radius:22px;
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:18px 18px 18px 18px;
+    box-shadow:0 16px 40px rgba(0,0,0,.05);
+    overflow:hidden;
+  }
+
+  .careerWhy__pill{
+    position:absolute;
+    top:-60px;
+    right:-60px;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 20%, rgba(255,255,255,.85), transparent 55%),
+               linear-gradient(135deg, rgba(98,90,216,.18), rgba(31,156,228,.28));
+    opacity:.6;
+    pointer-events:none;
+  }
+
+  .careerWhy__emoji{
+    width:40px;
+    height:40px;
+    border-radius:14px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    background:rgba(98,90,216,.06);
+    border:1px solid rgba(98,90,216,.22);
+    margin-bottom:10px;
+    position:relative;
+    z-index:1;
+  }
+
+  .careerWhy__h{
+    margin:0 0 6px;
+    font-size:16px;
+    font-weight:800;
+    color:var(--navy);
+    position:relative;
+    z-index:1;
+  }
+
+  .careerWhy__p{
+    margin:0;
+    font-size:14.6px;
+    line-height:1.7;
+    color:#3C4160;
+    position:relative;
+    z-index:1;
+  }
+
+  @media (max-width:1024px){
+    .careerWhy__grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+
+  @media (max-width:720px){
+    .careerWhy{
+      padding:68px 16px 72px;
+    }
+    .careerWhy__head{text-align:left;}
+    .careerWhy__grid{
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+  }
+</style>
+
+<section class="careerWhy" id="careers-why">
+  <div class="careerWhy__inner">
+    <header class="careerWhy__head">
+      <p class="careerWhy__eyebrow">Why Join Us</p>
+      <h2 class="careerWhy__title">Build a career that creates real, lasting change.</h2>
+      <p class="careerWhy__lead">
+        When you join [Your Firm Name], you don’t just work on projects. You help shape
+        organisations, enable leaders, and build capabilities that outlast any engagement.
+      </p>
+    </header>
+
+    <div class="careerWhy__grid">
+      <!-- 1 -->
+      <article class="careerWhy__item">
+        <div class="careerWhy__pill" aria-hidden="true"></div>
+        <div class="careerWhy__emoji">🌍</div>
+        <h3 class="careerWhy__h">Global impact, local heart</h3>
+        <p class="careerWhy__p">
+          Work on transformations that drive growth and sustainability for clients across the globe,
+          while staying grounded in a culture that values purpose and people.
+        </p>
+      </article>
+
+      <!-- 2 -->
+      <article class="careerWhy__item">
+        <div class="careerWhy__pill" aria-hidden="true"></div>
+        <div class="careerWhy__emoji">🚀</div>
+        <h3 class="careerWhy__h">Growth without limits</h3>
+        <p class="careerWhy__p">
+          From Lean Six Sigma to AI, ESG, and Industry&nbsp;4.0, you’ll get structured opportunities
+          to deepen your expertise and expand your horizons across disciplines.
+        </p>
+      </article>
+
+      <!-- 3 -->
+      <article class="careerWhy__item">
+        <div class="careerWhy__pill" aria-hidden="true"></div>
+        <div class="careerWhy__emoji">🤝</div>
+        <h3 class="careerWhy__h">Extended family, not just colleagues</h3>
+        <p class="careerWhy__p">
+          We operate as one team. You’ll be empowered, supported, and trusted—with ownership to
+          experiment, innovate, and deliver results that truly matter.
+        </p>
+      </article>
+
+      <!-- 4 -->
+      <article class="careerWhy__item">
+        <div class="careerWhy__pill" aria-hidden="true"></div>
+        <div class="careerWhy__emoji">💡</div>
+        <h3 class="careerWhy__h">Tech + human-centric approach</h3>
+        <p class="careerWhy__p">
+          Shape the future using advanced digital tools and analytics, while keeping the human
+          insight and empathy that make change real and sustainable.
+        </p>
+      </article>
+
+      <!-- 5 -->
+      <article class="careerWhy__item">
+        <div class="careerWhy__pill" aria-hidden="true"></div>
+        <div class="careerWhy__emoji">🌱</div>
+        <h3 class="careerWhy__h">Sustainable value creation</h3>
+        <p class="careerWhy__p">
+          Every project is designed to create lasting value—for our clients, their stakeholders,
+          and society. Your work contributes to outcomes that endure.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAREERS — LIFE AT (MOSAIC CARDS, WHITE) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.12);
+    --card:#ffffff;
+  }
+
+  .lifeAt2, .lifeAt2 *{box-sizing:border-box;}
+
+  .lifeAt2{
+    padding:88px 20px 92px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#ffffff;
+    color:var(--ink);
+    position:relative;
+    overflow:hidden;
+  }
+
+  /* soft background glow */
+  .lifeAt2{
+  padding:88px 20px 92px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#ffffff; /* ✅ hard white */
+  color:var(--ink);
+  position:relative;
+  overflow:hidden;
+}
+
+
+  .lifeAt2__inner{
+    position:relative;
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  /* TOP: centered heading */
+  .lifeAt2__eyebrow{
+    margin:0 0 10px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+    text-align:center;
+  }
+
+  .lifeAt2__title{
+    margin:0 0 10px;
+    font-size:clamp(32px,3.6vw,44px);
+    line-height:1.1;
+    font-weight:950;
+    color:var(--navy);
+    text-align:center;
+  }
+
+  .lifeAt2__lead{
+    margin:0 auto 26px;
+    font-size:15.5px;
+    line-height:1.8;
+    color:var(--muted);
+    max-width:720px;
+    text-align:center;
+  }
+
+  /* keyword chips under intro */
+  .lifeAt2__tags{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:40px;
+  }
+
+  .lifeAt2__tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.9);
+    font-size:11.5px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--indigo);
+  }
+  .lifeAt2__tag i{
+    width:8px;height:8px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 4px rgba(31,156,228,.12);
+    display:inline-block;
+  }
+
+  /* MOSAIC GRID */
+.lifeAt2__grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  align-items:stretch; /* ✅ important */
+}
+
+
+  .lifeAt2__card{
+    position:relative;
+    border-radius:22px;
+    padding:18px 18px 16px;
+    background:var(--card);
+    border:1px solid var(--line);
+    box-shadow:0 14px 40px rgba(0,0,0,.06);
+    overflow:hidden;
+  }
+
+  /* gradient ribbons for variety */
+  .lifeAt2__card--wide{
+    grid-column:span 2;
+  }
+  .lifeAt2__card--tall{
+    grid-row:span 2;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+
+  .lifeAt2__card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(135deg, rgba(98,90,216,.16), rgba(31,156,228,.04));
+    opacity:.28;
+    pointer-events:none;
+  }
+
+  .lifeAt2__cardInner{
+    position:relative;
+  }
+
+  .lifeAt2__icon{
+    width:40px;height:40px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    font-size:20px;
+    background:rgba(255,255,255,.95);
+    border:1px solid rgba(49,59,134,.16);
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    margin-bottom:10px;
+  }
+
+  .lifeAt2__cardTitle{
+    margin:0 0 6px;
+    font-size:15.5px;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .lifeAt2__cardText{
+    margin:0;
+    font-size:14.4px;
+    line-height:1.7;
+    color:#3C4160;
+  }
+
+  /* small footer line for tall card */
+  .lifeAt2__note{
+    margin-top:16px;
+    font-size:12.8px;
+    line-height:1.6;
+    color:#50556F;
+    font-weight:500;
+  }
+
+  @media (max-width:1024px){
+    .lifeAt2__grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+    .lifeAt2__card--wide{
+      grid-column:span 2;
+    }
+    .lifeAt2__card--tall{
+      grid-row:auto;
+    }
+  }
+
+  @media (max-width:720px){
+    .lifeAt2{padding:72px 16px 78px;}
+    .lifeAt2__grid{
+      grid-template-columns:1fr;
+    }
+    .lifeAt2__card--wide{
+      grid-column:auto;
+    }
+  }
+</style>
+
+<section class="lifeAt2" id="careers-life">
+  <div class="lifeAt2__inner">
+    <p class="lifeAt2__eyebrow">Life at [Your Firm Name]</p>
+    <h2 class="lifeAt2__title">A place to grow fast, do real work, and stay grounded.</h2>
+    <p class="lifeAt2__lead">
+      Life here is built around three things: meaningful client impact, deep learning, and teams
+      that genuinely have your back.
+    </p>
+
+    <div class="lifeAt2__tags">
+      <span class="lifeAt2__tag"><i></i>Purpose driven</span>
+      <span class="lifeAt2__tag"><i></i>High pace</span>
+      <span class="lifeAt2__tag"><i></i>Learning first</span>
+      <span class="lifeAt2__tag"><i></i>Global collaboration</span>
+      <span class="lifeAt2__tag"><i></i>Ownership</span>
+    </div>
+
+    <div class="lifeAt2__grid" aria-label="Life at [Your Firm Name] highlights">
+      <!-- Purpose -->
+      <article class="lifeAt2__card lifeAt2__card--wide">
+        <div class="lifeAt2__cardInner">
+          <div class="lifeAt2__icon">🎯</div>
+          <h3 class="lifeAt2__cardTitle">Purpose-driven culture</h3>
+          <p class="lifeAt2__cardText">
+            Everything we do is anchored in client success and meaningful impact. You’ll see the
+            effect of your work in real business outcomes, not just in slide decks.
+          </p>
+        </div>
+      </article>
+
+      <!-- Agility -->
+      <article class="lifeAt2__card">
+        <div class="lifeAt2__cardInner">
+          <div class="lifeAt2__icon">⚡</div>
+          <h3 class="lifeAt2__cardTitle">Agility in action</h3>
+          <p class="lifeAt2__cardText">
+            You’ll thrive in a fast-paced environment where change is treated as opportunity,
+            not obstacle — with teams that move quickly and decide clearly.
+          </p>
+        </div>
+      </article>
+
+      <!-- Learning & Growth (tall feature card) -->
+      <article class="lifeAt2__card lifeAt2__card--tall">
+        <div class="lifeAt2__cardInner">
+          <div class="lifeAt2__icon">📚</div>
+          <h3 class="lifeAt2__cardTitle">Learning &amp; growth built-in</h3>
+          <p class="lifeAt2__cardText">
+            Structured career paths, mentorship, and continuous development programs keep you
+            future-ready — from foundational consulting skills to advanced digital, Lean,
+            and leadership capabilities.
+          </p>
+        </div>
+        <p class="lifeAt2__note">
+          Think curated learning journeys, not random trainings — designed so every project stretches
+          you just enough.
+        </p>
+      </article>
+
+      <!-- Collaboration -->
+      <article class="lifeAt2__card">
+        <div class="lifeAt2__cardInner">
+          <div class="lifeAt2__icon">🌐</div>
+          <h3 class="lifeAt2__cardTitle">Collaboration beyond borders</h3>
+          <p class="lifeAt2__cardText">
+            Work with global talent pools, industry leaders, and ecosystem partners — across regions,
+            sectors, and disciplines.
+          </p>
+        </div>
+      </article>
+
+      <!-- Ownership -->
+      <article class="lifeAt2__card">
+        <div class="lifeAt2__cardInner">
+          <div class="lifeAt2__icon">🏁</div>
+          <h3 class="lifeAt2__cardTitle">Ownership from day one</h3>
+          <p class="lifeAt2__cardText">
+            We reward initiative, innovation, and accountability. You’ll get real responsibility
+            early, with the support to turn good ideas into visible outcomes.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAREERS — OUR VALUES IN ACTION ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.14);
+    --card:#ffffff;
+  }
+
+  .cv, .cv *{box-sizing:border-box;}
+
+  .cv{
+    padding:88px 20px 92px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 12% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 88% 100%, rgba(31,156,228,.10), transparent 55%),
+      rgba(247,249,255,1);
+  }
+
+  .cv__inner{
+    max-width:1200px;
+    margin:0 auto;
+    position:relative;
+  }
+
+  .cv__eyebrow{
+    margin:0 0 10px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+    text-align:center;
+  }
+
+  .cv__title{
+    margin:0 0 10px;
+    font-size:clamp(30px,3.2vw,40px);
+    line-height:1.15;
+    font-weight:950;
+    color:var(--navy);
+    text-align:center;
+  }
+
+  .cv__lead{
+    margin:0 auto 34px;
+    max-width:640px;
+    font-size:15px;
+    line-height:1.8;
+    color:var(--muted);
+    text-align:center;
+  }
+
+  .cv__grid{
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:18px;
+    align-items:stretch;
+  }
+
+  .cv__item{
+    background:var(--card);
+    border-radius:20px;
+    border:1px solid var(--line);
+    box-shadow:0 16px 40px rgba(0,0,0,.06);
+    padding:18px 16px 16px;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .cv__icon{
+    width:40px;
+    height:40px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    margin-bottom:10px;
+    font-size:20px;
+    background:#ffffff;
+    border:1px solid rgba(49,59,134,.16);
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+  }
+
+  .cv__label{
+    margin:0 0 4px;
+    font-size:14px;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .cv__text{
+    margin:0;
+    font-size:13.8px;
+    line-height:1.7;
+    color:#3C4160;
+  }
+
+  @media (max-width:1100px){
+    .cv__grid{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+  }
+
+  @media (max-width:768px){
+    .cv{padding:74px 16px 80px;}
+    .cv__grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+
+  @media (max-width:560px){
+    .cv__grid{
+      grid-template-columns:1fr;
+    }
+  }
+</style>
+
+<section class="cv" id="careers-values">
+  <div class="cv__inner">
+    <p class="cv__eyebrow">Our values in action</p>
+    <h2 class="cv__title">What we stand for when we show up to work.</h2>
+    <p class="cv__lead">
+      These are the principles that shape how we think, decide, and deliver — with clients,
+      with each other, and in the way we grow the firm.
+    </p>
+
+    <div class="cv__grid" aria-label="Core values at [Your Firm Name]">
+      <!-- Purpose -->
+      <article class="cv__item">
+        <div class="cv__icon">🎯</div>
+        <h3 class="cv__label">Purpose</h3>
+        <p class="cv__text">
+          Anchor every decision in long-term impact — for our clients, their stakeholders,
+          and the communities we serve.
+        </p>
+      </article>
+
+      <!-- Agility -->
+      <article class="cv__item">
+        <div class="cv__icon">⚡</div>
+        <h3 class="cv__label">Agility</h3>
+        <p class="cv__text">
+          Adapt fast, act smart. We test, learn, and move quickly without losing
+          discipline or clarity.
+        </p>
+      </article>
+
+      <!-- Collaboration -->
+      <article class="cv__item">
+        <div class="cv__icon">🤝</div>
+        <h3 class="cv__label">Collaboration</h3>
+        <p class="cv__text">
+          Harness collective intelligence — across teams, clients, and partners —
+          to solve problems that matter.
+        </p>
+      </article>
+
+      <!-- Trust -->
+      <article class="cv__item">
+        <div class="cv__icon">🔐</div>
+        <h3 class="cv__label">Trust</h3>
+        <p class="cv__text">
+          Deliver with integrity, transparency, and follow-through so people can rely
+          on what we say and do.
+        </p>
+      </article>
+
+      <!-- Excellence -->
+      <article class="cv__item">
+        <div class="cv__icon">⭐</div>
+        <h3 class="cv__label">Excellence</h3>
+        <p class="cv__text">
+          Always go the extra mile — in the quality of our thinking, our execution,
+          and the experience we create.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAREERS — CAREER PATHWAYS (WHITE, ICON PILLS + CARDS) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.14);
+    --card:#ffffff;
+    --soft:rgba(49,59,134,.04);
+    --max:1200px;
+  }
+
+  .cp, .cp *{box-sizing:border-box;}
+  .cp{
+    padding:90px 20px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#ffffff; /* ✅ alternate to white */
+    color:var(--ink);
+  }
+
+  .cp__inner{max-width:var(--max); margin:0 auto;}
+
+  .cp__top{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,.95fr);
+    gap:26px;
+    align-items:end;
+    margin-bottom:18px;
+  }
+
+  .cp__eyebrow{
+    margin:0 0 10px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .cp__title{
+    margin:0 0 10px;
+    font-size:clamp(30px,3.4vw,44px);
+    line-height:1.12;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .cp__lead{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.8;
+    color:var(--muted);
+    max-width:56ch;
+  }
+
+  .cp__meta{
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:rgba(255,255,255,.98);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    padding:16px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    justify-content:center;
+  }
+
+  .cp__pillRow{display:flex; flex-wrap:wrap; gap:10px;}
+  .cp__pill{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(49,59,134,.03);
+    color:var(--indigo);
+    font-weight:800;
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .cp__dot{
+    width:8px;height:8px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(31,156,228,.10);
+  }
+
+  /* cards */
+  .cp__grid{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
+    align-items:stretch;
+  }
+
+  .cp__card{
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:var(--card);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    padding:18px 18px 16px;
+    display:flex;
+    flex-direction:column;
+    min-height:148px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .cp__card::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.12), transparent 50%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.12), transparent 55%);
+    opacity:.55;
+    pointer-events:none;
+  }
+
+  .cp__cardInner{position:relative; display:flex; flex-direction:column; gap:8px; flex:1 1 auto;}
+
+  .cp__icon{
+    width:42px;height:42px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    font-size:20px;
+    background:#fff;
+    border:1px solid rgba(49,59,134,.16);
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+  }
+
+  .cp__h{
+    margin:0;
+    font-size:15.5px;
+    font-weight:950;
+    color:var(--navy);
+    line-height:1.25;
+  }
+
+  .cp__p{
+    margin:0;
+    font-size:14.2px;
+    line-height:1.7;
+    color:#3C4160;
+  }
+
+  .cp__tag{
+    margin-top:auto;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:7px 10px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.14);
+    background:rgba(255,255,255,.86);
+    color:#2E334D;
+    font-weight:800;
+    font-size:11.5px;
+    width:max-content;
+    max-width:100%;
+  }
+  .cp__tag i{
+    width:7px;height:7px;border-radius:999px;
+    background:rgba(31,156,228,.35);
+    outline:3px solid rgba(31,156,228,.10);
+    display:inline-block;
+  }
+
+  @media(max-width:980px){
+    .cp{padding:74px 16px;}
+    .cp__top{grid-template-columns:1fr; align-items:start; gap:16px;}
+    .cp__grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media(max-width:620px){
+    .cp__grid{grid-template-columns:1fr;}
+  }
+</style>
+
+<section class="cp" id="careers-pathways">
+  <div class="cp__inner">
+
+    <div class="cp__top">
+      <div>
+        <p class="cp__eyebrow">Career pathways</p>
+        <h2 class="cp__title">Where you can grow with us</h2>
+        <p class="cp__lead">
+          We’re always looking for problem-solvers, innovators, and leaders who want to build
+          real capability — and deliver outcomes that last.
+        </p>
+      </div>
+
+      <aside class="cp__meta" aria-label="Career pathways themes">
+        <div class="cp__pillRow">
+          <span class="cp__pill"><span class="cp__dot"></span>Impact</span>
+          <span class="cp__pill"><span class="cp__dot"></span>Learning</span>
+          <span class="cp__pill"><span class="cp__dot"></span>Ownership</span>
+          <span class="cp__pill"><span class="cp__dot"></span>Client-side</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="cp__grid" aria-label="Career pathways list">
+      <article class="cp__card">
+        <div class="cp__cardInner">
+          <div class="cp__icon">📈</div>
+          <h3 class="cp__h">Growth &amp; Strategy Consulting</h3>
+          <p class="cp__p">Shape strategic direction, operating models, and execution roadmaps with measurable outcomes.</p>
+          <span class="cp__tag"><i></i>Strategy • TOM • Governance</span>
+        </div>
+      </article>
+
+      <article class="cp__card">
+        <div class="cp__cardInner">
+          <div class="cp__icon">🤖</div>
+          <h3 class="cp__h">Tech-Enabled Transformation</h3>
+          <p class="cp__p">Enable digital transformation through data, automation, AI, and modern platforms — grounded in execution.</p>
+          <span class="cp__tag"><i></i>Digital • Analytics • AI</span>
+        </div>
+      </article>
+
+      <article class="cp__card">
+        <div class="cp__cardInner">
+          <div class="cp__icon">🌿</div>
+          <h3 class="cp__h">ESG &amp; Sustainability</h3>
+          <p class="cp__p">Build resilient, responsible organisations through ESG strategy, reporting, and sustainability programs.</p>
+          <span class="cp__tag"><i></i>ESG • Reporting • Value</span>
+        </div>
+      </article>
+
+      <article class="cp__card">
+        <div class="cp__cardInner">
+          <div class="cp__icon">⚙️</div>
+          <h3 class="cp__h">Operational Excellence</h3>
+          <p class="cp__p">Drive productivity, quality, and speed using Lean, continuous improvement, and Industry 4.0 thinking.</p>
+          <span class="cp__tag"><i></i>Lean • CI • Performance</span>
+        </div>
+      </article>
+
+      <article class="cp__card">
+        <div class="cp__cardInner">
+          <div class="cp__icon">🧩</div>
+          <h3 class="cp__h">Business Process Advisory</h3>
+          <p class="cp__p">Design better processes, shared services, and governance — building systems that scale.</p>
+          <span class="cp__tag"><i></i>Shared Services • BPM • KPIs</span>
+        </div>
+      </article>
+
+      <article class="cp__card">
+        <div class="cp__cardInner">
+          <div class="cp__icon">🧭</div>
+          <h3 class="cp__h">Open Roles Across Functions</h3>
+          <p class="cp__p">We also hire across research, delivery, program management, and capability building.</p>
+          <span class="cp__tag"><i></i>PMO • Delivery • Enablement</span>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== CAREERS — FINAL CTA (YOUR JOURNEY WITH US) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+  }
+
+  .cj, .cj *{box-sizing:border-box;}
+
+  .cj{
+    padding:88px 20px 96px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.26), transparent 60%),
+      radial-gradient(circle at 100% 0%, rgba(31,156,228,.26), transparent 60%),
+      radial-gradient(circle at 50% 100%, rgba(2,12,79,.40), transparent 65%),
+      #020C4F;
+    color:#fff;
+  }
+
+  .cj__inner{
+    max-width:880px;
+    margin:0 auto;
+  }
+
+  .cj__card{
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,.25);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(255,255,255,.16), transparent 60%),
+      rgba(5,16,92,.9);
+    box-shadow:0 26px 68px rgba(0,0,0,.45);
+    padding:32px 26px 30px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .cj__card::before{
+    content:"";
+    position:absolute;
+    inset:-40%;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(255,255,255,.16), transparent 55%),
+      radial-gradient(circle at 85% 100%, rgba(98,90,216,.22), transparent 55%);
+    opacity:.9;
+    mix-blend-mode:screen;
+    pointer-events:none;
+  }
+
+  .cj__content{
+    position:relative;
+    z-index:1;
+  }
+
+  .cj__eyebrow{
+    margin:0 0 12px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.78);
+    font-weight:900;
+  }
+
+  .cj__title{
+    margin:0 0 10px;
+    font-size:clamp(28px,3.4vw,40px);
+    line-height:1.18;
+    font-weight:950;
+  }
+
+  .cj__lead{
+    margin:0 0 18px;
+    font-size:15.5px;
+    line-height:1.8;
+    color:rgba(235,239,255,.92);
+  }
+
+  .cj__subTitle{
+    margin:8px 0 18px;
+    font-size:17px;
+    font-weight:800;
+    color:#fff;
+  }
+
+  .cj__ctaRow{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    margin-top:6px;
+  }
+
+  .cj__btn{
+    height:46px;
+    padding:0 22px;
+    border-radius:999px;
+    border:1px solid transparent;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-size:14px;
+    font-weight:800;
+    text-decoration:none;
+    cursor:pointer;
+    transition:.18s ease;
+    white-space:nowrap;
+  }
+
+  .cj__btn--primary{
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    border-color:rgba(255,255,255,.05);
+    color:#fff;
+    box-shadow:0 14px 32px rgba(10,32,110,.55);
+  }
+  .cj__btn--primary:hover{
+    transform:translateY(-1px);
+    box-shadow:0 18px 40px rgba(10,32,110,.7);
+  }
+
+  .cj__btn--ghost{
+    background:rgba(3,12,60,.4);
+    border-color:rgba(255,255,255,.32);
+    color:#F3F4FF;
+  }
+  .cj__btn--ghost:hover{
+    background:rgba(8,22,90,.8);
+    transform:translateY(-1px);
+  }
+
+  .cj__hint{
+    margin-top:10px;
+    font-size:12.5px;
+    color:rgba(225,230,255,.85);
+  }
+
+  @media(max-width:640px){
+    .cj{padding:72px 16px 80px;}
+    .cj__card{padding:26px 18px 24px;}
+  }
+</style>
+
+<section class="cj" id="careers-final-cta" aria-label="Your journey with us">
+  <div class="cj__inner">
+    <div class="cj__card">
+      <div class="cj__content">
+        <p class="cj__eyebrow">Your journey with us</p>
+        <h2 class="cj__title">From day one, you’re part of the real work.</h2>
+        <p class="cj__lead">
+          From Day&nbsp;1, you’ll be on live projects, mentored by global experts, and equipped
+          with tools that connect strategy to execution — so you see the impact of your work
+          in real outcomes, not just presentations.
+        </p>
+
+        <p class="cj__subTitle">Ready to create something extraordinary?</p>
+        <p class="cj__lead" style="margin-bottom:14px;">
+          Join us to transform strategy into results that last.
+        </p>
+
+        <div class="cj__ctaRow">
+          <a class="cj__btn cj__btn--primary" href="#careers-apply">Apply now →</a>
+          <a class="cj__btn cj__btn--ghost" href="#careers-pathways">View role pathways</a>
+        </div>
+
+        <p class="cj__hint">No perfect CV? If you’re curious, driven, and collaborative, we still want to hear from you.</p>
+      </div>
+    </div>
+  </div>
+</section>

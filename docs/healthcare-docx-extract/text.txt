@@ -1,0 +1,1659 @@
+<!-- ===================== HEALTHCARE — SECTION SUB NAV (STICKY TABS) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --tabText:#6B7280;
+    --tabActive: var(--indigo);
+    --line:#E6E8EF;
+    --bg:#ffffff;
+
+    /* ✅ Height of this subnav (kept as a variable for scroll offset) */
+    --secTabsH: 58px;
+  }
+
+  .hcTabs, .hcTabs *{box-sizing:border-box;}
+
+  /* ✅ Sticky subnav only (main header can stay non-sticky) */
+  .hcTabs{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    isolation:isolate;
+  }
+
+  .hcTabs__inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+    height:var(--secTabsH);
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .hcTabs__label{
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#111;
+    font-size:12px;
+    padding-right:14px;
+    border-right:1px solid var(--line);
+    margin-right:2px;
+    white-space:nowrap;
+  }
+
+  .hcTabs__list{
+    display:flex;
+    align-items:center;
+    gap:0;
+    flex-wrap:nowrap;
+    overflow:auto;
+    scrollbar-width:none;
+  }
+  .hcTabs__list::-webkit-scrollbar{display:none;}
+
+  .hcTabs__link{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    height:var(--secTabsH);
+    padding:0 18px;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:12px;
+    font-weight:800;
+    color:var(--tabText);
+    white-space:nowrap;
+  }
+
+  /* vertical separators */
+  .hcTabs__link + .hcTabs__link{
+    border-left:1px solid var(--line);
+  }
+
+  /* active underline */
+  .hcTabs__link.is-active{
+    color:var(--tabActive);
+  }
+  .hcTabs__link.is-active::after{
+    content:"";
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:0;
+    height:3px;
+    background:var(--tabActive);
+    border-radius:999px;
+  }
+
+  .hcTabs__link:hover{ color:#111; }
+
+  /* ✅ Optional: make the section itself "reserve space" so anchor jumps never hide behind sticky tabs */
+  /* Add this class to each target section wrapper if you want:
+     <section id="..." class="hcAnchorFix"> ... */
+  .hcAnchorFix{ scroll-margin-top: calc(var(--secTabsH) + 14px); }
+
+  @media(max-width:980px){
+    .hcTabs__inner{padding:0 14px;}
+    .hcTabs__label{display:none;}
+    .hcTabs__link{padding:0 14px;}
+  }
+</style>
+
+<nav class="hcTabs" aria-label="Healthcare page navigation">
+  <div class="hcTabs__inner">
+    <div class="hcTabs__label">HEALTHCARE</div>
+
+    <div class="hcTabs__list">
+      <!-- ✅ Update IDs to match your section IDs -->
+      <a class="hcTabs__link is-active" href="#hc-hero">Overview</a>
+      <a class="hcTabs__link" href="#hc-context">Context</a>
+      <a class="hcTabs__link" href="#healthcare-challenges">Key Challenges</a>
+      <a class="hcTabs__link" href="#hc-how-we-help">How We Help</a>
+      <a class="hcTabs__link" href="#why-healthcare-us">Why Us</a>
+
+    </div>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const nav = document.querySelector('.hcTabs');
+  if(!nav) return;
+
+  const links = Array.from(nav.querySelectorAll('.hcTabs__link'));
+  const getOffset = () => {
+    const h = nav.getBoundingClientRect().height || 58;
+    return h + 12; // ✅ small breathing space so title is visible
+  };
+
+  // Smooth scroll with correct offset so sections are NOT hidden under sticky tabs
+  links.forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const href = a.getAttribute('href');
+      if(!href || !href.startsWith('#')) return;
+
+      const el = document.querySelector(href);
+      if(!el) return;
+
+      e.preventDefault();
+      const y = el.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      window.scrollTo({ top:y, behavior:'smooth' });
+      history.replaceState(null, '', href);
+    });
+  });
+
+  // Active state on scroll
+  const targets = links
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  const setActive = (id) => {
+    links.forEach(a=>{
+      a.classList.toggle('is-active', a.getAttribute('href') === '#'+id);
+    });
+  };
+
+  const isElementor =
+    document.body.classList.contains('elementor-editor-active') ||
+    document.body.classList.contains('elementor-editor-preview') ||
+    !!document.querySelector('#elementor-editor-wrapper');
+
+  if(isElementor) return;
+  if(!('IntersectionObserver' in window)) return;
+
+  const io = new IntersectionObserver((entries)=>{
+    // pick the entry closest to top that is visible
+    const visible = entries
+      .filter(e=>e.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+
+    if(visible && visible.target && visible.target.id){
+      setActive(visible.target.id);
+    }
+  }, { root:null, threshold:[0.2,0.35,0.5,0.65] });
+
+  targets.forEach(t=>{
+    if(t.id) io.observe(t);
+  });
+})();
+</script>
+
+<!-- ===================== HEALTHCARE — HERO + INTRO (WHITE then PREMIUM BG) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    /* ✅ ONLY the 4 agreed brand colours */
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    /* neutrals */
+    --ink:#0B0F1A;
+    --muted:#3C4160;
+    --line:rgba(49,59,134,.16);
+    --white:#ffffff;
+  }
+
+  .hc-hero, .hc-hero *{box-sizing:border-box;}
+  .hc-hero{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:var(--white); /* ✅ start with white */
+    padding:86px 20px 34px;
+  }
+
+  .hc-hero__inner{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+    gap:44px;
+    align-items:center;
+  }
+
+  .hc-hero__kicker{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:700;
+    margin:0 0 12px;
+  }
+
+  .hc-hero__title{
+    margin:0 0 14px;
+    font-size:clamp(34px,4.2vw,56px);
+    line-height:1.08;
+    font-weight:800;
+    color:var(--navy);
+  }
+
+  .hc-hero__subtitle{
+    margin:0 0 14px;
+    font-size:clamp(16px,2vw,20px);
+    line-height:1.55;
+    font-weight:600;
+    color:var(--indigo);
+    max-width:860px;
+  }
+
+  .hc-hero__p{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.75;
+    color:var(--muted);
+    max-width:900px;
+  }
+  .hc-hero__p + .hc-hero__p{ margin-top:14px; }
+
+  /* Right visual (VIDEO) */
+  .hc-hero__visual{
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:#fff;
+    overflow:hidden;
+    min-height:320px;
+    position:relative;
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+  }
+
+  .hc-hero__video{
+    width:100%;
+    height:100%;
+    min-height:320px;
+    display:block;
+    object-fit:cover; /* ✅ fills the frame */
+    background:#0b0f1a;
+  }
+
+  /* subtle overlay to keep it premium */
+  .hc-hero__visual::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(98,90,216,.18), transparent 55%),
+      radial-gradient(circle at 90% 20%, rgba(31,156,228,.14), transparent 55%),
+      linear-gradient(180deg, rgba(2,12,79,.10), rgba(2,12,79,0));
+    opacity:.55;
+    mix-blend-mode:multiply;
+  }
+
+  /* small badge (optional) */
+  .hc-hero__badge{
+    position:absolute;
+    left:18px;
+    top:18px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.18);
+    background:rgba(255,255,255,.74);
+    backdrop-filter:blur(8px);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:700;
+    z-index:2;
+  }
+  .hc-hero__dot{
+    width:10px;height:10px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(98,90,216,.12);
+  }
+
+  /* PREMIUM BACKGROUND INTRO STRIP */
+  .hc-intro, .hc-intro *{box-sizing:border-box;}
+  .hc-intro{
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    padding:28px 20px 86px;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(98,90,216,.08), transparent 55%),
+      radial-gradient(circle at 95% 30%, rgba(49,59,134,.08), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+      rgba(49,59,134,.03);
+  }
+  .hc-intro__inner{
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  .hc-intro__card{
+    border:1px solid rgba(49,59,134,.16);
+    border-radius:22px;
+    background:rgba(255,255,255,.90);
+    backdrop-filter:blur(10px);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    padding:22px 22px;
+  }
+
+  .hc-intro__text{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.75;
+    color:var(--muted);
+    max-width:1050px;
+  }
+
+  @media (max-width:980px){
+    .hc-hero{ padding:74px 18px 24px; }
+    .hc-hero__inner{ grid-template-columns:1fr; gap:22px; }
+    .hc-hero__visual{ min-height:240px; }
+    .hc-hero__video{ min-height:240px; }
+    .hc-intro{ padding:18px 18px 74px; }
+  }
+</style>
+
+<!-- WHITE HERO -->
+<section class="hc-hero" id="hc-hero">
+  <div class="hc-hero__inner">
+
+    <!-- LEFT CONTENT (your content) -->
+    <div>
+      <div class="hc-hero__kicker">Healthcare Sector – Industry Solutions &amp; Transformation Services</div>
+
+      <h1 class="hc-hero__title">Transforming Healthcare Enterprises for Quality, Access, and Sustainable Performance</h1>
+
+      <p class="hc-hero__p">
+        The Healthcare sector is under unprecedented pressure—rising demand, constrained capacity, increasing cost of care, workforce shortages, regulatory complexity, and rapidly evolving patient expectations.
+        At the same time, healthcare organisations are expected to deliver better outcomes, safer care, and greater access, often with limited resources and growing scrutiny.
+      </p>
+    </div>
+
+    <!-- RIGHT VISUAL (VIDEO) -->
+    <div class="hc-hero__visual">
+      <div class="hc-hero__badge"><span class="hc-hero__dot" aria-hidden="true"></span> Healthcare Transformation</div>
+
+      <!-- ✅ CHANGE VIDEO URL HERE -->
+      <video class="hc-hero__video"
+             autoplay
+             muted
+             loop
+             playsinline
+             controls
+             poster="https://mediumpurple-ant-531485.hostingersite.com/wp-content/uploads/2025/12/marc-olivier-jodoin-K9GMQEETUAw-unsplash-scaled.jpg">
+        <!-- Replace this with your video file URL later -->
+        <source src="YOUR-VIDEO-URL.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+</section>
+
+
+</section>
+
+<!-- ===================== HEALTHCARE — KEY CHALLENGES (DESKTOP: LIST + DETAIL | MOBILE: CARD ACCORDION) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+  :root{
+    --navy:#020C4F;
+    --indigo:#313B86;
+    --violet:#625AD8;
+    --accent:#1F9CE4;
+
+    --ink:#0B0F1A;
+    --muted:#4B5168;
+    --line:rgba(49,59,134,.16);
+    --card:#fff;
+  }
+
+  .hcK, .hcK *{ box-sizing:border-box; }
+
+  .hcK{
+    position:relative;
+    padding:92px 20px;
+    font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(98,90,216,.10), transparent 55%),
+      radial-gradient(circle at 95% 30%, rgba(49,59,134,.10), transparent 55%),
+      radial-gradient(circle at 70% 110%, rgba(2,12,79,.08), transparent 60%),
+      rgba(49,59,134,.03);
+  }
+
+  .hcK__inner{ max-width:1200px; margin:0 auto; position:relative; }
+
+  .hcK__top{
+    display:grid;
+    grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+    gap:32px;
+    align-items:start;
+    margin-bottom:22px;
+  }
+
+  .hcK__eyebrow{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+    margin:0 0 10px;
+  }
+
+  .hcK__title{
+    margin:0;
+    font-size:clamp(38px,4.4vw,56px);
+    line-height:1.05;
+    font-weight:900;
+    color:var(--navy);
+  }
+
+  .hcK__intro{
+    margin:22px 0 0;
+    font-size:15.5px;
+    line-height:1.75;
+    color:#3C4160;
+    max-width:720px;
+  }
+
+  .hcK__grid{
+    display:grid;
+    grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+    gap:26px;
+    align-items:stretch;
+    margin-top:18px;
+  }
+
+  /* LEFT RAIL (desktop/tablet) */
+  .hcK__rail{
+    border:1px solid rgba(49,59,134,.18);
+    border-radius:22px;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(10px);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+    min-width:0;
+  }
+
+  .hcK__railTop{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding:16px 16px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+  }
+
+  .hcK__railLabel{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:900;
+  }
+
+  .hcK__railPill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:32px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.85);
+    font-size:12px;
+    font-weight:800;
+    color:var(--indigo);
+    white-space:nowrap;
+  }
+  .hcK__railPillDot{
+    width:10px;height:10px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    box-shadow:0 0 0 5px rgba(31,156,228,.10);
+  }
+
+  .hcK__item{
+    width:100%;
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:12px;
+    align-items:center;
+    padding:14px 16px;
+    background:transparent;
+    border:0;
+    border-top:1px solid rgba(49,59,134,.10);
+    cursor:pointer;
+    text-align:left;
+    transition:background .18s ease;
+    min-width:0;
+  }
+  .hcK__item:first-of-type{ border-top:0; }
+  .hcK__item:hover{ background:rgba(49,59,134,.03); }
+
+  .hcK__icon{
+    width:40px;height:40px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:rgba(49,59,134,.05);
+    border:1px solid rgba(49,59,134,.14);
+    font-size:16px;
+  }
+
+  .hcK__itemTitle{
+    margin:0;
+    font-size:14.5px;
+    font-weight:900;
+    color:var(--navy);
+    line-height:1.25;
+  }
+
+  /* ✅ 2-line preview enforced */
+  .hcK__itemPreview{
+    margin:4px 0 0;
+    font-size:13px;
+    line-height:1.5;
+    color:#5B6282;
+
+    display:-webkit-box !important;
+    -webkit-box-orient:vertical !important;
+    -webkit-line-clamp:2 !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere;
+    min-width:0;
+    max-width:100%;
+  }
+
+  /* Accordion content hidden by default (desktop/tablet) */
+  .hcK__acc{ display:none; }
+
+  .hcK__item[aria-selected="true"]{
+    background:rgba(31,156,228,.06);
+    position:relative;
+  }
+  .hcK__item[aria-selected="true"]::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:4px;
+    background:linear-gradient(180deg,var(--accent),var(--violet));
+  }
+  .hcK__item[aria-selected="true"] .hcK__icon{
+    border-color:rgba(31,156,228,.28);
+    background:rgba(31,156,228,.08);
+  }
+
+  /* RIGHT PANEL (desktop/tablet) */
+  .hcK__panel{
+    border:1px solid rgba(49,59,134,.18);
+    border-radius:22px;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:blur(10px);
+    box-shadow:0 18px 44px rgba(0,0,0,.06);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    min-height:520px;
+  }
+
+  .hcK__panelHead{
+    padding:16px 18px 14px;
+    border-bottom:1px solid rgba(49,59,134,.12);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(98,90,216,.10), transparent 60%),
+      rgba(255,255,255,.85);
+  }
+
+  .hcK__panelKicker{
+    margin:0 0 6px;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    font-weight:900;
+  }
+
+  .hcK__panelTitle{
+    margin:0;
+    font-size:22px;
+    line-height:1.25;
+    font-weight:950;
+    color:var(--navy);
+  }
+
+  .hcK__panelBody{ padding:18px; flex:1 1 auto; }
+
+  .hcK__bullets{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:12px;
+  }
+
+  .hcK__bullets li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:14.5px;
+    line-height:1.65;
+    color:#2E334D;
+  }
+
+  .hcK__dot{
+    width:10px;height:10px;border-radius:999px;
+    margin-top:7px;
+    flex:0 0 auto;
+    background:rgba(31,156,228,.22);
+    outline:3px solid rgba(31,156,228,.10);
+  }
+
+  .hcK__panelFooter{
+    padding:14px 16px;
+    border-top:1px solid rgba(49,59,134,.12);
+    background:rgba(255,255,255,.75);
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .hcK__chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+    border:1px solid rgba(49,59,134,.16);
+    background:rgba(255,255,255,.9);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:800;
+  }
+  .hcK__chip i{
+    width:7px;height:7px;border-radius:999px;
+    background:linear-gradient(135deg,var(--violet),var(--accent));
+    display:inline-block;
+  }
+
+  .hcK__fade{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity .18s ease, transform .18s ease;
+  }
+  .hcK__fade.is-switching{
+    opacity:0;
+    transform:translateY(6px);
+  }
+
+  @media (max-width:1024px){
+    .hcK{ padding:78px 18px; }
+    .hcK__top{ grid-template-columns:1fr; gap:14px; }
+    .hcK__intro{ margin-top:0; }
+    .hcK__grid{ grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:18px; }
+    .hcK__panel{ min-height:unset; }
+  }
+
+  /* ===================== MOBILE: convert to nice stacked card accordion ===================== */
+  @media (max-width:820px){
+    .hcK{ padding:70px 16px; }
+    .hcK__title{ font-size:clamp(30px,9vw,40px); }
+    .hcK__intro{ font-size:14.8px; margin-top:10px; }
+
+    .hcK__grid{ grid-template-columns:1fr; }
+
+    /* Hide the right panel on mobile */
+    .hcK__panel{ display:none !important; }
+
+    /* Remove the big “rail frame” on mobile */
+    .hcK__rail{
+      border:none;
+      background:transparent;
+      backdrop-filter:none;
+      box-shadow:none;
+      overflow:visible;            /* ✅ important */
+    }
+
+    /* Keep a small header pill bar */
+    .hcK__railTop{
+      padding:14px 14px;
+      border:1px solid rgba(49,59,134,.16);
+      border-radius:18px;
+      background:rgba(255,255,255,.86);
+      box-shadow:0 10px 26px rgba(0,0,0,.06);
+      margin-bottom:12px;
+    }
+
+    /* Each item becomes its own card */
+    .hcK__item{
+      border:1px solid rgba(49,59,134,.14);
+      border-radius:18px;
+      background:rgba(255,255,255,.86);
+      box-shadow:0 12px 28px rgba(0,0,0,.06);
+      margin:0 0 12px;
+      padding:14px 14px;
+      grid-template-columns:42px 1fr;
+      align-items:start;
+    }
+    .hcK__item:first-of-type{ border-top:1px solid rgba(49,59,134,.14); }
+
+    .hcK__icon{ width:38px;height:38px; border-radius:14px; margin-top:2px; }
+
+    /* Accordion body: clean and roomy */
+    .hcK__acc{
+      grid-column:1 / -1;
+      margin:10px 0 2px;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(49,59,134,.12);
+      background:rgba(49,59,134,.03);
+      display:none;
+    }
+    .hcK__item[aria-expanded="true"] .hcK__acc{ display:block; }
+
+    .hcK__accBullets{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .hcK__accBullets li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      font-size:14px;
+      line-height:1.65;
+      color:#2E334D;
+    }
+
+    .hcK__accChips{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    /* Chips smaller on mobile */
+    .hcK__chip{ height:32px; font-size:12px; padding:0 11px; }
+  }
+  
+  /* ===================== FORCE MOBILE LAYOUT VIA CLASS (works in Elementor preview too) ===================== */
+.hcK.is-mobile{
+  padding:70px 16px !important;
+}
+
+.hcK.is-mobile .hcK__grid{
+  grid-template-columns:1fr !important;
+}
+
+.hcK.is-mobile .hcK__panel{
+  display:none !important;
+}
+
+/* remove the “big framed rail” */
+.hcK.is-mobile .hcK__rail{
+  border:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  overflow:visible !important;
+}
+
+/* keep header as a small bar */
+.hcK.is-mobile .hcK__railTop{
+  padding:14px 14px !important;
+  border:1px solid rgba(49,59,134,.14) !important;
+  border-radius:16px !important;
+  background:#fff !important;
+  box-shadow:0 10px 24px rgba(0,0,0,.06) !important;
+  margin-bottom:12px !important;
+}
+
+/* each item is a separate card */
+.hcK.is-mobile .hcK__item{
+  border:1px solid rgba(49,59,134,.12) !important;
+  border-radius:16px !important;
+  background:#fff !important;
+  box-shadow:0 12px 26px rgba(0,0,0,.06) !important;
+  margin:0 0 12px !important;
+  padding:14px 14px !important;
+  grid-template-columns:42px 1fr !important;
+  align-items:start !important;
+}
+
+/* ✅ kill the desktop selected left bar on mobile */
+.hcK.is-mobile .hcK__item[aria-selected="true"]::before{
+  display:none !important;
+}
+
+/* ✅ no huge blue “selected” wash */
+.hcK.is-mobile .hcK__item[aria-selected="true"]{
+  background:#fff !important;
+}
+
+/* accordion area: simple + readable (no big tinted slab) */
+.hcK.is-mobile .hcK__acc{
+  display:none;
+  grid-column:1 / -1;
+  margin:10px 0 0;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(49,59,134,.10);
+  background:rgba(49,59,134,.02);
+}
+
+.hcK.is-mobile .hcK__item[aria-expanded="true"] .hcK__acc{
+  display:block !important;
+}
+
+/* chips wrap nicely */
+.hcK.is-mobile .hcK__chip{
+  height:32px !important;
+  font-size:12px !important;
+  padding:0 11px !important;
+}
+
+/* hard override to prevent desktop selected styling on mobile */
+.hcK.is-mobile .hcK__item[aria-selected="true"]{
+  background:#fff !important;
+}
+.hcK.is-mobile .hcK__item[aria-selected="true"]::before{
+  display:none !important;
+}
+
+
+/* ✅ MOBILE OVERFLOW FIX: force bullet text to wrap inside the accordion card */
+@media (max-width:820px){
+
+  /* ensure the accordion box itself never lets content spill */
+  .hcK__acc{
+    overflow:hidden !important;
+  }
+
+  /* allow flex children to shrink */
+  .hcK__accBullets li{
+    min-width:0 !important;
+  }
+
+  /* THIS is the key: the text span must be allowed to shrink + wrap */
+  .hcK__accBullets li span:last-child{
+    min-width:0 !important;
+    max-width:100% !important;
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+    white-space:normal !important;
+  }
+
+  /* also protect the preview line if any long word appears */
+  .hcK__itemPreview{
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+  }
+}
+
+/* ✅ HARD FIX: bullet text wrapping on mobile (prevents right-side clipping) */
+@media (max-width: 820px){
+
+  /* protect the card itself */
+  .hcK__item,
+  .hcK__acc,
+  .hcK__accBullets{
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* bullet row must be allowed to wrap */
+  .hcK__accBullets li{
+    display:flex !important;
+    align-items:flex-start !important;
+    gap:10px !important;
+    flex-wrap:wrap !important;      /* ✅ key */
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+
+  /* dot stays fixed */
+  .hcK__accBullets li .hcK__dot{
+    flex:0 0 auto !important;
+  }
+
+  /* text must become the flexible column */
+  .hcK__accBullets li span:last-child{
+    flex: 1 1 0% !important;        /* ✅ key */
+    min-width:0 !important;
+    max-width:100% !important;
+    display:block !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+  }
+}
+
+/* ✅ CRITICAL: force wrapping inside the button (Elementor/theme often sets button nowrap) */
+.hcK__item{
+  white-space: normal !important;
+}
+
+/* ✅ allow the text column to shrink & wrap (grid child must have min-width:0) */
+.hcK__item > div:nth-child(2){
+  min-width: 0 !important;
+}
+
+/* ✅ titles + preview must wrap (not clip) */
+.hcK__itemTitle,
+.hcK__itemPreview{
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  max-width: 100% !important;
+}
+
+/* ✅ extra safety on mobile */
+@media (max-width: 820px){
+  .hcK__rail{ overflow: visible !important; } /* prevent rail clipping on small screens */
+  .hcK__item{ max-width: 100% !important; }
+}
+
+
+</style>
+
+
+
+<section class="hcK" id="healthcare-challenges">
+  <div class="hcK__inner">
+
+    <div class="hcK__top">
+      <div>
+        <p class="hcK__eyebrow">Healthcare Sector</p>
+        <h2 class="hcK__title">Key Challenges</h2>
+      </div>
+
+      <p class="hcK__intro">
+        Healthcare organisations are expected to deliver better outcomes, safer care, and greater access—often with
+        limited resources and growing scrutiny. Here are the critical pressure points we help solve.
+      </p>
+    </div>
+
+    <div class="hcK__grid">
+
+      <div class="hcK__rail" role="tablist" aria-label="Healthcare challenges list">
+        <div class="hcK__railTop">
+          <div class="hcK__railLabel">Challenges</div>
+          <div class="hcK__railPill"><span class="hcK__railPillDot" aria-hidden="true"></span>Executive view</div>
+        </div>
+
+        <button class="hcK__item" role="tab" aria-selected="true" aria-expanded="false" data-key="c1">
+          <div class="hcK__icon">🏥</div>
+          <div>
+            <p class="hcK__itemTitle">Access, Growth &amp; Demand Pressure</p>
+            <p class="hcK__itemPreview">Rapidly growing demand, capacity constraints, uneven access to quality care, and limited service visibility.</p>
+          </div>
+          <div class="hcK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="hcK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c2">
+          <div class="hcK__icon">⏱️</div>
+          <div>
+            <p class="hcK__itemTitle">Operational Inefficiencies &amp; Cost Pressures</p>
+            <p class="hcK__itemPreview">Fragmented delivery, long wait times, heavy administrative burden, manual processes, and rising operating costs.</p>
+          </div>
+          <div class="hcK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="hcK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c3">
+          <div class="hcK__icon">🛡️</div>
+          <div>
+            <p class="hcK__itemTitle">Quality, Safety &amp; Outcome Variability</p>
+            <p class="hcK__itemPreview">Inconsistent outcomes, adverse events and readmissions, limited real-time indicators, and difficulty standardising pathways.</p>
+          </div>
+          <div class="hcK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="hcK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c4">
+          <div class="hcK__icon">👩‍⚕️</div>
+          <div>
+            <p class="hcK__itemTitle">Workforce &amp; Capability Challenges</p>
+            <p class="hcK__itemPreview">Shortages, burnout from workload and documentation, capability depth gaps, and resistance to operational change.</p>
+          </div>
+          <div class="hcK__acc" aria-hidden="true"></div>
+        </button>
+
+        <button class="hcK__item" role="tab" aria-selected="false" aria-expanded="false" data-key="c5">
+          <div class="hcK__icon">📊</div>
+          <div>
+            <p class="hcK__itemTitle">Digital, Data &amp; Technology Gaps</p>
+            <p class="hcK__itemPreview">Disconnected systems, underused data, slow automation and analytics adoption, and responsible scaling of AI initiatives.</p>
+          </div>
+          <div class="hcK__acc" aria-hidden="true"></div>
+        </button>
+      </div>
+
+      <!-- Desktop panel only -->
+      <aside class="hcK__panel" role="tabpanel" aria-live="polite">
+        <div class="hcK__fade" id="hcK-fade">
+          <div class="hcK__panelHead">
+            <p class="hcK__panelKicker">Challenge Focus</p>
+            <h3 class="hcK__panelTitle" id="hcK-title">Access, Growth &amp; Demand Pressure</h3>
+          </div>
+
+          <div class="hcK__panelBody">
+            <ul class="hcK__bullets" id="hcK-bullets"></ul>
+          </div>
+
+          <div class="hcK__panelFooter" id="hcK-chips"></div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const data = {
+    c1:{
+      title:"Access, Growth & Demand Pressure",
+      bullets:[
+        "Rapidly growing patient demand and ageing populations",
+        "Capacity constraints across hospitals, clinics, and diagnostics",
+        "Uneven access to quality care across regions",
+        "Limited visibility into service demand and growth opportunities"
+      ],
+      chips:["Capacity planning","Access expansion","Demand visibility"]
+    },
+    c2:{
+      title:"Operational Inefficiencies & Cost Pressures",
+      bullets:[
+        "Fragmented care delivery across departments and facilities",
+        "Long patient wait times and inefficient patient flow",
+        "High administrative burden and manual processes",
+        "Rising operating costs with pressure on margins"
+      ],
+      chips:["Patient flow","Cost control","Admin simplification"]
+    },
+    c3:{
+      title:"Quality, Safety & Outcome Variability",
+      bullets:[
+        "Inconsistent clinical processes and outcomes",
+        "High cost of adverse events, rework, and readmissions",
+        "Limited real-time visibility into quality and safety indicators",
+        "Challenges in standardising care pathways"
+      ],
+      chips:["Care pathways","Safety metrics","Outcome reliability"]
+    },
+    c4:{
+      title:"Workforce & Capability Challenges",
+      bullets:[
+        "Shortage of skilled clinicians and frontline staff",
+        "Burnout driven by workload, inefficiency, and documentation burden",
+        "Limited leadership and operational capability depth",
+        "Resistance to change across clinical and non-clinical teams"
+      ],
+      chips:["Workforce capacity","Burnout reduction","Change adoption"]
+    },
+    c5:{
+      title:"Digital, Data & Technology Gaps",
+      bullets:[
+        "Disconnected systems across clinical, administrative, and financial domains",
+        "Underutilisation of data for decision-making and population health",
+        "Slow adoption of automation and analytics",
+        "Challenges in scaling digital health and AI initiatives responsibly"
+      ],
+      chips:["Interoperability","Analytics","Responsible AI"]
+    }
+  };
+
+  const root = document.querySelector('#healthcare-challenges');
+  if(!root) return;
+  
+  function applyMobileClass(){
+  const mqMobile = window.matchMedia && window.matchMedia('(max-width: 820px)').matches;
+
+  // Elementor preview helpers (these classes appear in Elementor responsive modes)
+  const elMobile =
+    document.body.classList.contains('elementor-device-mobile') ||
+    document.body.classList.contains('e--ua-device-mobile');
+
+  const mobile = mqMobile || elMobile;
+
+  root.classList.toggle('is-mobile', mobile);
+  return mobile;
+}
+const isNowMobile = applyMobileClass();
+window.addEventListener('resize', applyMobileClass);
+
+
+  const tabs = Array.from(root.querySelectorAll('.hcK__item'));
+  const fade = root.querySelector('#hcK-fade');
+  const title = root.querySelector('#hcK-title');
+  const bullets = root.querySelector('#hcK-bullets');
+  const chips = root.querySelector('#hcK-chips');
+
+  function isMobile(){
+    return window.matchMedia && window.matchMedia('(max-width: 820px)').matches;
+  }
+
+  function renderDesktop(key){
+    const d = data[key];
+    if(!d || !fade) return;
+
+    fade.classList.add('is-switching');
+    setTimeout(()=>{
+      title.textContent = d.title;
+
+      bullets.innerHTML = d.bullets.map(x =>
+        `<li><span class="hcK__dot"></span><span>${x}</span></li>`
+      ).join('');
+
+      chips.innerHTML = d.chips.map(x =>
+        `<span class="hcK__chip"><i></i>${x}</span>`
+      ).join('');
+
+      fade.classList.remove('is-switching');
+    }, 160);
+  }
+
+  function renderAccordionItem(btn){
+    const key = btn.dataset.key;
+    const d = data[key];
+    if(!d) return;
+
+    const acc = btn.querySelector('.hcK__acc');
+    if(!acc) return;
+
+    acc.innerHTML = `
+      <ul class="hcK__accBullets">
+        ${d.bullets.map(x => `<li><span class="hcK__dot"></span><span>${x}</span></li>`).join('')}
+      </ul>
+      <div class="hcK__accChips">
+        ${d.chips.map(x => `<span class="hcK__chip"><i></i>${x}</span>`).join('')}
+      </div>
+    `;
+  }
+
+  tabs.forEach(btn => renderAccordionItem(btn));
+
+  function setActive(btn){
+    tabs.forEach(x=>{
+      x.setAttribute('aria-selected','false');
+      x.setAttribute('aria-expanded','false');
+    });
+    btn.setAttribute('aria-selected','true');
+
+    if(isMobile()){
+      btn.setAttribute('aria-expanded','true');
+    }else{
+      btn.setAttribute('aria-expanded','false');
+      renderDesktop(btn.dataset.key);
+    }
+  }
+
+  // Desktop starts with first selected
+  renderDesktop('c1');
+
+  // Mobile: open the first card by default (so it doesn't look broken)
+if(isMobile() || root.classList.contains('is-mobile')){
+  tabs.forEach(x=>{
+    x.setAttribute('aria-selected','false');
+    x.setAttribute('aria-expanded','false');
+  });
+  tabs[0].setAttribute('aria-selected','true');
+  tabs[0].setAttribute('aria-expanded','true'); // ✅ show accordion content
+}
+
+
+  tabs.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(isMobile()){
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        // close if already open
+        if(expanded){
+          btn.setAttribute('aria-expanded','false');
+          return;
+        }
+        // open this + close others
+        tabs.forEach(x=>x.setAttribute('aria-expanded','false'));
+        btn.setAttribute('aria-expanded','true');
+        tabs.forEach(x=>x.setAttribute('aria-selected','false'));
+        btn.setAttribute('aria-selected','true');
+      }else{
+        setActive(btn);
+      }
+    });
+  });
+
+  window.addEventListener('resize', ()=>{
+    const active = tabs.find(x => x.getAttribute('aria-selected') === 'true') || tabs[0];
+    if(!isMobile()){
+      renderDesktop(active.dataset.key || 'c1');
+    }
+  });
+})();
+</script>
+
+<!-- ===================== HEALTHCARE — WHY ORGS WORK WITH US (WHITE / PREMIUM) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  /* Brand colours */
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#4B5168;
+  --line:rgba(49,59,134,.16);
+  --soft:rgba(49,59,134,.04);
+  --white:#ffffff;
+}
+
+/* SECTION */
+.hcWhy, .hcWhy *{box-sizing:border-box;}
+.hcWhy{
+  position:relative;
+  padding:96px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#fff;
+  color:var(--ink);
+  overflow:hidden;
+}
+
+/* subtle premium background detail (very light) */
+.hcWhy::before{
+  content:"";
+  position:absolute;
+  inset:-240px -120px auto -120px;
+  height:520px;
+  pointer-events:none;
+  opacity:.9;
+  background:
+    radial-gradient(circle at 20% 35%, rgba(98,90,216,.10), transparent 55%),
+    radial-gradient(circle at 75% 20%, rgba(31,156,228,.10), transparent 55%),
+    radial-gradient(circle at 55% 80%, rgba(2,12,79,.06), transparent 60%);
+}
+
+.hcWhy__inner{
+  max-width:1200px;
+  margin:0 auto;
+  position:relative;
+}
+
+/* GRID */
+.hcWhy__grid{
+  display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:54px;
+  align-items:start;
+}
+
+/* LEFT */
+.hcWhy__eyebrow{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:800;
+  margin:0 0 10px;
+}
+
+.hcWhy__title{
+  margin:0 0 14px;
+  font-size:clamp(32px,3.6vw,46px);
+  line-height:1.12;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.hcWhy__lead{
+  margin:0;
+  font-size:16px;
+  line-height:1.75;
+  color:var(--muted);
+  max-width:560px;
+}
+
+.hcWhy__divider{
+  margin:22px 0 0;
+  width:100%;
+  height:1px;
+  background:linear-gradient(90deg, rgba(49,59,134,.18), rgba(49,59,134,0));
+}
+
+/* RIGHT: “proof stack” (not boring cards) */
+.hcWhy__stack{
+  border:1px solid rgba(49,59,134,.16);
+  border-radius:22px;
+  overflow:hidden;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 18px 46px rgba(0,0,0,.06);
+}
+
+.hcWhy__row{
+  display:grid;
+  grid-template-columns:52px 1fr;
+  gap:14px;
+  padding:18px 18px;
+  border-top:1px solid rgba(49,59,134,.10);
+  background:linear-gradient(180deg, #fff, rgba(49,59,134,.015));
+  transition:background .18s ease, transform .18s ease;
+}
+.hcWhy__row:first-child{ border-top:0; }
+.hcWhy__row:hover{
+  background:linear-gradient(180deg, rgba(31,156,228,.06), rgba(98,90,216,.04));
+}
+
+.hcWhy__icon{
+  width:44px;height:44px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(49,59,134,.16);
+  background:rgba(49,59,134,.04);
+  position:relative;
+}
+
+.hcWhy__icon::before{
+  content:"";
+  width:12px;height:12px;border-radius:999px;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.10);
+}
+
+.hcWhy__h{
+  margin:0;
+  font-size:15px;
+  line-height:1.25;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.hcWhy__p{
+  margin:6px 0 0;
+  font-size:14.5px;
+  line-height:1.65;
+  color:#2E334D;
+}
+
+/* bottom highlight band */
+.hcWhy__footer{
+  padding:18px 18px;
+  border-top:1px solid rgba(49,59,134,.10);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(98,90,216,.12), transparent 55%),
+    radial-gradient(circle at 100% 30%, rgba(31,156,228,.10), transparent 60%),
+    rgba(49,59,134,.02);
+}
+
+.hcWhy__footerTitle{
+  margin:0;
+  font-size:14px;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.hcWhy__footerText{
+  margin:8px 0 0;
+  color:#2E334D;
+  font-size:14.5px;
+  line-height:1.65;
+}
+
+/* Responsive */
+@media(max-width:980px){
+  .hcWhy{padding:78px 18px;}
+  .hcWhy__grid{grid-template-columns:1fr; gap:28px;}
+  .hcWhy__lead{max-width:100%;}
+}
+
+@media(max-width:560px){
+  .hcWhy{padding:70px 16px;}
+  .hcWhy__row{grid-template-columns:48px 1fr; padding:16px 14px;}
+  .hcWhy__icon{width:40px;height:40px;border-radius:14px;}
+}
+</style>
+
+<section class="hcWhy" id="why-healthcare-us">
+  <div class="hcWhy__inner">
+
+    <div class="hcWhy__grid">
+
+      <!-- LEFT -->
+      <div>
+        <p class="hcWhy__eyebrow">Why Partner With Us</p>
+        <h2 class="hcWhy__title">Why Healthcare Organisations Work With Us</h2>
+        <p class="hcWhy__lead">
+          We bring disciplined execution, high-reliability thinking, and digital enablement to help healthcare systems
+          improve access, quality, cost, and patient experience—without adding operational complexity.
+        </p>
+        <div class="hcWhy__divider" aria-hidden="true"></div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="hcWhy__stack">
+
+        <div class="hcWhy__row">
+          <div class="hcWhy__icon" aria-hidden="true"></div>
+          <div>
+            <p class="hcWhy__h">Strategy and Execution as One System</p>
+            <p class="hcWhy__p">We align leadership vision with frontline care delivery.</p>
+          </div>
+        </div>
+
+        <div class="hcWhy__row">
+          <div class="hcWhy__icon" aria-hidden="true"></div>
+          <div>
+            <p class="hcWhy__h">Deep Understanding of High-Reliability Environments</p>
+            <p class="hcWhy__p">Our approaches are designed for patient safety, quality, and regulatory rigour.</p>
+          </div>
+        </div>
+
+        <div class="hcWhy__row">
+          <div class="hcWhy__icon" aria-hidden="true"></div>
+          <div>
+            <p class="hcWhy__h">Digital That Supports Care, Not Complexity</p>
+            <p class="hcWhy__p">Technology implemented to simplify work and enhance judgment.</p>
+          </div>
+        </div>
+
+        <div class="hcWhy__row">
+          <div class="hcWhy__icon" aria-hidden="true"></div>
+          <div>
+            <p class="hcWhy__h">Integrated, Proven Methodologies</p>
+            <p class="hcWhy__p">Strategy, Lean, digital, analytics, TOM, ESG, and change—working together.</p>
+          </div>
+        </div>
+
+        <div class="hcWhy__footer">
+          <p class="hcWhy__footerTitle">Outcome-Driven Engagements</p>
+          <p class="hcWhy__footerText">
+            Every initiative is tied to access, quality, cost, or patient experience.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INDUSTRIAL MANUFACTURING — FINAL CTA (PREMIUM STRIP) ===================== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --navy:#020C4F;
+  --indigo:#313B86;
+  --violet:#625AD8;
+  --accent:#1F9CE4;
+
+  --ink:#0B0F1A;
+  --muted:#3C4160;
+  --line:rgba(49,59,134,.16);
+}
+
+.im-cta, .im-cta *{box-sizing:border-box;}
+.im-cta{
+  padding:84px 20px;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(98,90,216,.08), transparent 55%),
+    radial-gradient(circle at 95% 30%, rgba(49,59,134,.08), transparent 55%),
+    radial-gradient(circle at 70% 110%, rgba(2,12,79,.06), transparent 60%),
+    rgba(49,59,134,.03);
+}
+
+.im-cta__inner{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.im-cta__bar{
+  border:1px solid rgba(49,59,134,.16);
+  border-radius:26px;
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(10px);
+  box-shadow:0 22px 54px rgba(0,0,0,.08);
+  padding:28px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+}
+
+.im-cta__left{
+  min-width:0;
+  max-width:820px;
+}
+
+.im-cta__kicker{
+  margin:0 0 10px;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  font-weight:800;
+}
+
+.im-cta__title{
+  margin:0 0 10px;
+  font-size:clamp(26px,3.2vw,38px);
+  line-height:1.15;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.im-cta__text{
+  margin:0;
+  font-size:15.5px;
+  line-height:1.75;
+  color:var(--muted);
+}
+
+.im-cta__right{
+  flex:0 0 auto;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.im-cta__btn{
+  height:46px;
+  padding:0 18px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:14px;
+  font-weight:800;
+  text-decoration:none;
+  transition:.2s ease;
+  white-space:nowrap;
+}
+
+.im-cta__btn--primary{
+  background:var(--violet);
+  color:#fff;
+  border:1px solid var(--violet);
+  box-shadow:0 12px 26px rgba(98,90,216,.22);
+}
+.im-cta__btn--primary:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  transform:translateY(-1px);
+}
+
+.im-cta__btn--ghost{
+  background:#fff;
+  color:var(--navy);
+  border:1px solid rgba(49,59,134,.22);
+}
+.im-cta__btn--ghost:hover{
+  background:rgba(49,59,134,.04);
+  transform:translateY(-1px);
+}
+
+/* small “signal” pill */
+.im-cta__pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 12px;
+  border-radius:999px;
+  border:1px solid rgba(49,59,134,.18);
+  background:rgba(49,59,134,.04);
+  color:var(--indigo);
+  font-weight:800;
+  font-size:12px;
+  margin-top:14px;
+}
+.im-cta__dot{
+  width:9px;height:9px;border-radius:999px;
+  background:linear-gradient(135deg,var(--violet),var(--accent));
+  box-shadow:0 0 0 6px rgba(31,156,228,.10);
+}
+
+@media (max-width:980px){
+  .im-cta{padding:70px 18px;}
+  .im-cta__bar{padding:22px; flex-direction:column; align-items:flex-start;}
+  .im-cta__right{justify-content:flex-start;}
+}
+</style>
+
+<section class="im-cta" id="industrial-cta">
+  <div class="im-cta__inner">
+
+    <div class="im-cta__bar">
+      <div class="im-cta__left">
+        <p class="im-cta__kicker">Next steps</p>
+        <h2 class="im-cta__title">Let’s Build the Next-Generation Healthcare  Enterprise</h2>
+        <p class="im-cta__text">
+          From strategy and shared services to digital enablement, ESG, and operational excellence, we partner with healthcare organisations to deliver care systems that are efficient, compassionate, and built to last.
+        </p>
+
+        <div class="im-cta__pill"><span class="im-cta__dot" aria-hidden="true"></span> Strategy • Ops • Digital • ESG</div>
+      </div>
+
+      <div class="im-cta__right">
+        <a class="im-cta__btn im-cta__btn--ghost" href="#contact">Talk to us</a>
+        <a class="im-cta__btn im-cta__btn--primary" href="#contact">Request a consultation →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
