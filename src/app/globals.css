@@ -2557,7 +2557,8 @@ main h6,
 .home-execution-hero {
   position: relative;
   isolation: isolate;
-  min-height: 604px;
+  min-height: 640px;
+  height: 640px;
   overflow: hidden;
   color: #fff;
   background: #120044;
@@ -2580,7 +2581,8 @@ main h6,
 
 .home-execution-hero__inner {
   width: min(calc(100% - 56px), 1200px);
-  min-height: 604px;
+  min-height: 640px;
+  height: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 760px) minmax(90px, 1fr);
@@ -2749,6 +2751,7 @@ main h6,
   .home-execution-hero,
   .home-execution-hero__inner {
     min-height: 560px;
+    height: auto;
   }
 
   .home-execution-hero__inner {
@@ -2810,5 +2813,176 @@ main h6,
 
   .home-execution-hero__button {
     flex: 1 1 150px;
+  }
+}
+
+/* Revised homepage hero: fixed main message with animated capability panel. */
+.home-execution-hero__inner {
+  grid-template-columns: minmax(0, 650px) minmax(390px, 470px);
+  justify-content: space-between;
+}
+
+.home-execution-hero__content {
+  max-width: 650px;
+}
+
+.home-execution-hero__system-card {
+  width: 100%;
+  min-height: 430px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07)),
+    rgba(7, 4, 36, 0.28);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(14px);
+}
+
+.home-execution-hero__system-head {
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.home-execution-hero__system-head p {
+  margin: 0 0 10px;
+  color: #fff !important;
+  font-family: var(--font-heading) !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+}
+
+.home-execution-hero__system-head span {
+  display: block;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.home-execution-hero__capability-stage {
+  min-height: 238px;
+  display: flex;
+  align-items: center;
+  padding: 22px 0;
+}
+
+.home-execution-hero__capability {
+  width: 100%;
+  animation: homeHeroFrameIn 0.42s ease both;
+}
+
+.home-execution-hero__capability-label {
+  margin: 0 0 12px;
+  color: #ff7fc4 !important;
+  font-family: var(--font-body) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 18px !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-execution-hero__capability h2 {
+  margin: 0;
+  color: #fff !important;
+  font-family: var(--font-heading) !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  line-height: 34px !important;
+}
+
+.home-execution-hero__capability > p:not(.home-execution-hero__capability-label) {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.84) !important;
+  font-family: var(--font-body) !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+}
+
+.home-execution-hero__capability--waiting {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: center;
+}
+
+.home-execution-hero__capability--waiting span {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  padding: 6px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.84);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.home-execution-hero__system-card .home-execution-hero__progress {
+  display: flex;
+  gap: 9px;
+  margin-top: auto;
+  padding: 0;
+  align-self: auto;
+  justify-self: auto;
+}
+
+.home-execution-hero__system-card .home-execution-hero__progress button {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  height: 3px;
+}
+
+.home-execution-hero__system-card .home-execution-hero__progress button.is-active {
+  width: auto;
+}
+
+@media (max-width: 1080px) {
+  .home-execution-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .home-execution-hero__system-card {
+    max-width: 680px;
+    min-height: 390px;
+  }
+
+  .home-execution-hero__capability-stage {
+    min-height: 210px;
+  }
+}
+
+@media (max-width: 520px) {
+  .home-execution-hero__system-card {
+    min-height: 430px;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .home-execution-hero__system-head p {
+    font-size: 18px !important;
+    line-height: 25px !important;
+  }
+
+  .home-execution-hero__capability h2 {
+    font-size: 22px !important;
+    line-height: 29px !important;
+  }
+
+  .home-execution-hero__capability > p:not(.home-execution-hero__capability-label) {
+    font-size: 14px !important;
+    line-height: 22px !important;
   }
 }
