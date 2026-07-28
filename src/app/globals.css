@@ -2827,8 +2827,10 @@ main h6,
 }
 
 .home-execution-hero__system-card {
+  box-sizing: border-box;
   width: 100%;
-  min-height: 430px;
+  height: 552px;
+  min-height: 552px;
   align-self: center;
   display: flex;
   flex-direction: column;
@@ -2866,7 +2868,8 @@ main h6,
 }
 
 .home-execution-hero__capability-stage {
-  min-height: 238px;
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   align-items: center;
   padding: 22px 0;
@@ -2956,16 +2959,18 @@ main h6,
 
   .home-execution-hero__system-card {
     max-width: 680px;
-    min-height: 390px;
+    height: 500px;
+    min-height: 500px;
   }
 
   .home-execution-hero__capability-stage {
-    min-height: 210px;
+    min-height: 0;
   }
 }
 
 @media (max-width: 520px) {
   .home-execution-hero__system-card {
+    height: auto;
     min-height: 430px;
     padding: 20px;
     border-radius: 18px;
