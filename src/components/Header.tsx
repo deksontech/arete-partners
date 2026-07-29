@@ -8,11 +8,10 @@ import { useState } from "react";
 const navigation = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Team", href: "/team" },
   { label: "Services", href: "/services" },
-  { label: "Insights", href: "/insights" },
   { label: "Industries", href: "/industries" },
   { label: "Trainings", href: "/trainings" },
+  { label: "Insights", href: "/insights" },
   { label: "Career", href: "/career" },
   { label: "Contact Us", href: "/contact-us" },
 ];
@@ -79,6 +78,7 @@ export function Header() {
           <nav className="desktop-nav" aria-label="Primary navigation">
             {navigation.map((item) => {
               const menu = item.label === "Services" ? serviceLinks : item.label === "Industries" ? industryLinks : null;
+              const opensOnly = item.label === "Industries";
 
               return (
                 <div
@@ -93,9 +93,21 @@ export function Header() {
                     }
                   }}
                 >
-                  <Link href={item.href} onClick={closeMenu}>
-                    {item.label}
-                  </Link>
+                  {opensOnly ? (
+                    <button
+                      aria-expanded={activeMenu === item.label}
+                      aria-haspopup="true"
+                      className="nav-trigger"
+                      type="button"
+                      onClick={() => setOpenMenu(activeMenu === item.label ? null : { label: item.label, pathname })}
+                    >
+                      {item.label}
+                    </button>
+                  ) : (
+                    <Link href={item.href} onClick={closeMenu}>
+                      {item.label}
+                    </Link>
+                  )}
                   {menu ? (
                     <div className="mega-menu">
                       <p>{item.label === "Services" ? "Services Portfolio" : "Industry Pages"}</p>
@@ -121,12 +133,19 @@ export function Header() {
             <div className="mobile-panel">
               {navigation.map((item) => {
                 const menu = item.label === "Services" ? serviceLinks : item.label === "Industries" ? industryLinks : null;
+                const opensOnly = item.label === "Industries";
 
                 return (
                   <div className="mobile-panel__group" key={item.label}>
-                    <Link href={item.href} onClick={closeMenu}>
-                      {item.label}
-                    </Link>
+                    {opensOnly ? (
+                      <button className="mobile-panel__trigger" type="button">
+                        {item.label}
+                      </button>
+                    ) : (
+                      <Link href={item.href} onClick={closeMenu}>
+                        {item.label}
+                      </Link>
+                    )}
                     {menu ? (
                       <div className="mobile-panel__children">
                         {menu.map((child) => (
