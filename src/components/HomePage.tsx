@@ -1,67 +1,5 @@
 import Link from "next/link";
-
-const offerings = [
-  {
-    title: "Growth & Strategy",
-    desc: "Revenue growth, market expansion, competitive advantage.",
-    bullets: [
-      "Sales Growth Strategy & Execution",
-      "Market Expansion & Entry Planning",
-      "Strategic Partnerships & Alliances",
-      "M&A Integration Support",
-    ],
-    chips: ["Clear priorities", "Roadmaps", "KPI movement"],
-    href: "/growth-transformation",
-  },
-  {
-    title: "Shared Services & GCC",
-    desc: "Design & scale high-performing global hubs.",
-    bullets: [
-      "Global Capability Centre (GCC) Set-up & Optimisation",
-      "Shared Services Design & Implementation",
-      "Governance & Performance Frameworks",
-      "Talent and Skills Transformation",
-    ],
-    chips: ["Governance", "Talent model", "Productivity"],
-    href: "/global-capability-centers",
-  },
-  {
-    title: "Tech-Enabled Transformation",
-    desc: "Digitisation, automation, analytics, operating model.",
-    bullets: [
-      "Process Digitisation & Automation",
-      "AI & Analytics Integration",
-      "Industry 4.0 Adoption Roadmaps",
-      "Customer Experience Platforms",
-    ],
-    chips: ["Automation", "Data & analytics", "Speed to value"],
-    href: "/services",
-  },
-  {
-    title: "ESG & Value Creation",
-    desc: "Sustainability embedded into strategy & delivery.",
-    bullets: [
-      "Sustainability & ESG Roadmaps",
-      "ESG Reporting & Compliance",
-      "Purpose-led Value Creation",
-      "Stakeholder Engagement Strategies",
-    ],
-    chips: ["Sustainability", "Reporting", "Stakeholders"],
-    href: "/services",
-  },
-  {
-    title: "Business Process & Industry 4.0",
-    desc: "Lean processes, productivity, innovation enablement.",
-    bullets: [
-      "Lean Transformation",
-      "Process Re-engineering & Standardisation",
-      "Target Operating Model (TOM) Design",
-      "Cost Optimisation & Waste Reduction",
-    ],
-    chips: ["Operating model", "Cost efficiency", "Industry 4.0"],
-    href: "/process-advisory",
-  },
-];
+import { CoreOfferings } from "./CoreOfferings";
 
 const apartItems = [
   [
@@ -82,8 +20,6 @@ const stats = [
 ];
 
 export function HomePage() {
-  const activeOffering = offerings[0];
-
   return (
     <div className="home-clean">
       <section className="home-clean-strip">
@@ -95,7 +31,75 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="home-clean-way" id="who-we-are">
+      <section className="home-clean-way home-clean-way--editorial" id="who-we-are">
+        <div className="container">
+          <div className="home-clean-way__header">
+            <span aria-hidden="true" />
+            <h2>The Arete Partners Way</h2>
+          </div>
+
+          <div className="home-clean-way__editorial">
+            <div className="home-clean-way__lead">
+              <p>
+                At Arete Partners, we believe organizations rarely fail because they lack ambition or strategy. They struggle
+                because execution becomes fragmented—priorities compete, initiatives operate in isolation, and transformation
+                fails to translate into measurable business outcomes.
+              </p>
+              <p>We exist to close that gap.</p>
+            </div>
+
+            <div className="home-clean-way__belief">
+              <p>Arete Partners is a technology-enabled global consulting firm built on a simple but powerful belief:</p>
+              <blockquote>Business performance improves when execution is disciplined, integrated, and measurable.</blockquote>
+            </div>
+
+            <div className="home-clean-way__body">
+              <p>
+                Through our proprietary Arete Execution System™, we align strategy, operations, technology, governance, people,
+                and performance into one integrated execution model—transforming ambition into measurable business outcomes that
+                drive profitable growth, operational excellence, and sustainable competitive advantage.
+              </p>
+              <p>
+                Our expertise spans Growth & Strategy, Global Capability Centers, Tech-Enabled Transformation, ESG & Enterprise
+                Value, and Business Process Excellence & Industry 4.0. These are not independent consulting offerings. They are
+                interconnected capabilities within a single execution system, where every initiative reinforces the next and every
+                transformation contributes to enterprise-wide performance.
+              </p>
+              <p>
+                What differentiates Arete Partners is not simply the breadth of our expertise—it is the discipline of our
+                execution.
+              </p>
+              <p>
+                We combine deep industry knowledge with proven methodologies to simplify complexity, eliminate inefficiencies,
+                standardize operations, embed KPI-driven management, and establish the operational foundations required for
+                technology to create measurable value. Rather than allowing digital transformation to add complexity, we ensure it
+                accelerates business performance.
+              </p>
+              <p>
+                Supported by a global delivery model, technology-enabled capabilities, and outcome-focused execution, we help
+                organizations transform faster, execute with confidence, and deliver measurable business impact—consistently and
+                at scale.
+              </p>
+            </div>
+
+            <aside className="home-clean-way__promise">
+              <div className="home-clean-way__promise-head">
+                <p className="home-clean-kicker">Our Promise</p>
+                <p>We don&apos;t simply design transformation.</p>
+              </div>
+              <strong>We build the execution systems that make transformation succeed.</strong>
+              <div className="home-clean-way__promise-rhythm" aria-label="Consistently. Measurably. At Scale.">
+                <span>Consistently.</span>
+                <span>Measurably.</span>
+                <span>At Scale.</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {false && (
+        <section className="home-clean-way" id="who-we-are-old">
         <div className="container home-clean-way__grid">
           <div className="home-clean-copy">
             <p className="home-clean-kicker">Who We Are</p>
@@ -129,69 +133,9 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="home-clean-offerings" id="offerings">
-        <div className="container">
-          <div className="home-clean-section-head home-clean-section-head--split">
-            <div>
-              <p className="home-clean-kicker">What We Do</p>
-              <h2>Our Core Offerings</h2>
-              <p>
-                Select a capability to view how we help clients drive revenue growth, operational excellence, and tech-enabled
-                transformation.
-              </p>
-            </div>
-            <Link className="home-clean-btn home-clean-btn--outline" href="/services">
-              View all services <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+      )}
 
-          <div className="home-clean-offering-shell">
-            <aside className="home-clean-rail" aria-label="Capabilities">
-              <div className="home-clean-rail__head">
-                <strong>Capabilities</strong>
-                <span>Boardroom Tech</span>
-              </div>
-              {offerings.map((item, index) => (
-                <div className={`home-clean-rail__item${index === 0 ? " is-active" : ""}`} key={item.title}>
-                  <span className="home-clean-icon" aria-hidden="true" />
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </aside>
-
-            <article className="home-clean-detail">
-              <div className="home-clean-detail__head">
-                <h3>{activeOffering.title}</h3>
-                <p>
-                  We help you define where to play and how to win — then translate strategy into executable roadmaps that
-                  deliver sustainable, profitable growth.
-                </p>
-              </div>
-              <ul>
-                {activeOffering.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-              <div className="home-clean-chip-row">
-                {activeOffering.chips.map((chip) => (
-                  <span key={chip}>{chip}</span>
-                ))}
-              </div>
-              <div className="home-clean-detail__actions">
-                <Link className="home-clean-btn home-clean-btn--white" href="/contact-us">
-                  Talk to us
-                </Link>
-                <Link className="home-clean-btn home-clean-btn--brand" href={activeOffering.href}>
-                  Explore Growth & Strategy <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
+      <CoreOfferings />
 
       <section className="home-clean-apart">
         <div className="container">

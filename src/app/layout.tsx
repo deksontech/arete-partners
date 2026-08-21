@@ -6,10 +6,10 @@ import { LuxuryCursor } from "@/components/LuxuryCursor";
 import "./globals.css";
 
 const montserrat = Montserrat({
-  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-montserrat",
   display: "swap",
-  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {

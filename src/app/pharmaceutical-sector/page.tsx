@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
 import { pharmaceuticalSector } from "@/content/live/pharmaceuticalSector";
 import { pharmaBaselineHtml } from "@/content/pharmaBaselineHtml";
+import { withPharmaWhyPartnerSection } from "@/content/pharmaWhyPartnerSection";
 
 export const metadata: Metadata = {
   title: pharmaceuticalSector.title,
@@ -10,5 +11,10 @@ export const metadata: Metadata = {
 };
 
 export default function PharmaceuticalSectorPage() {
-  return <BaselineHtmlRenderer className="docx-pharma-baseline" html={pharmaBaselineHtml} />;
+  return (
+    <BaselineHtmlRenderer
+      className="docx-pharma-baseline"
+      html={withPharmaWhyPartnerSection(pharmaBaselineHtml)}
+    />
+  );
 }
