@@ -17909,10 +17909,22 @@ html body .footer-bottom > div span {
 .about-v2-purpose { padding: 76px 0 28px; background: rgb(2 12 79 / 3%); }
 .about-v2-purpose-grid { display: grid; grid-template-columns: 1.18fr .82fr; gap: 70px; }
 .about-v2-purpose-copy > p { max-width: 700px; margin-bottom: 20px; font-size: 16px; line-height: 1.68; }
-.about-v2-climb { min-height: 225px; margin-top: 25px; padding: 112px 20px 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; background: linear-gradient(165deg, transparent 49%, rgb(179 29 124 / 10%) 50%, transparent 51%); }
-.about-v2-climb span { position: relative; padding-top: 38px; text-align: center; font-size: 11px; font-weight: 800; text-transform: uppercase; }
-.about-v2-climb span::before { content: ""; position: absolute; top: 0; left: 50%; width: 28px; height: 28px; transform: translateX(-50%); border: 7px solid var(--about-white); border-radius: 50%; background: var(--about-navy); box-shadow: 0 0 0 2px rgb(179 29 124 / 28%); }
-.about-v2-climb span:nth-child(2) { transform: translateY(-25px); }.about-v2-climb span:nth-child(3) { transform: translateY(-54px); }.about-v2-climb span:nth-child(4) { transform: translateY(-82px); }.about-v2-climb span:nth-child(5) { transform: translateY(-112px); }
+.about-v2-climb { position: relative; min-height: 285px; margin-top: 22px; overflow: hidden; isolation: isolate; }
+.about-v2-climb::before { content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgb(247 248 253 / 98%) 0%, rgb(247 248 253 / 68%) 36%, rgb(247 248 253 / 22%) 100%), url("/assets/about-origin-mountain.png") 62% 64% / 112% auto no-repeat; filter: grayscale(.15) saturate(.55); opacity: .34; }
+.about-v2-climb::after { content: ""; position: absolute; inset: auto 0 0; z-index: -1; height: 62%; background: linear-gradient(to top, rgb(247 248 253 / 84%), transparent); }
+.about-v2-climb-path { position: absolute; inset: 14px 0 0; z-index: 1; width: 100% !important; height: calc(100% - 20px) !important; overflow: visible; }
+.about-v2-climb-path path { fill: none; stroke: rgb(2 12 79 / 58%); stroke-width: 2.5; stroke-dasharray: 5 7; }
+.about-v2-climb-node { position: absolute; z-index: 2; width: 96px; display: grid; justify-items: center; gap: 7px; text-align: center; }
+.about-v2-climb-node > span { width: 54px; height: 54px; display: grid; place-items: center; border: 5px solid rgb(255 255 255 / 92%); border-radius: 50%; color: var(--about-white); background: var(--about-navy); box-shadow: 0 8px 22px rgb(2 12 79 / 18%), 0 0 0 2px rgb(179 29 124 / 16%); }
+.about-v2-climb-node svg { width: 26px; height: 26px; }
+.about-v2-climb-node b { color: var(--about-navy); font-size: 10px; line-height: 1.15; text-transform: uppercase; }
+.about-v2-climb-node:nth-of-type(1) { left: 1%; bottom: 5%; }
+.about-v2-climb-node:nth-of-type(2) { left: 22%; bottom: 20%; }
+.about-v2-climb-node:nth-of-type(3) { left: 43%; bottom: 37%; }
+.about-v2-climb-node:nth-of-type(4) { left: 64%; bottom: 55%; }
+.about-v2-climb-node:nth-of-type(5) { right: 3%; bottom: 56%; }
+.about-v2-climb-flag { position: absolute; z-index: 3; top: 0; right: 4%; width: 42px; height: 42px; display: grid; place-items: center; color: var(--about-magenta); }
+.about-v2-climb-flag svg { width: 34px; height: 34px; }
 .about-v2-purpose-cards { display: grid; gap: 18px; align-content: start; padding-top: 14px; }
 .about-v2-purpose-cards article { min-height: 180px; padding: 30px 34px 28px 122px; position: relative; border-left: 4px solid var(--about-magenta); border-radius: 8px; background: var(--about-white); box-shadow: 0 10px 28px rgb(2 12 79 / 8%); }
 .about-v2-purpose-cards article:nth-child(n+2) { border-left-color: var(--about-navy); }
@@ -18007,7 +18019,16 @@ html body .footer-bottom > div span {
   .about-v2-origin, .about-v2-purpose, .about-v2-who, .about-v2-foundation, .about-v2-capabilities, .about-v2-principles { padding-top: 56px; }
   .about-v2-origin { background-position: 70% center; }.about-v2-origin-main { gap: 38px; }.about-v2-origin-values { grid-template-columns: repeat(2,1fr); row-gap: 30px; }.about-v2-origin-values > div:nth-child(2) { border-right: 0; }.about-v2-origin-steps { grid-template-columns: 1fr; }.about-v2-origin-steps article { min-height: 0; padding: 22px 20px 22px 76px; display: grid; grid-template-columns: 50px 1fr; }.about-v2-origin-steps article > em { top: 26px; }.about-v2-origin-steps article > span { width: 50px; height: 50px; margin: 0; }
   .about-v2-quote-band, .about-v2-foundation-quote { width: calc(100% - 32px); padding: 24px; grid-template-columns: 48px 1fr; }.about-v2-quote-band strong, .about-v2-foundation-quote strong { grid-column: 1 / -1; padding: 20px 0; border: 0; border-block: 1px solid rgb(255 255 255 / 20%); }.about-v2-foundation-quote strong { border-color: rgb(2 12 79 / 14%); }
-  .about-v2-climb { display: none; }.about-v2-purpose-cards article { padding: 112px 24px 26px; }.about-v2-purpose-cards article > span { top: 24px; left: 24px; }
+  .about-v2-climb { min-height: 390px; margin: 28px 0 10px; overflow: visible; }
+  .about-v2-climb::before { background-position: 70% 78%; background-size: auto 74%; opacity: .25; }
+  .about-v2-climb-path { display: none; }
+  .about-v2-climb-node { left: 0 !important; right: auto !important; bottom: auto !important; width: 100%; min-height: 64px; position: relative; display: grid; grid-template-columns: 54px 1fr; align-items: center; justify-items: start; gap: 14px; text-align: left; }
+  .about-v2-climb-node + .about-v2-climb-node { margin-top: 10px; }
+  .about-v2-climb-node::after { content: ""; position: absolute; top: 57px; left: 26px; width: 2px; height: 17px; border-left: 2px dashed rgb(2 12 79 / 35%); }
+  .about-v2-climb-node:nth-of-type(5)::after { display: none; }
+  .about-v2-climb-node b { font-size: 11px; }
+  .about-v2-climb-flag { top: auto; right: 4px; bottom: 10px; }
+  .about-v2-purpose-cards article { padding: 112px 24px 26px; }.about-v2-purpose-cards article > span { top: 24px; left: 24px; }
   .about-v2-principle-band, .about-v2-cap-band { padding: 24px; grid-template-columns: 72px 1fr; }.about-v2-principle-band > span, .about-v2-cap-band > span { width: 64px; height: 64px; }.about-v2-principle-item, .about-v2-cap-band > div { display: none; }
   .about-v2-who-list > div { grid-template-columns: 62px 1fr; gap: 15px; }.about-v2-who-list span { width: 56px; height: 56px; }.about-v2-who-art { padding-inline: 16px; }.about-v2-who-art > p { padding-inline: 18px; }
   .about-v2-foundation-grid, .about-v2-cap-grid { grid-template-columns: 1fr; }.about-v2-foundation-grid article { min-height: 0; padding: 26px; }.about-v2-cap-grid article, .about-v2-cap-grid article:last-child { grid-column: auto; min-height: 330px; }
@@ -19292,5 +19313,28 @@ html body main.growth-page .growth-trigger-cta {
     color: rgb(255 255 255 / 0.88) !important;
     font-size: 16px !important;
     line-height: 1.55 !important;
+  }
+}
+
+/* About hero: reserve the proof-strip area so it cannot collide with the CTAs. */
+@media (min-width: 1101px) {
+  html body main .about-v2-hero-copy {
+    padding-bottom: 164px;
+  }
+
+  html body main .about-redesign .about-v2-hero-copy h1 {
+    max-width: 820px;
+    margin-bottom: 22px;
+    font-size: clamp(50px, 3vw, 56px) !important;
+    line-height: 1.07 !important;
+  }
+
+  html body main .about-redesign .about-v2-hero-copy > p:not(.about-v2-kicker) {
+    max-width: 650px;
+    margin-bottom: 26px;
+  }
+
+  html body main .about-v2-proof {
+    min-height: 132px;
   }
 }

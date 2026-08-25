@@ -107,7 +107,24 @@ export function AboutPage() {
             <p>Most organisations have capable people, clear strategies, and significant technology investments. Yet transformation fails when execution becomes fragmented.</p>
             <p>At Arete Partners, we believe sustainable business performance is created when strategy, operations, technology, governance, people, and performance operate as one integrated execution system.</p>
             <p>That belief became the foundation of <strong>The Arete Execution System&trade;.</strong></p>
-            <div className="about-v2-climb" aria-label="People, operations, technology, governance and performance form one ascent"><span>People</span><span>Operations</span><span>Technology</span><span>Governance</span><span>Performance</span></div>
+            <div className="about-v2-climb" aria-label="People, operations, technology, governance and performance form one ascent">
+              <svg className="about-v2-climb-path" viewBox="0 0 720 250" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M60 218 C145 207 167 177 234 169 S330 126 390 119 S492 80 548 68 S630 31 682 22" />
+              </svg>
+              {([
+                ["people", "People"],
+                ["gear", "Operations"],
+                ["chip", "Technology"],
+                ["shield", "Governance"],
+                ["chart", "Performance"],
+              ] as const).map(([icon, label]) => (
+                <div className="about-v2-climb-node" key={label}>
+                  <span><AboutIcon name={icon} /></span>
+                  <b>{label}</b>
+                </div>
+              ))}
+              <span className="about-v2-climb-flag"><AboutIcon name="flag" /></span>
+            </div>
           </div>
           <div className="about-v2-purpose-cards">
             {[["target","Our Purpose","To help organisations transform ambition into measurable business outcomes through disciplined execution."],["eye","Our Vision","To become the global benchmark for execution-led transformation, where organisations achieve sustainable growth through integrated execution, not fragmented initiatives."],["handshake","Our Promise","Every engagement leaves our clients with stronger capabilities, better operating systems, and performance that continues long after the engagement ends."]].map(([icon,title,text]) => <article key={title}><span><AboutIcon name={icon as IconName}/></span><div><h3>{title}</h3><p>{text}</p></div></article>)}
