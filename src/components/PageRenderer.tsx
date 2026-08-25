@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 type LockedPage = {
+  key: string;
   name: string;
   route: string;
   currentUrl: string;
@@ -56,8 +57,8 @@ function Chunk({ lines, index }: { lines: readonly string[]; index: number }) {
 
 export function PageRenderer({ page }: { page: LockedPage }) {
   const pageLines = page.contentLines ?? page.lines;
-  const heroLines = pageLines.slice(0, 6);
-  const bodyLines = pageLines.slice(6);
+  const heroLines = pageLines.slice(0, 3);
+  const bodyLines = pageLines.slice(3);
   const chunks: string[][] = [];
   let current: string[] = [];
 
@@ -73,7 +74,7 @@ export function PageRenderer({ page }: { page: LockedPage }) {
   if (current.length) chunks.push(current);
 
   return (
-    <>
+    <div className={`baseline-page baseline-page--${page.key}`}>
       <section className="baseline-hero">
         <div className="baseline-hero-media">
           {page.name === "Home" ? (
@@ -91,13 +92,6 @@ export function PageRenderer({ page }: { page: LockedPage }) {
               const kind = classify(line, index);
               if (kind === "eyebrow") return <p className="hero-eyebrow" key={line}>{line}</p>;
               if (kind === "title") return <h1 key={line}>{line}</h1>;
-              if (kind === "cta") {
-                return (
-                  <Link className="button" href={line.toLowerCase().includes("contact") || line.toLowerCase().includes("talk") ? "/contact-us" : "#"} key={line}>
-                    {line}
-                  </Link>
-                );
-              }
               return <p key={`${line}-${index}`}>{line}</p>;
             })}
           </div>
@@ -120,6 +114,6 @@ export function PageRenderer({ page }: { page: LockedPage }) {
       {chunks.map((chunk, index) => (
         <Chunk index={index} key={`${page.name}-${index}`} lines={chunk} />
       ))}
-    </>
+    </div>
   );
 }

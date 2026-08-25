@@ -18848,6 +18848,10 @@ html body main.growth-page .growth-trigger-cta {
     text-align: center !important;
   }
 
+  html body main a.home-classic-slider__cta--secondary {
+    color: #ffffff !important;
+  }
+
   html body main .home-classic-slider__arrow {
     display: none !important;
   }
@@ -18929,5 +18933,364 @@ html body main.growth-page .growth-trigger-cta {
   html body main.services-redesign .services-engagement-stats,
   html body main.services-redesign .services-portfolio__grid {
     grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Mobile composition pass: remove clipped desktop tracks and restore readable proportions. */
+@media (max-width: 700px) {
+  html body main .home-clean-strip {
+    padding: 30px 16px !important;
+  }
+
+  html body main .home-clean-strip__inner {
+    display: grid !important;
+    width: 100% !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 22px !important;
+  }
+
+  html body main .home-clean-strip p {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 2px 0 2px 18px !important;
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+  }
+
+  html body main .home-clean-strip .home-clean-btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+    padding-inline: 18px !important;
+    text-align: center !important;
+  }
+
+  html body main .home-classic-slider--system,
+  html body main .home-classic-slider--system .home-classic-slider__inner {
+    min-height: 940px !important;
+  }
+
+  html body main .home-classic-slider__inner--system {
+    padding: 36px 0 74px !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system {
+    min-height: 0 !important;
+    overflow: visible !important;
+    align-content: start !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-logo {
+    width: 78px !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system h1 {
+    width: 100% !important;
+    margin-top: 12px !important;
+    font-size: 29px !important;
+    line-height: 1.12 !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-pillars {
+    width: 100% !important;
+    margin-top: 18px !important;
+    padding-block: 12px !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-pillar {
+    min-width: 0 !important;
+    padding-inline: 5px !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-pillar strong {
+    font-size: 17px !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-pillar span {
+    font-size: 10px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-grid {
+    display: grid !important;
+    width: 100% !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 16px !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-card {
+    display: grid !important;
+    min-height: 0 !important;
+    grid-template-columns: 38px minmax(0, 1fr) !important;
+    column-gap: 12px !important;
+    justify-items: start !important;
+    align-items: center !important;
+    border-radius: 8px !important;
+    padding: 10px 12px !important;
+    text-align: left !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-icon {
+    grid-row: 1 / span 2 !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-icon svg {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-card h2 {
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-card p {
+    margin: 2px 0 0 !important;
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-chevron {
+    display: none !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-outcome {
+    margin-top: 16px !important;
+  }
+
+  html body main .home-classic-slider__inner--system .home-classic-slider__system-result {
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    font-size: 24px !important;
+    line-height: 1.18 !important;
+    text-align: center !important;
+  }
+
+  html body main .home-offerings-v2 {
+    padding: 46px 16px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-section-head--split {
+    gap: 20px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-section-head h2 {
+    font-size: 32px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-offering-shell {
+    gap: 22px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-rail__head {
+    display: none !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-rail__item {
+    min-height: 66px !important;
+    grid-template-columns: 40px minmax(0, 1fr) 12px !important;
+    gap: 11px !important;
+    padding: 9px 12px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-rail__item.is-active {
+    padding-left: 8px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-icon {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-rail__copy strong {
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-rail__copy small {
+    display: none !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-detail__head {
+    min-height: 0 !important;
+    padding: 20px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-detail__head h3 {
+    font-size: 23px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-detail ul {
+    gap: 14px !important;
+    padding: 20px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-detail li {
+    grid-template-columns: 36px minmax(0, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-detail li > span {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-detail__summary {
+    margin-inline: 20px !important;
+  }
+
+  html body main .home-offerings-v2 .home-clean-detail__actions {
+    padding: 16px 20px 20px !important;
+  }
+
+  html body main .baseline-section {
+    padding-block: 48px !important;
+  }
+
+  html body main .baseline-grid,
+  html body main .baseline-card-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  html body main .baseline-grid {
+    gap: 24px !important;
+  }
+
+  html body main .baseline-section-head {
+    position: static !important;
+  }
+
+  html body main .baseline-section-head h2 {
+    max-width: 100% !important;
+    font-size: 30px !important;
+    line-height: 1.15 !important;
+  }
+
+  html body main .baseline-card-grid {
+    gap: 12px !important;
+  }
+
+  html body main .baseline-card {
+    width: 100% !important;
+    padding: 16px !important;
+  }
+
+  html body main .baseline-card h3 {
+    font-size: 16px !important;
+  }
+
+  html body main .baseline-card p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  html body main .about-v2-origin-steps article {
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+    gap: 12px !important;
+    padding: 20px 16px !important;
+  }
+
+  html body main .about-v2-origin-steps article > em {
+    top: 10px !important;
+    right: 10px !important;
+    left: auto !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  html body main .about-v2-origin-steps article > span {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  html body main .about-v2-principle-band,
+  html body main .about-v2-cap-band {
+    grid-template-columns: minmax(0, 1fr) !important;
+    justify-items: start !important;
+    gap: 16px !important;
+  }
+
+  html body main .about-v2-principle-band > div:nth-child(2),
+  html body main .about-v2-cap-band > p {
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+
+  html body main .industry-proof-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  html body main .industry-proof-grid article {
+    display: grid !important;
+    min-height: 0 !important;
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    column-gap: 14px !important;
+    align-items: center !important;
+    padding: 13px 14px !important;
+    text-align: left !important;
+  }
+
+  html body main .industry-proof-grid article > span {
+    grid-row: 1 / span 2 !important;
+    width: 44px !important;
+    height: 44px !important;
+    margin: 0 !important;
+  }
+
+  html body main .industry-page .industry-proof-grid h2 {
+    margin: 0 0 3px !important;
+  }
+
+  html body main .baseline-page--industries .baseline-hero {
+    min-height: 430px !important;
+  }
+
+  html body main .baseline-page--industries .baseline-hero-inner {
+    display: grid !important;
+    width: calc(100% - 32px) !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-height: 430px !important;
+    padding-block: 64px !important;
+  }
+
+  html body main .baseline-page--industries .baseline-hero-copy {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  html body main .baseline-page--industries .baseline-hero-copy .hero-eyebrow {
+    color: rgb(255 255 255 / 0.82) !important;
+    font-size: 12px !important;
+  }
+
+  html body main .baseline-page--industries .baseline-hero-copy h1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 12px !important;
+    color: #ffffff !important;
+    font-size: 38px !important;
+    line-height: 1.1 !important;
+  }
+
+  html body main .baseline-page--industries .baseline-hero-copy > p:last-child {
+    max-width: 28ch !important;
+    margin-top: 18px !important;
+    color: rgb(255 255 255 / 0.88) !important;
+    font-size: 16px !important;
+    line-height: 1.55 !important;
   }
 }
