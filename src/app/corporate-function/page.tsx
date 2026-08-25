@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
-import { corporateFunctionBaselineHtml } from "@/content/corporateFunctionBaselineHtml";
+import { ServiceDirectionPage, serviceDirectionPages } from "@/components/ServiceDirectionPage";
 
 export const metadata: Metadata = {
   title: "Corporate Function",
@@ -9,10 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function CorporateFunctionPage() {
-  return (
-    <BaselineHtmlRenderer
-      className="docx-corporate-function-baseline"
-      html={corporateFunctionBaselineHtml}
-    />
-  );
+  return <ServiceDirectionPage data={serviceDirectionPages["corporate-function"]} />;
 }

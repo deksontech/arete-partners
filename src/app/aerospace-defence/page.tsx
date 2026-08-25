@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
-import { aerospaceDefenceBaselineHtml } from "@/content/aerospaceDefenceBaselineHtml";
+import { IndustryDirectionPage } from "@/components/IndustryDirectionPage";
 
 export const metadata: Metadata = {
   title: "Aerospace & Defence",
@@ -9,10 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function AerospaceDefencePage() {
-  return (
-    <BaselineHtmlRenderer
-      className="docx-aerospace-defence-baseline"
-      html={aerospaceDefenceBaselineHtml}
-    />
-  );
+  return <IndustryDirectionPage route="/aerospace-defence" />;
 }

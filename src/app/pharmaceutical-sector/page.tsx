@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
+import { IndustryDirectionPage } from "@/components/IndustryDirectionPage";
 import { pharmaceuticalSector } from "@/content/live/pharmaceuticalSector";
-import { pharmaBaselineHtml } from "@/content/pharmaBaselineHtml";
-import { withPharmaWhyPartnerSection } from "@/content/pharmaWhyPartnerSection";
 
 export const metadata: Metadata = {
   title: pharmaceuticalSector.title,
@@ -11,10 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function PharmaceuticalSectorPage() {
-  return (
-    <BaselineHtmlRenderer
-      className="docx-pharma-baseline"
-      html={withPharmaWhyPartnerSection(pharmaBaselineHtml)}
-    />
-  );
+  return <IndustryDirectionPage route="/pharmaceutical-sector" />;
 }

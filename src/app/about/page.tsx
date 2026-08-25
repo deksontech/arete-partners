@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
-import { aboutBaselineHtml } from "@/content/aboutBaselineHtml";
+import { AboutPage as AboutPageContent } from "@/components/AboutPage";
 import { about } from "@/content/live/about";
 
 export const metadata: Metadata = {
@@ -10,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <BaselineHtmlRenderer className="docx-about-baseline" html={aboutBaselineHtml} />;
+  return <AboutPageContent />;
 }

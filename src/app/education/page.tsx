@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
-import { educationBaselineHtml } from "@/content/educationBaselineHtml";
+import { IndustryDirectionPage } from "@/components/IndustryDirectionPage";
 
 export const metadata: Metadata = {
   title: "Education",
@@ -9,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function EducationPage() {
-  return <BaselineHtmlRenderer className="docx-education-baseline" html={educationBaselineHtml} />;
+  return <IndustryDirectionPage route="/education" />;
 }

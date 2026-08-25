@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
-import { industrialManufacturingSectorBaselineHtml } from "@/content/industrialManufacturingSectorBaselineHtml";
+import { IndustryDirectionPage } from "@/components/IndustryDirectionPage";
 
 export const metadata: Metadata = {
   title: "Industrial Manufacturing Sector",
@@ -9,10 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function IndustrialManufacturingSectorPage() {
-  return (
-    <BaselineHtmlRenderer
-      className="docx-industrial-manufacturing-sector-baseline"
-      html={industrialManufacturingSectorBaselineHtml}
-    />
-  );
+  return <IndustryDirectionPage route="/industrial-manufacturing-sector" />;
 }

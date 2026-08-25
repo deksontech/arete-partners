@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
-import { processAdvisoryBaselineHtml } from "@/content/processAdvisoryBaselineHtml";
+import { ServiceDirectionPage, serviceDirectionPages } from "@/components/ServiceDirectionPage";
 
 export const metadata: Metadata = {
   title: "Process Advisory",
@@ -9,10 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ProcessAdvisoryPage() {
-  return (
-    <BaselineHtmlRenderer
-      className="docx-process-advisory-baseline"
-      html={processAdvisoryBaselineHtml}
-    />
-  );
+  return <ServiceDirectionPage data={serviceDirectionPages["process-advisory"]} />;
 }

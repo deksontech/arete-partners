@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
-import { globalCapabilityCentersBaselineHtml } from "@/content/globalCapabilityCentersBaselineHtml";
+import { IndustryDirectionPage } from "@/components/IndustryDirectionPage";
 
 export const metadata: Metadata = {
   title: "Global Capability Centers",
@@ -9,10 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function GlobalCapabilityCentersPage() {
-  return (
-    <BaselineHtmlRenderer
-      className="docx-global-capability-centers-baseline"
-      html={globalCapabilityCentersBaselineHtml}
-    />
-  );
+  return <IndustryDirectionPage route="/global-capability-centers" />;
 }

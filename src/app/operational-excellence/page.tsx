@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
-import { operationalExcellenceBaselineHtml } from "@/content/operationalExcellenceBaselineHtml";
+import { ServiceDirectionPage, serviceDirectionPages } from "@/components/ServiceDirectionPage";
 
 export const metadata: Metadata = {
   title: "Operational Excellence",
@@ -9,10 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function OperationalExcellencePage() {
-  return (
-    <BaselineHtmlRenderer
-      className="docx-operational-excellence-baseline"
-      html={operationalExcellenceBaselineHtml}
-    />
-  );
+  return <ServiceDirectionPage data={serviceDirectionPages["operational-excellence"]} />;
 }

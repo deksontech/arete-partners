@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { BaselineHtmlRenderer } from "@/components/BaselineHtmlRenderer";
-import { serviceDeliveryBaselineHtml } from "@/content/serviceDeliveryBaselineHtml";
+import { ServiceDirectionPage, serviceDirectionPages } from "@/components/ServiceDirectionPage";
 
 export const metadata: Metadata = {
   title: "Service Delivery",
@@ -9,10 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ServiceDeliveryPage() {
-  return (
-    <BaselineHtmlRenderer
-      className="docx-service-delivery-baseline"
-      html={serviceDeliveryBaselineHtml}
-    />
-  );
+  return <ServiceDirectionPage data={serviceDirectionPages["service-delivery"]} />;
 }

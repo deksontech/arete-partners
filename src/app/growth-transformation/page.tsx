@@ -440,7 +440,7 @@ export default function GrowthTransformationPage() {
                 businesses—delivering management transformations, measurable growth, productivity, and value creation.
               </p>
             </div>
-            <Link href="/contact-us">Talk about a similar outcome</Link>
+            <Link href="/contact-us">TCS A&amp;G Partner Access</Link>
           </div>
 
           <div className="growth-client-grid">
