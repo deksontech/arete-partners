@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PharmaHelpShowcase, { type IndustryShowcaseContent } from "./PharmaHelpShowcase";
 
 type Item = { title: string; body: string; icon?: string };
 
@@ -56,9 +57,9 @@ const INDUSTRIES: IndustryConfig[] = [
     route: "/industrial-manufacturing-sector",
     nav: "Manufacturing",
     label: "Industrial Manufacturing",
-    lead: "Building Manufacturing Enterprises That Compete on",
+    lead: "Building Industrial Manufacturing Enterprises That Compete on",
     accent: "Cost, Quality, and Reliability",
-    description: "We help industrial manufacturers connect strategy, operations, technology and people to improve productivity, resilience and profitable growth.",
+    description: "We partner with industrial manufacturers to convert complex, asset-heavy operations into stable, high-performing systems—improving productivity, resilience, quality, and profitable growth.",
     image: "/assets/industry-manufacturing.png",
     areas: [
       { title: "Factory Performance", body: "Improving throughput, quality and asset productivity", icon: "⚙" },
@@ -90,7 +91,7 @@ const INDUSTRIES: IndustryConfig[] = [
     label: "Healthcare",
     lead: "Transforming Healthcare Enterprises for",
     accent: "Quality, Access, and Sustainable Performance",
-    description: "We help healthcare organisations improve patient journeys, operating performance and enterprise resilience while protecting quality and trust.",
+    description: "We help healthcare organisations deliver better outcomes, safer care, and greater access while improving operating performance, workforce resilience, and trust.",
     image: "/assets/industry-healthcare.png",
     areas: [
       { title: "Patient Experience", body: "Designing connected, accessible care journeys", icon: "◎" },
@@ -122,7 +123,7 @@ const INDUSTRIES: IndustryConfig[] = [
     label: "Insurance",
     lead: "Reimagining Insurance Enterprises for",
     accent: "Growth, Trust, and Operational Resilience",
-    description: "We help insurers modernise commercial performance, customer journeys, operations and risk capabilities to create lasting enterprise value.",
+    description: "We help insurers convert fragmented operating models into integrated systems—strengthening profitable growth, customer trust, risk discipline, and operational resilience.",
     image: "/assets/industry-insurance.png",
     areas: [
       { title: "Commercial Growth", body: "Sharper propositions, channels and distribution", icon: "↗" },
@@ -152,9 +153,9 @@ const INDUSTRIES: IndustryConfig[] = [
     route: "/aerospace-defence",
     nav: "Aerospace & Defence",
     label: "Aerospace & Defence",
-    lead: "Strengthening Aerospace & Defence Through",
+    lead: "Strengthening Aerospace & Defence Enterprises Through Strategy, Execution, and",
     accent: "System-Level Transformation",
-    description: "We help aerospace and defence organisations improve programme delivery, industrial performance, supply resilience and mission-critical execution.",
+    description: "We help aerospace and defence organisations improve programme delivery, industrial performance, supply resilience, compliance, and mission-critical execution across long, complex lifecycles.",
     image: "/assets/industry-aerospace.png",
     areas: [
       { title: "Programme Delivery", body: "Improving governance, cadence and outcomes", icon: "◎" },
@@ -184,9 +185,9 @@ const INDUSTRIES: IndustryConfig[] = [
     route: "/automotive",
     nav: "Automotive",
     label: "Automotive",
-    lead: "Reinventing Automotive Enterprises Through",
-    accent: "Operations and Digital-Led Transformation",
-    description: "We help automotive organisations navigate electrification, software, supply disruption and margin pressure through integrated transformation.",
+    lead: "Reinventing Automotive Enterprises Through Strategy, Operations, and",
+    accent: "Digital-Led Transformation",
+    description: "We help automotive organisations navigate electrification, connected vehicles, software-defined systems, supply disruption, and margin pressure through integrated transformation.",
     image: "/assets/industry-automotive.png",
     areas: [
       { title: "Growth & Portfolio", body: "Aligning markets, products and value pools", icon: "↗" },
@@ -218,7 +219,7 @@ const INDUSTRIES: IndustryConfig[] = [
     label: "Global Capability Centers",
     lead: "Reimagining Global Capability Centers as",
     accent: "Engines of Enterprise Value",
-    description: "We help organisations design, launch and transform GCCs into strategic hubs for capability, innovation and measurable business impact.",
+    description: "We help organisations transform GCCs from transactional hubs into integrated, value-generating enterprise platforms for capability, innovation, analytics, and measurable business impact.",
     image: "/assets/industry-gcc.png",
     areas: [
       { title: "GCC Strategy", body: "Defining mandate, location and value ambition", icon: "◎" },
@@ -248,9 +249,9 @@ const INDUSTRIES: IndustryConfig[] = [
     route: "/education",
     nav: "Education",
     label: "Education",
-    lead: "Shaping the Next Generation of",
+    lead: "Education Sector — Shaping the Next Generation of",
     accent: "Value Creators",
-    description: "We help education institutions connect purpose, employability, digital learning and operational excellence to deliver meaningful learner outcomes.",
+    description: "We partner with higher education institutions, universities, skill bodies, and vocational institutes to connect purpose, employability, digital learning, and operational excellence—preparing a future-ready workforce for India.",
     image: "/assets/industry-education.png",
     areas: [
       { title: "Learner Outcomes", body: "Aligning programmes with skills and careers", icon: "◎" },
@@ -292,12 +293,137 @@ const proofBodies = (industry: IndustryConfig) => [
   "Building resilient organisations for what comes next",
 ];
 
+const buildShowcaseContent = (industry: IndustryConfig): IndustryShowcaseContent => {
+  const serviceNames = [
+    "Growth & Strategy",
+    "Shared Services & GCC Excellence",
+    "Tech-Enabled Transformation",
+    "ESG & Sustainable Value Creation",
+    "Business Process & Operational Excellence",
+  ];
+  const serviceHeadings = [
+    `Building a Future-Ready ${industry.label} Enterprise`,
+    `Building Scalable ${industry.label} Operations`,
+    `Digitising the ${industry.label} Value Chain`,
+    `Creating Sustainable Value in ${industry.label}`,
+    `Creating Stable, High-Performing ${industry.label} Systems`,
+  ];
+
+  return {
+    sectorLabel: `${industry.label} Sector`,
+    helpTitle: `${industry.label} Sector`,
+    services: serviceNames.map((title, index) => {
+      const primary = industry.capabilities[index] ?? industry.capabilities[0];
+      const secondary = industry.capabilities[(index + 1) % industry.capabilities.length];
+      const area = industry.areas[index % industry.areas.length];
+      return {
+        title,
+        short: primary.title,
+        heading: serviceHeadings[index],
+        intro: `We help ${industry.label.toLowerCase()} organisations turn ${primary.title.toLowerCase()} priorities into coordinated, measurable execution.`,
+        label: index === 2 ? "Where we support:" : "How we support:",
+        bullets: [
+          primary.body,
+          secondary.body,
+          area.body,
+          `Governance, performance frameworks, and capability building tailored to ${industry.label.toLowerCase()}.`,
+        ],
+        impact: index === 0
+          ? `Sharper strategic focus, stronger growth, and more confident execution across ${industry.label.toLowerCase()}.`
+          : `More consistent performance, stronger enterprise visibility, and outcomes that sustain beyond the programme.`,
+        icon: primary.icon ?? ["↗", "◉", "✣", "◒", "⚙"][index],
+      };
+    }),
+    partnerTitle: `Why ${industry.label} Organisations Work With Us`,
+    partnerIntro: `A boardroom-grade approach designed to translate strategy into measurable outcomes across ${industry.label.toLowerCase()} operations, technology, people, and performance.`,
+    partnerReasons: [
+      ["Strategy + Execution Under One Roof", "We connect leadership priorities directly to frontline and customer outcomes."],
+      ["Deep Sector Understanding", `Our approach reflects the operating realities, risks, and opportunities of ${industry.label.toLowerCase()}.`],
+      ["Tech-First, Human-Centric Approach", "Digital enablement that simplifies work, strengthens judgment, and improves flow."],
+      ["Proven, Integrated Methodologies", "Strategy, Lean, digital, analytics, operating model, ESG, and change working together."],
+    ],
+    workSteps: [
+      ["Align strategy to execution", "Clarify priorities, governance, ownership, and measurable outcomes.", "Direction → Delivery"],
+      ["Simplify processes, then digitise", "Improve flow and control before scaling technology and automation.", "Lean → Digital"],
+      ["Build capability to sustain change", "Embed operating rhythms, skills, and playbooks so performance holds.", "Scale-ready"],
+    ],
+    focusText: `Every engagement is designed to improve growth, efficiency, quality, resilience, and measurable ${industry.label.toLowerCase()} outcomes.`,
+    valueIntro: `We are built by industry leaders with a shared mission — to create measurable, lasting value for ${industry.label.toLowerCase()} organisations.`,
+  };
+};
+
+const pharmaChallenges = [
+  {
+    icon: "↗",
+    title: "Growth & Market Pressure",
+    bullets: [
+      "Increasing competition from generics and biosimilars",
+      "Pricing pressure from regulators and global buyers",
+      "Long development cycles delaying revenue realization",
+      "Limited visibility into growth opportunities",
+    ],
+  },
+  {
+    icon: "⚙",
+    title: "Operational & Cost Inefficiencies",
+    bullets: [
+      "Fragmented processes across plants, QC labs, R&D, SCM",
+      "High cycle times due to manual interventions",
+      "Inefficient batch release processes",
+      "Expensive deviations, reworks, and quality failures",
+    ],
+  },
+  {
+    icon: "✓",
+    title: "Regulatory, Quality & Compliance Complexity",
+    bullets: [
+      "Evolving global standards (US FDA, EMA, MHRA, WHO)",
+      "Rising scrutiny toward data integrity and documentation",
+      "High cost of non-compliance and repeat CAPAs",
+    ],
+  },
+  {
+    icon: "▥",
+    title: "Digital & Technology Gaps",
+    bullets: [
+      "Low automation across QC, QA, manufacturing & supply chain",
+      "Lack of interconnected systems (ERP, LIMS, MES, QMS)",
+      "Inefficient reporting & analytics for decision-making",
+    ],
+  },
+  {
+    icon: "♧",
+    title: "Sustainability & ESG Expectations",
+    bullets: [
+      "Pressure to reduce waste, emissions, and energy intensity",
+      "ESG disclosures & compliance becoming mandatory",
+      "Limited frameworks for ESG measurement & reporting",
+    ],
+  },
+] as const;
+
+const pharmaChallengeValues = [
+  ["Strategy-Led", "Clear roadmap from vision to execution."],
+  ["Outcome-Focused", "Actionable solutions that drive real business results."],
+  ["Client-First", "Collaborative, agile, and built for long-term impact."],
+  ["Future-Ready", "Building capabilities that sustain growth tomorrow."],
+] as const;
+
 export function IndustryDirectionPage({ route }: { route: string }) {
   const industry = INDUSTRIES.find((item) => item.route === route) ?? INDUSTRIES[0];
   const proofs = proofBodies(industry);
+  const isPharma = industry.route === "/pharmaceutical-sector";
+  const showcaseContent = isPharma ? undefined : buildShowcaseContent(industry);
+  const challengeCards = isPharma
+    ? pharmaChallenges
+    : industry.challenges.map((item, index) => ({
+        icon: industry.capabilities[index]?.icon ?? ["↗", "⚙", "✓", "▥", "♧"][index],
+        title: item.title,
+        bullets: [item.body, `A coordinated response is required across ${industry.capabilities[index]?.title.toLowerCase() ?? "strategy and operations"}.`],
+      }));
 
   return (
-    <div className="industry-page">
+    <div className={`industry-page industry-page--pharma${isPharma ? "" : " industry-page--other"}`}>
       <nav className="industry-rail" aria-label="Industry sectors">
         <div className="industry-shell industry-rail__inner">
           {INDUSTRIES.map((item) => (
@@ -312,7 +438,11 @@ export function IndustryDirectionPage({ route }: { route: string }) {
         <div className="industry-shell industry-hero__grid">
           <div className="industry-hero__copy">
             <p className="industry-kicker">Industry Solutions</p>
-            <h1>{industry.lead} <span>{industry.accent}</span></h1>
+            {isPharma ? (
+              <h1>Transforming Pharma<br />Through Strategy, Digital,<br />and <span>Operational Excellence</span></h1>
+            ) : (
+              <h1>{industry.lead} <span>{industry.accent}</span></h1>
+            )}
             <div className="industry-rule" />
             <p className="industry-hero__description">{industry.description}</p>
             <div className="industry-proof-grid">
@@ -340,53 +470,77 @@ export function IndustryDirectionPage({ route }: { route: string }) {
         </div>
       </section>
 
-      <section className="industry-capabilities">
+      <section className="industry-services-showcase">
+        <div className="industry-capabilities">
+          <div className="industry-shell">
+            <header><p>Our Services</p><h2>End-to-End Transformation Capabilities for {industry.label}</h2></header>
+            <div className="industry-capability-grid">
+              {industry.capabilities.map((item) => (
+                <article key={item.title}>
+                  <span className="industry-icon" aria-hidden="true">{item.icon}</span>
+                  <div><h3>{item.title}</h3><p>{item.body}</p></div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="industry-shell">
-          <header><p>Our Services</p><h2>End-to-End Transformation Capabilities for {industry.label}</h2></header>
-          <div className="industry-capability-grid">
-            {industry.capabilities.map((item) => (
+          <section className="industry-cta-strip">
+            <span className="industry-cta-strip__icon" aria-hidden="true">•••</span>
+            <div><h2>{industry.ctaTitle}</h2><p>{industry.ctaBody}</p></div>
+            <Link href="/contact-us">Start a Conversation <span aria-hidden="true">→</span></Link>
+          </section>
+          <section className="industry-value-strip" aria-label="Our partnership principles">
+            {["Global Perspective", "Collaborative Approach", "Outcome Focused", "Built on Expertise", "Long-Term Partnership"].map((title, index) => (
+              <article key={title}><span aria-hidden="true">{["◎", "◇", "↗", "☆", "◉"][index]}</span><div><h3>{title}</h3><p>{["Global insight, locally relevant.", "Working alongside your teams.", "Clear, measurable value.", "Deep functional and sector knowledge.", "Committed beyond delivery."][index]}</p></div></article>
+            ))}
+          </section>
+        </div>
+      </section>
+
+      <section className="industry-challenges industry-challenges--pharma">
+        <div className="industry-shell">
+          <header className="pharma-challenges-head">
+            <div><p>{industry.label} Sector</p><h2>Key Challenges</h2><i /></div>
+            <span>The challenges facing {industry.label.toLowerCase()} organisations are interconnected—spanning growth, operational performance, digital enablement, capability, and sustainable value creation.</span>
+          </header>
+          <div className="pharma-challenge-grid">
+            {challengeCards.map((item, index) => (
               <article key={item.title}>
-                <span className="industry-icon" aria-hidden="true">{item.icon}</span>
-                <div><h3>{item.title}</h3><p>{item.body}</p></div>
+                <span className="pharma-challenge-icon" aria-hidden="true">{item.icon}</span>
+                <div>
+                  <header><b>{String(index + 1).padStart(2, "0")}</b><h3>{item.title}</h3></header>
+                  <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+                </div>
+                <em aria-hidden="true">{String(index + 1).padStart(2, "0")}</em>
               </article>
+            ))}
+          </div>
+          <div className="pharma-challenge-band">
+            <div className="pharma-challenge-band__lead"><span aria-hidden="true">◎</span><strong>We help {industry.label.toLowerCase()} leaders turn these challenges into opportunities for measurable impact.</strong></div>
+            {pharmaChallengeValues.map(([title, body], index) => (
+              <div className="pharma-challenge-value" key={title}><span aria-hidden="true">{["✧", "⚙", "◉", "↗"][index]}</span><div><b>{title}</b><p>{body}</p></div></div>
             ))}
           </div>
         </div>
       </section>
 
-      <div className="industry-shell">
-        <section className="industry-cta-strip">
-          <span className="industry-cta-strip__icon" aria-hidden="true">•••</span>
-          <div><h2>{industry.ctaTitle}</h2><p>{industry.ctaBody}</p></div>
-          <Link href="/contact-us">Start a Conversation <span aria-hidden="true">→</span></Link>
-        </section>
-        <section className="industry-value-strip" aria-label="Our partnership principles">
-          {["Global Perspective", "Collaborative Approach", "Outcome Focused", "Built on Expertise", "Long-Term Partnership"].map((title, index) => (
-            <article key={title}><span aria-hidden="true">{["◎", "◇", "↗", "☆", "◉"][index]}</span><div><h3>{title}</h3><p>{["Global insight, locally relevant.", "Working alongside your teams.", "Clear, measurable value.", "Deep functional and sector knowledge.", "Committed beyond delivery."][index]}</p></div></article>
-          ))}
-        </section>
-      </div>
+      <PharmaHelpShowcase content={showcaseContent} />
 
-      <section className="industry-challenges">
-        <div className="industry-shell">
-          <header className="industry-section-head"><p>What We See</p><h2>The pressures shaping {industry.label.toLowerCase()}</h2><span>We focus on the constraints that matter most to performance, resilience and sustainable growth.</span></header>
-          <div className="industry-challenge-grid">
-            {industry.challenges.map((item, index) => <article key={item.title}><b>{String(index + 1).padStart(2, "0")}</b><h3>{item.title}</h3><p>{item.body}</p></article>)}
+      <section className="pharma-next">
+        <div className="industry-shell pharma-next__panel">
+          <div className="pharma-next__copy">
+            <p>Next Steps</p>
+            <h2>{isPharma ? <>Let’s Build the Next-Generation<br />Pharma Enterprise</> : industry.ctaTitle}</h2>
+            <span>{isPharma ? "From strategy and shared services to digital transformation, ESG, and operational excellence — our team brings multi-disciplinary depth tailored specifically for the pharmaceutical industry." : industry.ctaBody}</span>
+            <strong><i aria-hidden="true" /> Strategy · Ops · Digital · ESG</strong>
+          </div>
+          <div className="pharma-next__actions">
+            <Link href="/contact-us">Talk to us</Link>
+            <Link href="/contact-us">Request a consultation <span aria-hidden="true">→</span></Link>
           </div>
         </div>
-      </section>
-
-      <section className="industry-help">
-        <div className="industry-shell industry-help__grid">
-          <header className="industry-section-head"><p>How We Help</p><h2>From priority to sustained performance.</h2><span>Our work links direction, operating discipline, technology and capability so change holds after the programme ends.</span></header>
-          <div className="industry-help__list">
-            {industry.capabilities.map((item, index) => <article key={item.title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}
-          </div>
-        </div>
-      </section>
-
-      <section className="industry-final-cta">
-        <div className="industry-shell"><p>{industry.label}</p><h2>{industry.ctaTitle}</h2><span>{industry.ctaBody}</span><Link href="/contact-us">Talk to Our Team <b aria-hidden="true">→</b></Link></div>
       </section>
     </div>
   );

@@ -8,9 +8,6 @@ type HeroSlide = {
   eyebrow: string;
   title: string;
   body: string;
-  image: string;
-  visual?: string;
-  visualAlt?: string;
   variant?: "system";
   primaryCtaHref: string;
   primaryCtaLabel: string;
@@ -69,9 +66,6 @@ const slides: HeroSlide[] = [
     eyebrow: "THE ARETE EXECUTION SYSTEM\u2122",
     title: "Transforming strategy into results that last",
     body: "Every organization has ambition. Every organization has strategy. Few consistently convert either into measurable business outcomes. The Arete Execution System\u2122 aligns strategy, operations, technology, governance, people, and performance into one integrated execution model\u2014transforming ambition into measurable business outcomes that drive profitable growth, operational excellence, and sustainable competitive advantage.",
-    image: "/assets/purple-wave.jpeg",
-    visual: "/assets/about-hero-boardroom.png",
-    visualAlt: "Leadership team reviewing enterprise performance",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Book an Executive Discussion",
     secondaryCtaHref: "/services",
@@ -81,7 +75,6 @@ const slides: HeroSlide[] = [
     eyebrow: "POWERED BY THE ARETE EXECUTION SYSTEM\u2122",
     title: "One execution philosophy. Five strategic capabilities. One measurable outcome.",
     body: "Business performance that lasts.",
-    image: "/assets/city-consulting.jpg",
     variant: "system",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Book an Executive Discussion",
@@ -92,9 +85,6 @@ const slides: HeroSlide[] = [
     eyebrow: "ENTERPRISE GROWTH & STRATEGY",
     title: "We turn strategy into measurable growth, not intent.",
     body: "For leadership teams where ambition outpaces execution, we eliminate strategic noise, align enterprise priorities, and transform strategy into disciplined execution. Powered by The Arete Execution System\u2122, we help organizations convert strategic ambition into measurable, profitable growth and lasting competitive advantage.",
-    image: "/assets/city-consulting.jpg",
-    visual: "/assets/city-consulting.jpg",
-    visualAlt: "Modern business district representing enterprise growth",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Accelerate Growth",
     secondaryCtaHref: "/growth-transformation",
@@ -104,9 +94,6 @@ const slides: HeroSlide[] = [
     eyebrow: "SHARED SERVICES & GLOBAL CAPABILITY CENTERS",
     title: "We build GCCs that create enterprise value.",
     body: "Beyond cost arbitrage, modern Global Capability Centers accelerate innovation, strengthen enterprise capability, and drive long-term business performance. Powered by The Arete Execution System\u2122, we help organizations design, establish, scale, and optimize GCCs through operating model excellence, governance, intelligent automation, AI-enabled operations, and measurable performance systems.",
-    image: "/assets/banner-new.jpg",
-    visual: "/assets/industry-gcc.png",
-    visualAlt: "Global capability centre team working together",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Build Your GCC Strategy",
     secondaryCtaHref: "/global-capability-centers",
@@ -116,9 +103,6 @@ const slides: HeroSlide[] = [
     eyebrow: "DIGITAL \u2022 AI \u2022 AUTOMATION",
     title: "We make technology accountable for business outcomes.",
     body: "Technology creates value only when execution scales it. Powered by The Arete Execution System\u2122, we integrate AI, intelligent automation, data, digital platforms, and governance into enterprise operating models\u2014ensuring every technology investment delivers measurable operational performance, financial impact, and sustainable competitive advantage.",
-    image: "/assets/purple-wave.jpeg",
-    visual: "/assets/industry-insurance.png",
-    visualAlt: "Leadership team using data and digital operations tools",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Accelerate Digital Transformation",
     secondaryCtaHref: "/services",
@@ -128,9 +112,6 @@ const slides: HeroSlide[] = [
     eyebrow: "ESG & ENTERPRISE VALUE",
     title: "We turn sustainability into enterprise value.",
     body: "Sustainability creates value only when it becomes operational. Powered by The Arete Execution System\u2122, we embed ESG into strategy, governance, operations, and performance management\u2014helping organizations strengthen resilience, accelerate sustainable growth, enhance stakeholder confidence, and create long-term enterprise value.",
-    image: "/assets/city-consulting.jpg",
-    visual: "/assets/about-origin-mountain.png",
-    visualAlt: "Mountain landscape representing sustainable long-term value",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Accelerate ESG Value",
     secondaryCtaHref: "/services",
@@ -140,9 +121,6 @@ const slides: HeroSlide[] = [
     eyebrow: "BUSINESS PROCESS EXCELLENCE & INDUSTRY 4.0",
     title: "Operational excellence is the foundation of digital excellence.",
     body: "Technology cannot fix unstable processes. Powered by The Arete Execution System\u2122, we eliminate waste, simplify complexity, stabilize operations, and integrate Lean, Industry 4.0, automation, analytics, and performance management to build intelligent, connected, and high-performing enterprises that deliver measurable business outcomes.",
-    image: "/assets/banner-new.jpg",
-    visual: "/assets/industry-manufacturing.png",
-    visualAlt: "Advanced manufacturing operation using intelligent automation",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Transform Operations",
     secondaryCtaHref: "/process-advisory",
@@ -241,20 +219,8 @@ export function HomeHeroCarousel() {
   return (
     <section className={`home-classic-slider ${activeSlide.variant === "system" ? "home-classic-slider--system" : "home-classic-slider--split"}`} aria-roledescription="carousel" aria-label="Homepage hero">
       <div className="home-classic-slider__media" aria-hidden="true">
-        {slides.map((slide, index) => (
-          <Image
-            alt=""
-            className={index === activeIndex ? "is-active" : ""}
-            fill
-            key={slide.title}
-            priority={index === 0}
-            sizes="100vw"
-            src={slide.image}
-          />
-        ))}
+        <Image alt="" fill priority sizes="100vw" src="/assets/home-hero-background.jpeg" />
       </div>
-      <div className="home-classic-slider__shade" aria-hidden="true" />
-      <div className="home-classic-slider__glass-aura" aria-hidden="true" />
 
       <button
         aria-label="Previous slide"
@@ -313,8 +279,7 @@ export function HomeHeroCarousel() {
             <strong className="home-classic-slider__system-result">{activeSlide.body}</strong>
           </article>
         ) : (
-          <>
-            <article className="home-classic-slider__copy" key={activeSlide.title}>
+          <article className="home-classic-slider__copy" key={activeSlide.title}>
               <span className="home-classic-slider__rule" aria-hidden="true" />
               <p className="home-classic-slider__eyebrow">{activeSlide.eyebrow}</p>
               <h1>{activeSlide.title}</h1>
@@ -327,13 +292,7 @@ export function HomeHeroCarousel() {
                   {activeSlide.secondaryCtaLabel}
                 </Link>
               </div>
-            </article>
-            {activeSlide.visual ? (
-              <div className="home-classic-slider__visual" key={`${activeSlide.title}-visual`}>
-                <Image alt={activeSlide.visualAlt ?? ""} fill priority={activeIndex === 0} sizes="(max-width: 960px) 0px, 42vw" src={activeSlide.visual} />
-              </div>
-            ) : null}
-          </>
+          </article>
         )}
       </div>
 
