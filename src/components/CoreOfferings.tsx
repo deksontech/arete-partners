@@ -10,7 +10,7 @@ function OfferingIcon({ name }: { name: OfferingIconName }) {
   if (name === "people") return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="15" r="6" /><circle cx="10" cy="22" r="4" /><circle cx="38" cy="22" r="4" /><path d="M14 39v-5c0-6 4-10 10-10s10 4 10 10v5M4 39v-4c0-4 3-7 7-7m33 11v-4c0-4-3-7-7-7" /></svg>;
   if (name === "brain") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M21 8a7 7 0 0 0-10 7 7 7 0 0 0-2 12 7 7 0 0 0 7 10c2 4 7 5 10 2V10c-1-2-3-3-5-2Zm6 2v29c3 3 8 2 10-2a7 7 0 0 0 7-10 7 7 0 0 0-2-12 7 7 0 0 0-10-7c-2-1-4 0-5 2Z" /><path d="M15 17h6m-8 9h8m-4 9h4m12-18h-6m8 9h-8m4 9h-4" /></svg>;
   if (name === "leaf") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M39 8C21 9 10 18 11 34c14 2 25-8 28-26Z" /><path d="M9 40c7-11 14-17 25-24" /></svg>;
-  if (name === "process") return <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="26" width="10" height="12" rx="2" /><rect x="19" y="8" width="10" height="12" rx="2" /><rect x="32" y="26" width="10" height="12" rx="2" /><path d="M11 26v-5h13m13 5v-5H24v5" /></svg>;
+  if (name === "process") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 41V20l10 6v-8l10 7v-9l16 9v16Z" /><path d="M12 34h5m5 0h5m5 0h5M32 16V8h7v13" /></svg>;
   if (name === "chart") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 39h33M12 35v-8h7v8m5 0V20h7v15m5 0V11h7v24M11 20l10-8 7 4 13-10" /></svg>;
   if (name === "handshake") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m5 17 9-6 8 5 4-2 9 5 8-3m-35 3 8 16 6-3m18-12-7 15-7-3M17 30l5 5m0-8 7 6m-4-10 9 7" /></svg>;
   if (name === "shield") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5c6 5 12 5 17 6v11c0 10-6 17-17 21C13 39 7 32 7 22V11c5-1 11-1 17-6Z" /><path d="m17 24 5 5 10-11" /></svg>;
@@ -22,15 +22,15 @@ const offerings = [
   {
     title: "Growth & Strategy",
     shortTitle: "Growth & Strategy",
-    desc: "Revenue growth, market expansion and competitive advantage.",
-    detail: "We help you define where to play and how to win, then translate strategy into executable roadmaps that deliver sustainable, profitable growth.",
+    desc: "Revenue growth, market expansion, competitive advantage.",
+    detail: "We help you define where to play and how to win — then translate strategy into executable roadmaps that deliver sustainable, profitable growth.",
     bullets: ["Sales Growth Strategy & Execution", "Market Expansion & Entry Planning", "Strategic Partnerships & Alliances", "M&A Integration Support"],
     href: "/growth-transformation",
   },
   {
-    title: "Shared Services & GCC Excellence",
+    title: "Shared Services & GCC",
     shortTitle: "GCC Excellence",
-    desc: "Design, launch and optimise high-performing global capability centres.",
+    desc: "Design & scale high-performing global hubs.",
     detail: "We create scalable shared services and GCC models with the governance, performance systems and talent capabilities required for lasting value.",
     bullets: ["Global Capability Centre (GCC) Set-up & Optimisation", "Shared Services Design & Implementation", "Governance & Performance Frameworks", "Talent and Skills Transformation"],
     href: "/global-capability-centers",
@@ -38,7 +38,7 @@ const offerings = [
   {
     title: "Tech-Enabled Transformation",
     shortTitle: "Tech Transformation",
-    desc: "Connect digital technology to practical operating and customer outcomes.",
+    desc: "Digitisation, automation, analytics, operating model.",
     detail: "We combine process digitisation, automation, AI and analytics to improve how work gets done and how customers experience the organisation.",
     bullets: ["Process Digitisation & Automation", "AI & Analytics Integration", "Industry 4.0 Adoption Roadmaps", "Customer Experience Platforms"],
     href: "/services",
@@ -46,15 +46,15 @@ const offerings = [
   {
     title: "ESG & Value Creation",
     shortTitle: "ESG & Value Creation",
-    desc: "Turn sustainability commitments into measurable enterprise value.",
+    desc: "Sustainability embedded into strategy & delivery.",
     detail: "We translate ESG ambition into actionable roadmaps, credible reporting and stakeholder strategies that support responsible, purpose-led growth.",
     bullets: ["Sustainability & ESG Roadmaps", "ESG Reporting & Compliance", "Purpose-led Value Creation", "Stakeholder Engagement Strategies"],
     href: "/services",
   },
   {
-    title: "Business Process & Operational Excellence",
+    title: "Business Process & Industry 4.0",
     shortTitle: "Operational Excellence",
-    desc: "Build lean, standardised operations with better cost and performance.",
+    desc: "Lean processes, productivity, innovation enablement.",
     detail: "We redesign end-to-end processes and operating models to eliminate waste, reduce cost and embed sustainable operational performance.",
     bullets: ["Lean Transformation", "Process Re-engineering & Standardisation", "Target Operating Model (TOM) Design", "Cost Optimisation & Waste Reduction"],
     href: "/process-advisory",
@@ -80,7 +80,7 @@ export function CoreOfferings() {
           <div>
             <p className="home-clean-kicker">What We Do</p>
             <h2>Our Core Offerings</h2>
-            <p>Select a capability to explore how Arete combines strategy, technology and operational execution to create measurable value.</p>
+            <p>Select a capability to view how we help clients drive revenue growth,<br className="home-offerings-v2__desktop-break" /> operational excellence, and tech-enabled transformation.</p>
           </div>
           <Link className="home-clean-btn home-clean-btn--outline" href="/services">
             View all services <span aria-hidden="true">&rarr;</span>
@@ -91,7 +91,7 @@ export function CoreOfferings() {
           <aside className="home-clean-rail" aria-label="Core offering capabilities">
             <div className="home-clean-rail__head">
               <strong>Capabilities</strong>
-              <span>Boardroom Tech</span>
+              <span><b aria-hidden="true">▣</b> Boardroom Tech</span>
             </div>
             {offerings.map((item, index) => (
               <button

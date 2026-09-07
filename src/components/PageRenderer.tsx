@@ -97,7 +97,7 @@ export function PageRenderer({ page }: { page: LockedPage }) {
           </div>
           {page.name === "Home" ? (
             <div className="baseline-hero-logo">
-              <Image alt="Arete Partners" height={205} src="/assets/arete-partners-logo.png" width={360} />
+              <Image alt="Arete Partners" height={843} src="/assets/arete-partners-logo-transparent.png" width={842} />
             </div>
           ) : null}
         </div>

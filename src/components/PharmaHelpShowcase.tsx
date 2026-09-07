@@ -129,7 +129,7 @@ const partnerValues = [
   ["Long-Term Partnership", "Built on trust, transparency, and a commitment to your success.", "◇"],
 ] as const;
 
-export default function PharmaHelpShowcase({ content }: { content?: IndustryShowcaseContent }) {
+export default function PharmaHelpShowcase({ content, isPharma = false }: { content?: IndustryShowcaseContent; isPharma?: boolean }) {
   const showcaseServices = content?.services ?? services;
   const showcaseReasons = content?.partnerReasons ?? partnerReasons;
   const showcaseSteps = content?.workSteps ?? workSteps;
@@ -149,7 +149,7 @@ export default function PharmaHelpShowcase({ content }: { content?: IndustryShow
   };
 
   return (
-    <section className="pharma-help" aria-labelledby="pharma-help-heading">
+    <section className={`pharma-help${isPharma ? " pharma-help--pharma" : ""}`} aria-labelledby="pharma-help-heading">
       <div className="pharma-help__stage">
         <div className="industry-shell pharma-help__layout">
           <header className="pharma-help__intro">

@@ -437,7 +437,7 @@ export function IndustryDirectionPage({ route }: { route: string }) {
       <section className="industry-hero">
         <div className="industry-shell industry-hero__grid">
           <div className="industry-hero__copy">
-            <p className="industry-kicker">Industry Solutions</p>
+            <p className="industry-kicker">Industry </p>
             {isPharma ? (
               <h1>Transforming Pharma<br />Through Strategy, Digital,<br />and <span>Operational Excellence</span></h1>
             ) : (
@@ -526,7 +526,7 @@ export function IndustryDirectionPage({ route }: { route: string }) {
         </div>
       </section>
 
-      <PharmaHelpShowcase content={showcaseContent} />
+      <PharmaHelpShowcase content={showcaseContent} isPharma={isPharma} />
 
       <section className="pharma-next">
         <div className="industry-shell pharma-next__panel">

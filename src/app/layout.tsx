@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     description: "Transforming strategy into results that last",
     url: "/",
     siteName: "Arete Partners",
-    images: [{ url: "/assets/arete-partners-logo.png", width: 1200, height: 630 }],
+    images: [{ url: "/assets/arete-partners-logo-transparent.png", width: 842, height: 843 }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Arete Partners",
     description: "Transforming strategy into results that last",
-    images: ["/assets/arete-partners-logo.png"],
+    images: ["/assets/arete-partners-logo-transparent.png"],
   },
 };
 

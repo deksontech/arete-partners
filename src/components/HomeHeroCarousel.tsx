@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 type HeroSlide = {
   eyebrow: string;
   title: string;
+  titleLines?: [string, string];
+  accent?: string;
   body: string;
   variant?: "system";
   primaryCtaHref: string;
@@ -65,7 +67,9 @@ const slides: HeroSlide[] = [
   {
     eyebrow: "THE ARETE EXECUTION SYSTEM\u2122",
     title: "Transforming strategy into results that last",
-    body: "Every organization has ambition. Every organization has strategy. Few consistently convert either into measurable business outcomes. The Arete Execution System\u2122 aligns strategy, operations, technology, governance, people, and performance into one integrated execution model\u2014transforming ambition into measurable business outcomes that drive profitable growth, operational excellence, and sustainable competitive advantage.",
+    titleLines: ["Transforming strategy", "into results that last"],
+    accent: "results",
+    body: "We partner with enterprises where strategy remains intent and transformation stays fragmented\u2014turning ambition into executable roadmaps that deliver measurable, sustained business impact.",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Book an Executive Discussion",
     secondaryCtaHref: "/services",
@@ -83,8 +87,10 @@ const slides: HeroSlide[] = [
   },
   {
     eyebrow: "ENTERPRISE GROWTH & STRATEGY",
-    title: "We turn strategy into measurable growth, not intent.",
-    body: "For leadership teams where ambition outpaces execution, we eliminate strategic noise, align enterprise priorities, and transform strategy into disciplined execution. Powered by The Arete Execution System\u2122, we help organizations convert strategic ambition into measurable, profitable growth and lasting competitive advantage.",
+    title: "Turning strategy into measurable growth.",
+    titleLines: ["Turning strategy into", "measurable growth."],
+    accent: "growth",
+    body: "We eliminate strategic noise, align enterprise priorities, and convert ambition into disciplined execution that delivers profitable growth and lasting competitive advantage.",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Accelerate Growth",
     secondaryCtaHref: "/growth-transformation",
@@ -92,8 +98,10 @@ const slides: HeroSlide[] = [
   },
   {
     eyebrow: "SHARED SERVICES & GLOBAL CAPABILITY CENTERS",
-    title: "We build GCCs that create enterprise value.",
-    body: "Beyond cost arbitrage, modern Global Capability Centers accelerate innovation, strengthen enterprise capability, and drive long-term business performance. Powered by The Arete Execution System\u2122, we help organizations design, establish, scale, and optimize GCCs through operating model excellence, governance, intelligent automation, AI-enabled operations, and measurable performance systems.",
+    title: "Building GCCs that create enterprise value.",
+    titleLines: ["Building GCCs that create", "enterprise value."],
+    accent: "value",
+    body: "We design, establish, scale, and optimize modern capability centers through strong operating models, governance, intelligent automation, and measurable performance systems.",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Build Your GCC Strategy",
     secondaryCtaHref: "/global-capability-centers",
@@ -101,8 +109,10 @@ const slides: HeroSlide[] = [
   },
   {
     eyebrow: "DIGITAL \u2022 AI \u2022 AUTOMATION",
-    title: "We make technology accountable for business outcomes.",
-    body: "Technology creates value only when execution scales it. Powered by The Arete Execution System\u2122, we integrate AI, intelligent automation, data, digital platforms, and governance into enterprise operating models\u2014ensuring every technology investment delivers measurable operational performance, financial impact, and sustainable competitive advantage.",
+    title: "Making technology accountable for business outcomes.",
+    titleLines: ["Making technology accountable", "for business outcomes."],
+    accent: "outcomes",
+    body: "We integrate AI, automation, data, and digital platforms into operating models so every technology investment delivers measurable operational and financial impact.",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Accelerate Digital Transformation",
     secondaryCtaHref: "/services",
@@ -110,8 +120,10 @@ const slides: HeroSlide[] = [
   },
   {
     eyebrow: "ESG & ENTERPRISE VALUE",
-    title: "We turn sustainability into enterprise value.",
-    body: "Sustainability creates value only when it becomes operational. Powered by The Arete Execution System\u2122, we embed ESG into strategy, governance, operations, and performance management\u2014helping organizations strengthen resilience, accelerate sustainable growth, enhance stakeholder confidence, and create long-term enterprise value.",
+    title: "Turning sustainability into enterprise value.",
+    titleLines: ["Turning sustainability into", "enterprise value."],
+    accent: "sustainability",
+    body: "We embed ESG into strategy, governance, operations, and performance management to strengthen resilience, accelerate sustainable growth, and create long-term enterprise value.",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Accelerate ESG Value",
     secondaryCtaHref: "/services",
@@ -119,8 +131,10 @@ const slides: HeroSlide[] = [
   },
   {
     eyebrow: "BUSINESS PROCESS EXCELLENCE & INDUSTRY 4.0",
-    title: "Operational excellence is the foundation of digital excellence.",
-    body: "Technology cannot fix unstable processes. Powered by The Arete Execution System\u2122, we eliminate waste, simplify complexity, stabilize operations, and integrate Lean, Industry 4.0, automation, analytics, and performance management to build intelligent, connected, and high-performing enterprises that deliver measurable business outcomes.",
+    title: "Operational excellence powers digital excellence.",
+    titleLines: ["Operational excellence powers", "digital excellence."],
+    accent: "digital",
+    body: "We simplify complexity, stabilize operations, and integrate Lean, Industry 4.0, automation, analytics, and performance management to deliver measurable business outcomes.",
     primaryCtaHref: "/contact-us",
     primaryCtaLabel: "Transform Operations",
     secondaryCtaHref: "/process-advisory",
@@ -216,6 +230,13 @@ export function HomeHeroCarousel() {
     }
   };
 
+  const renderTitleLine = (line: string) => {
+    if (!activeSlide.accent || !line.includes(activeSlide.accent)) return line;
+
+    const [before, after] = line.split(activeSlide.accent);
+    return <>{before}<em>{activeSlide.accent}</em>{after}</>;
+  };
+
   return (
     <section className={`home-classic-slider ${activeSlide.variant === "system" ? "home-classic-slider--system" : "home-classic-slider--split"}`} aria-roledescription="carousel" aria-label="Homepage hero">
       <div className="home-classic-slider__media" aria-hidden="true">
@@ -242,7 +263,7 @@ export function HomeHeroCarousel() {
       <div className={`container home-classic-slider__inner ${activeSlide.variant === "system" ? "home-classic-slider__inner--system" : "home-classic-slider__inner--split"}`}>
         {activeSlide.variant === "system" ? (
           <article className="home-classic-slider__system" key={activeSlide.title}>
-            <Image alt="Arete Partners" className="home-classic-slider__system-logo" height={205} src="/assets/arete-partners-logo.png" width={360} />
+            <Image alt="Arete Partners" className="home-classic-slider__system-logo" height={843} src="/assets/arete-partners-logo-transparent.png" width={842} />
             <div className="home-classic-slider__system-kicker">
               <span />
               <p>Powered by</p>
@@ -282,7 +303,11 @@ export function HomeHeroCarousel() {
           <article className="home-classic-slider__copy" key={activeSlide.title}>
               <span className="home-classic-slider__rule" aria-hidden="true" />
               <p className="home-classic-slider__eyebrow">{activeSlide.eyebrow}</p>
-              <h1>{activeSlide.title}</h1>
+              <h1>
+                {activeSlide.titleLines?.map((line) => (
+                  <span className="home-classic-slider__title-line" key={line}>{renderTitleLine(line)}</span>
+                )) ?? activeSlide.title}
+              </h1>
               <p>{activeSlide.body}</p>
               <div className="home-classic-slider__actions">
                 <Link className="home-classic-slider__cta home-classic-slider__cta--primary" href={activeSlide.primaryCtaHref}>

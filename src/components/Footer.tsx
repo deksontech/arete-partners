@@ -31,9 +31,9 @@ export function Footer() {
             <Image
               alt="Arete Partners"
               className="footer-logo"
-              height={205}
-              src="/assets/arete-partners-logo.png"
-              width={360}
+              height={843}
+              src="/assets/arete-partners-logo-transparent.png"
+              width={842}
             />
           </div>
           <p>Arete Partners is a tech-enabled global consulting firm helping organisations turn strategy into measurable business performance.</p>
