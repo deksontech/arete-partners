@@ -69,7 +69,7 @@
 }
 
 .about-purpose-spec__main { position: relative; z-index: 1; min-height: 688px; overflow: visible; }
-.about-purpose-spec__upper::before { content: ""; position: absolute; z-index: 0; top: 100px; right: 330px; bottom: 0; left: 80px; background: url('/assets/about-purpose-mountain.png') center bottom / 88% auto no-repeat; pointer-events: none; }
+.about-purpose-spec__upper::before { content: ""; position: absolute; z-index: 0; top: 100px; right: 330px; bottom: 0; left: 80px; background: url('/assets/about-purpose-mountain.png') center calc(100% + 10px) / 88% auto no-repeat; pointer-events: none; }
 .about-purpose-spec__kicker { margin: 0 0 34px; color: #2516a2; font-size: 14px; line-height: 1; font-weight: 800; text-transform: uppercase; }
 .about-purpose-spec__kicker::after { content: ""; display: block; width: 38px; height: 3px; margin-top: 14px; background: var(--purpose-hot-pink); }
 .about-purpose-spec h2 { position: relative; z-index: 3; max-width: 660px; margin: 0; color: var(--purpose-navy); font-size: 48px !important; line-height: 1.08 !important; font-weight: 800; letter-spacing: 0 !important; }
@@ -92,7 +92,7 @@
 .about-purpose-spec__node:nth-of-type(3) { left: 43%; bottom: 31%; }
 .about-purpose-spec__node:nth-of-type(4) { left: 64%; bottom: 52%; }
 .about-purpose-spec__node:nth-of-type(5) { right: 0; bottom: 73%; }
-.about-purpose-spec__flag { position: absolute; z-index: 4; top: 0; right: 3px; width: 48px; height: 58px; display: grid; place-items: center; color: var(--purpose-purple); }
+.about-purpose-spec__flag { position: absolute; z-index: 4; top: 0; right: 28px; width: 48px; height: 58px; display: grid; place-items: center; color: var(--purpose-purple); }
 .about-purpose-spec__flag svg { width: 42px; height: 42px; }
 .about-purpose-spec__flag .pole { stroke: var(--purpose-navy); stroke-width: 2.5; stroke-linecap: round; }
 .about-purpose-spec__flag circle { fill: var(--purpose-navy); }
@@ -19200,7 +19200,7 @@ html body .footer-bottom > div span {
 .about-v2-lead { max-width: 730px; font-size: 18px; line-height: 1.6; }
 .about-redesign svg { display: block; width: 28px; height: 28px; }
 
-.about-v2-hero { position: relative; min-height: 770px; padding-top: 112px; color: var(--about-white); background-image: linear-gradient(90deg, rgb(2 12 79 / 98%) 0%, rgb(2 12 79 / 86%) 38%, rgb(2 12 79 / 28%) 70%, rgb(2 12 79 / 52%) 100%), url('/assets/about-hero-boardroom.png'); background-position: center; background-size: cover; }
+.about-v2-hero { position: relative; min-height: 770px; padding-top: 112px; color: var(--about-white); background-image: linear-gradient(90deg, rgb(2 12 79 / 34%) 0%, rgb(2 12 79 / 20%) 38%, rgb(2 12 79 / 5%) 70%, rgb(2 12 79 / 18%) 100%), url('/assets/about-hero-execution-boardroom.png'); background-position: center; background-size: cover; }
 .about-v2-hero::after { content: ""; position: absolute; inset: auto 0 0; height: 180px; background: linear-gradient(0deg, rgb(2 12 79 / 96%), transparent); pointer-events: none; }
 .about-v2-hero-copy { position: relative; z-index: 1; }
 .about-v2-hero-copy h1 { max-width: 720px; margin: 0 0 28px; color: var(--about-white); font-size: 58px; line-height: 1.08; letter-spacing: 0; }
@@ -22324,6 +22324,12 @@ html body .site-footer .footer-logo-frame .footer-logo {
 }
 
 /* Homepage hero editorial line control (slide 2 intentionally excluded). */
+html body main .home-classic-slider,
+html body main .home-classic-slider .home-classic-slider__inner {
+  height: 820px !important;
+  min-height: 820px !important;
+}
+
 html body main .home-classic-slider--split .home-classic-slider__inner--split {
   width: min(1480px, calc(100% - 72px)) !important;
   max-width: none !important;
@@ -22333,22 +22339,37 @@ html body main .home-classic-slider--split .home-classic-slider__inner--split {
 
 html body main .home-classic-slider--split .home-classic-slider__copy {
   max-width: 940px !important;
+  min-height: 540px !important;
 }
 
 html body main .home-classic-slider--split .home-classic-slider__rule {
   display: none !important;
 }
 
+html body main .home-classic-slider--split .home-classic-slider__copy::after {
+  display: none !important;
+}
+
 html body main .home-classic-slider--split .home-classic-slider__copy h1 {
   display: block !important;
   max-width: 920px !important;
-  font-size: clamp(54px, 4.55vw, 70px) !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  font-size: 56px !important;
   line-height: 1.08 !important;
   letter-spacing: -0.035em !important;
 }
 
+html body main .home-classic-slider--split .home-classic-slider__eyebrow {
+  margin: 0 0 18px !important;
+  font-size: 14px !important;
+  line-height: 1.35 !important;
+}
+
 html body main .home-classic-slider--split .home-classic-slider__title-line {
   display: block;
+  font-size: 56px !important;
+  line-height: 1.08 !important;
   white-space: nowrap;
 }
 
@@ -22363,8 +22384,13 @@ html body main .home-classic-slider--split .home-classic-slider__copy > p:not(.h
   overflow: hidden !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
-  font-size: clamp(16px, 1.35vw, 20px) !important;
-  line-height: 1.55 !important;
+  margin-top: 26px !important;
+  font-size: 18px !important;
+  line-height: 1.65 !important;
+}
+
+html body main .home-classic-slider--split .home-classic-slider__actions {
+  margin-top: 30px !important;
 }
 
 @media (max-width: 760px) {
@@ -22374,10 +22400,42 @@ html body main .home-classic-slider--split .home-classic-slider__copy > p:not(.h
   }
 
   html body main .home-classic-slider--split .home-classic-slider__copy h1 {
-    font-size: clamp(31px, 9vw, 42px) !important;
+    font-size: 56px !important;
   }
 
   html body main .home-classic-slider--split .home-classic-slider__title-line {
-    white-space: normal;
+    font-size: 56px !important;
+    line-height: 1.08 !important;
+    white-space: nowrap;
   }
+}
+
+@media (max-width: 700px) {
+  html body main .home-classic-slider,
+  html body main .home-classic-slider .home-classic-slider__inner {
+    height: 940px !important;
+    min-height: 940px !important;
+  }
+}
+
+/* About hero reference — use the supplied artwork pixel-for-pixel. */
+html body main .about-redesign .about-v2-hero {
+  width: 100% !important;
+  min-height: 0 !important;
+  aspect-ratio: 1672 / 940;
+  padding: 0 !important;
+  background-color: #020c4f !important;
+  background-image: url('/assets/about-hero-reference-exact.png') !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+html body main .about-redesign .about-v2-hero::after {
+  display: none !important;
+}
+
+html body main .about-redesign .about-v2-hero-copy {
+  visibility: hidden !important;
+  pointer-events: none !important;
 }

@@ -143,7 +143,7 @@ export function AboutPage() {
               <p>That belief became the foundation of<br /><strong>The Arete Execution System&trade;.</strong></p>
             </div>
             <div className="about-purpose-spec__mountain" aria-label="Execution path from people to performance">
-              <svg className="about-purpose-spec__path" viewBox="0 0 660 520" preserveAspectRatio="none" aria-hidden="true"><path d="M54 474 C135 462 165 425 205 410 S280 349 336 322 S405 226 467 190 S548 88 628 32" /></svg>
+              <svg className="about-purpose-spec__path" viewBox="0 0 660 520" preserveAspectRatio="none" aria-hidden="true"><path d="M59 466 C120 462 160 441 204 420 S310 372 354 344 S430 272 470 229 S545 145 586 111 S596 56 589 32" /></svg>
               {([[
                 "people", "People"
               ], ["gear", "Strategy & Operations"], ["monitor", "Process & Technology"], ["shield", "Risk & Governance"], ["chart", "Performance Delivery"]] as const).map(([icon,label]) => <div className="about-purpose-spec__node" key={label}><span><AboutIcon name={icon}/></span><b>{label}</b></div>)}
