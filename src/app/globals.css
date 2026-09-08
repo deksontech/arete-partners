@@ -22439,3 +22439,611 @@ html body main .about-redesign .about-v2-hero-copy {
   visibility: hidden !important;
   pointer-events: none !important;
 }
+
+/* Mobile layout authority: preserve the approved desktop compositions while
+   giving each section a deliberate, readable phone layout. */
+@media (max-width: 700px) {
+  html body main .about-redesign {
+    overflow-x: hidden !important;
+  }
+
+  html body main .about-redesign .about-v2-shell,
+  html body main .about-redesign .about-purpose-spec__upper,
+  html body main .about-redesign .about-purpose-spec__banner {
+    width: calc(100% - 32px) !important;
+    max-width: none !important;
+  }
+
+  /* The desktop hero is a supplied flattened artwork. On phones the live
+     content is restored over its clean source image so it remains legible. */
+  html body main .about-redesign .about-v2-hero {
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    padding: 52px 0 44px !important;
+    background-image:
+      linear-gradient(90deg, rgb(2 12 79 / 96%) 0%, rgb(2 12 79 / 86%) 58%, rgb(2 12 79 / 62%) 100%),
+      url('/assets/about-hero-execution-boardroom.png') !important;
+    background-position: 62% center !important;
+    background-size: cover !important;
+  }
+
+  html body main .about-redesign .about-v2-hero::after {
+    display: block !important;
+    height: 70px !important;
+    background: linear-gradient(180deg, transparent, rgb(2 12 79 / 48%)) !important;
+  }
+
+  html body main .about-redesign .about-v2-hero-copy {
+    position: relative !important;
+    z-index: 2 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  html body main .about-redesign .about-v2-hero .about-v2-kicker {
+    margin: 0 0 24px !important;
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+  }
+
+  html body main .about-redesign .about-v2-hero-copy h1 {
+    margin: 0 !important;
+    font-size: clamp(37px, 10.2vw, 43px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  html body main .about-redesign .about-v2-hero-copy > p {
+    max-width: none !important;
+    margin: 28px 0 0 !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  html body main .about-redesign .about-v2-actions {
+    display: grid !important;
+    gap: 12px !important;
+    margin-top: 28px !important;
+  }
+
+  html body main .about-redesign .about-v2-btn {
+    width: 100% !important;
+    min-height: 50px !important;
+    padding: 12px 18px !important;
+    font-size: 13px !important;
+    text-align: center !important;
+  }
+
+  /* Origin story */
+  html body main .about-redesign .about-v2-origin {
+    min-height: 0 !important;
+    padding: 52px 0 40px !important;
+    background-position: 64% center !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-main {
+    gap: 30px !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-copy {
+    padding-top: 0 !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-copy h2,
+  html body main .about-redesign .about-v2-who h2,
+  html body main .about-redesign .about-v2-foundation h2,
+  html body main .about-redesign .about-v2-capabilities h2,
+  html body main .about-redesign .about-v2-principles h2 {
+    max-width: 100% !important;
+    font-size: clamp(34px, 9.3vw, 39px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.03em !important;
+    white-space: normal !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-copy h2 br,
+  html body main .about-redesign .about-v2-who h2 br,
+  html body main .about-redesign .about-v2-foundation h2 br,
+  html body main .about-redesign .about-v2-capabilities h2 br,
+  html body main .about-redesign .about-v2-principles h2 br,
+  html body main .about-redesign .about-purpose-spec h2 br {
+    display: none !important;
+  }
+
+  html body main .about-redesign .about-v2-hero-copy h1 br {
+    display: none !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-copy > p {
+    margin-bottom: 18px !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-values {
+    margin-top: 26px !important;
+    row-gap: 26px !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-values > div {
+    padding: 0 10px !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-steps {
+    gap: 14px !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-steps article {
+    min-height: 0 !important;
+    padding: 20px !important;
+    grid-template-columns: 54px minmax(0, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-steps article > span {
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-steps h3 {
+    margin-bottom: 6px !important;
+    font-size: 15px !important;
+  }
+
+  html body main .about-redesign .about-v2-origin-steps p {
+    font-size: 13px !important;
+  }
+
+  html body main .about-redesign .about-v2-quote-band {
+    min-height: 0 !important;
+    margin-top: 28px !important;
+    padding: 22px !important;
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  html body main .about-redesign .about-v2-quote-band > b {
+    font-size: 44px !important;
+  }
+
+  html body main .about-redesign .about-v2-quote-band strong {
+    grid-column: 1 / -1 !important;
+    padding: 16px 0 !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+  }
+
+  html body main .about-redesign .about-v2-quote-band > span:last-child {
+    grid-column: 1 / -1 !important;
+    font-size: 15px !important;
+  }
+
+  /* Purpose and philosophy: one clean vertical journey on mobile. */
+  html body main .about-redesign .about-purpose-spec {
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 50px 0 38px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__upper {
+    min-height: 0 !important;
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__upper::before {
+    display: none !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__main {
+    min-height: 0 !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec h2 {
+    max-width: 100% !important;
+    font-size: clamp(32px, 8.8vw, 37px) !important;
+    line-height: 1.1 !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec h2 > span {
+    white-space: normal !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__copy {
+    width: 100% !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__copy p {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__mountain {
+    position: relative !important;
+    inset: auto !important;
+    min-height: 0 !important;
+    margin: 30px 0 0 !important;
+    display: grid !important;
+    gap: 12px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__path,
+  html body main .about-redesign .about-purpose-spec__flag {
+    display: none !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__node {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    min-height: 64px !important;
+    grid-template-columns: 58px minmax(0, 1fr) !important;
+    align-items: center !important;
+    justify-items: start !important;
+    gap: 14px !important;
+    text-align: left !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__node::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 58px !important;
+    left: 28px !important;
+    width: 2px !important;
+    height: 18px !important;
+    border-left: 2px dashed rgb(7 18 82 / 35%) !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__node:last-of-type::after {
+    display: none !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__node b {
+    font-size: 11px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__cards {
+    grid-template-rows: none !important;
+    gap: 14px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__cards article {
+    min-height: 0 !important;
+    padding: 22px 20px !important;
+    display: grid !important;
+    grid-template-columns: 58px minmax(0, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__cards article > span {
+    position: static !important;
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__cards article > span svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__cards h3 {
+    margin: 2px 0 7px !important;
+    font-size: 15px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__cards p {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__banner {
+    min-height: 0 !important;
+    margin-top: 24px !important;
+    padding: 24px !important;
+    grid-template-columns: 76px minmax(0, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__emblem {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__emblem svg {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__statement {
+    padding: 0 !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__statement strong {
+    font-size: 17px !important;
+    line-height: 1.4 !important;
+  }
+
+  html body main .about-redesign .about-purpose-spec__principle {
+    display: none !important;
+  }
+
+  /* Who we are */
+  html body main .about-redesign .about-v2-who {
+    padding: 52px 0 !important;
+  }
+
+  html body main .about-redesign .about-v2-who-grid {
+    gap: 32px !important;
+  }
+
+  html body main .about-redesign .about-v2-who-list > div {
+    min-height: 0 !important;
+    padding: 16px 0 !important;
+    grid-template-columns: 52px minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  html body main .about-redesign .about-v2-who-list span {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  html body main .about-redesign .about-v2-who-list p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  html body main .about-redesign .about-v2-who-art {
+    padding: 12px !important;
+    border-radius: 12px !important;
+  }
+
+  /* Foundation */
+  html body main .about-redesign .about-v2-foundation {
+    padding: 52px 0 38px !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation::after {
+    width: 190px !important;
+    height: 100px !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation-grid {
+    gap: 16px !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation-grid article {
+    min-height: 0 !important;
+    padding: 22px !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation-grid header {
+    gap: 15px !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation-grid header span {
+    flex-basis: 56px !important;
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation-grid h3 {
+    font-size: 15px !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation-grid article > p {
+    margin-top: 20px !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation-quote {
+    min-height: 0 !important;
+    padding: 20px !important;
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation-quote strong {
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 16px !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation-quote > p {
+    grid-column: 1 / -1 !important;
+    margin: 0 !important;
+    padding: 16px 0 !important;
+    border-block: 1px solid rgb(2 12 79 / 14%) !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  html body main .about-redesign .about-v2-foundation-mark {
+    width: 58px !important;
+  }
+
+  /* Capabilities */
+  html body main .about-redesign .about-v2-capabilities {
+    min-height: 0 !important;
+    padding: 52px 0 40px !important;
+    background-image: linear-gradient(180deg, #fff, rgb(2 12 79 / 3%)) !important;
+  }
+
+  html body main .about-redesign .about-v2-capabilities .about-v2-lead,
+  html body main .about-redesign .about-v2-principles > .about-v2-shell > .about-v2-lead {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  html body main .about-redesign .about-v2-cap-grid {
+    margin-top: 24px !important;
+    gap: 16px !important;
+  }
+
+  html body main .about-redesign .about-v2-cap-grid article,
+  html body main .about-redesign .about-v2-cap-grid article:last-child {
+    min-height: 0 !important;
+    padding: 20px !important;
+  }
+
+  html body main .about-redesign .about-v2-cap-grid header span {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  html body main .about-redesign .about-v2-cap-grid h3 {
+    min-height: 0 !important;
+    margin: 18px 0 10px !important;
+    font-size: 18px !important;
+  }
+
+  html body main .about-redesign .about-v2-cap-grid article > p {
+    margin-bottom: 20px !important;
+    font-size: 14px !important;
+  }
+
+  html body main .about-redesign .about-v2-powered {
+    width: 100% !important;
+    margin: 24px auto 16px !important;
+    padding: 11px 16px !important;
+    font-size: 11px !important;
+    text-align: center !important;
+  }
+
+  html body main .about-redesign .about-v2-cap-band {
+    min-height: 0 !important;
+    padding: 20px !important;
+    grid-template-columns: 62px minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  html body main .about-redesign .about-v2-cap-band > span {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  html body main .about-redesign .about-v2-cap-band > p {
+    padding: 0 !important;
+    font-size: 13px !important;
+  }
+
+  html body main .about-redesign .about-v2-cap-band > div {
+    display: none !important;
+  }
+
+  /* Principles */
+  html body main .about-redesign .about-v2-principles {
+    padding: 52px 0 58px !important;
+  }
+
+  html body main .about-redesign .about-v2-principles-grid {
+    margin-top: 28px !important;
+    gap: 24px !important;
+  }
+
+  html body main .about-redesign .about-v2-principle-detail {
+    padding: 22px 18px !important;
+  }
+
+  html body main .about-redesign .about-v2-principle-detail h3 {
+    font-size: 28px !important;
+  }
+
+  html body main .about-redesign .about-v2-principle-detail > p {
+    font-size: 15px !important;
+  }
+
+  html body main .about-redesign .about-v2-principle-detail blockquote {
+    padding: 18px 0 !important;
+    gap: 14px !important;
+  }
+
+  html body main .about-redesign .about-v2-principle-detail blockquote svg {
+    display: none !important;
+  }
+
+  /* Homepage difference cards: remove retained desktop height on phones. */
+  html body main .home-clean-apart {
+    padding: 52px 0 !important;
+  }
+
+  html body main .home-clean-apart__top {
+    gap: 26px !important;
+    padding-bottom: 24px !important;
+  }
+
+  html body main .home-clean-apart__top aside {
+    min-height: 0 !important;
+    padding: 22px 0 0 !important;
+    border-top: 1px solid rgb(2 12 79 / 14%) !important;
+    border-left: 0 !important;
+  }
+
+  html body main .home-clean-apart__top aside strong {
+    font-size: 25px !important;
+  }
+
+  html body main .home-clean-apart__badge {
+    width: 72px !important;
+    height: 72px !important;
+    margin-top: 18px !important;
+  }
+
+  html body main .home-clean-apart__grid {
+    gap: 16px !important;
+    margin-top: 24px !important;
+  }
+
+  html body main .home-clean-apart-card {
+    min-height: 0 !important;
+    padding: 26px 20px 22px !important;
+  }
+
+  html body main .home-clean-apart-card__icon {
+    width: 76px !important;
+    height: 76px !important;
+    margin-bottom: 18px !important;
+  }
+
+  html body main .home-clean-apart-card h3 {
+    min-height: 0 !important;
+  }
+
+  html body main .home-clean-apart-card p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  html body main .home-clean-apart {
+    padding: 52px 0 !important;
+  }
+
+  html body main .home-clean-apart__top {
+    gap: 26px !important;
+    padding-bottom: 24px !important;
+  }
+
+  html body main .home-clean-apart__top aside {
+    min-height: 0 !important;
+    padding: 24px 0 0 !important;
+    border-top: 1px solid rgb(2 12 79 / 12%) !important;
+    border-left: 0 !important;
+  }
+
+  html body main .home-clean-apart__top aside strong {
+    font-size: 25px !important;
+    line-height: 1.25 !important;
+  }
+
+  html body main .home-clean-apart__badge {
+    width: 72px !important;
+    height: 72px !important;
+    margin-top: 18px !important;
+  }
+
+  html body main .home-clean-apart__grid {
+    gap: 16px !important;
+    margin-top: 24px !important;
+  }
+}

@@ -103,7 +103,7 @@ export function AboutPage() {
       <section className="about-v2-hero" id="about-top">
         <div className="about-v2-shell about-v2-hero-copy">
           <SectionKicker light>About Arete Partners</SectionKicker>
-          <h1>We build execution systems<br />that turn strategy into<br /><span>measurable outcomes.</span></h1>
+          <h1>We build execution systems<br />{" "}that turn strategy into<br />{" "}<span>measurable outcomes.</span></h1>
           <p>Arete Partners is a tech-enabled consulting firm that helps organisations navigate complexity, align priorities, and execute with discipline. Our proprietary <strong>Arete Execution System&trade;</strong> integrates strategy, operations, technology, people, and performance into one cohesive model, delivering sustained impact, not isolated results.</p>
           <div className="about-v2-actions">
             <Link className="about-v2-btn is-magenta" href="/contact-us">Book an Executive Discussion <b>→</b></Link>
@@ -116,7 +116,7 @@ export function AboutPage() {
         <div className="about-v2-shell about-v2-origin-main">
           <div className="about-v2-origin-copy">
             <SectionKicker>Origin Story</SectionKicker>
-            <h2>Built to deliver<br /><span>sustainable results</span></h2>
+            <h2>Built to deliver<br />{" "}<span>sustainable results</span></h2>
             <i className="about-v2-rule" />
             <p>It all began with a bold question: <strong>How can we work hand in hand with our clients to deliver sustainable results</strong>, where every consulting dollar becomes a multiplier of growth, innovation, and impact?</p>
             <p>Our answer was to create a model that fuses deep expertise with technology, and a delivery approach that scales globally while staying personal.</p>
@@ -135,7 +135,7 @@ export function AboutPage() {
         <div className="about-purpose-spec__upper">
           <div className="about-purpose-spec__main">
             <p className="about-purpose-spec__kicker">Purpose &amp; Philosophy</p>
-            <h2><span>Execution&mdash;not strategy&mdash;</span><br />is the true source of<br /><em>competitive advantage.</em></h2>
+            <h2><span>Execution&mdash;not strategy&mdash;</span><br />{" "}is the true source of<br />{" "}<em>competitive advantage.</em></h2>
             <i className="about-purpose-spec__rule" />
             <div className="about-purpose-spec__copy">
               <p>Most organisations have capable people, clear strategies, and significant technology investments.<br />Yet transformation fails when execution becomes fragmented.</p>
@@ -167,7 +167,7 @@ export function AboutPage() {
         <div className="about-v2-shell about-v2-who-grid">
           <div>
             <SectionKicker>Who We Are</SectionKicker>
-            <h2>A consulting partner<br />built for <span>lasting impact.</span></h2>
+            <h2>A consulting partner<br />{" "}built for <span>lasting impact.</span></h2>
             <i className="about-v2-rule" />
             <div className="about-v2-who-list">
               {[["chart",<>We are a consulting partner dedicated to driving <strong>growth, operational excellence, technology enablement, and sustainability.</strong></>],["people",<>Working as an extension of our clients’ teams, we support them from <strong>strategy to execution</strong>, delivering results that are sustainable, measurable, and lasting.</>],["target",<>Our mission is clear: make our clients successful and earn the privilege of being their <strong>Advisor for Life.</strong></>],["network",<>By combining global talent, deep domain expertise, and proprietary technology assets, we deliver transformations that <strong>accelerate growth, strengthen resilience, and spark innovation.</strong></>],["shield",<>We operate in a <strong>trusted, secure, and compliant</strong> environment, ensuring confidentiality, data integrity, and uncompromising quality in everything we do.</>]].map(([icon,text],i) => <div key={i}><span><AboutIcon name={icon as IconName}/></span><p>{text}</p></div>)}
@@ -182,7 +182,7 @@ export function AboutPage() {
       <section className="about-v2-foundation" id="foundation">
         <div className="about-v2-shell">
           <SectionKicker>Foundation</SectionKicker>
-          <h2>The foundation<br />of every <span>engagement</span></h2>
+          <h2>The foundation<br />{" "}of every <span>engagement</span></h2>
           <i className="about-v2-rule" />
           <div className="about-v2-foundation-grid">
             {[["compass","Execution Philosophy","At Arete Partners, execution is never an afterthought—it is the foundation of every engagement. We combine strategy, governance, technology, people, and performance into one integrated system that consistently translates ambition into measurable business outcomes."],["chart","Progress Milestones","In a short span, we’ve brought together exceptional global talent, industry-leading expertise, and a tech-enabled, integrated delivery model to help organizations achieve measurable results and enduring transformation—across industries and geographies."],["people","Team Culture","Our team is united by a shared purpose, fueled by agility, and thrives on collaboration. We build trust through integrity, deliver excellence through discipline, and measure success by the lasting impact we create for our clients, their customers, and stakeholders."]].map(([icon,title,text]) => <article key={title}><header><span><AboutIcon name={icon as IconName}/></span><div><h3>{title}</h3><i /></div></header><p>{text}</p></article>)}
@@ -200,7 +200,7 @@ export function AboutPage() {
       <section className="about-v2-capabilities" id="capabilities">
         <div className="about-v2-shell">
           <SectionKicker>Our Capabilities</SectionKicker>
-          <h2>Five capabilities.<br />One <span>execution system.</span></h2>
+          <h2>Five capabilities.<br />{" "}One <span>execution system.</span></h2>
           <p className="about-v2-lead">Every engagement is powered by the Arete Execution System&trade;—integrating strategy, technology, operations, governance, and performance to deliver measurable business outcomes.</p>
           <div className="about-v2-cap-grid">
             {capabilities.map(([icon,title,text,href],index) => <article key={title}><header><span><AboutIcon name={icon}/></span><em>{String(index + 1).padStart(2,"0")}</em></header><h3>{title}</h3><i/><p>{text}</p><Link href={href}>Explore <b>→</b></Link></article>)}
@@ -213,7 +213,7 @@ export function AboutPage() {
       <section className="about-v2-principles" id="principles">
         <div className="about-v2-shell">
           <SectionKicker>Our Guiding Principles</SectionKicker>
-          <h2>Our 5 Core Principles —<br />and the <span>Impact</span> We Deliver.</h2>
+          <h2>Our 5 Core Principles —<br />{" "}and the <span>Impact</span> We Deliver.</h2>
           <p className="about-v2-lead">Guided by these principles, we help organizations unlock potential, drive performance, and create lasting value.</p>
           <div className="about-v2-principles-grid">
             <div className="about-v2-principles-rail" role="tablist" aria-label="Core principles">
