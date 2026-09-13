@@ -142,28 +142,29 @@ const slides: HeroSlide[] = [
   },
 ];
 
-export function HomeHeroCarousel() {
+export function HomeHeroCarousel({ systemOnly = false }: { systemOnly?: boolean } = {}) {
+  const visibleSlides = systemOnly ? slides.filter((slide) => slide.variant === "system") : slides.filter((slide) => slide.variant !== "system");
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeSlide = slides[activeIndex];
+  const activeSlide = visibleSlides[activeIndex];
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
+    if (reduceMotion || systemOnly) return;
 
     const timer = window.setTimeout(
-      () => setActiveIndex((current) => (current + 1) % slides.length),
+      () => setActiveIndex((current) => (current + 1) % visibleSlides.length),
       activeIndex === 0 ? 7600 : 4600,
     );
 
     return () => window.clearTimeout(timer);
-  }, [activeIndex]);
+  }, [activeIndex, systemOnly, visibleSlides.length]);
 
   const showPrevious = () => {
-    setActiveIndex((current) => (current === 0 ? slides.length - 1 : current - 1));
+    setActiveIndex((current) => (current === 0 ? visibleSlides.length - 1 : current - 1));
   };
 
   const showNext = () => {
-    setActiveIndex((current) => (current + 1) % slides.length);
+    setActiveIndex((current) => (current + 1) % visibleSlides.length);
   };
 
   const renderIcon = (icon: string) => {
@@ -238,27 +239,27 @@ export function HomeHeroCarousel() {
   };
 
   return (
-    <section className={`home-classic-slider ${activeSlide.variant === "system" ? "home-classic-slider--system" : "home-classic-slider--split"}`} aria-roledescription="carousel" aria-label="Homepage hero">
+    <section className={`home-classic-slider ${activeSlide.variant === "system" ? "home-classic-slider--system home-execution-system-section" : "home-classic-slider--split"}`} aria-roledescription={systemOnly ? undefined : "carousel"} aria-label={systemOnly ? "The Arete Execution System" : "Homepage hero"}>
       <div className="home-classic-slider__media" aria-hidden="true">
         <Image alt="" fill priority sizes="100vw" src="/assets/home-hero-background.jpeg" />
       </div>
 
-      <button
+      {!systemOnly ? <button
         aria-label="Previous slide"
         className="home-classic-slider__arrow home-classic-slider__arrow--prev"
         onClick={showPrevious}
         type="button"
       >
         {"<"}
-      </button>
-      <button
+      </button> : null}
+      {!systemOnly ? <button
         aria-label="Next slide"
         className="home-classic-slider__arrow home-classic-slider__arrow--next"
         onClick={showNext}
         type="button"
       >
         {">"}
-      </button>
+      </button> : null}
 
       <div className={`container home-classic-slider__inner ${activeSlide.variant === "system" ? "home-classic-slider__inner--system" : "home-classic-slider__inner--split"}`}>
         {activeSlide.variant === "system" ? (
@@ -321,8 +322,8 @@ export function HomeHeroCarousel() {
         )}
       </div>
 
-      <div className="home-classic-slider__dots" role="tablist" aria-label="Hero slides">
-        {slides.map((slide, index) => (
+      {!systemOnly ? <div className="home-classic-slider__dots" role="tablist" aria-label="Hero slides">
+        {visibleSlides.map((slide, index) => (
           <button
             aria-label={`Show ${slide.eyebrow}`}
             aria-selected={index === activeIndex}
@@ -333,7 +334,7 @@ export function HomeHeroCarousel() {
             type="button"
           />
         ))}
-      </div>
+      </div> : null}
     </section>
   );
 }

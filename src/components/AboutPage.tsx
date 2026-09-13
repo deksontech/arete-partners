@@ -101,10 +101,11 @@ export function AboutPage() {
   return (
     <div className="about-redesign">
       <section className="about-v2-hero" id="about-top">
+        <span className="about-v2-hero-description-mask" aria-hidden="true" />
         <div className="about-v2-shell about-v2-hero-copy">
           <SectionKicker light>About Arete Partners</SectionKicker>
           <h1>We build execution systems<br />{" "}that turn strategy into<br />{" "}<span>measurable outcomes.</span></h1>
-          <p>Arete Partners is a tech-enabled consulting firm that helps organisations navigate complexity, align priorities, and execute with discipline. Our proprietary <strong>Arete Execution System&trade;</strong> integrates strategy, operations, technology, people, and performance into one cohesive model, delivering sustained impact, not isolated results.</p>
+          <p><span>Arete Partners is a tech-enabled consulting firm that helps organisations navigate</span><br className="about-v2-desktop-break" /><span> complexity, align priorities, and execute with discipline. Our proprietary Arete</span><br className="about-v2-desktop-break" /><span> <strong>Execution System&trade;</strong> integrates strategy, operations, technology, people, and performance</span><br className="about-v2-desktop-break" /><span> into one cohesive model, delivering sustained impact, not isolated results.</span></p>
           <div className="about-v2-actions">
             <Link className="about-v2-btn is-magenta" href="/contact-us">Book an Executive Discussion <b>→</b></Link>
             <a className="about-v2-btn is-ghost" href="#capabilities">Explore The Arete Execution System&trade;</a>

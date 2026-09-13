@@ -103,7 +103,8 @@ export function Header() {
               alt="Arete Partners"
               height={843}
               priority
-              src="/assets/arete-partners-logo-transparent.png"
+              src="/assets/arete-partners-logo-header-navy.png"
+              unoptimized
               width={842}
             />
           </Link>

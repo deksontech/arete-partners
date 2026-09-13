@@ -22293,20 +22293,21 @@ html body .site-header .brand {
   height: 78px !important;
   align-items: center !important;
   justify-content: center !important;
-  overflow: hidden !important;
-  border-radius: 10px !important;
-  background: #001126 url('/assets/arete-partners-logo-transparent.png') center / 70px 70px no-repeat !important;
-  padding: 4px !important;
+  overflow: visible !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
 }
 
 html body .site-header .brand img {
   position: static !important;
   inset: auto !important;
-  width: 70px !important;
-  height: 70px !important;
+  width: 78px !important;
+  height: 78px !important;
   object-fit: contain !important;
-  opacity: 0 !important;
+  opacity: 1 !important;
   transform: none !important;
+  background: transparent !important;
 }
 
 html body .site-footer .footer-logo-frame {
@@ -22418,17 +22419,80 @@ html body main .home-classic-slider--split .home-classic-slider__actions {
   }
 }
 
+/* Homepage hero: keep text and controls contained on phone-sized screens. */
+@media (max-width: 760px) {
+  html body main .home-classic-slider--split,
+  html body main .home-classic-slider--split .home-classic-slider__inner--split {
+    width: 100% !important;
+    height: 760px !important;
+    min-height: 760px !important;
+    overflow: hidden !important;
+  }
+
+  html body main .home-classic-slider--split .home-classic-slider__inner--split {
+    width: calc(100% - 32px) !important;
+    max-width: calc(100% - 32px) !important;
+    min-width: 0 !important;
+    align-items: start !important;
+    padding: 68px 0 72px !important;
+  }
+
+  html body main .home-classic-slider--split .home-classic-slider__copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    align-content: start !important;
+    overflow: hidden !important;
+  }
+
+  html body main .home-classic-slider--split .home-classic-slider__copy h1,
+  html body main .home-classic-slider--split .home-classic-slider__title-line {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(34px, 10.5vw, 42px) !important;
+    line-height: 1.08 !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  html body main .home-classic-slider--split .home-classic-slider__copy > p:not(.home-classic-slider__eyebrow) {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    -webkit-line-clamp: unset !important;
+  }
+
+  html body main .home-classic-slider--split .home-classic-slider__actions {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  html body main .home-classic-slider--split .home-classic-slider__cta {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: 18px !important;
+    white-space: normal !important;
+  }
+}
+
 /* About hero reference — use the supplied artwork pixel-for-pixel. */
 html body main .about-redesign .about-v2-hero {
   width: 100% !important;
   min-height: 0 !important;
-  aspect-ratio: 1672 / 940;
+  /* Crop the supplied artwork above its baked-in five-item footer strip. */
+  aspect-ratio: 1672 / 747;
   padding: 0 !important;
   background-color: #020c4f !important;
   background-image: url('/assets/about-hero-reference-exact.png') !important;
   background-position: center top !important;
   background-repeat: no-repeat !important;
-  background-size: 100% 100% !important;
+  background-size: 100% auto !important;
+  isolation: isolate !important;
 }
 
 html body main .about-redesign .about-v2-hero::after {
@@ -22440,11 +22504,64 @@ html body main .about-redesign .about-v2-hero-copy {
   pointer-events: none !important;
 }
 
+@media (min-width: 1000px) {
+  html body main .about-redesign .about-v2-hero::after {
+    display: none !important;
+  }
+
+  html body main .about-redesign .about-v2-hero-description-mask {
+    display: block !important;
+    position: absolute !important;
+    z-index: 1 !important;
+    top: 49.5% !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: 0 !important;
+    width: 62% !important;
+    height: 27% !important;
+    background-image:
+      linear-gradient(90deg, rgb(2 12 79 / 20%), rgb(42 17 91 / 25%)),
+      url('/assets/about-hero-execution-boardroom.png') !important;
+    background-position: center, left -22.1vw !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% 100%, 161.3% auto !important;
+    pointer-events: none !important;
+  }
+
+  html body main .about-redesign .about-v2-hero-copy {
+    position: absolute !important;
+    z-index: 2 !important;
+    inset: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  html body main .about-redesign .about-v2-hero-copy > p:not(.about-v2-kicker) {
+    position: absolute !important;
+    z-index: 2 !important;
+    top: 52.1% !important;
+    left: 4.75% !important;
+    width: 56.5% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    visibility: visible !important;
+    color: rgb(255 255 255 / 88%) !important;
+    font-size: 17px !important;
+    line-height: 1.68 !important;
+    pointer-events: auto !important;
+  }
+}
+
 /* Mobile layout authority: preserve the approved desktop compositions while
    giving each section a deliberate, readable phone layout. */
 @media (max-width: 700px) {
   html body main .about-redesign {
     overflow-x: hidden !important;
+  }
+
+  html body main .about-redesign .about-v2-hero-description-mask {
+    display: none !important;
   }
 
   html body main .about-redesign .about-v2-shell,
@@ -22551,6 +22668,10 @@ html body main .about-redesign .about-v2-hero-copy {
   }
 
   html body main .about-redesign .about-v2-hero-copy h1 br {
+    display: none !important;
+  }
+
+  html body main .about-redesign .about-v2-desktop-break {
     display: none !important;
   }
 
@@ -23045,5 +23166,150 @@ html body main .about-redesign .about-v2-hero-copy {
   html body main .home-clean-apart__grid {
     gap: 16px !important;
     margin-top: 24px !important;
+  }
+}
+
+/* Homepage difference section: consolidated phone layout. */
+@media (max-width: 700px) {
+  html body main .home-clean-apart {
+    width: 100% !important;
+    padding: 54px 20px 58px !important;
+  }
+
+  html body main .home-clean-apart::before {
+    display: none !important;
+  }
+
+  html body main .home-clean-apart > .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html body main .home-clean-apart__top {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 30px !important;
+    padding: 0 !important;
+  }
+
+  html body main .home-clean-apart__top > div {
+    min-width: 0 !important;
+  }
+
+  html body main .home-clean-apart__top h2 {
+    max-width: 100% !important;
+    margin-bottom: 18px !important;
+    font-size: clamp(34px, 9vw, 40px) !important;
+    line-height: 1.1 !important;
+    overflow-wrap: normal !important;
+  }
+
+  html body main .home-clean-apart__top p:not(.home-clean-kicker) {
+    max-width: 100% !important;
+    margin-bottom: 18px !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  html body main .home-clean-apart__top aside {
+    display: grid !important;
+    min-height: 0 !important;
+    justify-items: center !important;
+    border: 1px solid rgb(2 12 79 / 10%) !important;
+    border-radius: 16px !important;
+    background: linear-gradient(145deg, #ffffff, #fbf9ff) !important;
+    padding: 24px 20px 26px !important;
+    text-align: center !important;
+  }
+
+  html body main .home-clean-apart__top aside .home-clean-kicker {
+    margin-bottom: 10px !important;
+    text-align: center !important;
+  }
+
+  html body main .home-clean-apart__top aside strong {
+    font-size: 25px !important;
+    line-height: 1.22 !important;
+    text-align: center !important;
+  }
+
+  html body main .home-clean-apart__badge {
+    width: 76px !important;
+    height: 76px !important;
+    margin: 20px auto 0 !important;
+  }
+
+  html body main .home-clean-apart__badge svg {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  html body main .home-clean-apart__grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px !important;
+    margin-top: 20px !important;
+  }
+
+  html body main .home-clean-apart-card {
+    width: 100% !important;
+    min-height: 0 !important;
+    gap: 0 !important;
+    border-radius: 16px !important;
+    padding: 24px 20px 26px !important;
+  }
+
+  html body main .home-clean-apart-card__number {
+    top: 16px !important;
+    left: 16px !important;
+  }
+
+  html body main .home-clean-apart-card__icon {
+    width: 80px !important;
+    height: 80px !important;
+    margin: 0 auto 18px !important;
+  }
+
+  html body main .home-clean-apart-card__icon svg {
+    width: 43px !important;
+    height: 43px !important;
+  }
+
+  html body main .home-clean-apart-card h3 {
+    min-height: 0 !important;
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body main .home-clean-apart-card__rule {
+    margin: 12px auto 16px !important;
+  }
+
+  html body main .home-clean-apart-card p {
+    max-width: 340px !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  html body main .home-clean-apart__cta {
+    grid-template-columns: minmax(0, 1fr) !important;
+    justify-items: center !important;
+    gap: 16px !important;
+    min-height: 0 !important;
+    margin-top: 18px !important;
+    border-radius: 16px !important;
+    padding: 24px 20px !important;
+    text-align: center !important;
+  }
+
+  html body main .home-clean-apart__cta-icon {
+    width: 68px !important;
+    height: 68px !important;
+  }
+
+  html body main .home-clean-apart__cta .home-clean-btn {
+    box-sizing: border-box !important;
+    width: 100% !important;
   }
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CoreOfferings } from "./CoreOfferings";
+import { HomeHeroCarousel } from "./HomeHeroCarousel";
 
 const apartItems = [
   { num: "01", title: "Strategy + Execution", body: "We bridge the gap between boardroom vision and frontline results by combining a deep industry approach with our proprietary methodology.", icon: "target" as const },
@@ -214,6 +215,8 @@ export function HomePage() {
       </section>
 
       )}
+
+      <HomeHeroCarousel systemOnly />
 
       <CoreOfferings />
 
