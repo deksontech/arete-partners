@@ -12,6 +12,12 @@ type CaseStudy = {
   icon: string;
 };
 type ServiceDirectionData = {
+  hero?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
   kicker: string;
   title: React.ReactNode;
   lead: string;
@@ -82,6 +88,12 @@ const sharedDriveBodies = [
 
 export const serviceDirectionPages: Record<string, ServiceDirectionData> = {
   "operational-excellence": {
+    hero: {
+      src: "/assets/operational-excellence-hero.png",
+      alt: "Tech Enabled Transformation, AI and Operational Excellence — Smarter Operations. A Stronger Tomorrow.",
+      width: 1983,
+      height: 793,
+    },
     kicker: "Operational Excellence",
     title: <>From fragmented processes to <span>disciplined, data-led operations</span></>,
     lead: "We help organisations connect Lean, Six Sigma, digital enablement, and frontline capability into one operating system that improves flow, quality, cost, and reliability.",
@@ -102,6 +114,12 @@ export const serviceDirectionPages: Record<string, ServiceDirectionData> = {
     cases: studies("Operational Excellence",["Global Manufacturing Major – Lean Industry 4.0 Deployment","Global Energy & Investment Firm – Process Automation & Digital Integration","Leading Indian Life Insurer – Business Process Re-engineering","Leading Indian Hospital Network – Service Excellence & Operational Efficiency","Global Aerospace & Industrial Manufacturer – Process Excellence Transformation","PE-Backed Manufacturing Company – Operational Due Diligence","Automotive Components Manufacturer – Productivity & Cost Optimisation Program","KPO Leader – Lean Transformation & Knowledge Management"],["Higher throughput • Lower conversion cost","Faster flow • Better performance visibility","Reduced waste • Stronger daily management","Sustained capability • Measurable productivity"]),
   },
   "process-advisory": {
+    hero: {
+      src: "/assets/process-advisory-hero.png",
+      alt: "Business Process and Industry 4.0 — Intelligent Processes. A Smarter Tomorrow.",
+      width: 1990,
+      height: 800,
+    },
     kicker: "Process Advisory",
     title: <>From unstructured processes to a <span>governed, scalable backbone</span></>,
     lead: "We help organisations simplify, standardise, govern, and digitise critical processes so work flows consistently across teams, locations, and systems.",
@@ -120,6 +138,12 @@ export const serviceDirectionPages: Record<string, ServiceDirectionData> = {
     cases: studies("Process Advisory",["Group-wide process maturity and TQM assessment","Process automation and knowledge management platform","TPM framework across multi-plant network","Total Quality Management program across plants","Environment, Health & Safety Management System","Quality Management System for hospital network","Business process re-engineering across shared services","Enterprise BI & Analytics framework"],["Standardised flow • Clear ownership","Stronger controls • Audit readiness","Faster decisions • Visible performance","Scalable governance • Sustained improvement"]),
   },
   "service-delivery": {
+    hero: {
+      src: "/assets/service-delivery-hero.png",
+      alt: "Service Delivery and Customer Experience — Seamless Delivery. Lasting Relationships.",
+      width: 1983,
+      height: 793,
+    },
     kicker: "Service Delivery",
     title: <>From fragmented service to <span>consistent, experience-led delivery</span></>,
     lead: "We connect customer journeys, operating processes, performance insight, and frontline capability to deliver reliable service across channels and regions.",
@@ -136,6 +160,12 @@ export const serviceDirectionPages: Record<string, ServiceDirectionData> = {
     cases: studies("Service Delivery",["End-to-end patient service journey redesign","Blueprint for multichannel service delivery","After-sales service transformation","Customer experience and retention strategy","Online-to-clinic journey and experience blueprinting","Service transformation and CX framework","Internal service design & efficiency model","After-sales service blueprinting"],["Improved CX • Faster resolution","Consistent journeys • Clear SLAs","Higher retention • Better visibility","Empowered frontline • Scalable service"]),
   },
   "corporate-function": {
+    hero: {
+      src: "/assets/corporate-function-hero.png",
+      alt: "Shared Services and Global Capability Centres — Global capability. Greater possibilities.",
+      width: 1983,
+      height: 793,
+    },
     kicker: "Corporate Function Transformation",
     title: <>From fragmented support functions to an <span>integrated corporate backbone</span></>,
     lead: "We redesign corporate functions as one connected enterprise backbone, combining operating model, shared services, digital workflows, governance, and capability.",
@@ -155,6 +185,18 @@ export const serviceDirectionPages: Record<string, ServiceDirectionData> = {
 
 export function ServiceDirectionPage({ data }: { data: ServiceDirectionData }) {
   return <main className="growth-page service-direction-page">
+    {data.hero ? (
+      <section className="service-direction-visual-hero" aria-label={data.hero.alt}>
+        <Image
+          src={data.hero.src}
+          alt={data.hero.alt}
+          width={data.hero.width}
+          height={data.hero.height}
+          sizes="100vw"
+          preload
+        />
+      </section>
+    ) : null}
     <section className="growth-spine"><div className="growth-container">
       <p className="growth-kicker">{data.kicker}</p><h1>{data.title}</h1><p className="growth-lead">{data.lead}</p>
       <div className="growth-backbone"><div className="growth-backbone__label"><span><ServiceIcon name="process"/></span><strong>{data.backbone}</strong></div><div className="growth-backbone__pill">{data.backbonePill}</div></div>

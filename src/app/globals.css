@@ -39,6 +39,18 @@
 }
 
 /* Growth client stories: open editorial treatment. */
+.service-direction-visual-hero {
+  width: 100%;
+  overflow: hidden;
+  background: #020c2f;
+}
+
+.service-direction-visual-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 html body main.growth-page .growth-clients {
   position: relative;
   padding: 84px 0 74px;

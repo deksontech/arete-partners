@@ -345,6 +345,16 @@ function BulletList({ bullets }: { bullets: string[] }) {
 export default function GrowthTransformationPage() {
   return (
     <main className="growth-page">
+      <section className="service-direction-visual-hero" aria-label="Growth and Transformation">
+        <Image
+          src="/assets/growth-transformation-hero.png"
+          alt="Growth and Transformation — From ambition to a stronger tomorrow."
+          width={1983}
+          height={793}
+          sizes="100vw"
+          preload
+        />
+      </section>
       <section className="growth-spine">
         <div className="growth-container">
           <p className="growth-kicker">Growth & Transformation</p>
