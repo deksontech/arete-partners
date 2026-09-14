@@ -84,15 +84,15 @@ const clientImpacts = [
     title: "3X growth in new business premium across multi-channel network",
     body:
       "Redesigned go-to-market, channel productivity measures and sales incentives to drive premium growth across 6,000+ agents, 9 bancassurance partners, and digital & embedded ecosystems. Governance, audit & incentive alignment to lock-in performance.",
-    result: "3X growth in new business premium • 40%+ increase in persistency",
+    results: ["3X growth in new business premium", "40%+ increase in persistency"],
     icon: "shield",
   },
   {
-    eyebrow: "FY25-FY27 Transformation • Lean 10X Program",
+    eyebrow: "Automotive Manufacturing • Lean 10X Program",
     title: "Lean-driven cost and capacity unlock across 10+ plants",
     body:
       "Delivered an EBITDA improvement program for a large auto/mobile company, combining lean deployment, throughput enhancement, capacity procurement savings, and plant-level dashboard for sustained performance.",
-    result: "5-10% EBITDA margin uplift • 20-25% cost savings across 10+ plants",
+    results: ["5-10% EBITDA margin uplift", "20-25% cost savings across 10+ plants"],
     icon: "factory",
   },
   {
@@ -100,15 +100,15 @@ const clientImpacts = [
     title: "Shared scorecards and governance for a leading Indian healthcare provider",
     body:
       "Unified business priorities across hospital leadership, operations, and corporate; built leadership governance rhythm with a single medical, operations, and business teams around common outcomes.",
-    result: "30% productivity • Faster decision cycles • Stronger execution discipline",
+    results: ["30% productivity", "Faster decision cycles", "Stronger execution discipline"],
     icon: "health",
   },
   {
-    eyebrow: "B2B Manufacturer • Sales Funnel Optimisation",
+    eyebrow: "B2B Manufacturing • Sales Funnel Optimisation",
     title: "De-bottlenecked sales funnel and channel productivity uplift",
     body:
       "Applied Six Sigma for Growth to map the funnel, leakage and win-rate; realigned team structure, incentives, renewals processes, leads, and reporting for higher account wins and distributor retention.",
-    result: "20% sales productivity • Higher win-rate • Improved distributor retention",
+    results: ["20% sales productivity", "Higher win-rate", "Improved distributor retention"],
     icon: "funnel",
   },
   {
@@ -116,31 +116,31 @@ const clientImpacts = [
     title: "New operating model for growth in Levant financial services group",
     body:
       "Implemented shared capabilities, digital enablement, and workflow re-alignment across a multi-entity GCC; operating model for 7 countries with sovereign back-office & governance functions.",
-    result: "25%+ efficiency • Improved SLAs • Stronger governance & regional scale",
+    results: ["25%+ efficiency", "Improved SLAs", "Stronger governance & regional scale"],
     icon: "people",
   },
   {
-    eyebrow: "Global Industrial Conglomerate • Org Redesign",
+    eyebrow: "Global Industrial Conglomerate • Organisation Redesign",
     title: "Vision cascade and governance re-architecture across a global portfolio",
     body:
       "Integrated 5 functions to complement and refresh the strategy / vision, then realigned structures, role charters, and governance forums to align group, business units, and functions.",
-    result: "Faster decision-making • Governance maturity uplift • Consistent execution",
+    results: ["Faster decision-making", "Governance maturity uplift", "Consistent execution"],
     icon: "system",
   },
   {
-    eyebrow: "Diversified Business Group • CFO Transformation Office",
+    eyebrow: "Diversified Business Group • Transformation Office",
     title: "CEO-led transformation office for 20+ strategic initiatives",
     body:
       "Set up a Transformation & PMO Office with clear charters, initiative pipelines, and OKR dashboards; enabled CXOs for visibility into rhythms to unlock cost and projects.",
-    result: "Institutionalised PMO office • 20+ initiatives tracked • Execution cadence in place",
+    results: ["Institutionalised PMO office", "20+ initiatives tracked", "Execution cadence in place"],
     icon: "building",
   },
   {
-    eyebrow: "Digital Health Innovator • Design Thinking",
+    eyebrow: "Digital Health • Product Design & Go-to-Market",
     title: "New digital-first health product from concept to market",
     body:
       "Used Design Thinking and Journey mapping to shape a product; validated with end-users, refined the solution, and drove go-to-market strategy across HCPs, and segment activation rhythms.",
-    result: "20%+ adoption • Higher customer satisfaction • Faster time-to-market",
+    results: ["20%+ adoption", "Higher customer satisfaction", "Faster time-to-market"],
     icon: "health",
   },
 ];
@@ -440,21 +440,33 @@ export default function GrowthTransformationPage() {
                 businesses—delivering management transformations, measurable growth, productivity, and value creation.
               </p>
             </div>
-            <Link href="/contact-us">TCS A&amp;G Partner Access</Link>
+            <Link href="/contact-us">Connect with us</Link>
           </div>
 
-          <div className="growth-client-grid">
-            {clientImpacts.map((item) => (
-              <article className="growth-client-card" key={item.title}>
-                <div className="growth-client-card__eyebrow">
-                  <span aria-hidden="true">
-                    <GrowthIcon name={item.icon} />
-                  </span>
-                  <p>{item.eyebrow}</p>
+          <div className="growth-client-editorial">
+            {clientImpacts.map((item, index) => (
+              <article className="growth-client-story" key={item.title}>
+                <header className="growth-client-story__header">
+                  <div className="growth-client-story__eyebrow">
+                    <span aria-hidden="true">
+                      <GrowthIcon name={item.icon} />
+                    </span>
+                    <p>
+                      <strong>{item.eyebrow.split(" • ")[0]}</strong>
+                      <span>({item.eyebrow.split(" • ")[1]})</span>
+                    </p>
+                  </div>
+                  <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
+                </header>
+                <div className="growth-client-story__copy">
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-                <strong>{item.result}</strong>
+                <ul className="growth-client-story__results" aria-label="Results">
+                  {item.results.map((result) => (
+                    <li key={result}>{result}</li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>

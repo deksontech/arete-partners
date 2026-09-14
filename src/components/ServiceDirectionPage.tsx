@@ -3,7 +3,14 @@ import Link from "next/link";
 
 type Card = { eyebrow: string; title: string; bullets: string[]; icon: string };
 type Step = { title: string; body: string; icon: string };
-type CaseStudy = { eyebrow: string; title: string; body: string; result: string; icon: string };
+type CaseStudy = {
+  industry: string;
+  workExecuted: string;
+  title: string;
+  body: string;
+  results: string[];
+  icon: string;
+};
 type ServiceDirectionData = {
   kicker: string;
   title: React.ReactNode;
@@ -52,13 +59,17 @@ function steps(items: Array<[string,string]>, icons = ["design","process","data"
 function studies(kicker: string, titles: string[], results: string[]): CaseStudy[] {
   const industries = ["Enterprise", "Manufacturing", "Healthcare", "Financial Services", "Multi-site Operations", "Consumer Business", "Global Group", "Digital Enterprise"];
   const icons = ["shield","factory","quality","people","operations","trend","process","data"];
-  return titles.map((title,index) => ({
-    eyebrow: `${industries[index]} • ${kicker}`,
-    title,
-    body: `A focused ${kicker.toLowerCase()} engagement aligning operating practices, governance, technology, and capability around measurable business outcomes.`,
-    result: results[index % results.length],
-    icon: icons[index],
-  }));
+  return titles.map((title,index) => {
+    const titleParts = title.split(" – ");
+    return {
+      industry: industries[index],
+      workExecuted: titleParts.length > 1 ? titleParts.slice(1).join(" – ") : title,
+      title,
+      body: `A focused ${kicker.toLowerCase()} engagement aligning operating practices, governance, technology, and capability around measurable business outcomes.`,
+      results: results[index % results.length].split(" • "),
+      icon: icons[index],
+    };
+  });
 }
 
 const sharedDriveBodies = [
@@ -154,7 +165,42 @@ export function ServiceDirectionPage({ data }: { data: ServiceDirectionData }) {
     </div></section>
     <section className="growth-drive"><div className="growth-container"><div className="growth-section-head growth-section-head--center"><p className="growth-kicker">{data.kicker}</p><h2>{data.driveTitle}</h2><p>{data.driveIntro}</p></div><div className="growth-drive__grid"><div className="growth-drive__image"><Image src="/assets/city-consulting.jpg" alt="Modern business district representing structured transformation" fill sizes="(max-width: 900px) 100vw, 44vw"/></div><div className="growth-drive__steps">{data.driveSteps.map((x,i)=><article key={x.title}><span><ServiceIcon name={x.icon}/></span><b>{String(i+1).padStart(2,"0")}</b><div><h3>{x.title}</h3><p>{x.body}</p></div></article>)}</div></div></div></section>
     <section className="growth-triggers"><div className="growth-container"><div className="growth-section-head growth-section-head--center"><p className="growth-kicker">Engagement Triggers</p><h2>{data.triggerTitle}</h2><p>{data.triggerIntro}</p></div><div className="growth-trigger-grid">{data.triggers.map(x=><article key={x.title}><span><ServiceIcon name={x.icon}/></span><div><h3>{x.title}</h3><p>{x.body}</p></div></article>)}</div><Link className="growth-trigger-cta" href="/contact-us">Start a no-cost conversation</Link></div></section>
-    <section className="growth-clients"><div className="growth-container"><div className="growth-section-head growth-section-head--split"><div><p className="growth-kicker">{data.kicker}</p><h2>{data.caseTitle}</h2><p>{data.caseIntro}</p></div><Link href="/contact-us">Talk about a similar outcome</Link></div><div className="growth-client-grid">{data.cases.map(x=><article className="growth-client-card" key={x.title}><div className="growth-client-card__eyebrow"><span><ServiceIcon name={x.icon}/></span><p>{x.eyebrow}</p></div><h3>{x.title}</h3><p>{x.body}</p><strong>{x.result}</strong></article>)}</div><ImpactStrip data={data}/></div></section>
+    <section className="growth-clients">
+      <div className="growth-container">
+        <div className="growth-section-head growth-section-head--split">
+          <div>
+            <p className="growth-kicker">{data.kicker}</p>
+            <h2>{data.caseTitle}</h2>
+            <p>{data.caseIntro}</p>
+          </div>
+          <Link href="/contact-us">Connect with us</Link>
+        </div>
+        <div className="growth-client-editorial">
+          {data.cases.map((item, index) => (
+            <article className="growth-client-story" key={item.title}>
+              <header className="growth-client-story__header">
+                <div className="growth-client-story__eyebrow">
+                  <span aria-hidden="true"><ServiceIcon name={item.icon}/></span>
+                  <p>
+                    <strong>{item.industry}</strong>
+                    <span>({item.workExecuted})</span>
+                  </p>
+                </div>
+                <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
+              </header>
+              <div className="growth-client-story__copy">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+              <ul className="growth-client-story__results" aria-label="Results">
+                {item.results.map((result) => <li key={result}>{result}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+        <ImpactStrip data={data}/>
+      </div>
+    </section>
   </main>;
 }
 
