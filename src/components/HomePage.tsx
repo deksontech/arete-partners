@@ -102,7 +102,14 @@ export function HomePage() {
     <div className="home-clean">
       <section className="home-clean-strip">
         <div className="container home-clean-strip__inner">
-          <p>Introducing a new way to design, scale and govern transformation programs across your enterprise.</p>
+          <div className="home-clean-strip__copy">
+            <h2>
+              <span><strong>Design</strong> transformation.</span>{" "}
+              <span><strong>Scale</strong> execution.</span>{" "}
+              <span><strong>Deliver</strong> lasting results.</span>
+            </h2>
+            <p>Turning ambition into aligned action—and transformation into measurable, lasting impact.</p>
+          </div>
           <Link className="home-clean-btn home-clean-btn--ghost-light" href="#offerings">
             Explore How We Work
           </Link>

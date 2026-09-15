@@ -38,6 +38,162 @@
   --lux-text: rgb(179 29 124 / 0.95);
 }
 
+/* Reference-matched post-hero transformation strip. */
+html body main .home-clean-strip {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 112px;
+  border: 0 !important;
+  background: #020c4f url("/assets/home-post-hero-strip-bg.png") center / 100% 100% no-repeat !important;
+  padding: 20px 0 !important;
+}
+
+html body main .home-clean-strip::before {
+  display: none;
+}
+
+html body main .home-clean-strip__inner {
+  width: min(1740px, calc(100% - 112px)) !important;
+  max-width: 1740px !important;
+  min-height: 0;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  gap: 42px !important;
+  align-items: center;
+  margin-inline: auto !important;
+}
+
+html body main .home-clean-strip__copy {
+  position: relative;
+  min-width: 0;
+  padding-left: 26px;
+}
+
+html body main .home-clean-strip__copy::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #efb851 0%, #ff3f95 100%);
+  content: "";
+}
+
+html body main .home-clean-strip h2 {
+  margin: 0 0 7px;
+  color: #ffffff;
+  font-size: clamp(20px, 1.5vw, 28px);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+html body main .home-clean-strip h2 span {
+  display: inline;
+}
+
+html body main .home-clean-strip h2 strong {
+  color: #f1bd52;
+  font: inherit;
+  font-weight: 700;
+}
+
+html body main .home-clean-strip__copy > p {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: rgb(255 255 255 / 0.88) !important;
+  font-size: clamp(13px, 0.86vw, 16px) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.08em;
+  line-height: 1.35 !important;
+}
+
+html body main .home-clean-strip__copy > p::before {
+  display: none !important;
+}
+
+html body main .home-clean-strip .home-clean-btn {
+  min-width: 270px;
+  min-height: 48px !important;
+  padding: 11px 28px !important;
+  border: 1px solid #ff3f95 !important;
+  background: linear-gradient(105deg, rgb(19 23 105 / 0.94) 0%, rgb(77 18 111 / 0.96) 58%, #d31a84 100%) !important;
+  box-shadow: 0 14px 34px rgb(0 0 0 / 0.2) !important;
+  font-size: 15px;
+}
+
+@media (max-width: 1160px) {
+  html body main .home-clean-strip__inner {
+    width: min(100% - 64px, 1080px) !important;
+    gap: 34px !important;
+  }
+
+  html body main .home-clean-strip h2 {
+    white-space: normal;
+  }
+
+  html body main .home-clean-strip .home-clean-btn {
+    min-width: 270px;
+  }
+}
+
+@media (max-width: 760px) {
+  html body main .home-clean-strip {
+    min-height: 0;
+    background-position: right center !important;
+    background-size: auto 100% !important;
+    padding: 24px 20px !important;
+  }
+
+  html body main .home-clean-strip::before {
+    background: rgb(2 12 79 / 0.78);
+  }
+
+  html body main .home-clean-strip__inner {
+    width: 100% !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 26px !important;
+  }
+
+  html body main .home-clean-strip__copy {
+    padding-left: 17px;
+  }
+
+  html body main .home-clean-strip h2 {
+    margin-bottom: 14px;
+    font-size: clamp(22px, 6.5vw, 27px);
+    line-height: 1.22;
+  }
+
+  html body main .home-clean-strip h2 span {
+    display: block;
+  }
+
+  html body main .home-clean-strip__copy > p {
+    font-size: 14px !important;
+    letter-spacing: 0.04em;
+    line-height: 1.55 !important;
+  }
+
+  html body main .home-clean-strip .home-clean-btn {
+    width: 100% !important;
+    min-width: 0;
+    min-height: 48px !important;
+  }
+}
+
+/* Preserve the supplied homepage artwork's right-edge labels on wide screens. */
+@media (min-width: 901px) {
+  html body main .home-classic-slider__media img {
+    object-position: right center !important;
+  }
+}
+
 /* Growth client stories: open editorial treatment. */
 .service-direction-visual-hero {
   width: 100%;
@@ -308,6 +464,68 @@ html body main.growth-page .growth-impact-strip--clients {
     display: grid;
     gap: 9px;
     margin-top: 22px;
+  }
+}
+
+/* Keep the approved post-hero strip above legacy homepage overrides. */
+html body main .home-clean-strip__inner {
+  width: min(1740px, calc(100% - 112px)) !important;
+  max-width: 1740px !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  gap: 64px !important;
+}
+
+html body main .home-clean-strip .home-clean-btn {
+  min-width: 344px;
+  min-height: 78px !important;
+  padding: 18px 40px !important;
+  border: 1px solid #ff3f95 !important;
+}
+
+html body main .home-clean-strip h2,
+html body main .home-clean-strip h2 span {
+  color: #ffffff !important;
+  font-size: clamp(25px, 1.8vw, 36px) !important;
+  font-style: italic !important;
+  line-height: 1.2 !important;
+}
+
+html body main .home-clean-strip h2 strong {
+  color: #f1bd52 !important;
+}
+
+@media (max-width: 1160px) {
+  html body main .home-clean-strip__inner {
+    width: min(100% - 64px, 1080px) !important;
+    gap: 34px !important;
+  }
+
+  html body main .home-clean-strip .home-clean-btn {
+    min-width: 270px;
+  }
+}
+
+@media (max-width: 760px) {
+  html body main .home-clean-strip {
+    padding: 34px 20px !important;
+  }
+
+  html body main .home-clean-strip__inner {
+    width: 100% !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 26px !important;
+  }
+
+  html body main .home-clean-strip .home-clean-btn {
+    width: 100% !important;
+    min-width: 0;
+    min-height: 56px !important;
+  }
+
+  html body main .home-clean-strip h2,
+  html body main .home-clean-strip h2 span {
+    font-size: clamp(25px, 7.2vw, 31px) !important;
+    line-height: 1.22 !important;
   }
 }
 
@@ -23634,5 +23852,210 @@ html body main.growth-page .growth-clients .growth-section-head--split > a {
     width: fit-content;
     min-width: 176px;
     padding-inline: 24px;
+  }
+}
+
+/* Final authority for the reference-matched post-hero strip. */
+html body main .home-clean-strip {
+  min-height: 112px !important;
+  padding: 20px 0 !important;
+  background: #020c4f url("/assets/home-post-hero-strip-bg.png") center / 100% 100% no-repeat !important;
+}
+
+html body main .home-clean-strip__inner {
+  width: min(1740px, calc(100% - 112px)) !important;
+  max-width: 1740px !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  min-height: 0 !important;
+  gap: 42px !important;
+}
+
+html body main .home-clean-strip .home-clean-btn {
+  min-width: 270px !important;
+  min-height: 48px !important;
+  padding: 11px 28px !important;
+  border: 1px solid #ff3f95 !important;
+}
+
+html body main .home-clean-strip h2,
+html body main .home-clean-strip h2 span {
+  color: #ffffff !important;
+  font-size: clamp(20px, 1.5vw, 28px) !important;
+  font-style: italic !important;
+  line-height: 1.2 !important;
+}
+
+html body main .home-clean-strip h2 strong {
+  color: #f1bd52 !important;
+}
+
+@media (max-width: 1160px) {
+  html body main .home-clean-strip__inner {
+    width: min(100% - 64px, 1080px) !important;
+    gap: 34px !important;
+  }
+
+  html body main .home-clean-strip .home-clean-btn {
+    min-width: 270px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  html body main .home-clean-strip {
+    min-height: 0 !important;
+    padding: 24px 20px !important;
+    background-position: right center !important;
+    background-size: auto 100% !important;
+  }
+
+  html body main .home-clean-strip__inner {
+    width: 100% !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 26px !important;
+  }
+
+  html body main .home-clean-strip .home-clean-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 48px !important;
+  }
+
+  html body main .home-clean-strip h2,
+  html body main .home-clean-strip h2 span {
+    font-size: clamp(22px, 6.5vw, 27px) !important;
+    line-height: 1.22 !important;
+  }
+}
+
+/* Refined open-timeline treatment for service delivery steps. */
+html body main.growth-page .growth-drive {
+  position: relative;
+  overflow: hidden;
+  padding: 76px 0 82px;
+  background:
+    radial-gradient(circle at 12% 74%, rgb(179 29 124 / 0.055), transparent 25rem),
+    radial-gradient(circle at 88% 18%, rgb(76 36 189 / 0.055), transparent 28rem),
+    #ffffff;
+}
+
+html body main.growth-page .growth-drive .growth-section-head--center {
+  max-width: 920px;
+  margin-bottom: 44px;
+}
+
+html body main.growth-page .growth-drive__grid {
+  grid-template-columns: minmax(0, 0.94fr) minmax(430px, 0.88fr);
+  gap: clamp(54px, 6vw, 92px);
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+html body main.growth-page .growth-drive__image {
+  min-height: 430px;
+  border-radius: 26px;
+  box-shadow: 0 26px 64px rgb(2 12 79 / 0.14);
+}
+
+html body main.growth-page .growth-drive__image::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(255 255 255 / 0.32);
+  border-radius: inherit;
+  background: linear-gradient(145deg, transparent 52%, rgb(2 12 79 / 0.3));
+  content: "";
+  pointer-events: none;
+}
+
+html body main.growth-page .growth-drive__steps {
+  position: relative;
+  gap: 0;
+  padding-left: 4px;
+}
+
+html body main.growth-page .growth-drive__steps::before {
+  position: absolute;
+  top: 26px;
+  bottom: 26px;
+  left: 27px;
+  width: 2px;
+  background: linear-gradient(180deg, #f03b91, #5c32bd 52%, rgb(92 50 189 / 0.12));
+  content: "";
+}
+
+html body main.growth-page .growth-drive__steps article {
+  position: relative;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid rgb(2 12 79 / 0.1);
+}
+
+html body main.growth-page .growth-drive__steps article:first-child {
+  padding-top: 0;
+}
+
+html body main.growth-page .growth-drive__steps article:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+html body main.growth-page .growth-drive__steps article > span {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgb(179 29 124 / 0.2);
+  background: linear-gradient(145deg, #ffffff, #f8eef7) !important;
+  box-shadow: 0 8px 22px rgb(2 12 79 / 0.09);
+  color: #b31d7c !important;
+}
+
+html body main.growth-page .growth-drive__steps h3 {
+  margin: 1px 0 5px;
+  color: var(--gt-navy) !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+}
+
+html body main.growth-page .growth-drive__steps p {
+  max-width: 470px;
+  margin: 0;
+  color: rgb(2 12 79 / 0.72) !important;
+  font-size: 13.5px !important;
+  line-height: 1.58 !important;
+}
+
+@media (max-width: 900px) {
+  html body main.growth-page .growth-drive {
+    padding: 58px 0 64px;
+  }
+
+  html body main.growth-page .growth-drive__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+  }
+
+  html body main.growth-page .growth-drive__image {
+    min-height: clamp(280px, 58vw, 400px);
+  }
+}
+
+@media (max-width: 560px) {
+  html body main.growth-page .growth-drive__steps::before {
+    left: 23px;
+  }
+
+  html body main.growth-page .growth-drive__steps article {
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    gap: 15px;
+    padding: 16px 0;
+  }
+
+  html body main.growth-page .growth-drive__steps article > span {
+    width: 42px;
+    height: 42px;
   }
 }

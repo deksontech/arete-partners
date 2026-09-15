@@ -241,7 +241,13 @@ export function HomeHeroCarousel({ systemOnly = false }: { systemOnly?: boolean 
   return (
     <section className={`home-classic-slider ${activeSlide.variant === "system" ? "home-classic-slider--system home-execution-system-section" : "home-classic-slider--split"}`} aria-roledescription={systemOnly ? undefined : "carousel"} aria-label={systemOnly ? "The Arete Execution System" : "Homepage hero"}>
       <div className="home-classic-slider__media" aria-hidden="true">
-        <Image alt="" fill priority sizes="100vw" src="/assets/home-hero-background.jpeg" />
+        <Image
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          src={systemOnly ? "/assets/home-hero-background.jpeg" : "/assets/home-hero-template.png"}
+        />
       </div>
 
       {!systemOnly ? <button

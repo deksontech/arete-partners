@@ -25,6 +25,7 @@ const offerings = [
     desc: "Revenue growth, market expansion, competitive advantage.",
     detail: "We help you define where to play and how to win — then translate strategy into executable roadmaps that deliver sustainable, profitable growth.",
     bullets: ["Sales Growth Strategy & Execution", "Market Expansion & Entry Planning", "Strategic Partnerships & Alliances", "M&A Integration Support"],
+    outcomes: ["↑ Revenue & Profit Uplift", "↓ Time-to-Value", "↑ EBITDA Increase"],
     href: "/growth-transformation",
   },
   {
@@ -33,6 +34,7 @@ const offerings = [
     desc: "Design & scale high-performing global hubs.",
     detail: "We create scalable shared services and GCC models with the governance, performance systems and talent capabilities required for lasting value.",
     bullets: ["Global Capability Centre (GCC) Set-up & Optimisation", "Shared Services Design & Implementation", "Governance & Performance Frameworks", "Talent and Skills Transformation"],
+    outcomes: ["↓ Cost-to-Serve", "↑ Service Performance", "↑ Value per FTE"],
     href: "/global-capability-centers",
   },
   {
@@ -40,7 +42,8 @@ const offerings = [
     shortTitle: "Tech Transformation",
     desc: "Digitisation, automation, analytics, operating model.",
     detail: "We combine process digitisation, automation, AI and analytics to improve how work gets done and how customers experience the organisation.",
-    bullets: ["Process Digitisation & Automation", "AI & Analytics Integration", "Industry 4.0 Adoption Roadmaps", "Customer Experience Platforms"],
+    bullets: ["Process Digitisation & Automation", "AI & Analytics Integration", "Operational Excellence Enablement", "RPA & Intelligent Process Automation"],
+    outcomes: ["↑ Digital and AI Adoption at Scale", "↓ Time to Process", "↑ Value Realisation per FTE"],
     href: "/services",
   },
   {
@@ -48,15 +51,17 @@ const offerings = [
     shortTitle: "ESG & Value Creation",
     desc: "Sustainability embedded into strategy & delivery.",
     detail: "We translate ESG ambition into actionable roadmaps, credible reporting and stakeholder strategies that support responsible, purpose-led growth.",
-    bullets: ["Sustainability & ESG Roadmaps", "ESG Reporting & Compliance", "Purpose-led Value Creation", "Stakeholder Engagement Strategies"],
+    bullets: ["ESG Strategy & Transformation", "ESG Reporting & Compliance", "Purpose-led Value Creation", "Climate & Decarbonisation Strategy"],
+    outcomes: ["↑ Sustainable Revenue", "↓ Cost & Resource Intensity", "↑ Enterprise Value"],
     href: "/services",
   },
   {
     title: "Business Process & Industry 4.0",
-    shortTitle: "Operational Excellence",
+    shortTitle: "Business Process & Industry 4.0",
     desc: "Lean processes, productivity, innovation enablement.",
     detail: "We redesign end-to-end processes and operating models to eliminate waste, reduce cost and embed sustainable operational performance.",
     bullets: ["Lean Transformation", "Process Re-engineering & Standardisation", "Target Operating Model (TOM) Design", "Cost Optimisation & Waste Reduction"],
+    outcomes: ["↑ Process Productivity", "↓ Cycle Time", "↓ Operating Cost"],
     href: "/process-advisory",
   },
 ];
@@ -122,9 +127,7 @@ export function CoreOfferings() {
               ))}
             </ul>
             <div className="home-clean-detail__summary" aria-label="Offering outcomes">
-              <span>✓ Clear priorities</span>
-              <span>▣ Actionable roadmaps</span>
-              <span>↗ KPI movement</span>
+              {activeOffering.outcomes.map((outcome) => <span key={outcome}>{outcome}</span>)}
             </div>
             <div className="home-clean-detail__actions">
               <Link className="home-clean-btn home-clean-btn--white" href="/contact-us">Talk to us</Link>
