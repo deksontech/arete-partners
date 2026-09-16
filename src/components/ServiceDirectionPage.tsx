@@ -18,6 +18,12 @@ type ServiceDirectionData = {
     width: number;
     height: number;
   };
+  driveArtwork?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
   kicker: string;
   title: React.ReactNode;
   lead: string;
@@ -51,6 +57,153 @@ function ServiceIcon({ name }: { name: string }) {
 
 function BulletList({ bullets }: { bullets: string[] }) {
   return <ul>{bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>;
+}
+
+function OperationalIcon({ name }: { name: string }) {
+  if (name === "database") return <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="12" rx="12" ry="5"/><path d="M12 12v12c0 3 5 5 12 5s12-2 12-5V12M12 24v12c0 3 5 5 12 5s12-2 12-5V24"/></svg>;
+  if (name === "bars") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 40h35M11 38V27h7v11m6 0V19h7v19m6 0V9h7v29"/></svg>;
+  if (name === "bulb") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 29c-3-2-5-6-5-10 0-7 6-13 13-13s13 6 13 13c0 4-2 8-5 10-2 2-3 4-3 7H19c0-3-1-5-3-7Z"/><path d="M19 40h10m-9-4h8M24 1v3M5 19H2m44 0h-3M9 7l3 3m27-3-3 3"/></svg>;
+  if (name === "network") return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="5"/><circle cx="10" cy="11" r="3"/><circle cx="38" cy="10" r="3"/><circle cx="9" cy="37" r="3"/><circle cx="39" cy="37" r="3"/><path d="m13 13 7 7m8 0 7-7M20 28l-8 7m16-7 8 7M24 8v11m0 10v11"/></svg>;
+  if (name === "processor") return <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="13" width="22" height="22" rx="3"/><rect x="20" y="20" width="8" height="8" rx="1"/><path d="M18 6v7m12-7v7M18 35v7m12-7v7M6 18h7m-7 12h7m22-12h7m-7 12h7M24 6v7m0 22v7M6 24h7m22 0h7"/></svg>;
+  if (name === "brain") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M22 10c-2-4-8-3-9 2-4 0-6 5-3 8-4 3-3 9 1 11-2 5 3 10 8 8 1 3 5 4 7 1V12c0-3-2-4-4-2Z"/><path d="M26 10c2-4 8-3 9 2 4 0 6 5 3 8 4 3 3 9-1 11 2 5-3 10-8 8-1 3-5 4-7 1M15 20c4 0 6 2 6 6m-8 5c3-1 6 0 8 3m12-14c-4 0-6 2-6 6m8 5c-3-1-6 0-8 3"/></svg>;
+  if (name === "trend") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40h34M13 35v-8h6v8m5 0V20h6v15m5 0V12h6v23M11 22l10-8 8 4 12-11m-6 0h6v6"/></svg>;
+  if (name === "gear") return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="7"/><path d="m20 6 1 5a14 14 0 0 1 6 0l1-5 6 3-3 4a15 15 0 0 1 4 4l4-2 3 6-5 1a14 14 0 0 1 0 5l5 1-3 6-4-2a15 15 0 0 1-4 4l3 4-6 3-1-5a14 14 0 0 1-6 0l-1 5-6-3 3-4a15 15 0 0 1-4-4l-4 2-3-6 5-1a14 14 0 0 1 0-5l-5-1 3-6 4 2a15 15 0 0 1 4-4l-3-4 6-3Z"/></svg>;
+  if (name === "people") return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="5"/><circle cx="12" cy="21" r="4"/><circle cx="36" cy="21" r="4"/><path d="M16 41v-4c0-6 3-10 8-10s8 4 8 10v4M4 39v-3c0-5 3-8 8-8 2 0 4 1 5 2m27 9v-3c0-5-3-8-8-8-2 0-4 1-5 2"/></svg>;
+  if (name === "coins") return <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="12" rx="12" ry="5"/><path d="M12 12v8c0 3 5 5 12 5s12-2 12-5v-8M12 20v8c0 3 5 5 12 5s12-2 12-5v-8M12 28v8c0 3 5 5 12 5s12-2 12-5v-8"/></svg>;
+  if (name === "target") return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="22" cy="26" r="15"/><circle cx="22" cy="26" r="8"/><circle cx="22" cy="26" r="2"/><path d="m24 24 15-15m-8 1 8-1-1 8"/></svg>;
+  return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40h32M14 34V24m10 10V14m10 20V20M10 22l9-8 8 5 10-12m-6 0h6v6"/></svg>;
+}
+
+const operationalIntelligenceSteps: Step[] = [
+  { title: "Digitise and Simplify Operations", body: "End-to-end process digitisation and automation to eliminate manual effort and accelerate cycle times.", icon: "processor" },
+  { title: "Unlock Value with AI & Analytics", body: "Apply advanced analytics and AI to enable real-time insights, better decisions and higher productivity.", icon: "brain" },
+  { title: "Design the Operating Model for the Future", body: "Build integrated, scalable operating models aligned to strategy, people, technology and governance.", icon: "trend" },
+  { title: "Drive Operational Excellence", body: "Embed Lean, continuous improvement and performance management to build a culture of execution and resilience.", icon: "gear" },
+  { title: "Enable Sustainable and Scalable Impact", body: "Combine people, process, technology and data to deliver measurable outcomes—consistently and at scale.", icon: "people" },
+];
+
+function OperationalIntelligenceSection({ artwork }: { artwork: NonNullable<ServiceDirectionData["driveArtwork"]> }) {
+  const impact = [
+    { value: "20–40%", label: "faster cycle times", icon: "trend" },
+    { value: "15–30%", label: "cost optimisation", icon: "coins" },
+    { value: "Higher productivity", label: "and employee experience", icon: "people" },
+    { value: "Scalable transformation", label: "and measurable ROI", icon: "target" },
+  ];
+
+  return <section className="oe-intelligence" aria-labelledby="oe-intelligence-title">
+    <div className="oe-intelligence__inner">
+      <header className="oe-intelligence__header">
+        <div>
+          <p className="oe-intelligence__kicker">TECH-<span>ENABLED</span> TRANSFORMATION, AI &amp; OPERATIONAL EXCELLENCE</p>
+          <h2 id="oe-intelligence-title">From fragmented operations to <em>intelligent, high-performing enterprises</em></h2>
+          <p className="oe-intelligence__lead">We help organisations harness digital technologies, automation and AI, and embed operational excellence<br className="oe-intelligence__desktop-break" /> to transform the way work gets done—simpler, faster and smarter, with measurable business impact.</p>
+        </div>
+        <div className="oe-intelligence__principles" aria-label="Transformation outcomes">
+          <span>DIGITAL</span><span>INTELLIGENCE</span><span>OPERATIONAL EXCELLENCE</span><span>REAL BUSINESS IMPACT</span><i aria-hidden="true" />
+        </div>
+      </header>
+
+      <div className="oe-intelligence__body">
+        <div className="oe-intelligence__visual">
+          <Image src={artwork.src} alt="Intelligent operations environment connecting people, process, technology, data, governance, and performance" width={artwork.width} height={artwork.height} sizes="(max-width: 900px) 100vw, 55vw" unoptimized />
+        </div>
+        <div className="oe-intelligence__steps">
+          {operationalIntelligenceSteps.map((step) => <article key={step.title}>
+            <span className="oe-intelligence__step-icon"><OperationalIcon name={step.icon} /></span>
+            <div><h3>{step.title}</h3><p>{step.body}</p></div>
+          </article>)}
+        </div>
+      </div>
+
+      <div className="oe-intelligence__impact">
+        <div className="oe-intelligence__impact-title"><span><OperationalIcon name="trend" /></span><strong>TYPICAL IMPACT<br />UNLOCKED</strong></div>
+        {impact.map((item) => <div className="oe-intelligence__impact-item" key={item.value}>
+          <span><OperationalIcon name={item.icon} /></span><p><strong>{item.value}</strong><small>{item.label}</small></p>
+        </div>)}
+      </div>
+    </div>
+  </section>;
+}
+
+function OperationalTriggersSection({ data }: { data: ServiceDirectionData }) {
+  const icons = ["database", "gear", "bars", "people", "target", "trend"];
+
+  return <section className="oe-triggers" aria-labelledby="oe-triggers-title">
+    <div className="oe-triggers__inner">
+      <header className="oe-triggers__header">
+        <p className="oe-triggers__kicker">Engagement Triggers</p>
+        <h2 id="oe-triggers-title">When Technology, AI and Operations <span>Need to Deliver More</span></h2>
+        <p>Leaders engage us when digital investments, AI initiatives or operational improvement efforts<br className="oe-triggers__desktop-break" /> are not translating into measurable and sustained business impact.</p>
+      </header>
+      <div className="oe-triggers__grid">
+        {data.triggers.map((trigger, index) => <article key={trigger.title}>
+          <span className="oe-triggers__icon"><OperationalIcon name={icons[index]} /></span>
+          <div><h3>{trigger.title}</h3><p>{trigger.body}</p></div>
+        </article>)}
+      </div>
+      <Link className="oe-triggers__cta" href="/contact-us">Start a no-cost conversation <span aria-hidden="true">→</span></Link>
+    </div>
+  </section>;
+}
+
+function OperationalTransformationSystemSection() {
+  const current = [
+    { eyebrow: "Processes", title: "Manual, fragmented and inefficient processes", bullets: ["Siloed systems and data across functions.", "High manual effort, errors and long cycle times."], icon: "gear" },
+    { eyebrow: "Decisions", title: "Limited visibility and slow decision-making", bullets: ["Data spread across systems and teams.", "Reactive decisions with limited real-time insights."], icon: "people" },
+    { eyebrow: "Technology", title: "Underutilised technology and AI potential", bullets: ["Disparate tools and low adoption.", "AI and automation not scaled beyond pilots."], icon: "database" },
+  ];
+  const future = [
+    { eyebrow: "Digital Operations", title: "Digitised and integrated processes", bullets: ["End-to-end process digitisation and automation.", "Standardised, scalable and efficient ways of working."], icon: "trend" },
+    { eyebrow: "AI & Analytics", title: "Data-driven, insight-led enterprise", bullets: ["Advanced analytics and AI for real-time insights.", "Faster, better and more informed decision-making."], icon: "bulb" },
+    { eyebrow: "Intelligent Automation", title: "AI-enabled workforce and technology ecosystem", bullets: ["Low-code and intelligent automation at scale.", "Human + AI collaboration to unlock higher productivity and value."], icon: "network" },
+  ];
+  const impact = [
+    { value: "20–40%", label: "faster cycle times", icon: "trend" },
+    { value: "15–30%", label: "cost optimisation", icon: "coins" },
+    { value: "Higher productivity", label: "and employee experience", icon: "people" },
+    { value: "Scalable AI adoption", label: "and measurable ROI", icon: "target" },
+  ];
+
+  const column = (items: typeof current) => <div className="oe-system__cards">
+    {items.map((item) => <article key={item.title}>
+      <span className="oe-system__card-icon"><OperationalIcon name={item.icon} /></span>
+      <div><p>{item.eyebrow}</p><h3>{item.title}</h3><ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul></div>
+    </article>)}
+  </div>;
+
+  return <section className="oe-system" aria-labelledby="oe-system-title">
+    <div className="oe-system__inner">
+      <header className="oe-system__header">
+        <p className="oe-system__kicker">Tech-<span>Enabled</span> Transformation &amp; AI</p>
+        <h2 id="oe-system-title">From data and automation to <span>intelligent, high-performing enterprises</span></h2>
+        <p>We help organisations harness digital technologies, automation and AI to transform the way work gets done—<br className="oe-system__desktop-break" />simpler, faster and smarter, with measurable business impact.</p>
+      </header>
+
+      <div className="oe-system__backbone">
+        <span><OperationalIcon name="processor" /></span><strong>A practical, AI-enabled transformation system</strong>
+        <i aria-hidden="true" /><b>Digital · AI · Automation · People · Performance</b>
+      </div>
+
+      <div className="oe-system__map">
+        <div className="oe-system__column">
+          <header><strong>From Today</strong><span>Common challenges we see</span></header>
+          {column(current)}
+        </div>
+        <div className="oe-system__axis" aria-hidden="true">
+          <b>From current reality</b><i /><span>→</span><i /><b>To measurable impact</b>
+        </div>
+        <div className="oe-system__column">
+          <header><strong>To Tomorrow</strong><span>What we enable</span></header>
+          {column(future)}
+        </div>
+      </div>
+
+      <div className="oe-system__impact">
+        <strong>Typical impact unlocked</strong>
+        {impact.map((item) => <div key={item.value}><span><OperationalIcon name={item.icon} /></span><p><b>{item.value}</b><small>{item.label}</small></p></div>)}
+      </div>
+    </div>
+  </section>;
 }
 
 function cards(items: Array<[string,string,string[]]>, side: string): Card[] {
@@ -94,6 +247,12 @@ export const serviceDirectionPages: Record<string, ServiceDirectionData> = {
       width: 1983,
       height: 793,
     },
+    driveArtwork: {
+      src: "/assets/operational-intelligence-visual.png",
+      alt: "Tech-enabled transformation, AI and operational excellence — from fragmented operations to intelligent, high-performing enterprises, with five transformation capabilities and typical impact unlocked.",
+      width: 857,
+      height: 508,
+    },
     kicker: "Operational Excellence",
     title: <>From fragmented processes to <span>disciplined, data-led operations</span></>,
     lead: "We help organisations connect Lean, Six Sigma, digital enablement, and frontline capability into one operating system that improves flow, quality, cost, and reliability.",
@@ -106,9 +265,9 @@ export const serviceDirectionPages: Record<string, ServiceDirectionData> = {
     driveTitle: <>How We Build <span>Operational Excellence</span> With You</>,
     driveIntro: "Operational excellence is built through disciplined routines, visible performance, and frontline ownership, not isolated improvement projects.",
     driveSteps: steps(["Diagnose and prioritise value","Design a pragmatic OE blueprint","Co-run pilots on critical lines","Build internal champions and governance","Scale, standardise, and transfer capability"].map((x,i)=>[x,sharedDriveBodies[i]] as [string,string])),
-    triggerTitle: "When Operations & Plant Leaders Typically Call Us In",
-    triggerIntro: "Leaders engage us when losses persist, capacity is constrained, or improvement activity is not translating into sustained performance.",
-    triggers: steps([["Chronic losses and waste persist","Recurring losses remain despite repeated improvement efforts."],["OEE is stuck below potential","Assets and teams are capable of more, but constraints remain hidden."],["Too many initiatives, little sustained impact","Activity is high while ownership and business outcomes are unclear."],["Safety or quality incidents are a concern","The operating system is not preventing repeat failures."],["Plants aren’t ready for Industry 4.0","Digital investments need a stable operational foundation."],["A step-change in throughput or cost is needed","Growth or margin pressure demands a different performance trajectory."]]),
+    triggerTitle: "When Technology, AI and Operations Need to Deliver More",
+    triggerIntro: "Leaders engage us when digital investments, AI initiatives or operational improvement efforts are not translating into measurable and sustained business impact.",
+    triggers: steps([["Siloed systems and data","Data is fragmented across functions, limiting visibility, insights and decision-making."],["Low technology adoption and scale","Digital and AI initiatives remain in pilots, with limited user adoption and enterprise scale."],["Processes are manual and inefficient","High manual effort, long cycle times and inconsistent processes limit productivity and customer experience."],["AI is not delivering business value","Use cases are unclear, insights are not actionable and measurable outcomes are missing."],["Operational performance is not improving","Lean and process excellence efforts are fragmented, and savings are not sustainable."],["Need to scale impact across the enterprise","Isolated wins are not translating into enterprise-wide transformation and lasting value."]]),
     caseTitle: <>Operational Excellence <span>in Action</span></>,
     caseIntro: "Representative programmes across manufacturing, energy, insurance, healthcare, aerospace, and knowledge services.",
     cases: studies("Operational Excellence",["Global Manufacturing Major – Lean Industry 4.0 Deployment","Global Energy & Investment Firm – Process Automation & Digital Integration","Leading Indian Life Insurer – Business Process Re-engineering","Leading Indian Hospital Network – Service Excellence & Operational Efficiency","Global Aerospace & Industrial Manufacturer – Process Excellence Transformation","PE-Backed Manufacturing Company – Operational Due Diligence","Automotive Components Manufacturer – Productivity & Cost Optimisation Program","KPO Leader – Lean Transformation & Knowledge Management"],["Higher throughput • Lower conversion cost","Faster flow • Better performance visibility","Reduced waste • Stronger daily management","Sustained capability • Measurable productivity"]),
@@ -197,6 +356,7 @@ export function ServiceDirectionPage({ data }: { data: ServiceDirectionData }) {
         />
       </section>
     ) : null}
+    {data.driveArtwork ? <OperationalTransformationSystemSection /> : null}
     <section className="growth-spine"><div className="growth-container">
       <p className="growth-kicker">{data.kicker}</p><h1>{data.title}</h1><p className="growth-lead">{data.lead}</p>
       <div className="growth-backbone"><div className="growth-backbone__label"><span><ServiceIcon name="process"/></span><strong>{data.backbone}</strong></div><div className="growth-backbone__pill">{data.backbonePill}</div></div>
@@ -205,8 +365,16 @@ export function ServiceDirectionPage({ data }: { data: ServiceDirectionData }) {
       <div className="growth-spine__column"><div className="growth-spine__head"><span>What we enable</span><strong>{data.rightLabel}</strong></div>{data.enables.map(x=><article className="growth-spine-card" key={x.title}><span><ServiceIcon name={x.icon}/></span><div><p>{x.eyebrow}</p><h2>{x.title}</h2><BulletList bullets={x.bullets}/></div></article>)}</div></div>
       <ImpactStrip data={data}/>
     </div></section>
-    <section className="growth-drive"><div className="growth-container"><div className="growth-section-head growth-section-head--center"><p className="growth-kicker">{data.kicker}</p><h2>{data.driveTitle}</h2><p>{data.driveIntro}</p></div><div className="growth-drive__grid"><div className="growth-drive__image"><Image src="/assets/city-consulting.jpg" alt="Modern business district representing structured transformation" fill sizes="(max-width: 900px) 100vw, 44vw"/></div><div className="growth-drive__steps">{data.driveSteps.map((x)=><article key={x.title}><span><ServiceIcon name={x.icon}/></span><div><h3>{x.title}</h3><p>{x.body}</p></div></article>)}</div></div></div></section>
-    <section className="growth-triggers"><div className="growth-container"><div className="growth-section-head growth-section-head--center"><p className="growth-kicker">Engagement Triggers</p><h2>{data.triggerTitle}</h2><p>{data.triggerIntro}</p></div><div className="growth-trigger-grid">{data.triggers.map(x=><article key={x.title}><span><ServiceIcon name={x.icon}/></span><div><h3>{x.title}</h3><p>{x.body}</p></div></article>)}</div><Link className="growth-trigger-cta" href="/contact-us">Start a no-cost conversation</Link></div></section>
+    {data.driveArtwork ? (
+      <OperationalIntelligenceSection artwork={data.driveArtwork} />
+    ) : (
+      <section className="growth-drive"><div className="growth-container"><div className="growth-section-head growth-section-head--center"><p className="growth-kicker">{data.kicker}</p><h2>{data.driveTitle}</h2><p>{data.driveIntro}</p></div><div className="growth-drive__grid"><div className="growth-drive__image"><Image src="/assets/city-consulting.jpg" alt="Modern business district representing structured transformation" fill sizes="(max-width: 900px) 100vw, 44vw"/></div><div className="growth-drive__steps">{data.driveSteps.map((x)=><article key={x.title}><span><ServiceIcon name={x.icon}/></span><div><h3>{x.title}</h3><p>{x.body}</p></div></article>)}</div></div></div></section>
+    )}
+    {data.driveArtwork ? (
+      <OperationalTriggersSection data={data} />
+    ) : (
+      <section className="growth-triggers"><div className="growth-container"><div className="growth-section-head growth-section-head--center"><p className="growth-kicker">Engagement Triggers</p><h2>{data.triggerTitle}</h2><p>{data.triggerIntro}</p></div><div className="growth-trigger-grid">{data.triggers.map(x=><article key={x.title}><span><ServiceIcon name={x.icon}/></span><div><h3>{x.title}</h3><p>{x.body}</p></div></article>)}</div><Link className="growth-trigger-cta" href="/contact-us">Start a no-cost conversation</Link></div></section>
+    )}
     <section className="growth-clients">
       <div className="growth-container">
         <div className="growth-section-head growth-section-head--split">

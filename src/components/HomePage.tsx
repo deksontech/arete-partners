@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CoreOfferings } from "./CoreOfferings";
 import { HomeHeroCarousel } from "./HomeHeroCarousel";
@@ -14,6 +15,22 @@ const stats = [
   { value: "20+", label: "Years average partner experience", icon: "leader" as const },
   { value: "4", label: "Global locations", icon: "globe" as const },
   { value: "200+", label: "Clients served", icon: "handshake" as const },
+];
+
+const clientLogos = [
+  { name: "AlliedSignal", src: "/assets/client-logos/allied-signal.png" },
+  { name: "Honeywell", src: "/assets/client-logos/honeywell.png" },
+  { name: "GE", src: "/assets/client-logos/ge.png" },
+  { name: "Shriram Pistons & Rings", src: "/assets/client-logos/shriram-pistons-rings.png" },
+  { name: "MAX Healthcare", src: "/assets/client-logos/max-healthcare.png" },
+  { name: "Pramerica Life Insurance", src: "/assets/client-logos/pramerica.png" },
+  { name: "Cigna", src: "/assets/client-logos/cigna.png" },
+  { name: "KPMG", src: "/assets/client-logos/kpmg.png" },
+  { name: "Carrier", src: "/assets/client-logos/carrier.png" },
+  { name: "LG Electronics", src: "/assets/client-logos/lg-electronics.png" },
+  { name: "Samsung", src: "/assets/client-logos/samsung.png" },
+  { name: "Aptara", src: "/assets/client-logos/aptara-dark.png" },
+  { name: "Regal Rexnord", src: "/assets/client-logos/regal-rexnord.png" },
 ];
 
 function AreteWayIcon({ name }: { name: "system" | "network" | "digital" | "target" | "star" | "audience" | "leader" | "globe" | "handshake" }) {
@@ -270,6 +287,25 @@ export function HomePage() {
             <Link className="home-clean-btn home-clean-btn--brand" href="/contact-us">
               Book an Executive Discussion <span aria-hidden="true">→</span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-client-marquee" aria-labelledby="home-client-marquee-title">
+        <div className="home-client-marquee__heading">
+          <h2 id="home-client-marquee-title">Trusted by leading organisations.</h2>
+        </div>
+        <div className="home-client-marquee__viewport">
+          <div className="home-client-marquee__track">
+            {[false, true].map((duplicate) => (
+              <div className="home-client-marquee__group" aria-hidden={duplicate || undefined} key={String(duplicate)}>
+                {clientLogos.map((logo) => (
+                  <div className="home-client-marquee__logo" key={`${duplicate}-${logo.name}`}>
+                    <Image alt={duplicate ? "" : logo.name} fill sizes="190px" src={logo.src} />
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </section>
