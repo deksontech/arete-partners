@@ -308,6 +308,13 @@ export function HomeHeroCarousel({ systemOnly = false }: { systemOnly?: boolean 
           </article>
         ) : (
           <article className="home-classic-slider__copy" key={activeSlide.title}>
+              <Image
+                alt="Arete Partners"
+                className="home-classic-slider__slide-logo"
+                height={843}
+                src="/assets/arete-partners-logo-transparent.png"
+                width={842}
+              />
               <span className="home-classic-slider__rule" aria-hidden="true" />
               <p className="home-classic-slider__eyebrow">{activeSlide.eyebrow}</p>
               <h1>

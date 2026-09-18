@@ -25471,3 +25471,31 @@ html body main.growth-page .oe-system__impact small {
     font-size: 9px !important;
   }
 }
+
+/* Homepage hero slide branding: reuse the footer logo without changing hero height. */
+html body main .home-classic-slider__slide-logo {
+  display: block;
+  width: 168px !important;
+  height: 168px !important;
+  margin: 0 0 20px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+@media (min-width: 701px) {
+  html body main .home-classic-slider--split .home-classic-slider__copy {
+    left: -24px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html body main .home-classic-slider--split .home-classic-slider__copy {
+    top: 6% !important;
+  }
+
+  html body main .home-classic-slider__slide-logo {
+    width: clamp(40px, 12vw, 58px) !important;
+    height: clamp(40px, 12vw, 58px) !important;
+    margin-bottom: 1.2vw !important;
+  }
+}

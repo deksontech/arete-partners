@@ -19,53 +19,77 @@ const differenceCards = [
 
 const signatureProgrammes = [
   {
-    title: "AI-Enabled Transformation Leader",
-    subtitle: "From AI awareness to enterprise impact.",
-    themes: ["AI strategy & business alignment", "Process redesign with AI", "Change, adoption & value realisation", "AI governance & responsible AI"],
-    ideal: "CXOs, Business Leaders, Transformation Leaders",
-    image: "/assets/programme-ai-leader.png",
+    title: "Lean Six Sigma Green Belt",
+    subtitle: "Build the foundation of improvement.",
+    themes: ["Lean principles & value creation", "DMAIC methodology", "Data & statistical analysis", "Problem solving with analytics", "Practical improvement project"],
+    school: "Lean & Operational Excellence",
+    duration: "8–10 weeks",
+    image: "/assets/training-programme-01.png",
     accent: "violet",
   },
   {
-    title: "Generative AI for Business",
-    subtitle: "Move beyond prompts. Create real value.",
-    themes: ["Practical GenAI for work & productivity", "Content, analysis & decision support", "Building AI-powered workflows", "Ethics, security & risk awareness"],
-    ideal: "Professionals, Managers & Business Teams",
-    image: "/assets/programme-generative-ai.png",
+    title: "Lean Six Sigma Black Belt",
+    subtitle: "Lead complex, high-impact business improvement.",
+    themes: ["Advanced DMAIC & statistics", "Data science & ML applications", "Process mining & analytics", "Change management", "Leadership & coaching"],
+    school: "Lean & Operational Excellence",
+    duration: "12–16 weeks",
+    image: "/assets/training-programme-02.png",
     accent: "blue",
   },
   {
-    title: "AI + Lean: The New Operating System",
-    subtitle: "Reinvent continuous improvement for the AI era.",
-    themes: ["Lean thinking meets AI capabilities", "Smarter problem solving & analysis", "Intelligent process redesign", "Sustained improvement culture"],
-    ideal: "Lean Practitioners, Ops Leaders, Process Owners",
-    image: "/assets/programme-ai-lean.png",
+    title: "Design for Excellence",
+    subtitle: "Design better products, services and processes.",
+    themes: ["Customer insights & VOC", "Design thinking & DFSS", "Risk analysis & FMEA", "Digital simulation & analytics", "Design-to-cost"],
+    school: "Innovation & Design",
+    duration: "10–12 weeks",
+    image: "/assets/training-programme-03.png",
     accent: "teal",
   },
   {
-    title: "AI-Powered Operational Excellence",
-    subtitle: "From process improvement to intelligent operations.",
-    themes: ["AI for operations & decision making", "Quality, productivity & cost improvement", "Smart dashboards & analytics", "Lean, automation & AI integration"],
-    ideal: "Operations, Manufacturing, Supply Chain & Quality Leaders",
-    image: "/assets/programme-operational-excellence.png",
+    title: "Arête Operating Excellence System",
+    subtitle: "From operational friction to sustainable performance.",
+    themes: ["Lean management", "Process standardisation", "Performance & quality", "Digital & automation", "Continuous improvement"],
+    school: "Lean & Operational Excellence",
+    duration: "10–12 weeks",
+    image: "/assets/training-programme-04.png",
     accent: "violet",
   },
   {
-    title: "AI-Enabled Lean Six Sigma Green Belt",
-    subtitle: "Accelerate improvement with AI.",
-    themes: ["AI across DMAIC", "Data-driven decision making", "Process analysis with AI tools", "Project execution & control"],
-    ideal: "Improvement Practitioners, Professionals & Engineers",
-    image: "/assets/programme-green-belt.png",
+    title: "Growth & Commercial Excellence",
+    subtitle: "From sales activity to profitable growth.",
+    themes: ["Growth strategy & market insight", "Sales force effectiveness", "Customer & key account mgmt", "Pricing & margin improvement", "CRM & data-driven sales"],
+    school: "Business Excellence & Sustainable Growth",
+    duration: "10–12 weeks",
+    image: "/assets/training-programme-05.png",
     accent: "amber",
   },
   {
-    title: "Leadership for Business Transformation",
-    subtitle: "Lead people, strategy and change that lasts.",
-    themes: ["Transformation leadership mindset", "Change leadership & influence", "Strategy to execution", "Building high-performance teams"],
-    ideal: "Managers, Leaders & Emerging Leaders",
-    image: "/assets/programme-leadership.png",
+    title: "Intelligent Business Transformation",
+    subtitle: "Where Lean meets data, technology and AI.",
+    themes: ["Process redesign & automation", "Data & analytics", "ML and deep learning use cases", "Digital operating models", "AI governance & value realisation"],
+    school: "AI & Digital Transformation",
+    duration: "10–16 weeks",
+    image: "/assets/training-programme-06.png",
     accent: "blue",
   },
+  {
+    title: "Strategy to Execution Leadership",
+    subtitle: "Turning strategic ambition into measurable results.",
+    themes: ["Strategy deployment", "Transformation management", "Change leadership", "Organisation design", "Performance & value realisation"],
+    school: "Transformation & Leadership",
+    duration: "10–12 weeks",
+    image: "/assets/training-programme-07.png",
+    accent: "violet",
+  },
+];
+
+const impactModel = [
+  ["book", "Understand", "Build conceptual knowledge & context"],
+  ["target", "Diagnose", "Apply frameworks to real business challenges"],
+  ["settings", "Design", "Develop practical solutions"],
+  ["rocket", "Execute", "Implement through live projects"],
+  ["flow", "Sustain", "Embed for lasting impact"],
+  ["chart", "Scale", "Transfer capability across the organisation"],
 ];
 
 const schools = [
@@ -74,6 +98,7 @@ const schools = [
     text: "Build AI fluency and leverage digital technologies to drive innovation, productivity and business impact.",
     items: ["AI for Leaders", "Generative AI", "AI Strategy & Transformation", "AI-Powered Decision Making", "Responsible AI", "Building an AI-Ready Organisation"],
     icon: "brain",
+    image: "/assets/training-school-01.png",
     accent: "violet",
   },
   {
@@ -81,6 +106,7 @@ const schools = [
     text: "Combine Lean, Six Sigma and AI to improve processes, quality, speed and performance at scale.",
     items: ["AI-Enabled Lean Practitioner", "AI-Enabled Lean Six Sigma Green Belt", "AI-Enabled Lean Six Sigma Black Belt", "Operational Excellence Leader", "Lean Management", "Kaizen & Continuous Improvement"],
     icon: "chart",
+    image: "/assets/training-school-02.png",
     accent: "blue",
   },
   {
@@ -88,6 +114,7 @@ const schools = [
     text: "Develop the leadership and transformation capabilities to turn strategy into sustained results.",
     items: ["Transformation Leadership", "Strategy to Execution", "Change Leadership", "Transformation Office / PMO", "Organisation Design", "Performance Management", "Innovation & Design Thinking"],
     icon: "people",
+    image: "/assets/training-school-03.png",
     accent: "teal",
   },
   {
@@ -95,6 +122,7 @@ const schools = [
     text: "Apply AI to core business functions and unlock new levels of efficiency, insight and value.",
     items: ["AI for HR", "AI for Finance", "AI for Operations & Supply Chain", "AI for Sales & Marketing", "AI for Corporate Functions", "AI for Risk & Compliance"],
     icon: "briefcase",
+    image: "/assets/training-school-04.png",
     accent: "orange",
   },
   {
@@ -102,6 +130,7 @@ const schools = [
     text: "Build the foundation of disciplined, data-driven improvement and quality excellence.",
     items: ["Lean Fundamentals", "Lean Six Sigma Yellow Belt", "Lean Six Sigma Green Belt", "Lean Six Sigma Black Belt", "Master Black Belt", "Quality Management", "Problem Solving & RCA"],
     icon: "award",
+    image: "/assets/training-school-05.png",
     accent: "indigo",
   },
 ];
@@ -117,7 +146,7 @@ const differenceSteps = [
   {
     title: "Learn",
     icon: "book",
-    image: "/assets/difference-learn.png",
+    image: "/assets/training-difference-01-v2.png",
     accent: "blue",
     text: "Build the right knowledge, mindset and skills through expert-led, engaging and practical learning.",
     items: ["Expert practitioner-led sessions", "Concepts, frameworks and tools", "Real-world case studies", "Interactive discussions"],
@@ -125,7 +154,7 @@ const differenceSteps = [
   {
     title: "Apply",
     icon: "target",
-    image: "/assets/difference-apply.png",
+    image: "/assets/training-difference-02-v2.png",
     accent: "purple",
     text: "Apply learning to real business situations through guided practice, projects and structured application.",
     items: ["Hands-on exercises & workshops", "Business problem-solving", "Project-based application", "Feedback and expert coaching"],
@@ -133,7 +162,7 @@ const differenceSteps = [
   {
     title: "Transform",
     icon: "chart",
-    image: "/assets/difference-transform.png",
+    image: "/assets/training-difference-03-v2.png",
     accent: "navy",
     text: "Translate application into measurable results, new ways of working and lasting impact for your organisation.",
     items: ["Measurable business outcomes", "Improved performance & efficiency", "Capability building & adoption", "Sustained transformation"],
@@ -172,35 +201,11 @@ const leanSteps = [
 ];
 
 const pathways = [
-  ["Business Leader", "AI Awareness -> AI for Leaders -> AI Strategy -> AI-Enabled Transformation"],
-  ["Transformation Leader", "Transformation Fundamentals -> Operational Excellence -> AI + Transformation -> Transformation Leadership"],
-  ["Lean Practitioner", "Lean Fundamentals -> Yellow Belt -> Green Belt -> AI-Enabled Lean -> Black Belt"],
-  ["Functional Professional", "AI Foundations -> AI for Your Function -> AI Workflows -> AI-Powered Productivity"],
-  ["Enterprise", "AI Literacy -> Role-Based AI -> Process Transformation -> AI Academy"],
-];
-
-const facultyCards = [
-  ["Transformation Leader", "Leads large-scale business transformations across industries with a focus on value creation and sustainable outcomes."],
-  ["Strategy & Change Expert", "Helps organisations align strategy, structure and people to navigate change and build future-ready capabilities."],
-  ["AI & Digital Practitioner", "Designs and implements AI-enabled solutions, process improvements and analytics-driven decision systems."],
-  ["Operations Excellence Leader", "Drives operational excellence across functions to improve performance, quality and customer value."],
-];
-
-const certifications = [
-  "Programme Completion Certificate",
-  "Professional Certification",
-  "Industry Certifications",
-  "Specialist Credentials",
-  "Partner & University Certifications",
-];
-
-const academyNav = [
-  ["Why Arete", "#why-arete"],
-  ["Signature Programmes", "#programmes"],
-  ["Schools", "#schools"],
-  ["Online", "#online"],
-  ["AI + Lean", "#ai-lean"],
-  ["Pathways", "#pathways"],
+  { title: "Business Leader", description: "For leaders who set direction, drive growth and create value.", stages: ["AI Awareness", "AI for Leaders", "AI Strategy", "AI-Enabled Transformation"] },
+  { title: "Transformation Leader", description: "For leaders who turn strategy into measurable impact.", stages: ["Transformation Fundamentals", "Operational Excellence", "AI + Transformation", "Transformation Leadership"] },
+  { title: "Lean Practitioner", description: "For professionals who improve, optimise and deliver.", stages: ["Lean Fundamentals", "Yellow Belt", "Green Belt", "AI-Enabled Lean", "Black Belt"] },
+  { title: "Functional Professional", description: "For domain experts who want to do more with data and AI.", stages: ["AI Foundations", "AI for Your Function", "AI Workflows", "AI-Powered Productivity"] },
+  { title: "Enterprise", description: "For organisations building a future-ready workforce.", stages: ["AI Literacy", "Role-Based AI", "Process Transformation", "AI Academy"] },
 ];
 
 const heroHighlights = [
@@ -209,7 +214,13 @@ const heroHighlights = [
   ["chart", "Measurable Impact"],
 ];
 
-const proofIcons = ["practitioner", "target", "brain", "clipboard", "shield"];
+const proofIcons = ["people", "target", "brain", "clipboard", "shield"];
+
+const whyPillars = [
+  ["people", "People Capability"],
+  ["settings", "Practical Application"],
+  ["chart", "Real Business Impact"],
+];
 
 const capabilityLoop = [
   { position: "learnStage", icon: "book", title: "Learn", text: "Build the concepts, methods and tools." },
@@ -385,6 +396,10 @@ export default function TrainingsPage() {
                 <Cta href="#online">Explore Online Programmes</Cta>
                 <Cta href="#corporate" variant="secondary">Build a Corporate Academy</Cta>
               </div>
+              <div className={styles.heroSignature} aria-label="People, capability, impact">
+                <span aria-hidden="true" />
+                <p>People <b>|</b> Capability <b>|</b> Impact</p>
+              </div>
             </div>
             <div className={styles.heroSystem} aria-hidden="true" />
           </div>
@@ -395,7 +410,7 @@ export default function TrainingsPage() {
         <div className={styles.container}>
           <div className={styles.whyTop}>
             <div className={styles.whyCopy}>
-              <p className={styles.whyEyebrow}>Why Arete</p>
+              <p className={styles.whyEyebrow}>Arete Transformation Academy</p>
               <h2 id="why-arete-title">
                 Don&apos;t just learn.
                 <span>Transform.</span>
@@ -403,6 +418,14 @@ export default function TrainingsPage() {
               <div className={styles.whyRule} aria-hidden="true" />
               <p>At Arete, we go beyond training. We partner with individuals and organisations to build the capabilities that drive real change.</p>
               <p>Our programmes combine deep domain expertise, practical application, and measurable outcomes&mdash;helping you turn knowledge into action and action into lasting impact.</p>
+              <div className={styles.whyPillars} aria-label="Transformation Academy outcomes">
+                {whyPillars.map(([icon, label]) => (
+                  <div className={styles.whyPillar} key={label}>
+                    <span><HeroIcon name={icon} /></span>
+                    <strong>{label}</strong>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className={styles.capabilityDiagram} aria-label="Learn, apply, transform and sustain capability cycle">
@@ -418,7 +441,7 @@ export default function TrainingsPage() {
                 <path d="M50 210 A160 160 0 0 1 210 50" />
               </svg>
               <div className={styles.loopCenter}>
-                <Image src="/assets/training-loop-logo-approved.png" alt="Arete Partners" width={210} height={72} />
+                <Image src="/assets/training-loop-logo-reference.png" alt="Arete Partners" width={195} height={175} />
                 <strong>Transforming Capability<br />Into Impact</strong>
               </div>
               {capabilityLoop.map((stage) => (
@@ -431,6 +454,7 @@ export default function TrainingsPage() {
                 </div>
               ))}
             </div>
+            <div className={styles.whyArtwork} role="img" aria-label="Leader applying transformation learning in a city setting" />
           </div>
 
           <div className={styles.fiveGrid}>
@@ -451,78 +475,93 @@ export default function TrainingsPage() {
         </div>
       </section>
 
-      <nav className={styles.academyNav} aria-label="Academy page sections">
-        <div className={styles.container}>
-          {academyNav.map(([label, href]) => (
-            <Link key={href} href={href}>
-              {label}
-            </Link>
-          ))}
-        </div>
-      </nav>
-
       <section className={styles.flagshipSection} id="programmes">
         <div className={styles.container}>
+          <div className={styles.flagshipTopline}>
+            <Image src="/assets/training-programme-brand-lockup.png" alt="Arete Transformation Academy — Learn, Apply, Transform" width={555} height={145} />
+            <div className={styles.flagshipPromise}>
+              <span>Better people.<br />Stronger organisations.<br />Brighter tomorrows.</span>
+            </div>
+            <div className={styles.flagshipArtwork} aria-hidden="true" />
+          </div>
           <header className={styles.flagshipHeader}>
-            <p>Featured Programmes</p>
-            <h2>Our Flagship Programmes</h2>
-            <span>High-impact learning journeys designed for today&apos;s leaders and professionals<br />to build capabilities that create measurable business value.</span>
+            <p>Our Flagship Programmes</p>
+            <h2>Seven Programmes. <em>One Transformation Journey.</em></h2>
+            <span>Practical, application-led programmes designed to build future-ready professionals and<br />high-performance teams &mdash; across core disciplines, digital innovation and business leadership.</span>
           </header>
           <div className={styles.programmeGrid}>
-            {signatureProgrammes.map((programme, index) => (
+            {signatureProgrammes.map((programme) => (
               <article className={styles.programmeCard} data-accent={programme.accent} key={programme.title}>
-                <div className={styles.programmeMain}>
-                  <Image className={styles.programmeImage} src={programme.image} alt="" fill loading="eager" sizes="(max-width: 760px) 100vw, 34vw" />
-                  <span className={styles.programmeNumber}>{String(index + 1).padStart(2, "0")}</span>
-                  <strong className={styles.programmeFeatured}>★ Featured</strong>
-                  <div className={styles.programmeContent}>
-                    <h3>{programme.title}</h3>
-                    <p className={styles.programmeSubtitle}>{programme.subtitle}</p>
-                    <ul>
-                      {programme.themes.map((theme) => <li key={theme}>{theme}</li>)}
-                    </ul>
-                  </div>
+                <Image className={styles.programmeVisual} src={programme.image} alt="" width={218} height={120} loading="eager" style={{ width: "100%", height: "auto" }} />
+                <div className={styles.programmeContent}>
+                  <h3>{programme.title}</h3>
+                  <p className={styles.programmeSubtitle}>{programme.subtitle}</p>
+                  <ul>
+                    {programme.themes.map((theme) => <li key={theme}>{theme}</li>)}
+                  </ul>
                 </div>
                 <div className={styles.programmeFooter}>
-                  <HeroIcon name="people" />
-                  <p>For: {programme.ideal}</p>
-                  <Link href="/contact-us">Explore Programme <span aria-hidden="true">&rarr;</span></Link>
+                  <div><HeroIcon name="settings" /><span><small>School</small>{programme.school}</span></div>
+                  <div><span><small>Duration</small>{programme.duration}</span></div>
                 </div>
               </article>
             ))}
           </div>
-          <div className={styles.programmeAdvisor}>
-            <span><HeroIcon name="rocket" /></span>
-            <div>
-              <strong>Not sure which programme is right for you?</strong>
-              <p>Talk to our experts and find the perfect learning path for your goals.</p>
+          <div className={styles.impactStrip}>
+            <div className={styles.impactIntro}>
+              <span><HeroIcon name="target" /></span>
+              <div>
+                <strong>The Arête Learning-to-Impact Model</strong>
+                <p>More than learning. A clear path to transformation.</p>
+              </div>
             </div>
-            <Link href="/contact-us">Talk to an Advisor <span aria-hidden="true">&rarr;</span></Link>
+            <div className={styles.impactSteps}>
+              {impactModel.map(([icon, title, text], index) => (
+                <div className={styles.impactStep} key={title}>
+                  <HeroIcon name={icon} />
+                  <strong>{title}</strong>
+                  <p>{text}</p>
+                  {index < impactModel.length - 1 ? <span aria-hidden="true">&rarr;</span> : null}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={styles.flagshipFootnote}>
+            <span>People&nbsp;&nbsp;|&nbsp;&nbsp;Capability&nbsp;&nbsp;|&nbsp;&nbsp;Business Impact</span>
+            <div>
+              <i aria-hidden="true" />
+              <strong>A Better Tomorrow</strong>
+            </div>
           </div>
         </div>
       </section>
 
       <section className={styles.schoolsSection} id="schools">
         <div className={styles.container}>
-          <header className={styles.schoolsHeader}>
-            <p>Programme Schools</p>
-            <h2>Five Schools. End-to-End Capability.</h2>
-            <span>Our programmes are organised into five schools to help you build the right<br />skills for your role, your team, and your organisation&apos;s transformation journey.</span>
-          </header>
+          <div className={styles.schoolsTop}>
+            <Image className={styles.schoolsLogo} src="/assets/arete-partners-logo-header-navy.png" alt="Arete Partners" width={170} height={170} />
+            <header className={styles.schoolsHeader}>
+              <p>Programme Schools</p>
+              <h2>Five Schools. <em>End-to-End Capability.</em></h2>
+              <span>Our programmes are organised into five schools to help you build the right<br />skills for your role, your team, and your organisation&apos;s transformation journey.</span>
+            </header>
+            <div className={styles.schoolsMantra}>People<br />Capability<br />Business Impact<br />A Better Tomorrow<span aria-hidden="true" /></div>
+          </div>
           <div className={styles.schoolGrid}>
-            {schools.map((school, index) => (
+            {schools.map((school) => (
               <article className={styles.schoolCard} data-accent={school.accent} key={school.title}>
-                <span className={styles.schoolIcon}><HeroIcon name={school.icon} /></span>
-                <strong className={styles.schoolIndex}>{String(index + 1).padStart(2, "0")}</strong>
-                <h3>{school.title}</h3>
-                <p>{school.text}</p>
-                <span className={styles.schoolRule} aria-hidden="true" />
-                <ul>
-                  {school.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <Link href="/contact-us">Explore School <span aria-hidden="true">&rarr;</span></Link>
+                <Image className={styles.schoolVisual} src={school.image} alt="" width={297} height={162} />
+                <div className={styles.schoolCardBody}>
+                  <h3>{school.title}</h3>
+                  <span className={styles.schoolRule} aria-hidden="true" />
+                  <p>{school.text}</p>
+                  <ul>
+                    {school.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <Link href="/contact-us">Explore School <span aria-hidden="true">&rarr;</span></Link>
+                </div>
               </article>
             ))}
           </div>
@@ -543,11 +582,17 @@ export default function TrainingsPage() {
               ))}
             </div>
           </div>
+          <div className={styles.schoolsFootnote}>
+            <div><i aria-hidden="true" /><span>Learn&nbsp;&nbsp;|&nbsp;&nbsp;Apply&nbsp;&nbsp;|&nbsp;&nbsp;Transform</span></div>
+            <div><i aria-hidden="true" /><span>People&nbsp;&nbsp;|&nbsp;&nbsp;Capability&nbsp;&nbsp;|&nbsp;&nbsp;Impact</span></div>
+          </div>
         </div>
       </section>
 
       <section className={styles.differenceSection} id="methodology">
         <div className={styles.container}>
+          <Image className={styles.differenceBrand} src="/assets/training-difference-brand-lockup.png" alt="Arete Transformation Academy — Learn, Apply, Transform" width={500} height={132} />
+          <Image className={styles.differenceTopArt} src="/assets/training-difference-top-art.png" alt="" width={414} height={316} aria-hidden="true" />
           <header className={styles.differenceHeader}>
             <p><span aria-hidden="true" />The Arete Difference<span aria-hidden="true" /></p>
             <h2><span>Learn</span><b>&rarr;</b><span>Apply</span><b>&rarr;</b><span>Transform</span></h2>
@@ -594,25 +639,29 @@ export default function TrainingsPage() {
               ))}
             </div>
           </div>
+          <div className={styles.differenceFootnote}>
+            <i aria-hidden="true" />
+            <span>People&nbsp;&nbsp;|&nbsp;&nbsp;Capability&nbsp;&nbsp;|&nbsp;&nbsp;Business Impact</span>
+            <i aria-hidden="true" />
+          </div>
         </div>
       </section>
 
       <section className={styles.learningFormatsSection} id="online">
         <div className={styles.container}>
+          <Image className={styles.learningFormatsBrand} src="/assets/training-flex-brand.png" alt="Arete Transformation Academy — Learn, Apply, Transform" width={455} height={130} />
+          <div className={styles.learningFormatsMotto}><i aria-hidden="true" /><span>Better People.<br />Stronger Organisations.<br />Brighter Tomorrows.</span><i aria-hidden="true" /></div>
           <header className={styles.learningFormatsHeader}>
             <p><span aria-hidden="true" />Flexible Learning<span aria-hidden="true" /></p>
-            <h2>Learn Your Way. Build Capability That Lasts.</h2>
+            <h2><span>Learn Your Way.</span> <strong>Build Capability That Lasts.</strong></h2>
             <div>Choose focused professional learning or build a tailored academy around your organisation&apos;s priorities.</div>
           </header>
 
           <div className={styles.learningFormatsGrid}>
             <article className={`${styles.learningFormatPanel} ${styles.onlinePanel}`}>
-              <div className={styles.learningFormatVisual}>
-                <Image src="/assets/learning-online.png" alt="Online learning platform displayed on a laptop" fill loading="eager" sizes="(max-width: 900px) 100vw, 50vw" />
-                <span><HeroIcon name="book" /></span>
-              </div>
+              <Image className={styles.learningFormatPhoto} src="/assets/training-flex-online-v3.png" alt="Online learning platform displayed on a laptop" width={351} height={363} />
               <div className={styles.learningFormatBody}>
-                <p className={styles.learningFormatEyebrow}>Online Programmes</p>
+                <p className={styles.learningFormatEyebrow}><i><HeroIcon name="book" /></i>Online Programmes</p>
                 <h3>Learn from anywhere.<br />Apply everywhere.</h3>
                 <p>Our online programmes combine live practitioner-led sessions, digital learning, practical exercises and application-based assignments.</p>
                 <p>Designed for professionals who want to build relevant capabilities without stepping away from their careers.</p>
@@ -629,12 +678,9 @@ export default function TrainingsPage() {
             </article>
 
             <article className={`${styles.learningFormatPanel} ${styles.academyPanel}`} id="corporate">
-              <div className={styles.learningFormatVisual}>
-                <Image src="/assets/learning-corporate.png" alt="Corporate team applying learning in a facilitated workshop" fill loading="eager" sizes="(max-width: 900px) 100vw, 50vw" />
-                <span><HeroIcon name="people" /></span>
-              </div>
+              <Image className={styles.learningFormatPhoto} src="/assets/training-flex-corporate.png" alt="Corporate team applying learning in a facilitated workshop" width={289} height={391} />
               <div className={styles.learningFormatBody}>
-                <p className={styles.learningFormatEyebrow}>Corporate Transformation Academies</p>
+                <p className={styles.learningFormatEyebrow}><i><HeroIcon name="people" /></i>Corporate Transformation Academies</p>
                 <h3>Build capability inside<br />the organisation.</h3>
                 <p>Every organisation has different priorities, maturity and challenges. Arete works with leadership teams to create customised learning journeys aligned to business strategy and transformation priorities.</p>
                 <div className={styles.academyJourney}>
@@ -649,26 +695,44 @@ export default function TrainingsPage() {
               </div>
             </article>
           </div>
+
+          <div className={styles.learningFormatsValueStrip}>
+            <div><HeroIcon name="target" /><span><strong>Real-World Relevance</strong><small>Practical, business-focused learning</small></span></div>
+            <div><HeroIcon name="people" /><span><strong>Expert Faculty</strong><small>Industry and consulting experience</small></span></div>
+            <div><HeroIcon name="chart" /><span><strong>Measurable Impact</strong><small>Tools, frameworks and application</small></span></div>
+            <div><HeroIcon name="shield" /><span><strong>Built for the Future</strong><small>Capabilities that last</small></span></div>
+          </div>
         </div>
+        <div className={styles.learningFormatsClosing}><i aria-hidden="true" /><em>&ldquo;More than training. A transformation partner.&rdquo;</em><span>People&nbsp;&nbsp;|&nbsp;&nbsp;Capability&nbsp;&nbsp;|&nbsp;&nbsp;Business Impact&nbsp;&nbsp;|&nbsp;&nbsp;A Better Tomorrow</span><i aria-hidden="true" /></div>
       </section>
 
       <section className={styles.aiLeanSection} id="ai-lean">
         <div className={styles.container}>
+          <Image className={styles.sectionAcademyBrand} src="/assets/t8-brand.png" alt="Arete Transformation Academy — Learn, Apply, Transform" width={497} height={133} />
+          <div className={styles.sectionAcademyMotto}>Better People.<br />Stronger Organisations.<br />Brighter Tomorrows.</div>
           <header className={styles.aiLeanHeader}>
-            <p><span aria-hidden="true" />AI + Lean<span aria-hidden="true" /></p>
-            <h2>The future of operational excellence<br />is not AI alone.</h2>
+            <p><span aria-hidden="true" />A More Intelligent Way to Operate<span aria-hidden="true" /></p>
+            <h2>The future of operational excellence<br /><strong>is not AI alone.</strong></h2>
             <div>AI accelerates the work. Lean, Six Sigma and transformation ensure it is the right work&mdash;designed, controlled and connected to business outcomes.</div>
           </header>
           <div className={styles.aiLeanLayout}>
+            <Image className={styles.aiLeanMountain} src="/assets/t8-mountain-v3.png" alt="Mountain representing higher capabilities and greater impact" width={375} height={550} />
             <div className={styles.aiLeanPrinciples}>
               <div><span><HeroIcon name="brain" /></span><strong>AI</strong><p>Accelerate analysis, decisions and execution.</p></div>
               <div><span><HeroIcon name="flow" /></span><strong>Lean</strong><p>Remove friction and redesign value flow.</p></div>
               <div><span><HeroIcon name="settings" /></span><strong>Six Sigma</strong><p>Build capable, controlled processes.</p></div>
               <div><span><HeroIcon name="chart" /></span><strong>Transformation</strong><p>Connect improvement to measurable outcomes.</p></div>
             </div>
+            <div className={styles.aiLeanBridge} aria-label="Integrated disciplines create a stronger tomorrow">
+              <i aria-hidden="true" />
+              <span>Integrated<br />disciplines.<br /><b>A stronger<br />tomorrow.</b></span>
+              <strong aria-hidden="true">›</strong>
+              <i aria-hidden="true" />
+            </div>
             <div className={styles.aiLeanSteps}>
               {leanSteps.map(([title, text], index) => (
                 <article key={title}>
+                  <Image src={`/assets/t8-step${index + 1}-v2.png`} alt="" fill sizes="15vw" />
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <i><HeroIcon name={index === 0 ? "target" : index === 1 ? "brain" : index === 2 ? "flow" : index === 3 ? "settings" : index === 4 ? "people" : "shield"} /></i>
                   <div><h3>{title}</h3><p>{text}</p></div>
@@ -676,89 +740,61 @@ export default function TrainingsPage() {
               ))}
             </div>
           </div>
-          <div className={styles.aiLeanNote}><HeroIcon name="star" /><strong>This is our approach to AI-enabled operational excellence.</strong><span>See clearly. Design deliberately. Augment intelligently. Sustain the gains.</span></div>
+          <div className={styles.aiLeanNote}><HeroIcon name="target" /><div><strong>AI-Enabled Operational Excellence.</strong><span>Disciplined thinking. Smarter execution. Measurable impact.</span></div>
+            {[["people","Higher Productivity"],["chart","Better Quality"],["target","Lower Costs"],["star","Greater Customer Value"],["shield","A More Sustainable Future"]].map(([icon,label])=><p key={label}><HeroIcon name={icon} /><b>{label}</b></p>)}
+          </div>
+          <div className={styles.academySectionFoot}>People&nbsp;&nbsp;|&nbsp;&nbsp;Capability&nbsp;&nbsp;|&nbsp;&nbsp;Business Impact</div>
         </div>
       </section>
 
       <section className={styles.pathwaysSection} id="pathways">
         <div className={styles.container}>
+          <Image className={styles.sectionAcademyBrand} src="/assets/t9-brand.png" alt="Arete Transformation Academy — Learn, Apply, Transform" width={488} height={136} />
+          <Image className={styles.pathwaysMountain} src="/assets/t9-mountain-v4.png" alt="" width={212} height={270} aria-hidden="true" />
+          <div className={styles.sectionAcademyMotto}>Better People.<br />Stronger Organisations.<br />Brighter Tomorrows.</div>
           <header className={styles.pathwaysHeader}>
             <p><span aria-hidden="true" />Learning Pathways<span aria-hidden="true" /></p>
-            <h2>Build Capability Progressively.</h2>
+            <h2>Build Capability <strong>Progressively.</strong></h2>
             <div>Structured journeys that meet learners where they are and guide them towards role-relevant mastery.</div>
           </header>
           <div className={styles.pathwaysList}>
-              {pathways.map(([title, text], index) => (
+              {pathways.map(({ title, description, stages }, index) => (
                 <article key={title}>
+                  <Image src={`/assets/t9-row${index + 1}.png`} alt="" fill sizes="32vw" />
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <i><HeroIcon name={index === 0 ? "briefcase" : index === 1 ? "people" : index === 2 ? "settings" : index === 3 ? "person" : "flow"} /></i>
-                  <h3>{title}</h3>
+                  <header><h3>{title}</h3><p>{description}</p></header>
                   <div>
-                    {text.split(" -> ").map((stage, stageIndex) => (
-                      <span key={stage}>{stage}{stageIndex < text.split(" -> ").length - 1 && <b aria-hidden="true">&rarr;</b>}</span>
+                    {stages.map((stage, stageIndex) => (
+                      <span key={stage}>{stage}{stageIndex < stages.length - 1 && <b aria-hidden="true">&rarr;</b>}</span>
                     ))}
                   </div>
                 </article>
               ))}
           </div>
-        </div>
-      </section>
-
-      <section className={styles.proofSection}>
-        <div className={styles.container}>
-          <header className={styles.proofHeader}>
-            <p><span aria-hidden="true" />Expertise & Recognition<span aria-hidden="true" /></p>
-            <h2>Learn From Experience. Earn Credible Recognition.</h2>
-          </header>
-          <div className={styles.proofLayout}>
-            <article className={styles.facultyPanel}>
-              <div className={styles.proofPanelHeading}>
-                <span><HeroIcon name="people" /></span>
-                <div><p>Faculty / Practitioners</p><h3>Practitioners who have done the work.</h3></div>
-              </div>
-              <p>Our faculty are experienced practitioners, transformation leaders and domain experts who bring real-world insights, proven frameworks and practical wisdom to every programme.</p>
-              <div className={styles.facultyGrid}>
-                {facultyCards.map(([title, text], index) => (
-                  <div key={title}>
-                    <span><HeroIcon name={index === 0 ? "chart" : index === 1 ? "people" : index === 2 ? "brain" : "settings"} /></span>
-                    <strong>{title}</strong>
-                    <p>{text}</p>
-                  </div>
-                ))}
-              </div>
-            </article>
-            <article className={styles.certificationPanel}>
-              <div className={styles.proofPanelHeading}>
-                <span><HeroIcon name="award" /></span>
-                <div><p>Certification & Recognition</p><h3>Credentials backed by capability.</h3></div>
-              </div>
-              <p>Certification pathways may be offered through appropriate accreditation or delivery partners where applicable.</p>
-              <div className={styles.certificationList}>
-                {certifications.map((item, index) => (
-                  <div key={item}><span>{String(index + 1).padStart(2, "0")}</span><HeroIcon name="shield" /><strong>{item}</strong></div>
-                ))}
-              </div>
-              <p className={styles.certificationNote}><HeroIcon name="clipboard" />Certification availability varies by programme. Details are provided on individual programme pages.</p>
-            </article>
+          <aside className={styles.pathwaysAside}><strong>Different Roles.<br />A Stronger Tomorrow.</strong><i /><span>From individual capability to enterprise transformation.</span></aside>
+          <div className={styles.pathwaysPromise}><HeroIcon name="target" /><div><strong>A Unified Learning Ecosystem</strong><span>Flexible. Relevant. Impactful.</span></div>
+            {[["people","Role-Relevant Journeys"],["book","Practical Application"],["chart","Measurable Outcomes"],["star","Future-Ready Organisation"]].map(([icon,label])=><p key={label}><HeroIcon name={icon} /><b>{label}</b></p>)}
           </div>
+          <div className={styles.academySectionFoot}>People&nbsp;&nbsp;|&nbsp;&nbsp;Capability&nbsp;&nbsp;|&nbsp;&nbsp;Business Impact</div>
         </div>
       </section>
 
-      <section className={styles.academyClosingSection}>
+      <section className={styles.academyClosingSection} id="academy-closing">
         <div className={styles.container}>
+          <Image className={styles.sectionAcademyBrand} src="/assets/t10-brand.png" alt="Arete Transformation Academy — Learn, Apply, Transform" width={582} height={158} />
+          <Image className={styles.academyClosingVisual} src="/assets/t10-climbers-v3.png" alt="Team climbing toward a shared summit" width={972} height={941} />
+          <div className={styles.sectionAcademyMotto}>Better People.<br />Stronger Organisations.<br />Brighter Tomorrows.</div>
           <div className={styles.academyClosingContent}>
-            <div className={styles.academyClosingMark}><HeroIcon name="rocket" /></div>
             <div className={styles.academyClosingCopy}>
-              <p><span aria-hidden="true" />Arete Transformation Academy</p>
-              <h2>Don&apos;t Just Build Skills.<br />Build Transformation Capability.</h2>
+              <h2>Don&apos;t Just Build Skills.<br /><strong>Build Transformation Capability.</strong></h2>
               <span>Equip your people to think differently, work smarter, use AI intelligently, and turn improvement ideas into measurable business outcomes.</span>
-            </div>
-            <div className={styles.academyClosingAction}>
-              <h3>Where learning becomes capability&mdash;and capability becomes performance.</h3>
-              <p>Online learning for individuals. Practitioner-led programmes for organisations. Capability that lasts beyond the classroom.</p>
               <div>
-                <Cta href="/trainings" variant="light">Explore the Academy</Cta>
+                <Cta href="/trainings" variant="primary">Explore the Academy</Cta>
                 <Cta href="/contact-us" variant="secondary">Talk to Us</Cta>
+              </div>
+              <div className={styles.academyClosingOutcomes}>
+                {[["people","People Capability","Future-ready talent"],["settings","Practical Application","Real business scenarios"],["chart","Measurable Outcomes","Capability that delivers"],["shield","Sustainable Impact","A stronger tomorrow"]].map(([icon,title,text])=><p key={title}><HeroIcon name={icon}/><strong>{title}</strong><span>{text}</span></p>)}
               </div>
             </div>
           </div>
