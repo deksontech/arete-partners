@@ -9605,3 +9605,135 @@
   .pathwaysList article{grid-template-columns:44px 52px 1fr;padding:14px}.pathwaysList article>div{grid-column:1/-1;flex-wrap:wrap;gap:8px;margin-top:12px}.pathwaysList article>div>span{gap:7px}
   .academyClosingVisual{height:330px}.academyClosingCopy h2{font-size:44px!important}.academyClosingCopy>span{font-size:16px}.academyClosingCopy>div:not(.academyClosingOutcomes){flex-direction:column}.academyClosingOutcomes{grid-template-columns:1fr}.academyClosingOutcomes p{border-top:1px solid #e21882;border-left:0}
 }
+
+/* Keep the academy hero in its original landscape composition on phones. */
+@media (max-width: 620px) {
+  .hero {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1672 / 850;
+  }
+
+  .hero .container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .heroArtwork {
+    display: block;
+    width: 49%;
+    height: 100%;
+  }
+
+  .heroGrid {
+    height: 100%;
+    grid-template-columns: 58% 42%;
+    gap: 0;
+  }
+
+  .heroCopy {
+    width: auto;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    padding: 4.5% 4% 3.2% 5.2%;
+  }
+
+  .heroEyebrow {
+    gap: 5px;
+    margin-bottom: 5px;
+    font-size: clamp(4px, 1.25vw, 6px);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .heroEyebrow::before {
+    width: 17px;
+    height: 4px;
+    background-size: 17px 1px, 17px 1px;
+  }
+
+  .hero h1 {
+    font-size: clamp(14px, 4.1vw, 19px) !important;
+    line-height: 1.03 !important;
+  }
+
+  .hero h1 span {
+    margin-top: 1px;
+  }
+
+  .heroLead {
+    margin-top: 5px !important;
+    font-size: clamp(4px, 1.15vw, 5.5px) !important;
+    line-height: 1.4 !important;
+  }
+
+  .heroHighlights {
+    width: 100%;
+    margin-top: 7px;
+  }
+
+  .heroHighlight,
+  .heroHighlight + .heroHighlight {
+    gap: 4px;
+    padding: 0 4px;
+  }
+
+  .heroHighlight span {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+  }
+
+  .heroHighlight svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .heroHighlight strong {
+    font-size: clamp(3.5px, 1vw, 5px) !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero .heroActions {
+    flex-direction: row;
+    gap: 4px;
+    margin-top: 7px;
+  }
+
+  .heroActions .cta {
+    width: auto;
+    min-width: 0;
+    min-height: 15px;
+    flex: 1 1 0;
+    border-radius: 4px;
+    padding: 0 5px;
+    font-size: clamp(3px, 0.92vw, 4.5px) !important;
+  }
+
+  .heroSignature {
+    margin-top: auto;
+    padding-top: 5px;
+  }
+
+  .heroSignature > span {
+    width: 20px;
+    height: 1px;
+    margin-bottom: 4px;
+  }
+
+  .heroSignature p,
+  .heroCopy .heroSignature p:not(.heroEyebrow):not(.heroLead) {
+    font-size: clamp(2.5px, 0.72vw, 3.5px) !important;
+    letter-spacing: 0.22em !important;
+  }
+
+  .heroSignature b {
+    margin-inline: 2px;
+  }
+
+  .heroSystem {
+    display: none;
+  }
+}
