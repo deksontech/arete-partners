@@ -293,6 +293,58 @@ const proofBodies = (industry: IndustryConfig) => [
   "Building resilient organisations for what comes next",
 ];
 
+function AutomotiveHeroIcon({ name }: { name: "car" | "gear" | "chart" | "network" | "leaf" | "people" | "database" | "shield" | "heart" | "pill" | "microscope" | "monitor" | "chain" | "plane" | "globe" | "graduation" | "bulb" }) {
+  if (name === "globe") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" /><path d="M6 24h36M24 6c6 5 9 11 9 18s-3 13-9 18c-6-5-9-11-9-18s3-13 9-18Z" /><path d="M10 14h28M10 34h28" /></svg>;
+  }
+  if (name === "graduation") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m4 18 20-10 20 10-20 10L4 18Z" /><path d="M12 23v11c7 5 17 5 24 0V23M44 18v14" /><circle cx="44" cy="35" r="2" /></svg>;
+  }
+  if (name === "bulb") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 21a11 11 0 1 1 22 0c0 5-3 8-6 11v5H19v-5c-3-3-6-6-6-11Z" /><path d="M19 41h10M24 3V0M8 8l-3-3m35 3 3-3M7 22H2m44 0h-5" /></svg>;
+  }
+  if (name === "plane") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m42 7-7 3-9 10-14-5-4 3 11 9-6 8-7-1-3 3 9 4 4 5 3-3-1-7 8-6 5 12 4-4-2-14 10-9 3-7c1-3-1-5-4-4Z" /></svg>;
+  }
+  if (name === "monitor") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="8" width="36" height="26" rx="2" /><path d="M17 42h14M24 34v8m-12-14 8-8 6 5 9-10" /></svg>;
+  }
+  if (name === "chain") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m20 30-4 4a8 8 0 0 1-11-11l8-8a8 8 0 0 1 11 0m4 3 4-4a8 8 0 0 1 11 11l-8 8a8 8 0 0 1-11 0M16 24h16" /></svg>;
+  }
+  if (name === "pill") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M11 37a9 9 0 0 1 0-13L24 11a9 9 0 0 1 13 13L24 37a9 9 0 0 1-13 0Z" /><path d="m17 18 13 13" /></svg>;
+  }
+  if (name === "microscope") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m19 7 8 4-8 15-8-4 8-15Zm2 19c8 2 12 8 12 14M12 40h29M31 10l4 2-7 13-4-2M10 31h12" /><circle cx="18" cy="31" r="4" /></svg>;
+  }
+  if (name === "car") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 27h32l-4-10H14L8 27Zm0 0v9h4m28-9v9h-4M14 36h20M14 27l3-5h14l3 5M14 31h.1M34 31h.1" /></svg>;
+  }
+  if (name === "gear") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m20 7 2-4h4l2 4 4 2 4-1 3 3-1 4 2 4 4 2v4l-4 2-2 4 1 4-3 3-4-1-4 2-2 4h-4l-2-4-4-2-4 1-3-3 1-4-2-4-4-2v-4l4-2 2-4-1-4 3-3 4 1 4-2Z" /><circle cx="24" cy="23" r="7" /></svg>;
+  }
+  if (name === "network") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="10" r="4" /><circle cx="10" cy="34" r="4" /><circle cx="38" cy="34" r="4" /><path d="M22 14 12 30m14-16 10 16M14 34h20" /></svg>;
+  }
+  if (name === "leaf") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M39 8C22 8 10 17 10 30c0 6 4 10 10 10 13 0 19-15 19-32Z" /><path d="M8 42c7-12 16-20 27-27" /></svg>;
+  }
+  if (name === "people") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="16" r="7" /><circle cx="33" cy="18" r="5" /><path d="M5 39c0-9 5-14 13-14s13 5 13 14M29 27c8 0 12 4 12 12" /></svg>;
+  }
+  if (name === "database") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="10" rx="14" ry="6" /><path d="M10 10v12c0 3 6 6 14 6s14-3 14-6V10M10 22v12c0 3 6 6 14 6s14-3 14-6V22" /></svg>;
+  }
+  if (name === "shield") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5c6 5 12 6 17 7v11c0 10-6 17-17 22C13 40 7 33 7 23V12c5-1 11-2 17-7Z" /></svg>;
+  }
+  if (name === "heart") {
+    return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C17 34 8 28 8 18c0-6 4-10 10-10 3 0 5 1 6 4 2-3 4-4 7-4 6 0 10 4 10 10 0 10-10 17-17 22Z" /><path d="M12 24h7l3-7 4 14 3-7h8" /></svg>;
+  }
+  return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 39V27h7v12m5 0V18h7v21m5 0V9h7v30M5 39h38" /></svg>;
+}
+
 const buildShowcaseContent = (industry: IndustryConfig): IndustryShowcaseContent => {
   const serviceNames = [
     "Growth & Strategy",
@@ -413,6 +465,14 @@ export function IndustryDirectionPage({ route }: { route: string }) {
   const industry = INDUSTRIES.find((item) => item.route === route) ?? INDUSTRIES[0];
   const proofs = proofBodies(industry);
   const isPharma = industry.route === "/pharmaceutical-sector";
+  const isManufacturing = industry.route === "/industrial-manufacturing-sector";
+  const isAutomotive = industry.route === "/automotive";
+  const isInsurance = industry.route === "/insurance";
+  const isHealthcare = industry.route === "/healthcare";
+  const isAerospace = industry.route === "/aerospace-defence";
+  const isGcc = industry.route === "/global-capability-centers";
+  const isEducation = industry.route === "/education";
+  const usesEditorialHero = isPharma || isManufacturing || isAutomotive || isInsurance || isHealthcare || isAerospace || isGcc || isEducation;
   const showcaseContent = isPharma ? undefined : buildShowcaseContent(industry);
   const challengeCards = isPharma
     ? pharmaChallenges
@@ -434,43 +494,157 @@ export function IndustryDirectionPage({ route }: { route: string }) {
         </div>
       </nav>
 
-      <section className="industry-hero">
-        <div className="industry-shell industry-hero__grid">
-          <div className="industry-hero__copy">
-            <p className="industry-kicker">Industry </p>
-            {isPharma ? (
-              <h1>Transforming Pharma<br />Through Strategy, Digital,<br />and <span>Operational Excellence</span></h1>
-            ) : (
-              <h1>{industry.lead} <span>{industry.accent}</span></h1>
-            )}
-            <div className="industry-rule" />
-            <p className="industry-hero__description">{industry.description}</p>
-            <div className="industry-proof-grid">
-              {proofItems.map((item, index) => (
-                <article key={item.title}>
-                  <span className="industry-icon" aria-hidden="true">{item.icon}</span>
-                  <h2>{item.title}</h2>
-                  <p>{proofs[index]}</p>
-                </article>
-              ))}
+      {usesEditorialHero ? (
+        <section className={`automotive-hero${isPharma ? " pharma-editorial-hero" : ""}${isManufacturing ? " manufacturing-editorial-hero" : ""}${isInsurance ? " insurance-hero" : ""}${isHealthcare ? " healthcare-hero" : ""}${isAerospace ? " aerospace-editorial-hero" : ""}${isGcc ? " gcc-editorial-hero" : ""}${isEducation ? " education-editorial-hero" : ""}`} aria-labelledby="automotive-hero-title">
+          <div className="automotive-hero__inner">
+            <header className="automotive-hero__brand">
+              <Image src="/assets/arete-partners-logo-header-navy.png" alt="Arete Partners" width={190} height={190} priority />
+              {!isHealthcare && !isPharma && !isManufacturing && <div><span>People.</span><span>Capability.</span><span>Business Impact.</span><span>A Better Tomorrow.</span><i /></div>}
+            </header>
+
+            <div className="automotive-hero__copy">
+              <p className="automotive-hero__kicker"><i /> {isPharma ? "Pharmaceutical Sector" : isManufacturing ? "Industrial Manufacturing Sector" : isHealthcare ? "Industry" : isInsurance ? "Insurance Sector" : isAerospace ? "Aerospace & Defence" : isGcc ? "Global Capability Centers" : isEducation ? "Education Sector" : "Automotive Sector"}</p>
+              {isManufacturing ? (
+                <h1 id="automotive-hero-title">Building Industrial<br />Manufacturing Enterprises<br />That Compete on <strong>Cost,</strong><br /><strong>Quality, and Reliability.</strong></h1>
+              ) : isPharma ? (
+                <h1 id="automotive-hero-title">Transforming Pharma<br /><strong>Through Strategy, Digital,</strong><br /><strong>and Operational Excellence.</strong></h1>
+              ) : isHealthcare ? (
+                <h1 id="automotive-hero-title">Transforming Healthcare<br />Enterprises for <strong>Quality,</strong><br /><strong>Access, and Sustainable</strong><br /><strong>Performance</strong></h1>
+              ) : isInsurance ? (
+                <h1 id="automotive-hero-title">Reimagining Insurance<br />Enterprises for<br /><strong>Growth, Trust, and</strong><br /><strong>Operational Resilience.</strong></h1>
+              ) : isAerospace ? (
+                <h1 id="automotive-hero-title">Strengthening Aerospace &amp;<br />Defence Enterprises Through<br /><strong>Strategy, Execution, and</strong><br /><strong>Transformation.</strong></h1>
+              ) : isGcc ? (
+                <h1 id="automotive-hero-title">Reimagining Global<br />Capability Centers as<br /><strong>Engines of Enterprise Value</strong></h1>
+              ) : isEducation ? (
+                <h1 id="automotive-hero-title">Shaping the Next<br />Generation of<br /><strong>Value Creators</strong></h1>
+              ) : (
+                <h1 id="automotive-hero-title">Reinventing Automotive<br />Enterprises Through<br />Strategy, Operations, and<br /><strong>Digital-Led Transformation</strong></h1>
+              )}
+              {isManufacturing ? (
+                <p className="automotive-hero__lead">We partner with industrial manufacturers to convert complex,<br />asset-heavy operations into stable, high-performing systems—<br />improving productivity, resilience, quality, and profitable growth.</p>
+              ) : isPharma ? (
+                <p className="automotive-hero__lead">We help pharmaceutical companies navigate complexity<br />and disruption with end-to-end transformation —<br />driving growth, ensuring compliance, and improving<br />patient outcomes.</p>
+              ) : isHealthcare ? (
+                <p className="automotive-hero__lead">We help healthcare organisations deliver better outcomes,<br />safer care, and greater access while improving operating<br />performance, workforce resilience, and trust.</p>
+              ) : isAerospace ? (
+                <p className="automotive-hero__lead">Partnering for higher readiness, resilience, and<br />a more secure tomorrow.</p>
+              ) : isGcc ? (
+                <p className="automotive-hero__lead">From cost centers to value creators — enabling capability,<br />innovation, and measurable impact.</p>
+              ) : isEducation ? (
+                <p className="automotive-hero__lead">Partnering with educational institutions to build<br />future-ready talent, enabled by innovation and<br />operational excellence.</p>
+              ) : !isInsurance && <p className="automotive-hero__lead">Enabling smarter, more connected, and more<br className="automotive-desktop-break" /> resilient automotive businesses.</p>}
+              <Link className="automotive-hero__cta" href="#industry-services">Explore Our {isManufacturing ? "Manufacturing" : isPharma ? "Pharmaceutical" : isHealthcare ? "Healthcare" : isInsurance ? "Insurance" : isAerospace ? "Aerospace & Defence" : isGcc ? "GCC" : isEducation ? "Education" : "Automotive"} Solutions <span aria-hidden="true">→</span></Link>
+            </div>
+
+            <div className="automotive-hero__benefits" aria-label={`${isManufacturing ? "Industrial manufacturing" : isPharma ? "Pharmaceutical" : isHealthcare ? "Healthcare" : isInsurance ? "Insurance" : isAerospace ? "Aerospace and defence" : isGcc ? "Global capability center" : isEducation ? "Education" : "Automotive"} transformation outcomes`}>
+              <article><span><AutomotiveHeroIcon name={isGcc ? "globe" : isEducation ? "graduation" : isAerospace ? "plane" : isManufacturing ? "gear" : isPharma ? "heart" : isHealthcare ? "heart" : isInsurance ? "chart" : "car"} /></span><strong>{isGcc ? <>Global<br />Scale</> : isEducation ? <>Future-Ready<br />Talent</> : isAerospace ? <>Programme<br />Excellence</> : isManufacturing ? <>Factory<br />Performance</> : isPharma ? <>Healthier<br />Lives</> : isHealthcare ? <>Better<br />Outcomes</> : isInsurance ? <>Profitable<br />Growth</> : <>Future-Ready<br />Operations</>}</strong>{isManufacturing && <p>Higher efficiency,<br />greater output</p>}</article>
+              <article><span><AutomotiveHeroIcon name={isEducation ? "bulb" : isGcc ? "people" : "gear"} /></span><strong>{isGcc ? <>Capability<br />Building</> : isEducation ? <>Innovative<br />Learning</> : isAerospace ? <>Operational<br />Resilience</> : isManufacturing ? <>Supply Chain<br />Resilience</> : isPharma ? <>Stronger<br />Organisations</> : isHealthcare ? <>Greater<br />Access</> : isInsurance ? <>Customer<br />Trust</> : <>Connected<br />Mobility</>}</strong>{isManufacturing && <p>Stronger, more<br />responsive networks</p>}</article>
+              <article><span><AutomotiveHeroIcon name={isEducation ? "people" : isAerospace ? "shield" : isManufacturing ? "chart" : isPharma ? "chart" : isHealthcare ? "leaf" : isInsurance ? "shield" : "chart"} /></span><strong>{isGcc ? <>Measurable<br />Impact</> : isEducation ? <>Stronger<br />Institutions</> : isAerospace ? <>Mission<br />Readiness</> : isManufacturing ? <>Cost &amp; Quality</> : isPharma ? <>Brighter<br />Tomorrows</> : isHealthcare ? <>Sustainable<br />Performance</> : isInsurance ? <>Operational<br />Resilience</> : <>Sustainable<br />Growth</>}</strong>{isManufacturing && <p>Lower costs,<br />higher standards</p>}</article>
+            </div>
+
+            <div className="automotive-hero__factory" role="img" aria-label={isManufacturing ? "Engineers reviewing production data in an advanced manufacturing plant" : isPharma ? "Pharmaceutical scientist using a microscope in a laboratory" : isHealthcare ? "Healthcare professionals reviewing patient information in a hospital" : isInsurance ? "Insurance leaders collaborating around business data" : isAerospace ? "Aircraft engineers reviewing production data in an aerospace hangar" : isGcc ? "Global capability center team collaborating around technology and business data" : isEducation ? "Students collaborating around a laptop in a modern learning space" : "Automotive manufacturing plant with engineers and a vehicle assembly line"} />
+
+            {isAerospace && <>
+              <p className="aerospace-editorial-hero__callout aerospace-editorial-hero__callout--readiness">Higher<br />Readiness<br />Safer Skies<br />Stronger<br />Nations<i /></p>
+              <p className="aerospace-editorial-hero__callout aerospace-editorial-hero__callout--impact">Innovation<br />People<br />Partnership<br />Impact<i /></p>
+            </>}
+
+            {isGcc && <p className="gcc-editorial-hero__callout">A<br />Stronger<br />Tomorrow<br />Together.<i /></p>}
+            {isEducation && <>
+              <p className="education-editorial-hero__callout education-editorial-hero__callout--learn">Learn<br />Build<br />Solve<br />Impact<i /></p>
+              <p className="education-editorial-hero__callout education-editorial-hero__callout--ideas">Ideas<br />People<br />Possibilities<i /></p>
+            </>}
+
+            {isManufacturing && <>
+              <p className="manufacturing-editorial-hero__promise">Better People.<br />Stronger Organisations.<br />Brighter Tomorrows.<i /></p>
+              <p className="manufacturing-editorial-hero__callout">People<br />Technology<br />Sustainable Growth<i /></p>
+            </>}
+
+            {isPharma && <>
+              <p className="pharma-editorial-hero__promise">People.<br />Capability.<br />Business Impact.<br />A Better Tomorrow.<i /></p>
+              <div className="pharma-editorial-hero__badges" aria-label="Pharmaceutical transformation priorities">
+                <article><span><AutomotiveHeroIcon name="pill" /></span><strong>Innovation<br />for Impact</strong></article>
+                <article><span><AutomotiveHeroIcon name="microscope" /></span><strong>Compliance<br />with Confidence</strong></article>
+                <article><span><AutomotiveHeroIcon name="people" /></span><strong>Better<br />Patient Outcomes</strong></article>
+              </div>
+            </>}
+
+            {isHealthcare && <>
+              <p className="healthcare-hero__callout healthcare-hero__callout--care">People<br />Technology<br />Care<br />A Healthier<br />Tomorrow<i /></p>
+              <p className="healthcare-hero__callout healthcare-hero__callout--lives">Better<br />Care<br />Brighter<br />Lives<i /></p>
+            </>}
+
+            {!isPharma && !isAerospace && !isGcc && !isEducation && <div className="automotive-hero__areas" aria-label={`${isManufacturing ? "Industrial manufacturing" : isHealthcare ? "Healthcare" : isInsurance ? "Insurance" : "Automotive"} solution areas`}>
+              {isManufacturing ? <>
+                <article><span><AutomotiveHeroIcon name="gear" /></span><div><strong>Operational<br />Excellence</strong><p>Streamlined operations<br />for sustainable performance.</p></div></article>
+                <article><span><AutomotiveHeroIcon name="monitor" /></span><div><strong>Industry 4.0<br />&amp; Digital</strong><p>Data-driven, connected<br />and intelligent manufacturing.</p></div></article>
+                <article><span><AutomotiveHeroIcon name="chain" /></span><div><strong>Resilient<br />Supply Chains</strong><p>Greater agility for<br />a changing world.</p></div></article>
+              </> : isHealthcare ? <>
+                <article><span><AutomotiveHeroIcon name="people" /></span><div><strong>Patient Experience</strong><p>Designing connected,<br />accessible care journeys</p></div></article>
+                <article><span><AutomotiveHeroIcon name="gear" /></span><div><strong>Clinical Operations</strong><p>Improving flow, capacity<br />and service quality</p></div></article>
+                <article><span><AutomotiveHeroIcon name="chart" /></span><div><strong>Digital Health</strong><p>Enabling data-led and<br />technology-supported care</p></div></article>
+                <article><span><AutomotiveHeroIcon name="shield" /></span><div><strong>Quality &amp; Trust</strong><p>Strengthening governance,<br />safety and compliance</p></div></article>
+              </> : <>
+                <article><span><AutomotiveHeroIcon name="chart" /></span><strong>{isInsurance ? <>Commercial<br />Growth</> : <>Growth &amp;<br />Portfolio</>}</strong></article>
+                <article><span><AutomotiveHeroIcon name="gear" /></span><strong>Operational<br />Excellence</strong></article>
+                <article><span><AutomotiveHeroIcon name={isInsurance ? "database" : "network"} /></span><strong>{isInsurance ? <>Data-Driven<br />Decisions</> : <>Digital<br />Mobility</>}</strong></article>
+                <article><span><AutomotiveHeroIcon name={isInsurance ? "shield" : "leaf"} /></span><strong>{isInsurance ? <>Risk &amp;<br />Compliance</> : <>Supply Chain<br />Resilience</>}</strong></article>
+              </>}
+            </div>}
+
+            {!isHealthcare && !isPharma && !isManufacturing && !isAerospace && !isGcc && !isEducation && <p className="automotive-hero__signature"><span>People</span><i /> <span>Technology</span><i /> <span>Sustainable Mobility</span><b /></p>}
+            {isInsurance && <p className="insurance-hero__tagline"><i />A More Resilient Tomorrow. Together.<b /></p>}
+            {isHealthcare && <p className="healthcare-hero__tagline"><i />A Healthier Tomorrow.<br />Together.</p>}
+            {isPharma && <p className="pharma-editorial-hero__tagline">Advancing<br />Health Through<br />People and Possibility.<i /></p>}
+            {isManufacturing && <p className="manufacturing-editorial-hero__tagline">From Complexity to <strong>A Stronger Tomorrow.</strong><i /></p>}
+            {isAerospace && <>
+              <p className="aerospace-editorial-hero__tagline"><i />Advancing a Safer, More Secure Tomorrow.<b /></p>
+              <p className="aerospace-editorial-hero__ribbon-label">People <i /> Technology <i /> Sovereign Capability <b /></p>
+            </>}
+            {isGcc && <p className="gcc-editorial-hero__tagline">People <i /> Technology <i /> Global Impact <b /></p>}
+            {isEducation && <p className="education-editorial-hero__tagline"><i />Learning Today. A Stronger Tomorrow.<b /></p>}
+          </div>
+        </section>
+      ) : (
+        <section className="industry-hero">
+          <div className="industry-shell industry-hero__grid">
+            <div className="industry-hero__copy">
+              <p className="industry-kicker">Industry </p>
+              {isPharma ? (
+                <h1>Transforming Pharma<br />Through Strategy, Digital,<br />and <span>Operational Excellence</span></h1>
+              ) : (
+                <h1>{industry.lead} <span>{industry.accent}</span></h1>
+              )}
+              <div className="industry-rule" />
+              <p className="industry-hero__description">{industry.description}</p>
+              <div className="industry-proof-grid">
+                {proofItems.map((item, index) => (
+                  <article key={item.title}>
+                    <span className="industry-icon" aria-hidden="true">{item.icon}</span>
+                    <h2>{item.title}</h2>
+                    <p>{proofs[index]}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="industry-hero__visual">
+              <Image src={industry.image} alt={`${industry.label} transformation`} fill priority sizes="(max-width: 980px) 100vw, 52vw" />
+              <div className="industry-area-panel">
+                {industry.areas.map((item) => (
+                  <article key={item.title}>
+                    <span className="industry-icon industry-icon--dark" aria-hidden="true">{item.icon}</span>
+                    <div><h2>{item.title}</h2><p>{item.body}</p></div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
+        </section>
+      )}
 
-          <div className="industry-hero__visual">
-            <Image src={industry.image} alt={`${industry.label} transformation`} fill priority sizes="(max-width: 980px) 100vw, 52vw" />
-            <div className="industry-area-panel">
-              {industry.areas.map((item) => (
-                <article key={item.title}>
-                  <span className="industry-icon industry-icon--dark" aria-hidden="true">{item.icon}</span>
-                  <div><h2>{item.title}</h2><p>{item.body}</p></div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="industry-services-showcase">
+      <section className="industry-services-showcase" id="industry-services">
         <div className="industry-capabilities">
           <div className="industry-shell">
             <header><p>Our Services</p><h2>End-to-End Transformation Capabilities for {industry.label}</h2></header>

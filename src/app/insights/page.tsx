@@ -10,11 +10,12 @@ export const metadata: Metadata = {
 
 const latestInsights = [
   {
-    category: "Transformation Insights",
-    title: "The System of Work",
+    category: "GCC Maturity",
+    title: "From Execution Engines to Enterprise Intelligence",
     excerpt:
-      "Strategy does not fail only at the planning stage. It often breaks down when decisions, governance, processes, and execution rhythms are not connected across the enterprise.",
-    image: "/assets/city-consulting.jpg",
+      "A leadership narrative on how Global Capability Centres evolve from efficient delivery engines into systems that sense, learn, and influence enterprise outcomes.",
+    image: "/assets/execution-enterprise-hero.png",
+    href: "/insights/from-execution-engines-to-enterprise-intelligence",
   },
   {
     category: "Newsletter",
@@ -102,7 +103,7 @@ function ArticleCard({
   article,
   large = false,
 }: {
-  article: { category: string; title: string; excerpt: string; image: string };
+  article: { category: string; title: string; excerpt: string; image: string; href?: string };
   large?: boolean;
 }) {
   return (
@@ -113,7 +114,7 @@ function ArticleCard({
       <p className="insight-card__category">{article.category}</p>
       <h3>{article.title}</h3>
       <p>{article.excerpt}</p>
-      <Link href="#" aria-label={`Read more: ${article.title}`}>
+      <Link href={article.href ?? "#"} aria-label={`Read more: ${article.title}`}>
         Read More ++
       </Link>
     </article>
@@ -147,7 +148,7 @@ export default function InsightsPage() {
               <p className="insight-card__category">{latestInsights[0].category}</p>
               <h3>{latestInsights[0].title}</h3>
               <p>{latestInsights[0].excerpt}</p>
-              <Link href="#">Read More ++</Link>
+              <Link href={latestInsights[0].href ?? "#"}>Read More ++</Link>
             </div>
             <div className="latest-feature__media">
               <Image alt="" fill priority sizes="380px" src={latestInsights[0].image} />

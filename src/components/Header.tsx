@@ -101,11 +101,11 @@ export function Header() {
           <Link className="brand" href="/" aria-label="Arete Partners home">
             <Image
               alt="Arete Partners"
-              height={843}
+              height={533}
               priority
-              src="/assets/arete-partners-logo-header-navy.png"
+              src="/assets/arete-partners-logo-header-transparent.png"
               unoptimized
-              width={842}
+              width={1600}
             />
           </Link>
           <nav className="desktop-nav" aria-label="Primary navigation">

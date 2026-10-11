@@ -38,6 +38,308 @@
   --lux-text: rgb(179 29 124 / 0.95);
 }
 
+/* GCC thought-leadership article: Rajesh Koul layout adapted to the Arete brand. */
+.arete-article {
+  --article-navy: #020c4f;
+  --article-plum: #b31d7c;
+  --article-gold: #c7a052;
+  --article-ink: #24345f;
+  --article-muted: #637094;
+  overflow: visible;
+  background: #f8f9fc;
+  color: var(--article-navy);
+  font-family: var(--font-montserrat), Montserrat, Arial, sans-serif;
+}
+
+html:has(main .arete-article),
+body:has(main .arete-article) {
+  overflow: visible !important;
+}
+
+.arete-article .article-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  height: 650px;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--article-navy);
+  color: #fff;
+}
+
+.arete-article .article-hero > img {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+.arete-article .article-hero-shade {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(2 12 79 / 96%) 0%, rgb(2 12 79 / 86%) 43%, rgb(2 12 79 / 22%) 76%),
+    linear-gradient(0deg, rgb(2 12 79 / 74%), transparent 58%);
+}
+
+.arete-article .article-hero-inner {
+  width: min(1240px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 0 0 64px;
+}
+
+.arete-article .article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 54px;
+  color: rgb(255 255 255 / 84%);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.arete-article .article-back svg { width: 18px; }
+
+html body main .arete-article .article-label {
+  margin: 0 0 21px;
+  color: #e5c987 !important;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .22em;
+}
+
+html body main .arete-article .article-hero h1 {
+  max-width: 980px;
+  margin: 0;
+  color: #fff !important;
+  font-family: var(--font-montserrat), Montserrat, Arial, sans-serif !important;
+  font-size: clamp(52px, 5.5vw, 84px) !important;
+  font-weight: 700 !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.055em;
+}
+
+.arete-article .article-hero h1 span,
+.arete-article .article-summary > h2 span {
+  background: linear-gradient(90deg, #d7b66a, #d52b8c 58%, #a30f70);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+html body main .arete-article .article-deck {
+  margin: 23px 0 25px;
+  color: rgb(255 255 255 / 90%) !important;
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+.arete-article .article-byline {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: rgb(255 255 255 / 72%);
+  font-size: 13px;
+}
+
+.arete-article .article-byline b { color: #fff; }
+.arete-article .article-byline i { width: 1px; height: 16px; background: rgb(255 255 255 / 35%); }
+.arete-article .article-byline span { display: flex; align-items: center; gap: 7px; }
+.arete-article .article-byline svg { width: 16px; }
+
+.arete-article .article-shell {
+  position: relative;
+  display: grid;
+  width: min(1140px, calc(100% - 48px));
+  grid-template-columns: 230px minmax(0, 820px);
+  gap: 70px;
+  align-items: start;
+  margin: 0 auto;
+  padding: 76px 0 110px;
+}
+
+.arete-article .article-toc {
+  position: sticky;
+  top: 102px;
+  padding: 26px 0;
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--article-gold), var(--article-plum)) 1;
+}
+
+.arete-article .article-toc > p {
+  margin: 0 0 18px;
+  color: var(--article-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .23em;
+}
+
+.arete-article .article-toc nav { display: grid; }
+.arete-article .article-toc a {
+  display: grid;
+  grid-template-columns: 31px 1fr;
+  gap: 9px;
+  padding: 12px 2px;
+  border-bottom: 1px solid rgb(2 12 79 / 12%);
+  color: #53618a;
+  font-size: 12px;
+  line-height: 1.45;
+  transition: color .2s ease, padding .2s ease;
+}
+.arete-article .article-toc a:hover { padding-left: 5px; color: var(--article-plum); }
+.arete-article .article-toc i { color: var(--article-plum); font-style: normal; font-weight: 700; }
+
+.arete-article .article-content { min-width: 0; }
+.arete-article .article-content p { color: var(--article-ink); font-size: 17px; line-height: 1.86; }
+.arete-article .article-content em { color: var(--article-navy); font-family: inherit; font-size: 1.03em; }
+.arete-article .article-eyebrow {
+  margin: 0 0 14px !important;
+  color: var(--article-plum) !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  letter-spacing: .24em !important;
+}
+
+.arete-article .article-summary { padding: 0 0 72px; }
+html body main .arete-article .article-summary > h2 {
+  margin: 0 0 24px;
+  color: var(--article-navy) !important;
+  font-family: var(--font-montserrat), Montserrat, Arial, sans-serif !important;
+  font-size: 42px !important;
+  line-height: 1.17 !important;
+  letter-spacing: -.045em;
+}
+.arete-article .article-summary > p:not(.article-eyebrow) { margin: 0 0 34px; font-size: 19px; line-height: 1.75; }
+.arete-article .article-summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.arete-article .article-summary-grid article {
+  min-height: 176px;
+  padding: 24px;
+  border: 1px solid rgb(2 12 79 / 12%);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #fff, #f7f3f7);
+  box-shadow: 0 14px 32px rgb(2 12 79 / 6%);
+}
+.arete-article .article-summary-grid svg { width: 30px; height: 30px; margin-bottom: 20px; color: var(--article-plum); }
+.arete-article .article-summary-grid strong { display: block; margin-bottom: 8px; color: var(--article-navy); font-size: 17px; }
+.arete-article .article-summary-grid span { display: block; color: var(--article-muted); font-size: 13px; line-height: 1.6; }
+
+.arete-article .arc-lens {
+  margin: 0 0 80px;
+  padding: 35px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #020c4f, #182369 58%, #8e176c);
+  color: #fff;
+  box-shadow: 0 24px 50px rgb(2 12 79 / 18%);
+}
+.arete-article .arc-lens > div:first-child { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.arete-article .arc-lens .article-eyebrow { color: #e8cf94 !important; }
+html body main .arete-article .arc-lens h2 { max-width: 500px; margin: 0; color: #fff !important; font-size: 28px !important; line-height: 1.2 !important; letter-spacing: -.03em; }
+.arete-article .arc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.arete-article .arc-grid article { padding: 20px; border: 1px solid rgb(255 255 255 / 18%); border-radius: 10px; background: rgb(255 255 255 / 6.5%); }
+.arete-article .arc-grid b { display: grid; width: 44px; height: 44px; place-items: center; margin-bottom: 24px; border-radius: 50%; background: linear-gradient(135deg, #d8b869, #a51673); font-size: 22px; }
+.arete-article .arc-grid article:nth-child(2) b { background: linear-gradient(135deg, #c7a052, #d45a9e); }
+.arete-article .arc-grid article:nth-child(3) b { background: linear-gradient(135deg, #b31d7c, #74094f); }
+html body main .arete-article .arc-grid h3 { margin: 0 0 8px; color: #fff !important; font-size: 17px !important; }
+html body main .arete-article .arc-grid p { margin: 0; color: rgb(255 255 255 / 78%) !important; font-size: 12px !important; line-height: 1.55 !important; }
+
+.arete-article .article-section { scroll-margin-top: 30px; margin-bottom: 84px; }
+.arete-article .article-section > header { display: grid; grid-template-columns: 58px 1fr; gap: 18px; align-items: start; margin-bottom: 31px; }
+.arete-article .article-section > header > span { display: grid; width: 51px; height: 51px; place-items: center; border-radius: 9px; background: linear-gradient(135deg, var(--article-gold), var(--article-plum)); color: #fff; font-size: 18px; font-weight: 800; box-shadow: 0 12px 24px rgb(179 29 124 / 18%); }
+html body main .arete-article .article-section > header h2 { margin: 0; color: var(--article-navy) !important; font-size: 34px !important; line-height: 1.17 !important; letter-spacing: -.04em; }
+.arete-article .article-section > p { margin: 0 0 24px; }
+
+.arete-article .article-pullquote { position: relative; margin: 40px 0; padding: 32px 36px 32px 74px; border-radius: 12px; background: linear-gradient(120deg, #fffaf0, #f9eef5 62%, #fff); color: var(--article-navy); }
+.arete-article .article-pullquote::before { position: absolute; inset: 0; border-radius: 12px; padding: 1px; background: linear-gradient(110deg, var(--article-gold), var(--article-plum)); content: ""; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+.arete-article .article-pullquote > span { position: absolute; top: 18px; left: 24px; color: var(--article-plum); font-family: inherit; font-size: 64px; line-height: 1; }
+.arete-article .article-pullquote p { position: relative; margin: 0; color: var(--article-navy); font-family: inherit; font-size: 23px; font-style: italic; font-weight: 500; line-height: 1.55; }
+.arete-article .article-callout { margin: 36px 0; padding: 27px 30px; border-left: 4px solid var(--article-plum); background: #f8eff5; }
+.arete-article .article-callout strong { color: var(--article-plum); font-size: 18px; }
+.arete-article .article-callout p { margin: 8px 0 0; font-size: 15px; line-height: 1.7; }
+.arete-article .article-infographic { margin: 4px 0 84px; }
+.arete-article .article-infographic img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 24px 55px rgb(2 12 79 / 14%); }
+.arete-article .article-infographic figcaption { margin-top: 14px; color: var(--article-muted); font-size: 12px; text-align: center; }
+
+.arete-article .shift-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 36px 0; }
+.arete-article .shift-grid article { min-height: 190px; padding: 24px; border: 1px solid rgb(2 12 79 / 12%); border-radius: 10px; background: #fff; }
+.arete-article .shift-grid span,
+.arete-article .shift-grid i { display: block; color: #8a6681; font-size: 10px; font-style: normal; font-weight: 800; letter-spacing: .18em; }
+.arete-article .shift-grid i { margin: 20px 0 7px; color: var(--article-plum); }
+.arete-article .shift-grid strong { display: block; margin-top: 7px; color: var(--article-navy); font-size: 15px; line-height: 1.35; }
+
+.arete-article .density-definition { margin: 36px 0; padding: 36px; border-radius: 14px; background: linear-gradient(145deg, #020c4f, #3e1760 72%, #b31d7c); color: #fff; }
+.arete-article .density-definition .article-eyebrow { color: #e5c987 !important; }
+html body main .arete-article .density-definition h3 { margin: 0 0 10px; color: #fff !important; font-size: 37px !important; letter-spacing: -.04em; }
+html body main .arete-article .density-definition > p:last-child { max-width: 650px; margin: 0; color: rgb(255 255 255 / 84%) !important; font-size: 16px !important; line-height: 1.7 !important; }
+
+.arete-article .article-conclusion { margin: 20px 0 75px; padding: 48px; border-radius: 16px; background: radial-gradient(circle at 50% 0, #343b7f, #111b58 58%, #020c4f); color: #fff; text-align: center; }
+.arete-article .article-conclusion .article-eyebrow { color: #e5c987 !important; }
+html body main .arete-article .article-conclusion h2 { max-width: 650px; margin: 0 auto 16px; color: #fff !important; font-size: 35px !important; line-height: 1.2 !important; }
+html body main .arete-article .article-conclusion p:last-child { max-width: 620px; margin: 0 auto; color: rgb(255 255 255 / 78%) !important; font-size: 16px !important; line-height: 1.7 !important; }
+
+.arete-article .article-related { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-bottom: 56px; padding: 32px 0; border-top: 1px solid rgb(2 12 79 / 15%); border-bottom: 1px solid rgb(2 12 79 / 15%); }
+html body main .arete-article .article-related h2 { max-width: 550px; margin: 0 0 9px; color: var(--article-navy) !important; font-size: 25px !important; line-height: 1.3 !important; }
+.arete-article .article-related div > p:last-child { margin: 0; font-size: 13px; }
+.arete-article .article-related > a { display: flex; align-items: center; gap: 8px; color: var(--article-plum); font-size: 13px; font-weight: 700; white-space: nowrap; }
+.arete-article .article-related svg { width: 18px; }
+.arete-article .article-author { display: flex; align-items: center; gap: 18px; }
+.arete-article .article-author-mark { display: grid; width: 64px; height: 64px; place-items: center; border-radius: 50%; background: linear-gradient(135deg, var(--article-gold), var(--article-plum)); color: #fff; font-weight: 800; }
+.arete-article .article-author p { margin: 0; color: var(--article-muted); font-size: 11px; line-height: 1.2; }
+html body main .arete-article .article-author h2 { margin: 2px 0; color: var(--article-navy) !important; font-size: 22px !important; }
+.arete-article .article-author span { color: #56658a; font-size: 12px; }
+.arete-article .article-disclaimer { margin: 35px 0 0 !important; padding-top: 24px; border-top: 1px solid rgb(2 12 79 / 12%); color: var(--article-muted) !important; font-size: 11px !important; line-height: 1.6 !important; }
+
+@media (max-width: 980px) {
+  .arete-article .article-hero { height: 590px; }
+  .arete-article .article-shell { width: min(820px, calc(100% - 40px)); grid-template-columns: 1fr; padding-top: 55px; }
+  .arete-article .article-toc { display: none; }
+  .arete-article .article-hero-inner { width: calc(100% - 48px); }
+  html body main .arete-article .article-hero h1 { font-size: 58px !important; }
+  .arete-article .article-infographic { margin-bottom: 70px; }
+}
+
+@media (max-width: 640px) {
+  .arete-article .article-hero { height: 620px; }
+  .arete-article .article-hero > img { object-position: 58% center; }
+  .arete-article .article-hero-shade { background: linear-gradient(90deg, rgb(2 12 79 / 96%), rgb(2 12 79 / 76%)), linear-gradient(0deg, rgb(2 12 79 / 82%), transparent); }
+  .arete-article .article-hero-inner { width: calc(100% - 36px); padding-bottom: 42px; }
+  .arete-article .article-back { margin-bottom: 60px; }
+  .arete-article .article-label { font-size: 10px; line-height: 1.65; letter-spacing: .17em; }
+  html body main .arete-article .article-hero h1 { font-size: 43px !important; line-height: 1.05 !important; }
+  .arete-article .article-deck { font-size: 18px; }
+  .arete-article .article-byline { flex-wrap: wrap; }
+  .arete-article .article-byline i { display: none; }
+  .arete-article .article-shell { width: calc(100% - 34px); padding: 44px 0 75px; }
+  .arete-article .article-content p { font-size: 16px; line-height: 1.78; }
+  .arete-article .article-summary { padding-bottom: 55px; }
+  html body main .arete-article .article-summary > h2 { font-size: 32px !important; }
+  .arete-article .article-summary > p:not(.article-eyebrow) { font-size: 17px; }
+  .arete-article .article-summary-grid,
+  .arete-article .arc-grid,
+  .arete-article .shift-grid { grid-template-columns: 1fr; }
+  .arete-article .arc-lens { margin-bottom: 60px; padding: 26px 20px; }
+  .arete-article .arc-lens > div:first-child { display: block; }
+  html body main .arete-article .arc-lens h2 { font-size: 25px !important; }
+  .arete-article .arc-grid article { display: grid; grid-template-columns: 50px 1fr; column-gap: 14px; }
+  .arete-article .arc-grid b { grid-row: 1 / 3; margin: 0; }
+  .arete-article .arc-grid h3 { margin-top: 2px; }
+  .arete-article .article-section { scroll-margin-top: 96px; margin-bottom: 62px; }
+  .arete-article .article-section > header { grid-template-columns: 46px 1fr; gap: 14px; }
+  .arete-article .article-section > header > span { width: 44px; height: 44px; }
+  html body main .arete-article .article-section > header h2 { font-size: 28px !important; }
+  .arete-article .article-pullquote { margin: 32px 0; padding: 56px 24px 27px; }
+  .arete-article .article-pullquote > span { top: 5px; left: 23px; }
+  .arete-article .article-pullquote p { font-size: 20px; }
+  .arete-article .shift-grid article { min-height: 0; }
+  .arete-article .density-definition { padding: 29px 24px; }
+  html body main .arete-article .density-definition h3 { font-size: 31px !important; }
+  .arete-article .article-conclusion { padding: 37px 23px; }
+  html body main .arete-article .article-conclusion h2 { font-size: 29px !important; }
+  .arete-article .article-related { display: block; }
+  .arete-article .article-related > a { margin-top: 22px; }
+  .arete-article .article-infographic { width: calc(100% + 14px); margin-left: -7px; }
+}
+
 /* Reference-matched post-hero transformation strip. */
 html body main .home-clean-strip {
   position: relative;
@@ -701,6 +1003,516 @@ html body main.growth-page .growth-impact-strip--clients {
   html body main.growth-page .growth-client-story:nth-child(odd)::after {
     display: none;
   }
+}
+
+/* Aerospace & defence editorial hero — live composition over a cropped photo. */
+.aerospace-editorial-hero {
+  background:
+    radial-gradient(ellipse at 31% 104%, rgb(83 100 202 / 0.12), transparent 38%),
+    #ffffff;
+}
+
+.aerospace-editorial-hero .automotive-hero__inner::after {
+  position: absolute;
+  z-index: 2;
+  right: -3%;
+  bottom: -3.5%;
+  width: 69%;
+  height: 35%;
+  content: "";
+  background:
+    linear-gradient(172deg, transparent 0 23%, rgb(236 23 151 / 0.9) 23.4% 30%, transparent 30.4%),
+    linear-gradient(169deg, transparent 0 30%, #123d9b 30.5% 48%, #0b267a 48.4% 68%, #35106f 68.4% 100%);
+  clip-path: polygon(0 43%, 19% 30%, 40% 27%, 56% 31%, 73% 24%, 100% 0, 100% 100%, 14% 100%);
+}
+
+.aerospace-editorial-hero::before {
+  display: block;
+  top: 0;
+  left: 30.2%;
+  width: 25.8%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(77 69 180 / 0.035), rgb(217 55 180 / 0.22), rgb(65 82 176 / 0.1));
+  clip-path: polygon(0 0, 25% 0, 100% 100%, 74% 100%);
+}
+
+.aerospace-editorial-hero .automotive-hero__factory {
+  width: 63%;
+  background-image: url("/assets/aerospace-sector-reference.png");
+  background-position: right top;
+  background-size: 158.73% 100%;
+  clip-path: polygon(0 0, 22% 100%, 100% 100%, 100% 0);
+}
+
+.aerospace-editorial-hero .automotive-hero__factory::after {
+  display: block;
+  width: 20%;
+  background: linear-gradient(90deg, #ffffff 0 58%, rgb(255 255 255 / 0.96) 72%, transparent 100%);
+}
+
+.aerospace-editorial-hero .automotive-hero__brand {
+  top: 2.7%;
+  left: 3.35%;
+}
+
+.aerospace-editorial-hero .automotive-hero__brand > img {
+  width: clamp(112px, 11.6vw, 194px);
+  height: clamp(112px, 11.6vw, 194px);
+}
+
+.aerospace-editorial-hero .automotive-hero__brand > div {
+  min-height: clamp(104px, 11vw, 184px);
+  border-left-color: #e31683;
+}
+
+.aerospace-editorial-hero .automotive-hero__copy {
+  top: 26.4%;
+  left: 4.65%;
+  width: 47.5%;
+}
+
+.aerospace-editorial-hero .automotive-hero__kicker {
+  margin-bottom: clamp(16px, 1.5vw, 25px) !important;
+}
+
+html body main .industry-page .aerospace-editorial-hero .automotive-hero__copy h1 {
+  width: 100%;
+  max-width: none !important;
+  font-size: clamp(25px, 2.93vw, 49px) !important;
+  line-height: 1.045 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.032em !important;
+}
+
+.aerospace-editorial-hero .automotive-hero__lead {
+  margin-top: clamp(16px, 1.42vw, 24px) !important;
+  font-size: clamp(13px, 1.54vw, 26px) !important;
+  line-height: 1.24 !important;
+}
+
+.aerospace-editorial-hero .automotive-hero__cta {
+  min-width: min(100%, 550px);
+  margin-top: clamp(14px, 1.38vw, 23px);
+}
+
+.aerospace-editorial-hero .automotive-hero__benefits {
+  z-index: 4;
+  top: 72.8%;
+  left: 4.65%;
+  width: 35.8%;
+}
+
+.aerospace-editorial-hero .automotive-hero__benefits span {
+  width: clamp(48px, 4.7vw, 78px);
+  height: clamp(48px, 4.7vw, 78px);
+}
+
+.aerospace-editorial-hero .automotive-hero__benefits strong {
+  font-size: clamp(11px, 1.18vw, 20px);
+}
+
+.aerospace-editorial-hero__callout {
+  position: absolute;
+  z-index: 4;
+  margin: 0 !important;
+  color: #e6edf7 !important;
+  font-size: clamp(10px, 1.08vw, 18px) !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  background: rgb(73 95 127 / 0.72);
+  box-shadow: 0 0 16px 16px rgb(73 95 127 / 0.72);
+}
+
+.aerospace-editorial-hero__callout i {
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 14px;
+  background: #cf197c;
+}
+
+.aerospace-editorial-hero__callout--readiness {
+  top: 10.4%;
+  left: 67.9%;
+  width: 190px;
+  padding: 4px;
+}
+
+.aerospace-editorial-hero__callout--impact {
+  top: 5.1%;
+  right: 1.3%;
+  width: 172px;
+  padding: 4px;
+  color: #23366e !important;
+  background: rgb(232 239 249 / 0.96);
+  box-shadow: 0 0 16px 16px rgb(232 239 249 / 0.96);
+}
+
+.aerospace-editorial-hero__tagline,
+.aerospace-editorial-hero__ribbon-label {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+  text-transform: uppercase;
+}
+
+.aerospace-editorial-hero__tagline {
+  bottom: 5.6%;
+  left: 4.15%;
+  gap: 19px;
+  color: #344778 !important;
+  font-size: clamp(8px, 0.83vw, 14px) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.24em;
+}
+
+.aerospace-editorial-hero__tagline i,
+.aerospace-editorial-hero__tagline b {
+  width: 55px;
+  height: 2px;
+  background: #d50c79;
+}
+
+.aerospace-editorial-hero__ribbon-label {
+  right: 5.4%;
+  bottom: 5.2%;
+  gap: 10px;
+  color: rgb(255 255 255 / 0.88) !important;
+  font-size: clamp(7px, 0.72vw, 12px) !important;
+  letter-spacing: 0.22em;
+}
+
+.aerospace-editorial-hero__ribbon-label i {
+  width: 1px;
+  height: 13px;
+  background: rgb(255 255 255 / 0.7);
+}
+
+.aerospace-editorial-hero__ribbon-label b {
+  width: 58px;
+  height: 2px;
+  margin-left: 6px;
+  background: #dc1280;
+}
+
+@media (max-width: 900px) {
+  .aerospace-editorial-hero {
+    background:
+      radial-gradient(ellipse at 31% 104%, rgb(83 100 202 / 0.12), transparent 38%),
+      #ffffff;
+  }
+
+  .aerospace-editorial-hero::before { display: block; }
+  .aerospace-editorial-hero .automotive-hero__brand { top: 2.7%; left: 3.35%; }
+  .aerospace-editorial-hero .automotive-hero__brand > img { width: 194px; height: 194px; }
+  .aerospace-editorial-hero .automotive-hero__brand > div { min-height: 184px; }
+  html body main .industry-page .aerospace-editorial-hero .automotive-hero__copy h1 { max-width: none !important; font-size: 49px !important; }
+  .aerospace-editorial-hero .automotive-hero__lead { margin-top: 24px !important; font-size: 26px !important; }
+  .aerospace-editorial-hero .automotive-hero__cta { width: 550px; margin-top: 23px; }
+  .aerospace-editorial-hero .automotive-hero__benefits span { width: 78px; height: 78px; }
+  .aerospace-editorial-hero .automotive-hero__benefits strong { font-size: 20px; }
+  .aerospace-editorial-hero .automotive-hero__factory {
+    width: 63%;
+    background-image: url("/assets/aerospace-sector-reference.png");
+    background-position: right top;
+    background-size: 158.73% 100%;
+    clip-path: polygon(0 0, 22% 100%, 100% 100%, 100% 0);
+  }
+  .aerospace-editorial-hero .automotive-hero__factory::after {
+    display: block;
+    width: 20%;
+    background: linear-gradient(90deg, #ffffff 0 58%, rgb(255 255 255 / 0.96) 72%, transparent 100%);
+  }
+  .aerospace-editorial-hero__callout { font-size: 18px !important; }
+  .aerospace-editorial-hero__tagline { font-size: 14px !important; }
+  .aerospace-editorial-hero__ribbon-label { font-size: 12px !important; }
+}
+
+/* GCC and Education editorial heroes. */
+.gcc-editorial-hero,
+.education-editorial-hero {
+  background: #ffffff;
+}
+
+.gcc-editorial-hero::before,
+.education-editorial-hero::before {
+  display: block;
+  top: 0;
+  left: 31.5%;
+  width: 25.5%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(70 62 172 / 0.025), rgb(214 57 180 / 0.19), rgb(82 76 187 / 0.09));
+  clip-path: polygon(0 0, 22% 0, 100% 100%, 76% 100%);
+}
+
+.gcc-editorial-hero .automotive-hero__factory,
+.education-editorial-hero .automotive-hero__factory {
+  width: 63%;
+  background-position: right top;
+  background-size: 158.73% 100%;
+  clip-path: polygon(0 0, 22% 100%, 100% 100%, 100% 0);
+}
+
+.gcc-editorial-hero .automotive-hero__factory {
+  background-image: url("/assets/gcc-sector-reference.png");
+}
+
+.education-editorial-hero .automotive-hero__factory {
+  background-image: url("/assets/education-sector-reference.png");
+}
+
+.gcc-editorial-hero .automotive-hero__factory::after,
+.education-editorial-hero .automotive-hero__factory::after {
+  display: block;
+  width: 20%;
+  background: linear-gradient(90deg, #ffffff 0 57%, rgb(255 255 255 / 0.96) 72%, transparent 100%);
+}
+
+.gcc-editorial-hero .automotive-hero__brand,
+.education-editorial-hero .automotive-hero__brand {
+  top: 3.4%;
+  left: 4.15%;
+}
+
+.gcc-editorial-hero .automotive-hero__brand > img,
+.education-editorial-hero .automotive-hero__brand > img {
+  width: clamp(112px, 11.3vw, 188px);
+  height: clamp(112px, 11.3vw, 188px);
+}
+
+.gcc-editorial-hero .automotive-hero__brand > div {
+  border-left-color: #d4147d;
+}
+
+.education-editorial-hero .automotive-hero__brand > div {
+  border-left-color: #0b185c;
+}
+
+.gcc-editorial-hero .automotive-hero__copy {
+  top: 28.6%;
+  left: 5%;
+  width: 45.5%;
+}
+
+.education-editorial-hero .automotive-hero__copy {
+  top: 26.4%;
+  left: 4.95%;
+  width: 43.5%;
+}
+
+html body main .gcc-editorial-hero #automotive-hero-title,
+html body main .gcc-editorial-hero #automotive-hero-title strong {
+  font-family: Georgia, "Times New Roman", serif !important;
+}
+
+html body main .industry-page .gcc-editorial-hero .automotive-hero__copy h1 {
+  width: 100%;
+  max-width: none !important;
+  font-size: clamp(28px, 3.4vw, 57px) !important;
+  line-height: 1.08 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+}
+
+html body main .industry-page .education-editorial-hero .automotive-hero__copy h1 {
+  width: 100%;
+  max-width: none !important;
+  font-size: clamp(29px, 3.54vw, 59px) !important;
+  line-height: 1.06 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.035em !important;
+}
+
+.gcc-editorial-hero .automotive-hero__lead,
+.education-editorial-hero .automotive-hero__lead {
+  margin-top: clamp(16px, 1.65vw, 28px) !important;
+  font-size: clamp(13px, 1.5vw, 25px) !important;
+  line-height: 1.3 !important;
+}
+
+.gcc-editorial-hero .automotive-hero__cta,
+.education-editorial-hero .automotive-hero__cta {
+  min-width: min(100%, 475px);
+  margin-top: clamp(16px, 1.55vw, 26px);
+}
+
+.gcc-editorial-hero .automotive-hero__benefits {
+  z-index: 4;
+  top: 75.2%;
+  left: 5.05%;
+  width: 35%;
+}
+
+.education-editorial-hero .automotive-hero__benefits {
+  z-index: 4;
+  top: 74.8%;
+  left: 5.05%;
+  width: 34.5%;
+}
+
+.gcc-editorial-hero .automotive-hero__benefits span,
+.education-editorial-hero .automotive-hero__benefits span {
+  width: clamp(48px, 4.5vw, 76px);
+  height: clamp(48px, 4.5vw, 76px);
+}
+
+.gcc-editorial-hero .automotive-hero__benefits strong,
+.education-editorial-hero .automotive-hero__benefits strong {
+  font-size: clamp(11px, 1.18vw, 20px);
+}
+
+.gcc-editorial-hero .automotive-hero__benefits article:nth-child(2) span,
+.gcc-editorial-hero .automotive-hero__benefits article:nth-child(3) span,
+.education-editorial-hero .automotive-hero__benefits article:nth-child(2) span,
+.education-editorial-hero .automotive-hero__benefits article:nth-child(3) span {
+  color: #d20b77;
+  background: #fae2f1;
+}
+
+.gcc-editorial-hero .automotive-hero__inner::after {
+  position: absolute;
+  z-index: 2;
+  right: -3%;
+  bottom: -4%;
+  width: 70%;
+  height: 35%;
+  content: "";
+  background:
+    linear-gradient(170deg, transparent 0 23%, rgb(239 19 149 / 0.88) 23.4% 31%, transparent 31.4%),
+    linear-gradient(168deg, transparent 0 31%, rgb(190 37 160 / 0.78) 31.4% 39%, #811275 39.4% 100%);
+  clip-path: polygon(0 50%, 26% 39%, 49% 28%, 72% 16%, 100% 0, 100% 100%, 8% 100%);
+}
+
+.gcc-editorial-hero__callout,
+.education-editorial-hero__callout {
+  position: absolute;
+  z-index: 4;
+  margin: 0 !important;
+  text-transform: uppercase;
+}
+
+.gcc-editorial-hero__callout {
+  top: 16.2%;
+  right: 1.1%;
+  width: 178px;
+  padding: 4px;
+  color: #3a4f85 !important;
+  font-size: clamp(10px, 1.12vw, 19px) !important;
+  line-height: 1.46 !important;
+  background: rgb(225 233 247 / 0.97);
+  box-shadow: 0 0 18px 18px rgb(225 233 247 / 0.97);
+}
+
+.gcc-editorial-hero__callout i,
+.education-editorial-hero__callout i {
+  display: block;
+  width: 55px;
+  height: 3px;
+  margin-top: 13px;
+  background: #d30e7b;
+}
+
+.gcc-editorial-hero__tagline,
+.education-editorial-hero__tagline {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+  text-transform: uppercase;
+}
+
+.gcc-editorial-hero__tagline {
+  right: 3.7%;
+  bottom: 7.4%;
+  gap: 11px;
+  color: rgb(255 255 255 / 0.88) !important;
+  font-size: clamp(7px, 0.73vw, 12px) !important;
+  letter-spacing: 0.2em;
+}
+
+.gcc-editorial-hero__tagline i { width: 1px; height: 13px; background: rgb(255 255 255 / 0.7); }
+.gcc-editorial-hero__tagline b { width: 55px; height: 2px; margin-left: 8px; background: #ffffff; }
+
+.education-editorial-hero__callout {
+  color: #536c9e !important;
+  font-size: clamp(10px, 1.34vw, 22px) !important;
+  line-height: 1.55 !important;
+  background: rgb(240 244 251 / 0.97);
+  box-shadow: 0 0 16px 16px rgb(240 244 251 / 0.97);
+}
+
+.education-editorial-hero__callout--learn {
+  top: 10.1%;
+  left: 66.6%;
+  width: 140px;
+  padding: 3px;
+}
+
+.education-editorial-hero__callout--ideas {
+  top: 8.8%;
+  right: 1.2%;
+  width: 180px;
+  padding: 3px;
+}
+
+.education-editorial-hero__tagline {
+  bottom: 4.8%;
+  left: 4.9%;
+  gap: 16px;
+  color: #304274 !important;
+  font-size: clamp(8px, 0.92vw, 15px) !important;
+  letter-spacing: 0.14em;
+}
+
+.education-editorial-hero__tagline i,
+.education-editorial-hero__tagline b {
+  width: 65px;
+  height: 2px;
+  background: #d29524;
+}
+
+@media (max-width: 900px) {
+  .gcc-editorial-hero,
+  .education-editorial-hero { background: #ffffff; }
+  .gcc-editorial-hero::before,
+  .education-editorial-hero::before { display: block; }
+  .gcc-editorial-hero .automotive-hero__brand,
+  .education-editorial-hero .automotive-hero__brand { top: 3.4%; left: 4.15%; }
+  .gcc-editorial-hero .automotive-hero__brand > img,
+  .education-editorial-hero .automotive-hero__brand > img { width: 188px; height: 188px; }
+  html body main .industry-page .gcc-editorial-hero .automotive-hero__copy h1 { max-width: none !important; font-size: 57px !important; }
+  html body main .industry-page .education-editorial-hero .automotive-hero__copy h1 { max-width: none !important; font-size: 59px !important; }
+  .gcc-editorial-hero .automotive-hero__lead,
+  .education-editorial-hero .automotive-hero__lead { margin-top: 28px !important; font-size: 25px !important; }
+  .gcc-editorial-hero .automotive-hero__cta,
+  .education-editorial-hero .automotive-hero__cta { width: 475px; margin-top: 26px; }
+  .gcc-editorial-hero .automotive-hero__benefits span,
+  .education-editorial-hero .automotive-hero__benefits span { width: 76px; height: 76px; }
+  .gcc-editorial-hero .automotive-hero__benefits strong,
+  .education-editorial-hero .automotive-hero__benefits strong { font-size: 20px; }
+  .gcc-editorial-hero .automotive-hero__factory,
+  .education-editorial-hero .automotive-hero__factory {
+    width: 63%;
+    background-position: right top;
+    background-size: 158.73% 100%;
+    clip-path: polygon(0 0, 22% 100%, 100% 100%, 100% 0);
+  }
+  .gcc-editorial-hero .automotive-hero__factory { background-image: url("/assets/gcc-sector-reference.png"); }
+  .education-editorial-hero .automotive-hero__factory { background-image: url("/assets/education-sector-reference.png"); }
+  .gcc-editorial-hero .automotive-hero__factory::after,
+  .education-editorial-hero .automotive-hero__factory::after {
+    display: block;
+    width: 20%;
+    background: linear-gradient(90deg, #ffffff 0 57%, rgb(255 255 255 / 0.96) 72%, transparent 100%);
+  }
+  .gcc-editorial-hero__callout { font-size: 19px !important; }
+  .gcc-editorial-hero__tagline { font-size: 12px !important; }
+  .education-editorial-hero__callout { font-size: 22px !important; }
+  .education-editorial-hero__tagline { font-size: 15px !important; }
 }
 
 @media (max-width: 700px) {
@@ -20339,6 +21151,1191 @@ html body .footer-bottom > div span {
     #FAFBFF;
 }
 
+.automotive-hero {
+  position: relative;
+  min-height: min(941px, 56.28vw);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(164deg, transparent 0 82%, rgb(233 17 145 / 0.2) 82.1% 86%, transparent 86.1%),
+    linear-gradient(166deg, transparent 0 84%, #f019a3 84.1% 89%, #731274 89.1% 100%),
+    #ffffff;
+}
+
+.automotive-hero::before {
+  position: absolute;
+  z-index: -1;
+  top: -7%;
+  left: 35%;
+  width: 18%;
+  height: 118%;
+  content: "";
+  background: linear-gradient(90deg, rgb(50 42 148 / 0.03), rgb(179 29 124 / 0.24), rgb(78 41 141 / 0.1));
+  clip-path: polygon(0 0, 25% 0, 100% 100%, 70% 100%);
+}
+
+.automotive-hero__factory {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  right: 0;
+  width: 57%;
+  height: 100%;
+  background: url("/assets/automotive-sector-reference.png") right top / 175.45% 100% no-repeat;
+}
+
+.automotive-hero__factory::after {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 19%;
+  content: "";
+  background: linear-gradient(90deg, #ffffff 0%, rgb(255 255 255 / 0.92) 35%, transparent 100%);
+}
+
+.automotive-hero__inner {
+  position: relative;
+  width: 100%;
+  min-height: min(941px, 56.28vw);
+  margin-inline: auto;
+}
+
+.automotive-hero__brand {
+  position: absolute;
+  top: 3.2%;
+  left: 5.4%;
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 2.4vw, 40px);
+}
+
+.automotive-hero__brand > img {
+  width: clamp(105px, 11.4vw, 190px);
+  height: clamp(105px, 11.4vw, 190px);
+  object-fit: contain;
+}
+
+.automotive-hero__brand > div {
+  display: flex;
+  min-height: clamp(98px, 11.8vw, 190px);
+  flex-direction: column;
+  justify-content: center;
+  padding-left: clamp(22px, 2.35vw, 39px);
+  border-left: 1px solid #cba247;
+  color: #06165e;
+  font-size: clamp(9px, 0.96vw, 16px);
+  line-height: 1.43;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.automotive-hero__brand span { display: block; }
+.automotive-hero__brand i { width: 64px; height: 3px; margin-top: 14px; background: #ca0d78; }
+
+.automotive-hero__copy {
+  position: absolute;
+  top: 26.7%;
+  left: 4.6%;
+  width: 43%;
+}
+
+.automotive-hero__kicker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 clamp(16px, 1.5vw, 25px) !important;
+  color: #071756 !important;
+  font-size: clamp(10px, 1.08vw, 18px) !important;
+  line-height: 1 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase;
+}
+
+.automotive-hero__kicker i { width: 56px; height: 3px; background: #c70e76; }
+
+html body main .automotive-hero__copy h1 {
+  width: 100%;
+  max-width: none;
+  margin: 0 !important;
+  color: #071756 !important;
+  font-size: clamp(25px, 3.18vw, 53px) !important;
+  line-height: 1.045 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.035em !important;
+}
+
+html body main .automotive-hero__copy h1 strong {
+  color: #c90b74;
+  font: inherit;
+}
+
+.automotive-hero__lead {
+  margin: clamp(12px, 1.28vw, 21px) 0 0 !important;
+  color: #28346d !important;
+  font-size: clamp(12px, 1.4vw, 23px) !important;
+  line-height: 1.34 !important;
+}
+
+.automotive-hero__cta {
+  display: inline-flex;
+  min-width: min(100%, 493px);
+  min-height: clamp(38px, 4.45vw, 62px);
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(13px, 1.4vw, 23px);
+  border-radius: 6px;
+  padding: 0 clamp(18px, 2vw, 34px);
+  color: #ffffff;
+  font-size: clamp(11px, 1.25vw, 21px);
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(100deg, #d70077, #c00072);
+  box-shadow: 0 12px 24px rgb(179 29 124 / 18%);
+}
+
+.automotive-hero__cta span { font-size: 1.65em; font-weight: 300; }
+
+.automotive-hero__benefits {
+  position: absolute;
+  top: 74.5%;
+  left: 4.7%;
+  display: grid;
+  width: 34%;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.automotive-hero__benefits article {
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  border-left: 1px solid rgb(75 80 206 / 0.45);
+  padding: 0 14px;
+  text-align: center;
+}
+
+.automotive-hero__benefits article:first-child { border-left: 0; }
+.automotive-hero__benefits span { display: grid; width: clamp(48px, 4.6vw, 78px); height: clamp(48px, 4.6vw, 78px); place-items: center; border-radius: 50%; color: #d20b77; background: #fae2f1; }
+.automotive-hero__benefits article:nth-child(2) span { color: #10169a; background: #ede4fb; }
+.automotive-hero__benefits svg { width: 54%; height: 54%; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+.automotive-hero__benefits strong { display: block; margin-top: 10px; color: #071756; font-size: clamp(11px, 1.2vw, 20px); line-height: 1.18; }
+
+.automotive-hero__areas {
+  position: absolute;
+  z-index: 3;
+  top: 65.8%;
+  right: 6.4%;
+  display: grid;
+  width: 47%;
+  min-height: 20%;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #ed60b4;
+  border-radius: 12px;
+  padding: 20px 18px;
+  color: #ffffff;
+  background: linear-gradient(110deg, rgb(38 31 132 / 0.98), rgb(85 22 124 / 0.97) 58%, rgb(180 13 120 / 0.96));
+  box-shadow: 0 14px 30px rgb(25 12 86 / 18%);
+}
+
+.automotive-hero__areas article {
+  display: grid;
+  place-items: center;
+  border-left: 1px solid rgb(255 255 255 / 0.32);
+  padding: 0 12px;
+  text-align: center;
+}
+
+.automotive-hero__areas article:first-child { border-left: 0; }
+.automotive-hero__areas span { display: grid; width: clamp(48px, 4.45vw, 74px); height: clamp(48px, 4.45vw, 74px); place-items: center; border: 1px solid rgb(255 255 255 / 0.35); border-radius: 50%; }
+.automotive-hero__areas svg { width: 52%; height: 52%; fill: none; stroke: #ffffff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.automotive-hero__areas strong { margin-top: 9px; color: #ffffff; font-size: clamp(11px, 1.16vw, 19px); line-height: 1.16; }
+
+.automotive-hero__signature {
+  position: absolute;
+  right: 3.2%;
+  bottom: 4.2%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 !important;
+  color: rgb(255 255 255 / 0.9) !important;
+  font-size: clamp(7px, 0.75vw, 13px) !important;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+}
+
+.automotive-hero__signature i { width: 1px; height: 14px; background: rgb(255 255 255 / 0.65); }
+.automotive-hero__signature b { width: 76px; height: 1px; margin-left: 6px; background: rgb(255 255 255 / 0.75); }
+
+.insurance-hero .automotive-hero__factory {
+  width: 69%;
+  background-size: 145% 100%;
+  background-position: right top;
+  background-image: url("/assets/insurance-sector-reference.png");
+  clip-path: polygon(12% 0, 42% 100%, 100% 100%, 100% 0);
+}
+
+.insurance-hero::before {
+  display: block;
+  top: 0;
+  left: 31%;
+  width: 28%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(90 71 187 / 0.04), rgb(205 32 157 / 0.22), rgb(91 60 174 / 0.08));
+  clip-path: polygon(0 0, 28% 0, 100% 100%, 72% 100%);
+}
+
+.insurance-hero .automotive-hero__factory::after { display: none; }
+
+.insurance-hero .automotive-hero__copy { top: 29.7%; }
+
+html body main .insurance-hero #automotive-hero-title,
+html body main .insurance-hero #automotive-hero-title strong {
+  font-family: Georgia, "Times New Roman", serif !important;
+}
+
+html body main .industry-page .insurance-hero .automotive-hero__copy h1 {
+  font-size: clamp(27px, 3.25vw, 55px) !important;
+  line-height: 1.055 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+}
+
+.insurance-hero .automotive-hero__benefits { top: 73.4%; }
+.insurance-hero .automotive-hero__areas { top: 67.1%; right: 6.4%; width: 44.7%; }
+.insurance-hero .automotive-hero__cta { margin-top: 36px; }
+
+.insurance-hero__tagline {
+  position: absolute;
+  z-index: 3;
+  bottom: 5.1%;
+  left: 3.8%;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 0 !important;
+  color: #071756 !important;
+  font-size: clamp(8px, 0.83vw, 14px) !important;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.insurance-hero__tagline i,
+.insurance-hero__tagline b { width: 74px; height: 2px; background: #d08a1a; }
+
+.healthcare-hero {
+  background:
+    radial-gradient(ellipse at 32% 103%, rgb(194 113 225 / 0.18), transparent 35%),
+    #ffffff;
+}
+
+.healthcare-hero .automotive-hero__factory {
+  width: 63%;
+  background-image: url("/assets/healthcare-sector-reference.png");
+  background-position: right top;
+  background-size: 158.75% 100%;
+  clip-path: polygon(5% 0, 40% 100%, 100% 100%, 100% 0);
+}
+
+.healthcare-hero .automotive-hero__factory::after { display: none; }
+
+.healthcare-hero::before {
+  display: block;
+  top: 0;
+  left: 36.5%;
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(75 67 180 / 0.03), rgb(214 54 178 / 0.21), rgb(68 59 172 / 0.11));
+  clip-path: polygon(0 0, 18% 0, 100% 100%, 78% 100%);
+}
+
+.healthcare-hero .automotive-hero__brand {
+  top: 2.7%;
+  left: 4.7%;
+}
+
+.healthcare-hero .automotive-hero__brand > img {
+  width: clamp(112px, 11vw, 184px);
+  height: clamp(112px, 11vw, 184px);
+}
+
+.healthcare-hero .automotive-hero__copy {
+  top: 23.8%;
+  left: 5.05%;
+  width: 43.5%;
+}
+
+.healthcare-hero .automotive-hero__kicker {
+  margin-bottom: clamp(17px, 1.6vw, 27px) !important;
+}
+
+html body main .healthcare-hero #automotive-hero-title,
+html body main .healthcare-hero #automotive-hero-title strong {
+  font-family: Georgia, "Times New Roman", serif !important;
+}
+
+html body main .industry-page .healthcare-hero .automotive-hero__copy h1 {
+  font-size: clamp(27px, 3.14vw, 52px) !important;
+  line-height: 1.08 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+}
+
+.healthcare-hero .automotive-hero__lead {
+  margin-top: clamp(16px, 1.65vw, 28px) !important;
+  font-size: clamp(12px, 1.32vw, 22px) !important;
+  line-height: 1.32 !important;
+}
+
+.healthcare-hero .automotive-hero__cta {
+  min-width: min(100%, 465px);
+  margin-top: clamp(14px, 1.45vw, 24px);
+}
+
+.healthcare-hero .automotive-hero__benefits {
+  top: 77.5%;
+  left: 5.3%;
+  width: 37.5%;
+}
+
+.healthcare-hero .automotive-hero__areas {
+  top: 56%;
+  right: 4%;
+  width: 46.7%;
+  min-height: 28.8%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 0;
+  border-radius: 13px;
+  background: linear-gradient(110deg, rgb(16 30 118 / 0.99), rgb(72 24 129 / 0.98) 58%, rgb(207 8 126 / 0.97));
+}
+
+.healthcare-hero .automotive-hero__areas article {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  align-items: center;
+  justify-items: start;
+  gap: 18px;
+  border-left: 0;
+  padding: 18px 25px;
+  text-align: left;
+}
+
+.healthcare-hero .automotive-hero__areas article:nth-child(2n) { border-left: 1px solid rgb(255 255 255 / 0.27); }
+.healthcare-hero .automotive-hero__areas article:nth-child(n + 3) { border-top: 1px solid rgb(255 255 255 / 0.27); }
+.healthcare-hero .automotive-hero__areas span { width: 76px; height: 76px; }
+.healthcare-hero .automotive-hero__areas strong { display: block; margin: 0; font-size: clamp(12px, 1.18vw, 20px); }
+.healthcare-hero .automotive-hero__areas p { margin: 6px 0 0 !important; color: #ffffff !important; font-size: clamp(10px, 0.98vw, 16px) !important; line-height: 1.3 !important; }
+
+.healthcare-hero__callout {
+  position: absolute;
+  z-index: 2;
+  margin: 0 !important;
+  color: #536c9e !important;
+  font-size: clamp(10px, 1.25vw, 21px) !important;
+  line-height: 1.28 !important;
+  font-weight: 400;
+  text-transform: uppercase;
+  background: rgb(247 250 255 / 0.98);
+  box-shadow: 0 0 16px 16px rgb(247 250 255 / 0.98);
+}
+
+.healthcare-hero__callout i {
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 12px;
+  background: #d29a2c;
+}
+
+.healthcare-hero__callout--care {
+  top: 8.8%;
+  left: 47.3%;
+  width: 165px;
+  padding: 4px 4px 8px;
+}
+
+.healthcare-hero__callout--lives {
+  top: 8.7%;
+  right: 2%;
+  width: 205px;
+  padding: 3px 4px 9px 50px;
+}
+
+.healthcare-hero__tagline {
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  bottom: 3.6%;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 440px;
+  margin: 0 !important;
+  padding: 8px 20px 8px 25px;
+  color: #25346f !important;
+  font-size: clamp(9px, 0.92vw, 15px) !important;
+  line-height: 1.45 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: #ffffff;
+  box-shadow: 0 0 14px 14px #ffffff;
+}
+
+.healthcare-hero__tagline i { width: 55px; height: 2px; margin-top: 8px; background: #d29a2c; }
+
+.pharma-editorial-hero {
+  background:
+    radial-gradient(ellipse at 25% 102%, rgb(64 86 194 / 0.09), transparent 34%),
+    #ffffff;
+}
+
+.pharma-editorial-hero .automotive-hero__factory {
+  width: 64%;
+  background-image: url("/assets/pharma-sector-reference.png");
+  background-position: right top;
+  background-size: 156.25% 100%;
+  clip-path: polygon(12% 0, 36% 100%, 100% 100%, 100% 0);
+}
+
+.pharma-editorial-hero .automotive-hero__factory::after { display: none; }
+
+.pharma-editorial-hero::before {
+  display: block;
+  top: 0;
+  left: 38%;
+  width: 22%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(255 255 255 / 0.12), rgb(201 218 250 / 0.24), rgb(255 255 255 / 0.05));
+  clip-path: polygon(0 0, 23% 0, 100% 100%, 72% 100%);
+}
+
+.pharma-editorial-hero .automotive-hero__brand {
+  top: 2.7%;
+  left: 4.7%;
+}
+
+.pharma-editorial-hero .automotive-hero__brand > img {
+  width: clamp(112px, 11vw, 184px);
+  height: clamp(112px, 11vw, 184px);
+}
+
+.pharma-editorial-hero .automotive-hero__copy {
+  top: 25.1%;
+  left: 4.8%;
+  width: 49.5%;
+}
+
+html body main .pharma-editorial-hero #automotive-hero-title,
+html body main .pharma-editorial-hero #automotive-hero-title strong {
+  font-family: Georgia, "Times New Roman", serif !important;
+}
+
+html body main .industry-page .pharma-editorial-hero .automotive-hero__copy h1 {
+  font-size: clamp(29px, 3.55vw, 59px) !important;
+  line-height: 1.055 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+}
+
+.pharma-editorial-hero .automotive-hero__lead {
+  margin-top: clamp(15px, 1.65vw, 28px) !important;
+  font-size: clamp(12px, 1.42vw, 24px) !important;
+  line-height: 1.28 !important;
+}
+
+.pharma-editorial-hero .automotive-hero__cta {
+  min-width: min(100%, 470px);
+  margin-top: clamp(14px, 1.65vw, 28px);
+}
+
+.pharma-editorial-hero .automotive-hero__benefits {
+  top: 77.7%;
+  left: 4.65%;
+  width: 32.4%;
+}
+
+.pharma-editorial-hero__promise {
+  position: absolute;
+  z-index: 4;
+  top: 5.2%;
+  right: 4.1%;
+  width: 280px;
+  margin: 0 !important;
+  padding: 2px 4px 10px 24px;
+  border-left: 3px solid #e01483;
+  color: #1026bb !important;
+  font-size: clamp(10px, 1.02vw, 17px) !important;
+  line-height: 1.36 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: #f1f8ff;
+  box-shadow: 0 0 18px 18px #f1f8ff;
+}
+
+.pharma-editorial-hero__promise i {
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin-top: 18px;
+  background: #da0b7b;
+}
+
+.pharma-editorial-hero__badges article {
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  width: 156px;
+  height: 140px;
+  place-items: center;
+  align-content: center;
+  padding: 14px 12px;
+  color: #071b78;
+  text-align: center;
+  background: #f7fbff;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  filter: drop-shadow(0 10px 18px rgb(30 56 118 / 0.16));
+}
+
+.pharma-editorial-hero__badges article:nth-child(1) { top: 9.4%; left: 59.8%; }
+.pharma-editorial-hero__badges article:nth-child(2) { top: 21.8%; left: 51.3%; }
+.pharma-editorial-hero__badges article:nth-child(3) { top: 35.4%; left: 59%; }
+.pharma-editorial-hero__badges span { display: grid; width: 50px; height: 50px; place-items: center; }
+.pharma-editorial-hero__badges svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.pharma-editorial-hero__badges strong { color: #071b78; font-size: 14px; line-height: 1.15; text-transform: uppercase; }
+
+.pharma-editorial-hero__tagline {
+  position: absolute;
+  z-index: 4;
+  right: 4.8%;
+  bottom: 5.3%;
+  width: 330px;
+  margin: 0 !important;
+  padding: 10px 16px;
+  color: #ffffff !important;
+  font-size: clamp(10px, 1.05vw, 18px) !important;
+  line-height: 1.4 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: #751769;
+  box-shadow: 0 0 14px 14px #751769;
+}
+
+.pharma-editorial-hero__tagline i { display: block; width: 58px; height: 3px; margin-top: 16px; background: #ef5bad; }
+
+.manufacturing-editorial-hero {
+  background:
+    radial-gradient(ellipse at 37% 103%, rgb(100 108 201 / 0.12), transparent 38%),
+    #ffffff;
+}
+
+.manufacturing-editorial-hero .automotive-hero__factory {
+  width: 66%;
+  background-image: url("/assets/industrial-manufacturing-sector-reference.png");
+  background-position: right top;
+  background-size: 151.52% 100%;
+  clip-path: polygon(18% 0, 40% 100%, 100% 100%, 100% 0);
+}
+
+.manufacturing-editorial-hero .automotive-hero__factory::after { display: none; }
+
+.manufacturing-editorial-hero::before {
+  display: block;
+  top: 0;
+  left: 34%;
+  width: 28%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(255 255 255 / 0.2), rgb(222 232 250 / 0.26), rgb(255 255 255 / 0.04));
+  clip-path: polygon(0 0, 20% 0, 100% 100%, 74% 100%);
+}
+
+.manufacturing-editorial-hero .automotive-hero__brand {
+  top: 1.8%;
+  left: 3.9%;
+}
+
+.manufacturing-editorial-hero .automotive-hero__brand > img {
+  width: clamp(108px, 10.7vw, 178px);
+  height: clamp(108px, 10.7vw, 178px);
+}
+
+.manufacturing-editorial-hero .automotive-hero__copy {
+  top: 22.4%;
+  left: 4.4%;
+  width: 45%;
+}
+
+.manufacturing-editorial-hero .automotive-hero__kicker { margin-bottom: clamp(16px, 1.55vw, 26px) !important; }
+
+html body main .industry-page .manufacturing-editorial-hero .automotive-hero__copy h1 {
+  width: 110%;
+  font-size: clamp(25px, 2.94vw, 49px) !important;
+  line-height: 1.055 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+}
+
+.manufacturing-editorial-hero .automotive-hero__lead {
+  margin-top: clamp(11px, 1.2vw, 20px) !important;
+  font-size: clamp(11px, 1.27vw, 21px) !important;
+  line-height: 1.25 !important;
+}
+
+.manufacturing-editorial-hero .automotive-hero__cta {
+  min-width: min(100%, 472px);
+  margin-top: clamp(12px, 1.2vw, 20px);
+}
+
+.manufacturing-editorial-hero .automotive-hero__benefits {
+  top: 71.7%;
+  left: 4.45%;
+  width: 35.5%;
+}
+
+.manufacturing-editorial-hero .automotive-hero__benefits article { align-content: start; }
+.manufacturing-editorial-hero .automotive-hero__benefits strong { font-size: clamp(11px, 1.06vw, 18px); }
+.manufacturing-editorial-hero .automotive-hero__benefits p { margin: 8px 0 0 !important; color: #435189 !important; font-size: clamp(9px, 0.9vw, 15px) !important; line-height: 1.25 !important; }
+
+.manufacturing-editorial-hero__promise {
+  position: absolute;
+  z-index: 4;
+  top: 4.2%;
+  right: 2.5%;
+  width: 330px;
+  margin: 0 !important;
+  padding: 0 4px 9px 24px;
+  border-left: 3px solid #e11984;
+  color: #07175c !important;
+  font-size: clamp(9px, 0.98vw, 16px) !important;
+  line-height: 1.45 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: #f6f9ff;
+  box-shadow: 0 0 17px 17px #f6f9ff;
+}
+
+.manufacturing-editorial-hero__promise i,
+.manufacturing-editorial-hero__callout i {
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin-top: 12px;
+  background: #d70d7b;
+}
+
+.manufacturing-editorial-hero__callout {
+  position: absolute;
+  z-index: 4;
+  top: 46.2%;
+  right: 0;
+  width: 190px;
+  margin: 0 !important;
+  padding: 26px 18px 22px;
+  color: #ffffff !important;
+  font-size: clamp(9px, 0.92vw, 15px) !important;
+  line-height: 1.55 !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  background: #0d376f;
+  box-shadow: 0 0 12px 12px rgb(9 49 102 / 0.22);
+}
+
+.manufacturing-editorial-hero .automotive-hero__areas {
+  top: 67%;
+  right: 0;
+  width: 57.7%;
+  min-height: 28%;
+  grid-template-columns: repeat(3, 1fr);
+  border: 0;
+  border-radius: 0;
+  padding: 38px 26px 34px 62px;
+  background: linear-gradient(105deg, #061970, #17136e 52%, #8a176f);
+  box-shadow: none;
+  clip-path: polygon(8% 0, 37% 0, 61% 4%, 78% 7%, 100% 0, 100% 88%, 73% 94%, 44% 100%, 18% 96%, 0 88%);
+}
+
+.manufacturing-editorial-hero .automotive-hero__areas article {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-content: center;
+  align-items: center;
+  justify-items: start;
+  gap: 16px;
+  border-left: 1px solid rgb(255 255 255 / 0.33);
+  padding: 0 24px;
+  text-align: left;
+}
+
+.manufacturing-editorial-hero .automotive-hero__areas article:first-child { border-left: 0; }
+.manufacturing-editorial-hero .automotive-hero__areas span { width: 66px; height: 66px; }
+.manufacturing-editorial-hero .automotive-hero__areas strong { display: block; margin: 0; font-size: clamp(11px, 1.1vw, 18px); }
+.manufacturing-editorial-hero .automotive-hero__areas p { grid-column: 1 / -1; margin: 8px 0 0 !important; color: #ffffff !important; font-size: clamp(9px, 0.9vw, 15px) !important; line-height: 1.3 !important; }
+
+.manufacturing-editorial-hero__tagline {
+  position: absolute;
+  z-index: 4;
+  bottom: 3.9%;
+  left: 7.3%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 !important;
+  color: #536393 !important;
+  font-size: clamp(8px, 0.8vw, 13px) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.manufacturing-editorial-hero__tagline strong { color: #071756; }
+.manufacturing-editorial-hero__tagline i { width: 46px; height: 3px; margin-left: 7px; background: #d80b79; }
+
+@media (min-width: 901px) {
+  html body main .automotive-hero__copy h1 strong { white-space: nowrap; }
+  .automotive-hero__signature { display: none; }
+}
+
+@media (max-width: 900px) {
+  .automotive-hero {
+    min-height: 0;
+    overflow: hidden;
+    padding: 28px 0 0;
+    background:
+      radial-gradient(circle at 8% 40%, rgb(201 11 116 / 0.08) 0 1px, transparent 1.5px) 0 0 / 14px 14px,
+      #ffffff;
+  }
+
+  .automotive-hero::before { display: none; }
+
+  .automotive-hero__inner {
+    display: flex;
+    width: 100%;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  .automotive-hero__brand,
+  .automotive-hero__copy,
+  .automotive-hero__benefits,
+  .automotive-hero__areas,
+  .automotive-hero__signature,
+  .automotive-hero__factory {
+    position: relative;
+    inset: auto;
+  }
+
+  .automotive-hero__brand {
+    order: 1;
+    width: calc(100% - 36px);
+    gap: 14px;
+    margin: 0 auto 30px;
+  }
+
+  .automotive-hero__brand > img { width: 110px; height: 110px; }
+  .automotive-hero__brand > div { min-height: 100px; padding-left: 15px; font-size: 10px; line-height: 1.5; }
+  .automotive-hero__brand i { width: 42px; height: 2px; margin-top: 10px; }
+
+  .automotive-hero__copy {
+    order: 2;
+    width: calc(100% - 36px);
+    margin-inline: auto;
+  }
+
+  .automotive-hero__kicker { gap: 10px; margin-bottom: 17px !important; font-size: 11px !important; }
+  .automotive-hero__kicker i { width: 38px; height: 2px; }
+  html body main .automotive-hero__copy h1 { font-size: 38px !important; line-height: 1.04 !important; }
+  .automotive-hero__lead { margin-top: 18px !important; font-size: 17px !important; line-height: 1.45 !important; }
+  .automotive-desktop-break { display: none; }
+  .automotive-hero__cta { width: 100%; min-width: 0; min-height: 56px; margin-top: 22px; font-size: 15px; }
+
+  .automotive-hero__benefits {
+    order: 3;
+    width: calc(100% - 36px);
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 34px auto;
+  }
+
+  .automotive-hero__benefits article {
+    display: grid;
+    min-height: 92px;
+    grid-template-columns: 68px 1fr;
+    align-items: center;
+    justify-items: start;
+    border-bottom: 1px solid rgb(8 25 96 / 0.14);
+    border-left: 0;
+    padding: 12px 10px;
+    text-align: left;
+  }
+  .automotive-hero__benefits article:last-child { border-bottom: 0; }
+  .automotive-hero__benefits span { width: 58px; height: 58px; }
+  .automotive-hero__benefits strong { margin-top: 0; font-size: 14px; }
+
+  .automotive-hero__factory {
+    order: 4;
+    width: 100%;
+    height: min(108vw, 500px);
+    border-radius: 26px 26px 0 0;
+    background: url("/assets/industry-automotive.png") center / cover no-repeat;
+  }
+
+  .automotive-hero__factory::after { display: none; }
+
+  .automotive-hero__areas {
+    order: 5;
+    width: 100%;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    border-width: 0;
+    border-radius: 0;
+    padding: 20px 16px;
+  }
+
+  .automotive-hero__areas article {
+    min-height: 128px;
+    grid-template-columns: 80px 1fr;
+    justify-items: start;
+    border-bottom: 1px solid rgb(255 255 255 / 0.25);
+    border-left: 0;
+    padding: 14px 18px;
+    text-align: left;
+  }
+  .automotive-hero__areas article:nth-child(n) { border-left: 0; }
+  .automotive-hero__areas article:nth-child(n + 3) { border-bottom: 1px solid rgb(255 255 255 / 0.25); }
+  .automotive-hero__areas article:last-child { border-bottom: 0; }
+  .automotive-hero__areas span { width: 58px; height: 58px; }
+  .automotive-hero__areas strong { margin-top: 0; font-size: 16px; }
+
+  .automotive-hero__signature {
+    order: 6;
+    justify-content: center;
+    gap: 7px;
+    padding: 24px 10px;
+    color: #ffffff !important;
+    font-size: 8px !important;
+    letter-spacing: 0.13em;
+    background: linear-gradient(100deg, #211168, #8b117a);
+  }
+
+  .automotive-hero__signature b { display: none; }
+}
+
+/* Keep the reference's landscape composition on small screens, like the home hero. */
+@media (max-width: 900px) {
+  .automotive-hero {
+    min-height: 56.28vw;
+    padding: 0;
+    background:
+      linear-gradient(164deg, transparent 0 82%, rgb(233 17 145 / 0.2) 82.1% 86%, transparent 86.1%),
+      linear-gradient(166deg, transparent 0 84%, #f019a3 84.1% 89%, #731274 89.1% 100%),
+      #ffffff;
+  }
+
+  .automotive-hero::before { display: block; }
+
+  .automotive-hero__inner {
+    display: block;
+    min-height: 56.28vw;
+  }
+
+  .automotive-hero__brand,
+  .automotive-hero__copy,
+  .automotive-hero__benefits,
+  .automotive-hero__areas,
+  .automotive-hero__factory {
+    position: absolute;
+  }
+
+  .automotive-hero__brand {
+    top: 3.2%;
+    left: 5.4%;
+    width: auto;
+    gap: 2.4vw;
+    margin: 0;
+  }
+
+  .automotive-hero__brand > img { width: 11.4vw; height: 11.4vw; }
+  .automotive-hero__brand > div { min-height: 11.8vw; padding-left: 2.35vw; font-size: 0.96vw; }
+  .automotive-hero__brand i { width: 3.8vw; height: 0.18vw; margin-top: 0.84vw; }
+
+  .automotive-hero__copy {
+    top: 26.7%;
+    left: 4.6%;
+    width: 43%;
+    margin: 0;
+  }
+
+  .automotive-hero__kicker { gap: 0.95vw; margin-bottom: 1.5vw !important; font-size: 1.08vw !important; }
+  .automotive-hero__kicker i { width: 3.35vw; height: 0.18vw; }
+  html body main .automotive-hero__copy h1 { font-size: 3.18vw !important; line-height: 1.045 !important; }
+  html body main .automotive-hero__copy h1 strong { white-space: nowrap; }
+  .automotive-hero__lead { margin-top: 1.28vw !important; font-size: 1.4vw !important; line-height: 1.34 !important; }
+  .automotive-desktop-break { display: initial; }
+
+  .automotive-hero__cta {
+    width: 29.5vw;
+    min-width: 0;
+    min-height: 4.45vw;
+    margin-top: 1.4vw;
+    border-radius: 0.36vw;
+    padding: 0 2vw;
+    font-size: 1.25vw;
+    box-shadow: 0 0.72vw 1.44vw rgb(179 29 124 / 18%);
+  }
+
+  .automotive-hero__benefits {
+    top: 74.5%;
+    left: 4.7%;
+    width: 34%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: 0;
+  }
+
+  .automotive-hero__benefits article {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    place-items: center;
+    border-bottom: 0;
+    border-left: 1px solid rgb(75 80 206 / 0.45);
+    padding: 0 0.84vw;
+    text-align: center;
+  }
+  .automotive-hero__benefits article:first-child { border-left: 0; }
+  .automotive-hero__benefits span { width: 4.6vw; height: 4.6vw; }
+  .automotive-hero__benefits strong { margin-top: 0.6vw; font-size: 1.2vw; }
+
+  .automotive-hero__factory {
+    top: 0;
+    right: 0;
+    width: 57%;
+    height: 100%;
+    border-radius: 0;
+    background: url("/assets/automotive-sector-reference.png") right top / 175.45% 100% no-repeat;
+  }
+  .automotive-hero__factory::after { display: block; }
+
+  .automotive-hero__areas {
+    top: 65.8%;
+    right: 6.4%;
+    width: 47%;
+    min-height: 20%;
+    grid-template-columns: repeat(4, 1fr);
+    border-width: 1px;
+    border-radius: 0.72vw;
+    padding: 1.2vw 1.08vw;
+  }
+
+  .automotive-hero__areas article,
+  .automotive-hero__areas article:nth-child(n),
+  .automotive-hero__areas article:nth-child(n + 3) {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    place-items: center;
+    border-bottom: 0;
+    border-left: 1px solid rgb(255 255 255 / 0.32);
+    padding: 0 0.72vw;
+    text-align: center;
+  }
+  .automotive-hero__areas article:first-child { border-left: 0; }
+  .automotive-hero__areas span { width: 4.45vw; height: 4.45vw; }
+  .automotive-hero__areas strong { margin-top: 0.54vw; font-size: 1.16vw; }
+  .automotive-hero__signature { display: none; }
+
+  .insurance-hero__tagline {
+    position: absolute;
+    gap: 22px;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .automotive-hero {
+    container-type: inline-size;
+    height: calc(941 / 1672 * 100cqw);
+    min-height: 0;
+  }
+
+  .automotive-hero__inner {
+    width: 1672px;
+    max-width: none !important;
+    height: 941px;
+    min-height: 941px;
+    transform: scale(calc(100cqw / 1672px));
+    transform-origin: left top;
+  }
+
+  .automotive-hero__brand { gap: 40px; }
+  .automotive-hero__brand > img { width: 190px; height: 190px; }
+  .automotive-hero__brand > div {
+    width: 275px;
+    min-height: 190px;
+    padding-left: 39px;
+    font-size: 16px;
+  }
+  .automotive-hero__brand i { width: 64px; height: 3px; margin-top: 14px; }
+
+  .automotive-hero__kicker { gap: 16px; margin-bottom: 25px !important; font-size: 18px !important; }
+  .automotive-hero__kicker i { width: 56px; height: 3px; }
+  html body main .automotive-hero__copy h1 { font-size: 53px !important; }
+  html body main .insurance-hero .automotive-hero__copy h1 { font-size: 55px !important; }
+  .automotive-hero__lead { margin-top: 21px !important; font-size: 23px !important; }
+
+  .automotive-hero__cta {
+    width: 493px;
+    min-height: 62px;
+    margin-top: 23px;
+    border-radius: 6px;
+    padding: 0 34px;
+    font-size: 21px;
+    box-shadow: 0 12px 24px rgb(179 29 124 / 18%);
+  }
+
+  .automotive-hero__benefits article { padding: 0 14px; }
+  .automotive-hero__benefits span { width: 78px; height: 78px; }
+  .automotive-hero__benefits strong { margin-top: 10px; font-size: 20px; }
+
+  .automotive-hero__areas {
+    border-radius: 12px;
+    padding: 20px 18px;
+  }
+  .automotive-hero__areas article,
+  .automotive-hero__areas article:nth-child(n),
+  .automotive-hero__areas article:nth-child(n + 3) { padding: 0 12px; }
+  .automotive-hero__areas span { width: 74px; height: 74px; }
+  .automotive-hero__areas strong { margin-top: 9px; font-size: 19px; }
+
+  .insurance-hero .automotive-hero__cta { margin-top: 36px; }
+  .insurance-hero .automotive-hero__areas { right: 6.4%; width: 44.7%; }
+  .insurance-hero .automotive-hero__factory {
+    width: 69%;
+    background-size: 145% 100%;
+    background-position: right top;
+    clip-path: polygon(12% 0, 42% 100%, 100% 100%, 100% 0);
+  }
+  .insurance-hero::before { display: block; }
+  .insurance-hero .automotive-hero__factory::after { display: none; }
+
+  .healthcare-hero {
+    background:
+      radial-gradient(ellipse at 32% 103%, rgb(194 113 225 / 0.18), transparent 35%),
+      #ffffff;
+  }
+  .healthcare-hero::before { display: block; }
+  .healthcare-hero .automotive-hero__brand > img { width: 184px; height: 184px; }
+  html body main .industry-page .healthcare-hero .automotive-hero__copy h1 { font-size: 52px !important; }
+  .healthcare-hero .automotive-hero__lead { margin-top: 28px !important; font-size: 22px !important; }
+  .healthcare-hero .automotive-hero__cta { width: 465px; margin-top: 24px; }
+  .healthcare-hero .automotive-hero__benefits span { width: 68px; height: 68px; }
+  .healthcare-hero .automotive-hero__factory {
+    width: 63%;
+    background-image: url("/assets/healthcare-sector-reference.png");
+    background-position: right top;
+    background-size: 158.75% 100%;
+    clip-path: polygon(5% 0, 40% 100%, 100% 100%, 100% 0);
+  }
+  .healthcare-hero .automotive-hero__factory::after { display: none; }
+  .healthcare-hero .automotive-hero__areas {
+    top: 56%;
+    right: 4%;
+    width: 46.7%;
+    min-height: 28.8%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 0;
+  }
+  .healthcare-hero .automotive-hero__areas article,
+  .healthcare-hero .automotive-hero__areas article:nth-child(n),
+  .healthcare-hero .automotive-hero__areas article:nth-child(n + 3) {
+    grid-template-columns: 80px minmax(0, 1fr);
+    place-items: initial;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 25px;
+    text-align: left;
+  }
+  .healthcare-hero .automotive-hero__areas article:nth-child(2n) { border-left: 1px solid rgb(255 255 255 / 0.27); }
+  .healthcare-hero .automotive-hero__areas article:nth-child(n + 3) { border-top: 1px solid rgb(255 255 255 / 0.27); }
+  .healthcare-hero .automotive-hero__areas span { width: 76px; height: 76px; }
+  .healthcare-hero .automotive-hero__areas strong { margin: 0; font-size: 20px; }
+  .healthcare-hero .automotive-hero__areas p { font-size: 16px !important; }
+  .healthcare-hero__callout { font-size: 21px !important; }
+  .healthcare-hero__tagline { font-size: 15px !important; }
+
+  .pharma-editorial-hero {
+    background:
+      radial-gradient(ellipse at 25% 102%, rgb(64 86 194 / 0.09), transparent 34%),
+      #ffffff;
+  }
+  .pharma-editorial-hero::before { display: block; }
+  .pharma-editorial-hero .automotive-hero__brand > img { width: 184px; height: 184px; }
+  html body main .industry-page .pharma-editorial-hero .automotive-hero__copy h1 { font-size: 59px !important; }
+  .pharma-editorial-hero .automotive-hero__lead { margin-top: 28px !important; font-size: 24px !important; }
+  .pharma-editorial-hero .automotive-hero__cta { width: 470px; margin-top: 28px; }
+  .pharma-editorial-hero .automotive-hero__factory {
+    width: 64%;
+    background-image: url("/assets/pharma-sector-reference.png");
+    background-position: right top;
+    background-size: 156.25% 100%;
+    clip-path: polygon(12% 0, 36% 100%, 100% 100%, 100% 0);
+  }
+  .pharma-editorial-hero .automotive-hero__factory::after { display: none; }
+  .pharma-editorial-hero__promise { font-size: 17px !important; }
+  .pharma-editorial-hero__tagline { font-size: 18px !important; }
+
+  .manufacturing-editorial-hero {
+    background:
+      radial-gradient(ellipse at 37% 103%, rgb(100 108 201 / 0.12), transparent 38%),
+      #ffffff;
+  }
+  .manufacturing-editorial-hero::before { display: block; }
+  .manufacturing-editorial-hero .automotive-hero__brand > img { width: 178px; height: 178px; }
+  html body main .industry-page .manufacturing-editorial-hero .automotive-hero__copy h1 { width: 110%; font-size: 49px !important; }
+  .manufacturing-editorial-hero .automotive-hero__lead { margin-top: 20px !important; font-size: 21px !important; }
+  .manufacturing-editorial-hero .automotive-hero__cta { width: 472px; margin-top: 20px; }
+  .manufacturing-editorial-hero .automotive-hero__benefits span { width: 66px; height: 66px; }
+  .manufacturing-editorial-hero .automotive-hero__benefits strong { font-size: 18px; }
+  .manufacturing-editorial-hero .automotive-hero__benefits p { font-size: 15px !important; }
+  .manufacturing-editorial-hero .automotive-hero__factory {
+    width: 66%;
+    background-image: url("/assets/industrial-manufacturing-sector-reference.png");
+    background-position: right top;
+    background-size: 151.52% 100%;
+    clip-path: polygon(18% 0, 40% 100%, 100% 100%, 100% 0);
+  }
+  .manufacturing-editorial-hero .automotive-hero__factory::after { display: none; }
+  .manufacturing-editorial-hero__promise { font-size: 16px !important; }
+  .manufacturing-editorial-hero__callout { font-size: 15px !important; }
+  .manufacturing-editorial-hero .automotive-hero__areas {
+    top: 67%;
+    right: 0;
+    width: 57.7%;
+    min-height: 28%;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 38px 26px 34px 62px;
+  }
+  .manufacturing-editorial-hero .automotive-hero__areas article,
+  .manufacturing-editorial-hero .automotive-hero__areas article:nth-child(n),
+  .manufacturing-editorial-hero .automotive-hero__areas article:nth-child(n + 3) {
+    grid-template-columns: 72px minmax(0, 1fr);
+    place-items: initial;
+    align-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 0 24px;
+    text-align: left;
+  }
+  .manufacturing-editorial-hero .automotive-hero__areas article:first-child { border-left: 0; }
+  .manufacturing-editorial-hero .automotive-hero__areas span { width: 66px; height: 66px; }
+  .manufacturing-editorial-hero .automotive-hero__areas strong { margin: 0; font-size: 18px; }
+  .manufacturing-editorial-hero .automotive-hero__areas p { grid-column: 1 / -1; font-size: 15px !important; }
+  .manufacturing-editorial-hero__tagline { font-size: 13px !important; }
+}
+
 .industry-hero__grid {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
@@ -23196,7 +25193,7 @@ html body main #offerings.home-offerings-v2 .home-offerings-v2__benefits {
 
 /* Shared transparent logo presentation — final overrides. */
 html body .site-header .brand {
-  width: 92px !important;
+  width: 190px !important;
   height: 78px !important;
   align-items: center !important;
   justify-content: center !important;
@@ -23209,12 +25206,33 @@ html body .site-header .brand {
 html body .site-header .brand img {
   position: static !important;
   inset: auto !important;
-  width: 78px !important;
-  height: 78px !important;
+  width: 184px !important;
+  height: 61px !important;
   object-fit: contain !important;
   opacity: 1 !important;
   transform: none !important;
   background: transparent !important;
+}
+
+html body .site-header .header-inner {
+  grid-template-columns: 196px minmax(0, 1fr) 46px;
+}
+
+@media (max-width: 900px) {
+  html body .site-header .brand {
+    width: 150px !important;
+    height: 78px !important;
+    justify-content: flex-start !important;
+  }
+
+  html body .site-header .header-inner {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+  }
+
+  html body .site-header .brand img {
+    width: 146px !important;
+    height: 49px !important;
+  }
 }
 
 html body .site-footer .footer-logo-frame {
